@@ -22,7 +22,7 @@ Collaboration can take various forms:
 
 A multi-agent system (see Fig.1) fundamentally comprises the delineation of agent roles and responsibilities, the establishment of communication channels through which agents exchange information, and the formulation of a task flow or interaction protocol that directs their collaborative endeavors.
 
-![Multi-Agent System](../assets/Multi_Agent_System.png)
+![Multi-Agent System](../assets-new/Multi_Agent_System.png)
 
 Fig.1: Example of multi-agent system
 
@@ -66,7 +66,7 @@ This model is a nuanced extension of the "Supervisor" concept, where the supervi
 
 The "Hierarchical" model expands upon the supervisor concept to create a multi-layered organizational structure. This involves multiple levels of supervisors, with higher-level supervisors overseeing lower-level ones, and ultimately, a collection of operational agents at the lowest tier. This structure is well-suited for complex problems that can be decomposed into sub-problems, each managed by a specific layer of the hierarchy. It provides a structured approach to scalability and complexity management, allowing for distributed decision-making within defined boundaries.
 
-![Agents Communicate and Interact in Various Ways](../assests/Agents_Communicate_and_Interact_in_Various_Ways.png)
+![Agents Communicate and Interact in Various Ways](../assets-new/Agents_Communicate_and_Interact_in_Various_Ways.png)
 
 Fig. 2: Agents communicate and interact in various ways.
 
@@ -421,7 +421,7 @@ artist_agent = LlmAgent(
 
 **Visual summary:**
 
-![Multi-Agent Design Pattern](../assets/Multi_Agent_Design_Pattern.png)
+![Multi-Agent Design Pattern](../assets-new/Multi_Agent_Design_Pattern.png)
 
 Fig.3: Multi-Agent design pattern
 

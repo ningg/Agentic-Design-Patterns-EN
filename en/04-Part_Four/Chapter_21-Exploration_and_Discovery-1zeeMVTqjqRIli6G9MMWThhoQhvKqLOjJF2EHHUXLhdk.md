@@ -34,7 +34,7 @@ The core agents and their functions include (see Fig. 1):
 
 The system's operational foundation relies on Gemini, which provides language understanding, reasoning, and generative abilities. The system incorporates "test-time compute scaling," a mechanism that allocates increased computational resources to iteratively reason and enhance outputs. The system processes and synthesizes information from diverse sources, including academic literature, web-based data, and databases.
 
-![AI Co-Scientist: Ideation to Validation](../assets/AI_Co_Scientist_Ideation_to_Validation.png)
+![AI Co-Scientist: Ideation to Validation](../assets-new/AI_Co_Scientist_Ideation_to_Validation.png)
 
 Fig. 1: (Courtesy of the Authors) AI Co-Scientist: Ideation to Validation
 
@@ -272,7 +272,7 @@ In summary, "Agent Laboratory" represents a sophisticated framework for autonomo
 
 **Visual Summary:**
 
-![Exploration and Discovery Design Pattern](../assets/Exploration_and_Discovery_Design_Pattern.png)
+![Exploration and Discovery Design Pattern](../assets-new/Exploration_and_Discovery_Design_Pattern.png)
 
 Fig.2: Exploration and Discovery design pattern
 

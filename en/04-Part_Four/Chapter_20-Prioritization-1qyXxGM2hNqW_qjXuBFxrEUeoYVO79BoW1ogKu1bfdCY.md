@@ -244,7 +244,7 @@ The code incorporates a simulation function (`run_simulation`) of asynchronous n
 
 **Visual summary:**
 
-**![Prioritization Design Pattern](../assets/Prioritization_Design_Pattern.png )
+**![Prioritization Design Pattern](../assets-new/Prioritization_Design_Pattern.png)
 
 Fig.1: Prioritization Design pattern
 

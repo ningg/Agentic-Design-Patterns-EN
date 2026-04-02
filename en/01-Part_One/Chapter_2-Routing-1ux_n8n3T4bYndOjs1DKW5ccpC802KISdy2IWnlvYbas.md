@@ -362,7 +362,7 @@ The main function demonstrates the system's usage by running the coordinator wit
 
 **Visual Summary:**
 
-![Router Pattern, using LLM as a Router](../assets/Router_Pattern_Using_LLM_as_a_Router.png)
+![Router Pattern, using LLM as a Router](../assets-new/Router_Pattern_Using_LLM_as_a_Router.png)
 
 Fig.1: Router pattern, using an LLM as a Router
 

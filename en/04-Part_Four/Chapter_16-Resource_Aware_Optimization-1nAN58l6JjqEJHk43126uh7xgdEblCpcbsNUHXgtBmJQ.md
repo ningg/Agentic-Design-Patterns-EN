@@ -306,7 +306,7 @@ Openrouter offers two distinct methodologies for routing and determining the com
 
 OpenRouter offers a detailed leaderboard ( [https://openrouter.ai/rankings](https://openrouter.ai/rankings)) which ranks available AI models based on their cumulative token production. It also offers latest models from different providers (ChatGPT, Gemini, Claude) (see Fig. 1)
 
-![OpenRouter Web site](../assets/OpenRouter_Web_Site.png) 
+![OpenRouter Web site](../assets-new/OpenRouter_Web_Site.png) 
 
 Fig. 1: OpenRouter Web site ([https://openrouter.ai/](https://openrouter.ai/))
 
@@ -342,7 +342,7 @@ Resource-aware optimization is paramount in developing intelligent agent systems
 
 **Visual Summary:**
 
-![Resource-Aware Optimization Design Pattern](../assets/Resource_Aware_Optimization_Design_Pattern.png)
+![Resource-Aware Optimization Design Pattern](../assets-new/Resource_Aware_Optimization_Design_Pattern.png)
 
 Fig. 2: Resource-Aware Optimization Design Pattern
 

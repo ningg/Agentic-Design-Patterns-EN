@@ -8,7 +8,7 @@ In simple terms, an **AI agent** is a system designed to perceive its environmen
 4. **Take Action:** It executes the plan by sending invitations, scheduling meetings, and updating your calendar.  
 5. **Learn and Get Better:** It observes successful outcomes and adapts accordingly. For example, if a meeting is rescheduled, the system learns from this event to enhance its future performance.
 
-![Agentic AI Problem-Solving Process](../assets/Agentic_AI_Problem_Solving_Process.png)
+![Agentic AI Problem-Solving Process](../assets-new/Agentic_AI_Problem_Solving_Process.png)
 
 Fig.1: Agentic AI functions as an intelligent assistant, continuously learning through experience. It operates via a straightforward five-step loop to accomplish tasks.
 
@@ -16,7 +16,7 @@ Agents are becoming increasingly popular at a stunning pace. According to recent
 
 In just two years, the AI paradigm has shifted dramatically, moving from simple automation to sophisticated, autonomous systems (see Fig. 2). Initially, workflows relied on basic prompts and triggers to process data with LLMs. This evolved with Retrieval-Augmented Generation (RAG), which enhanced reliability by grounding models on factual information. We then saw the development of individual AI Agents capable of using various tools.  Today, we are entering the era of Agentic AI, where a team of specialized agents works in concert to achieve complex goals, marking a significant leap in AI's collaborative power.
 
-![Transitioning from LLMs to RAG, then to Agentic RAG, and finally to Agentic AI](../assets/Transitioning_from_LLMs_to_RAG_to_Agentic_RAG_to_Agentic_AI.png)
+![Transitioning from LLMs to RAG, then to Agentic RAG, and finally to Agentic AI](../assets-new/Transitioning_from_LLMs_to_RAG_to_Agentic_RAG_to_Agentic_AI.png)
 
 Fig 2.: Transitioning from LLMs to RAG, then to Agentic RAG, and finally to Agentic AI.
 
@@ -46,7 +46,7 @@ In specialized fields like software engineering, the agent manages an entire wor
 
 Finally, the agent achieves self-improvement by refining its own context engineering processes. When it asks for feedback on how a prompt could have been improved, it is learning how to better curate its initial inputs. This allows it to automatically improve how it packages information for future tasks, creating a powerful, automated feedback loop that increases its accuracy and efficiency over time. For detailed information, refer to Chapter 17.
 
-![Various Instances Demonstrating the Spectrum of Agent Complexity](../assets/Various_Instances_Demonstrating_the_Spectrum_of_Agent_Complexity.png)
+![Various Instances Demonstrating the Spectrum of Agent Complexity](../assets-new/Various_Instances_Demonstrating_the_Spectrum_of_Agent_Complexity.png)
 
 Fig. 3: Various instances demonstrating the spectrum of agent complexity.
 
@@ -72,7 +72,7 @@ The second hypothesis posits that agents will become deeply personalised and pro
 
 For instance, if you're exploring sustainable energy, the agent might identify your latent goal and proactively support it by suggesting courses or summarizing research. While these systems are still developing, their trajectory is clear. They will become increasingly proactive, learning to take initiative on your behalf when highly confident that the action will be helpful. Ultimately, the agent becomes an indispensable ally, helping you discover and achieve ambitions you have yet to fully articulate.
 
-![Five Hypotheses about the Future of Agents](../assets/Five_Hypotheses_about_the_Future_of_Agents.png)
+![Five Hypotheses about the Future of Agents](../assets-new/Five_Hypotheses_about_the_Future_of_Agents.png)
 
 Fig. 4: Five hypotheses about the future of agents
 

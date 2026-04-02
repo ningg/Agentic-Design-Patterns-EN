@@ -417,7 +417,7 @@ This allows for the creation of highly specialized AI agents for focused applica
 
 Consequently, the user avoids the need to re-establish the same contextual information with each new query. This methodology reduces conversational redundancy and improves the efficiency of task execution. The resulting interactions are more focused, yielding outputs that are consistently aligned with the user's initial requirements. This framework allows for applying fine-grained, persistent user direction to a generalist AI model. Ultimately, Gems enable a shift from general-purpose interaction to specialized, pre-defined AI functionalities.
 
-![Example of Google Gem Usage](../assets/Example_of_Google_Gem_Usage.png)
+![Example of Google Gem Usage](../assets-new/Example_of_Google_Gem_Usage.png)
 
 Fig.1: Example of Google Gem usage.
 

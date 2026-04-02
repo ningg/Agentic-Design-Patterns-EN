@@ -77,7 +77,7 @@ Interacting with smart home devices, IoT platforms, or other connected systems.
 
 Tool Use is what transforms a language model from a text generator into an agent capable of sensing, reasoning, and acting in the digital or physical world (see Fig. 1\)
 
-![Some Examples of an Agent Using Tool](Some_Examples_of_an_Agent_Using_Tool.png)
+![Some Examples of an Agent Using Tool](../assets-new/Some_Examples_of_an_Agent_Using_Tool.png)
 
 Fig.1: Some examples of an Agent using Tools
 
@@ -594,7 +594,7 @@ Overall, this code provides a basic framework for building a conversational AI a
 
 **Visual summary:**
 
-![Tool Use Design Pattern](../assets/Tool_Use_Design_Pattern.png)
+![Tool Use Design Pattern](../assets-new/Tool_Use_Design_Pattern.png)
 
 Fig.2: Tool use design pattern
 
