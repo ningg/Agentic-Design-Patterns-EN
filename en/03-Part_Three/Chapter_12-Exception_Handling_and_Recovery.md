@@ -12,7 +12,7 @@ This pattern may sometimes be used with reflection. For example, if an initial a
 
 The Exception Handling and Recovery pattern addresses the need for AI agents to manage operational failures. This pattern involves anticipating potential issues, such as tool errors or service unavailability, and developing strategies to mitigate them. These strategies may include error logging, retries, fallbacks, graceful degradation, and notifications. Additionally, the pattern emphasizes recovery mechanisms like state rollback, diagnosis, self-correction, and escalation, to restore agents to stable operation. Implementing this pattern enhances the reliability and robustness of AI agents, allowing them to function in unpredictable environments. Examples of practical applications include chatbots managing database errors, trading bots handling financial errors, and smart home agents addressing device malfunctions. The pattern ensures that agents can continue to operate effectively despite encountering complexities and failures.
 
-![Key Components of Exception Handling and Recovery for AI agents](../assets-new/Key_Components_of_Exception_Handling_and_Recovery_for_AI_agents.png)
+Key Components of Exception Handling and Recovery for AI agents
 
 Fig.1: Key components of exception handling and recovery for AI agents
 
@@ -28,12 +28,12 @@ Implementation of this robust exception handling and recovery pattern can transf
 
 Exception Handling and Recovery is critical for any agent deployed in a real-world scenario where perfect conditions cannot be guaranteed.
 
-* **Customer Service Chatbots:** If a chatbot tries to access a customer database and the database is temporarily down, it shouldn't crash. Instead, it should detect the API error, inform the user about the temporary issue, perhaps suggest trying again later, or escalate the query to a human agent.  
-* **Automated Financial Trading:** A trading bot attempting to execute a trade might encounter an "insufficient funds" error or a "market closed" error. It needs to handle these exceptions by logging the error, not repeatedly trying the same invalid trade, and potentially notifying the user or adjusting its strategy.  
-* **Smart Home Automation:** An agent controlling smart lights might fail to turn on a light due to a network issue or a device malfunction. It should detect this failure, perhaps retry, and if still unsuccessful, notify the user that the light could not be turned on and suggest manual intervention.  
-* **Data Processing Agents:** An agent tasked with processing a batch of documents might encounter a corrupted file. It should skip the corrupted file, log the error, continue processing other files, and report the skipped files at the end rather than halting the entire process.  
-* **Web Scraping Agents:** When a web scraping agent encounters a CAPTCHA, a changed website structure, or a server error (e.g., 404 Not Found, 503 Service Unavailable), it needs to handle these gracefully. This could involve pausing, using a proxy, or reporting the specific URL that failed.  
-* **Robotics and Manufacturing:** A robotic arm performing an assembly task might fail to pick up a component due to misalignment. It needs to detect this failure (e.g., via sensor feedback), attempt to readjust, retry the pickup, and if persistent, alert a human operator or switch to a different component.
+- **Customer Service Chatbots:** If a chatbot tries to access a customer database and the database is temporarily down, it shouldn't crash. Instead, it should detect the API error, inform the user about the temporary issue, perhaps suggest trying again later, or escalate the query to a human agent.  
+- **Automated Financial Trading:** A trading bot attempting to execute a trade might encounter an "insufficient funds" error or a "market closed" error. It needs to handle these exceptions by logging the error, not repeatedly trying the same invalid trade, and potentially notifying the user or adjusting its strategy.  
+- **Smart Home Automation:** An agent controlling smart lights might fail to turn on a light due to a network issue or a device malfunction. It should detect this failure, perhaps retry, and if still unsuccessful, notify the user that the light could not be turned on and suggest manual intervention.  
+- **Data Processing Agents:** An agent tasked with processing a batch of documents might encounter a corrupted file. It should skip the corrupted file, log the error, continue processing other files, and report the skipped files at the end rather than halting the entire process.  
+- **Web Scraping Agents:** When a web scraping agent encounters a CAPTCHA, a changed website structure, or a server error (e.g., 404 Not Found, 503 Service Unavailable), it needs to handle these gracefully. This could involve pausing, using a proxy, or reporting the specific URL that failed.  
+- **Robotics and Manufacturing:** A robotic arm performing an assembly task might fail to pick up a component due to misalignment. It needs to detect this failure (e.g., via sensor feedback), attempt to readjust, retry the pickup, and if persistent, alert a human operator or switch to a different component.
 
 In short, this pattern is fundamental for building agents that are not only intelligent but also reliable, resilient, and user-friendly in the face of real-world complexities.
 
@@ -99,7 +99,7 @@ This code defines a robust location retrieval system using a ADK's SequentialAge
 
 **Visual Summary:**
 
-![Exception Handling Pattern](../assets-new/Exception_Handling_Pattern.png)
+Exception Handling Pattern
 
 Fig.2: Exception handling pattern
 
@@ -107,12 +107,12 @@ Fig.2: Exception handling pattern
 
 Essential points to remember:
 
-* Exception Handling and Recovery is essential for building robust and reliable Agents.  
-* This pattern involves detecting errors, handling them gracefully, and implementing strategies to recover.  
-* Error detection can involve validating tool outputs, checking API error codes, and using timeouts.  
-* Handling strategies include logging, retries, fallbacks, graceful degradation, and notifications.  
-* Recovery focuses on restoring stable operation through diagnosis, self-correction, or escalation.  
-* This pattern ensures agents can operate effectively even in unpredictable real-world environments.
+- Exception Handling and Recovery is essential for building robust and reliable Agents.  
+- This pattern involves detecting errors, handling them gracefully, and implementing strategies to recover.  
+- Error detection can involve validating tool outputs, checking API error codes, and using timeouts.  
+- Handling strategies include logging, retries, fallbacks, graceful degradation, and notifications.  
+- Recovery focuses on restoring stable operation through diagnosis, self-correction, or escalation.  
+- This pattern ensures agents can operate effectively even in unpredictable real-world environments.
 
 ## Conclusion
 

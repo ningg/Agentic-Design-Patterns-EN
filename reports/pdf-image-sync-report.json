@@ -5,7 +5,7 @@
   "unmatched_count": 1,
   "matches": [
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/00-Introduction/06-What_makes_an_AI_system_an_Agent-1Nw6hRa7ItdLr_Tj5hF2q-OH8B_uPKb--RLn8SXZKA94.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/00-Introduction/06-What_makes_an_AI_system_an_Agent.md",
       "filename": "Agentic_AI_Problem_Solving_Process.png",
       "page_number": 15,
       "method": "context",
@@ -14,7 +14,7 @@
       "target_reference": "../assets-new/Agentic_AI_Problem_Solving_Process.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/00-Introduction/06-What_makes_an_AI_system_an_Agent-1Nw6hRa7ItdLr_Tj5hF2q-OH8B_uPKb--RLn8SXZKA94.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/00-Introduction/06-What_makes_an_AI_system_an_Agent.md",
       "filename": "Transitioning_from_LLMs_to_RAG_to_Agentic_RAG_to_Agentic_AI.png",
       "page_number": 14,
       "method": "fallback_order",
@@ -23,7 +23,7 @@
       "target_reference": "../assets-new/Transitioning_from_LLMs_to_RAG_to_Agentic_RAG_to_Agentic_AI.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/00-Introduction/06-What_makes_an_AI_system_an_Agent-1Nw6hRa7ItdLr_Tj5hF2q-OH8B_uPKb--RLn8SXZKA94.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/00-Introduction/06-What_makes_an_AI_system_an_Agent.md",
       "filename": "Various_Instances_Demonstrating_the_Spectrum_of_Agent_Complexity.png",
       "page_number": 18,
       "method": "context",
@@ -32,7 +32,7 @@
       "target_reference": "../assets-new/Various_Instances_Demonstrating_the_Spectrum_of_Agent_Complexity.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/00-Introduction/06-What_makes_an_AI_system_an_Agent-1Nw6hRa7ItdLr_Tj5hF2q-OH8B_uPKb--RLn8SXZKA94.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/00-Introduction/06-What_makes_an_AI_system_an_Agent.md",
       "filename": "Five_Hypotheses_about_the_Future_of_Agents.png",
       "page_number": 20,
       "method": "context",
@@ -41,7 +41,7 @@
       "target_reference": "../assets-new/Five_Hypotheses_about_the_Future_of_Agents.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_1-Prompt_Chaining-1flxKGrbnF2g8yh3F-oVD5Xx7ZumId56HbFpIiPdkqLI.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_1-Prompt_Chaining.md",
       "filename": "context_engineering.png",
       "page_number": 31,
       "method": "context",
@@ -50,7 +50,7 @@
       "target_reference": "../assets-new/context_engineering.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_1-Prompt_Chaining-1flxKGrbnF2g8yh3F-oVD5Xx7ZumId56HbFpIiPdkqLI.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_1-Prompt_Chaining.md",
       "filename": "Prompt_Chaining_Pattern.png",
       "page_number": 34,
       "method": "context",
@@ -59,7 +59,7 @@
       "target_reference": "../assets-new/Prompt_Chaining_Pattern.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_2-Routing-1ux_n8n3T4bYndOjs1DKW5ccpC802KISdy2IWnlvYbas.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_2-Routing.md",
       "filename": "Router_Pattern_Using_LLM_as_a_Router.png",
       "page_number": 48,
       "method": "fallback_order",
@@ -68,7 +68,7 @@
       "target_reference": "../assets-new/Router_Pattern_Using_LLM_as_a_Router.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_3-Parallelization-1XVMp4RcRkoUJTVbrP2foWZX703CUJpWkrhyFU2cfUOA.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_3-Parallelization.md",
       "filename": "Parallelization_with_Sub_Agents.png",
       "page_number": 51,
       "method": "context",
@@ -77,7 +77,7 @@
       "target_reference": "../assets-new/Parallelization_with_Sub_Agents.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_3-Parallelization-1XVMp4RcRkoUJTVbrP2foWZX703CUJpWkrhyFU2cfUOA.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_3-Parallelization.md",
       "filename": "Parallelization_Design_Pattern.png",
       "page_number": 63,
       "method": "context",
@@ -86,7 +86,7 @@
       "target_reference": "../assets-new/Parallelization_Design_Pattern.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_4-Reflection-1HXXJOQIMWowtLw4WMiSR360caDAlZPtl5dPPgvq9IT4.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_4-Reflection.md",
       "filename": "Reflection_Design_Pattern_Self_Reflection.png",
       "page_number": 76,
       "method": "context",
@@ -95,7 +95,7 @@
       "target_reference": "../assets-new/Reflection_Design_Pattern_Self_Reflection.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_4-Reflection-1HXXJOQIMWowtLw4WMiSR360caDAlZPtl5dPPgvq9IT4.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_4-Reflection.md",
       "filename": "Reflection_Design_Pattern_Producer_and_Critique_Agent.png",
       "page_number": 75,
       "method": "context",
@@ -104,7 +104,7 @@
       "target_reference": "../assets-new/Reflection_Design_Pattern_Producer_and_Critique_Agent.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_5-Tool_Use_(Function_Calling)-1bE4iMljhppqGY1p48gQWtZvk6MfRuJRCiba1yRykGNE.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_5-Tool_Use_(Function_Calling).md",
       "filename": "Some_Examples_of_an_Agent_Using_Tool.png",
       "page_number": 82,
       "method": "context",
@@ -113,7 +113,7 @@
       "target_reference": "../assets-new/Some_Examples_of_an_Agent_Using_Tool.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_5-Tool_Use_(Function_Calling)-1bE4iMljhppqGY1p48gQWtZvk6MfRuJRCiba1yRykGNE.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_5-Tool_Use_(Function_Calling).md",
       "filename": "Tool_Use_Design_Pattern.png",
       "page_number": 98,
       "method": "context",
@@ -122,7 +122,7 @@
       "target_reference": "../assets-new/Tool_Use_Design_Pattern.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_6-Planning-18vvNESEwHnVUREzIipuaDNCnNAREGqEfy9MQYC9wb4o.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_6-Planning.md",
       "filename": "Google_Deep_Research_Agent_Generating_an_execution_plan_for_using_Google_Search_as_a_Tool.png",
       "page_number": 105,
       "method": "context",
@@ -131,7 +131,7 @@
       "target_reference": "../assets-new/Google_Deep_Research_Agent_Generating_an_execution_plan_for_using_Google_Search_as_a_Tool.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_6-Planning-18vvNESEwHnVUREzIipuaDNCnNAREGqEfy9MQYC9wb4o.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_6-Planning.md",
       "filename": "Example_of_Deep_Research_Plan_Being_Executed_Resulting_in_Google_Search_being_used_as_a_Tool_to_Search_Various_Web_Sources.png",
       "page_number": 106,
       "method": "context",
@@ -140,7 +140,7 @@
       "target_reference": "../assets-new/Example_of_Deep_Research_Plan_Being_Executed_Resulting_in_Google_Search_being_used_as_a_Tool_to_Search_Various_Web_Sources.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_6-Planning-18vvNESEwHnVUREzIipuaDNCnNAREGqEfy9MQYC9wb4o.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_6-Planning.md",
       "filename": "Final_Output_Generated_by_Google_Deep_Research_Agent_Analyzing_on_our_Behalf_Sources_Obtained_using_Google_Search_as_a_Tool.png",
       "page_number": 104,
       "method": "fallback_order",
@@ -149,7 +149,7 @@
       "target_reference": "../assets-new/Final_Output_Generated_by_Google_Deep_Research_Agent_Analyzing_on_our_Behalf_Sources_Obtained_using_Google_Search_as_a_Tool.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_6-Planning-18vvNESEwHnVUREzIipuaDNCnNAREGqEfy9MQYC9wb4o.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_6-Planning.md",
       "filename": "Planning_Design_Pattern.png",
       "page_number": 111,
       "method": "context",
@@ -158,7 +158,7 @@
       "target_reference": "../assets-new/Planning_Design_Pattern.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_7-Multi-Agent_Collaboration-1RZ5-2fykDQKOBx01pwfKkDe0GCs5ydca7xW9Q4wqS_M.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_7-Multi-Agent_Collaboration.md",
       "filename": "Multi_Agent_System.png",
       "page_number": 115,
       "method": "context",
@@ -167,7 +167,7 @@
       "target_reference": "../assets-new/Multi_Agent_System.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_7-Multi-Agent_Collaboration-1RZ5-2fykDQKOBx01pwfKkDe0GCs5ydca7xW9Q4wqS_M.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_7-Multi-Agent_Collaboration.md",
       "filename": "Agents_Communicate_and_Interact_in_Various_Ways.png",
       "page_number": 118,
       "method": "context",
@@ -176,7 +176,7 @@
       "target_reference": "../assets-new/Agents_Communicate_and_Interact_in_Various_Ways.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_7-Multi-Agent_Collaboration-1RZ5-2fykDQKOBx01pwfKkDe0GCs5ydca7xW9Q4wqS_M.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/01-Part_One/Chapter_7-Multi-Agent_Collaboration.md",
       "filename": "Multi_Agent_Design_Pattern.png",
       "page_number": 130,
       "method": "context",
@@ -185,7 +185,7 @@
       "target_reference": "../assets-new/Multi_Agent_Design_Pattern.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/02-Part_Two/Chapter_10-Model_Context_Protocol_(MCP)-1e6XimYczKmhX9zpqEyxLFWPQgGuG0brp7Hic2sFl_qw.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/02-Part_Two/Chapter_10-Model_Context_Protocol_(MCP).md",
       "filename": "Model_Context_Protocol.png",
       "page_number": 181,
       "method": "context",
@@ -194,7 +194,7 @@
       "target_reference": "../assets-new/Model_Context_Protocol.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/02-Part_Two/Chapter_11-Goal_Setting_and_Monitoring-10ndlCB39BWjyFRWKpcoKib4vuPD1ojD-x0-ynMaf5uw.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/02-Part_Two/Chapter_11-Goal_Setting_and_Monitoring.md",
       "filename": "Goal_Setting_and_Monitoring.png",
       "page_number": 191,
       "method": "context",
@@ -203,7 +203,7 @@
       "target_reference": "../assets-new/Goal_Setting_and_Monitoring.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/02-Part_Two/Chapter_11-Goal_Setting_and_Monitoring-10ndlCB39BWjyFRWKpcoKib4vuPD1ojD-x0-ynMaf5uw.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/02-Part_Two/Chapter_11-Goal_Setting_and_Monitoring.md",
       "filename": "Goal_Design_Pattern.png",
       "page_number": 194,
       "method": "context",
@@ -212,7 +212,7 @@
       "target_reference": "../assets-new/Goal_Design_Pattern.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/02-Part_Two/Chapter_8-Memory_Management-1asVTObtzIye0I9ypAztaeeI_sr_Hx2TORE02uUuqH_c.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/02-Part_Two/Chapter_8-Memory_Management.md",
       "filename": "Memory_Management_Design_Pattern.png",
       "page_number": 151,
       "method": "context",
@@ -221,7 +221,7 @@
       "target_reference": "../assets-new/Memory_Management_Design_Pattern.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/02-Part_Two/Chapter_9-Learning_and_Adaptation-1UHTEDCmSM1nwB-iyMoHuYzVcu_B_4KkJ2ITGGUKqo8s.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/02-Part_Two/Chapter_9-Learning_and_Adaptation.md",
       "filename": "SICAs_self_improvement_learning_and_adapting_based_on_its_past_versions.png",
       "page_number": 158,
       "method": "context",
@@ -230,7 +230,7 @@
       "target_reference": "../assets-new/SICAs_self_improvement_learning_and_adapting_based_on_its_past_versions.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/02-Part_Two/Chapter_9-Learning_and_Adaptation-1UHTEDCmSM1nwB-iyMoHuYzVcu_B_4KkJ2ITGGUKqo8s.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/02-Part_Two/Chapter_9-Learning_and_Adaptation.md",
       "filename": "Performance_across_Iterations.png",
       "page_number": 159,
       "method": "context",
@@ -239,7 +239,7 @@
       "target_reference": "../assets-new/Performance_across_Iterations.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/02-Part_Two/Chapter_9-Learning_and_Adaptation-1UHTEDCmSM1nwB-iyMoHuYzVcu_B_4KkJ2ITGGUKqo8s.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/02-Part_Two/Chapter_9-Learning_and_Adaptation.md",
       "filename": "OpenEvolve_Architecture.png",
       "page_number": 162,
       "method": "context",
@@ -248,7 +248,7 @@
       "target_reference": "../assets-new/OpenEvolve_Architecture.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/02-Part_Two/Chapter_9-Learning_and_Adaptation-1UHTEDCmSM1nwB-iyMoHuYzVcu_B_4KkJ2ITGGUKqo8s.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/02-Part_Two/Chapter_9-Learning_and_Adaptation.md",
       "filename": "Learning_and_Adapting_Pattern.png",
       "page_number": 164,
       "method": "context",
@@ -257,7 +257,7 @@
       "target_reference": "../assets-new/Learning_and_Adapting_Pattern.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/03-Part_Three/Chapter_12-Exception_Handling_and_Recovery-1C07AuMur6-infwE0viCp4QtAy_wWI-uceFm6MaYHQGk.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/03-Part_Three/Chapter_12-Exception_Handling_and_Recovery.md",
       "filename": "Key_Components_of_Exception_Handling_and_Recovery_for_AI_agents.png",
       "page_number": 197,
       "method": "fallback_order",
@@ -266,7 +266,7 @@
       "target_reference": "../assets-new/Key_Components_of_Exception_Handling_and_Recovery_for_AI_agents.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/03-Part_Three/Chapter_12-Exception_Handling_and_Recovery-1C07AuMur6-infwE0viCp4QtAy_wWI-uceFm6MaYHQGk.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/03-Part_Three/Chapter_12-Exception_Handling_and_Recovery.md",
       "filename": "Exception_Handling_Pattern.png",
       "page_number": 202,
       "method": "context",
@@ -275,7 +275,7 @@
       "target_reference": "../assets-new/Exception_Handling_Pattern.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/03-Part_Three/Chapter_13-Human_in_the_Loop-1ImOZcw6yeb7a-uRBMNP1VdovYfyip4IdsAcLu9yue-0.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/03-Part_Three/Chapter_13-Human_in_the_Loop.md",
       "filename": "Human_in_the_Loop_Design_Pattern.png",
       "page_number": 211,
       "method": "context",
@@ -284,7 +284,7 @@
       "target_reference": "../assets-new/Human_in_the_Loop_Design_Pattern.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/03-Part_Three/Chapter_14-Knowledge_Retrieval_(RAG)-1v96Oobio6xDOqbK8ejsXjmOc4Dp2uoLMo5_gfJgi-NE.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/03-Part_Three/Chapter_14-Knowledge_Retrieval_(RAG).md",
       "filename": "RAG_Core_Concepts_Chunking_Embeddings_and_Vector_Database.png",
       "page_number": 215,
       "method": "context",
@@ -293,7 +293,7 @@
       "target_reference": "../assets-new/RAG_Core_Concepts_Chunking_Embeddings_and_Vector_Database.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/03-Part_Three/Chapter_14-Knowledge_Retrieval_(RAG)-1v96Oobio6xDOqbK8ejsXjmOc4Dp2uoLMo5_gfJgi-NE.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/03-Part_Three/Chapter_14-Knowledge_Retrieval_(RAG).md",
       "filename": "Agentic_RAG_Introduces_Reasoning_Agent.png",
       "page_number": 218,
       "method": "context",
@@ -302,7 +302,7 @@
       "target_reference": "../assets-new/Agentic_RAG_Introduces_Reasoning_Agent.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/03-Part_Three/Chapter_14-Knowledge_Retrieval_(RAG)-1v96Oobio6xDOqbK8ejsXjmOc4Dp2uoLMo5_gfJgi-NE.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/03-Part_Three/Chapter_14-Knowledge_Retrieval_(RAG).md",
       "filename": "Knowledge_Retrieval_Pattern_Database.png",
       "page_number": 228,
       "method": "context",
@@ -311,7 +311,7 @@
       "target_reference": "../assets-new/Knowledge_Retrieval_Pattern_Database.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/03-Part_Three/Chapter_14-Knowledge_Retrieval_(RAG)-1v96Oobio6xDOqbK8ejsXjmOc4Dp2uoLMo5_gfJgi-NE.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/03-Part_Three/Chapter_14-Knowledge_Retrieval_(RAG).md",
       "filename": "Knowledge_Retrieval_Pattern_Search.png",
       "page_number": 227,
       "method": "context",
@@ -320,7 +320,7 @@
       "target_reference": "../assets-new/Knowledge_Retrieval_Pattern_Search.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_15-Inter_Agent_Communication_(A2A)-1H6HmUYcy5kugt5gt7Kh2Zzb8C62d5pu36RsgMNDCX24.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_15-Inter_Agent_Communication_(A2A).md",
       "filename": "Comparison_A2A_and_MCP_Protocols.png",
       "page_number": 237,
       "method": "context",
@@ -329,7 +329,7 @@
       "target_reference": "../assets-new/Comparison_A2A_and_MCP_Protocols.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_15-Inter_Agent_Communication_(A2A)-1H6HmUYcy5kugt5gt7Kh2Zzb8C62d5pu36RsgMNDCX24.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_15-Inter_Agent_Communication_(A2A).md",
       "filename": "A2A_Inter-Agent_Communication_Pattern.png",
       "page_number": 243,
       "method": "context",
@@ -338,7 +338,7 @@
       "target_reference": "../assets-new/A2A_Inter-Agent_Communication_Pattern.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_16-Resource_Aware_Optimization-1nAN58l6JjqEJHk43126uh7xgdEblCpcbsNUHXgtBmJQ.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_16-Resource_Aware_Optimization.md",
       "filename": "OpenRouter_Web_Site.png",
       "page_number": 257,
       "method": "fallback_order",
@@ -347,7 +347,7 @@
       "target_reference": "../assets-new/OpenRouter_Web_Site.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_16-Resource_Aware_Optimization-1nAN58l6JjqEJHk43126uh7xgdEblCpcbsNUHXgtBmJQ.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_16-Resource_Aware_Optimization.md",
       "filename": "Resource_Aware_Optimization_Design_Pattern.png",
       "page_number": 260,
       "method": "context",
@@ -356,7 +356,7 @@
       "target_reference": "../assets-new/Resource_Aware_Optimization_Design_Pattern.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_17-Reasoning_Techniques-1Yt1W_hLaC6ZNgJXfT4W6NrCL4TzNVdKOX50kgpHiIq4.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_17-Reasoning_Techniques.md",
       "filename": "COT_Chain_of_Thought.png",
       "page_number": 272,
       "method": "context",
@@ -365,7 +365,7 @@
       "target_reference": "../assets-new/COT_Chain_of_Thought.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_17-Reasoning_Techniques-1Yt1W_hLaC6ZNgJXfT4W6NrCL4TzNVdKOX50kgpHiIq4.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_17-Reasoning_Techniques.md",
       "filename": "TOT_Tree_of_Thought.png",
       "page_number": 264,
       "method": "fallback_order",
@@ -374,7 +374,7 @@
       "target_reference": "../assets-new/TOT_Tree_of_Thought.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_17-Reasoning_Techniques-1Yt1W_hLaC6ZNgJXfT4W6NrCL4TzNVdKOX50kgpHiIq4.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_17-Reasoning_Techniques.md",
       "filename": "REACT_Reasoning_and_Act.png",
       "page_number": 267,
       "method": "fallback_order",
@@ -383,7 +383,7 @@
       "target_reference": "../assets-new/REACT_Reasoning_and_Act.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_17-Reasoning_Techniques-1Yt1W_hLaC6ZNgJXfT4W6NrCL4TzNVdKOX50kgpHiIq4.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_17-Reasoning_Techniques.md",
       "filename": "MASS_Multi_Agent_System_Search.png",
       "page_number": 274,
       "method": "context",
@@ -392,7 +392,7 @@
       "target_reference": "../assets-new/MASS_Multi_Agent_System_Search.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_17-Reasoning_Techniques-1Yt1W_hLaC6ZNgJXfT4W6NrCL4TzNVdKOX50kgpHiIq4.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_17-Reasoning_Techniques.md",
       "filename": "Google_Deep_Research_for_Information_Gathering.png",
       "page_number": 276,
       "method": "context",
@@ -401,7 +401,7 @@
       "target_reference": "../assets-new/Google_Deep_Research_for_Information_Gathering.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_17-Reasoning_Techniques-1Yt1W_hLaC6ZNgJXfT4W6NrCL4TzNVdKOX50kgpHiIq4.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_17-Reasoning_Techniques.md",
       "filename": "Example_of_DeepSearch_with_multiple_Reflection_Steps.png",
       "page_number": 279,
       "method": "context",
@@ -410,7 +410,7 @@
       "target_reference": "../assets-new/Example_of_DeepSearch_with_multiple_Reflection_Steps.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_17-Reasoning_Techniques-1Yt1W_hLaC6ZNgJXfT4W6NrCL4TzNVdKOX50kgpHiIq4.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_17-Reasoning_Techniques.md",
       "filename": "Reasoning_Design_Pattern.png",
       "page_number": 283,
       "method": "context",
@@ -419,7 +419,7 @@
       "target_reference": "../assets-new/Reasoning_Design_Pattern.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_18-Guardrails_Safety_Patterns-1Gpc5af_okze1kprRLohP6-81e1KwL6HggjeLvxQyIuk.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_18-Guardrails_Safety_Patterns.md",
       "filename": "Guardrail_Design_Pattern.png",
       "page_number": 304,
       "method": "context",
@@ -428,7 +428,7 @@
       "target_reference": "../assets-new/Guardrail_Design_Pattern.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_19-Evaluation_and_Monitoring-1G3zOZM2ZOd0gUp5dy66FUjKMOcALh9l-JpvPxgGMm8w.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_19-Evaluation_and_Monitoring.md",
       "filename": "Monitoring_and_Evaluating_Agent_Performance.png",
       "page_number": 306,
       "method": "context",
@@ -437,7 +437,7 @@
       "target_reference": "../assets-new/Monitoring_and_Evaluating_Agent_Performance.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_19-Evaluation_and_Monitoring-1G3zOZM2ZOd0gUp5dy66FUjKMOcALh9l-JpvPxgGMm8w.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_19-Evaluation_and_Monitoring.md",
       "filename": "Contract_Execution_Example_Among_Agents.png",
       "page_number": 319,
       "method": "context",
@@ -446,7 +446,7 @@
       "target_reference": "../assets-new/Contract_Execution_Example_Among_Agents.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_19-Evaluation_and_Monitoring-1G3zOZM2ZOd0gUp5dy66FUjKMOcALh9l-JpvPxgGMm8w.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_19-Evaluation_and_Monitoring.md",
       "filename": "Evaluation_Support_for_Google_ADK.png",
       "page_number": 321,
       "method": "context",
@@ -455,7 +455,7 @@
       "target_reference": "../assets-new/Evaluation_Support_for_Google_ADK.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_19-Evaluation_and_Monitoring-1G3zOZM2ZOd0gUp5dy66FUjKMOcALh9l-JpvPxgGMm8w.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_19-Evaluation_and_Monitoring.md",
       "filename": "Evaluation_and_Monitoring_Design_Pattern.png",
       "page_number": 322,
       "method": "fallback_order",
@@ -464,7 +464,7 @@
       "target_reference": "../assets-new/Evaluation_and_Monitoring_Design_Pattern.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_20-Prioritization-1qyXxGM2hNqW_qjXuBFxrEUeoYVO79BoW1ogKu1bfdCY.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_20-Prioritization.md",
       "filename": "Prioritization_Design_Pattern.png",
       "page_number": 333,
       "method": "context",
@@ -473,7 +473,7 @@
       "target_reference": "../assets-new/Prioritization_Design_Pattern.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_21-Exploration_and_Discovery-1zeeMVTqjqRIli6G9MMWThhoQhvKqLOjJF2EHHUXLhdk.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_21-Exploration_and_Discovery.md",
       "filename": "AI_Co_Scientist_Ideation_to_Validation.png",
       "page_number": 337,
       "method": "context",
@@ -482,7 +482,7 @@
       "target_reference": "../assets-new/AI_Co_Scientist_Ideation_to_Validation.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_21-Exploration_and_Discovery-1zeeMVTqjqRIli6G9MMWThhoQhvKqLOjJF2EHHUXLhdk.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/04-Part_Four/Chapter_21-Exploration_and_Discovery.md",
       "filename": "Exploration_and_Discovery_Design_Pattern.png",
       "page_number": 346,
       "method": "context",
@@ -491,7 +491,7 @@
       "target_reference": "../assets-new/Exploration_and_Discovery_Design_Pattern.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/05-Appendix/Appendix_A-Advanced_Prompting_Techniques-1V7EKEWibOH6IhHD_PtbFZiml492-2191jDQCcTkhtTI.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/05-Appendix/Appendix_A-Advanced_Prompting_Techniques.md",
       "filename": "Example_of_Google_Gem_Usage.png",
       "page_number": 371,
       "method": "fallback_order",
@@ -500,7 +500,7 @@
       "target_reference": "../assets-new/Example_of_Google_Gem_Usage.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/05-Appendix/Appendix_B-AI_Agentic_Interactions_From_GUI_to_Real_World_Environment-11pma_tCoC7uZ2SFKjcR5KyIq0_ooMGSoadI6f9mxG2I.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/05-Appendix/Appendix_B-AI_Agentic_Interactions_From_GUI_to_Real_World_Environment.md",
       "filename": "Interaction_between_Agent_and_the_Web_Browser.png",
       "page_number": 379,
       "method": "context",
@@ -509,7 +509,7 @@
       "target_reference": "../assets-new/Interaction_between_Agent_and_the_Web_Browser.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/05-Appendix/Appendix_D-Building_an_Agent_with_AgentSpace_(on_line_only)-1bDRJ8mKtLTeWNC-cGD0Cr8pEJQgJHNcjqz5ekloAjaE.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/05-Appendix/Appendix_D-Building_an_Agent_with_AgentSpace_(on_line_only).md",
       "filename": "GCP_Access_AgentSpace.png",
       "page_number": 394,
       "method": "context",
@@ -518,7 +518,7 @@
       "target_reference": "../assets-new/GCP_Access_AgentSpace.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/05-Appendix/Appendix_D-Building_an_Agent_with_AgentSpace_(on_line_only)-1bDRJ8mKtLTeWNC-cGD0Cr8pEJQgJHNcjqz5ekloAjaE.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/05-Appendix/Appendix_D-Building_an_Agent_with_AgentSpace_(on_line_only).md",
       "filename": "GCP_Integrate_with_diverse_services.png",
       "page_number": 395,
       "method": "context",
@@ -527,7 +527,7 @@
       "target_reference": "../assets-new/GCP_Integrate_with_diverse_services.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/05-Appendix/Appendix_D-Building_an_Agent_with_AgentSpace_(on_line_only)-1bDRJ8mKtLTeWNC-cGD0Cr8pEJQgJHNcjqz5ekloAjaE.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/05-Appendix/Appendix_D-Building_an_Agent_with_AgentSpace_(on_line_only).md",
       "filename": "GCP_Googles_Gallery_of_Pre_Assembled_Prompts.png",
       "page_number": 394,
       "method": "fallback_order",
@@ -536,7 +536,7 @@
       "target_reference": "../assets-new/GCP_Googles_Gallery_of_Pre_Assembled_Prompts.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/05-Appendix/Appendix_D-Building_an_Agent_with_AgentSpace_(on_line_only)-1bDRJ8mKtLTeWNC-cGD0Cr8pEJQgJHNcjqz5ekloAjaE.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/05-Appendix/Appendix_D-Building_an_Agent_with_AgentSpace_(on_line_only).md",
       "filename": "GCP_Customizing_the_Agents_Prompt.png",
       "page_number": 396,
       "method": "context",
@@ -545,7 +545,7 @@
       "target_reference": "../assets-new/GCP_Customizing_the_Agents_Prompt.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/05-Appendix/Appendix_D-Building_an_Agent_with_AgentSpace_(on_line_only)-1bDRJ8mKtLTeWNC-cGD0Cr8pEJQgJHNcjqz5ekloAjaE.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/05-Appendix/Appendix_D-Building_an_Agent_with_AgentSpace_(on_line_only).md",
       "filename": "GCP_AgentSpace_Advanced_Capabilities.png",
       "page_number": 397,
       "method": "context",
@@ -554,7 +554,7 @@
       "target_reference": "../assets-new/GCP_AgentSpace_Advanced_Capabilities.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/05-Appendix/Appendix_D-Building_an_Agent_with_AgentSpace_(on_line_only)-1bDRJ8mKtLTeWNC-cGD0Cr8pEJQgJHNcjqz5ekloAjaE.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/05-Appendix/Appendix_D-Building_an_Agent_with_AgentSpace_(on_line_only).md",
       "filename": "GCP_AgentSpace_User_Interface_for_initiating_a_chat_with_your_Agent.png",
       "page_number": 397,
       "method": "context",
@@ -563,7 +563,7 @@
       "target_reference": "../assets-new/GCP_AgentSpace_User_Interface_for_initiating_a_chat_with_your_Agent.png"
     },
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/05-Appendix/Appendix_G-Coding_Agents-1tVyhgwrD4fu_D_pHUrwhNxoguRG3tLc1KObXFxrxE_s.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/05-Appendix/Appendix_G-Coding_Agents.md",
       "filename": "Coding_Specialist_Examples.png",
       "page_number": 408,
       "method": "context",
@@ -574,7 +574,7 @@
   ],
   "unmatched": [
     {
-      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/Agentic_Design_Patterns-1rsaK53T3Lg5KoGwvf8ukOUvbELRtH-V0LnOIFDxBryE.md",
+      "md_path": "/Users/guoning/ningg/github/Agentic-Design-Patterns-EN/en/Agentic_Design_Patterns.md",
       "filename": "Agentic_Design_Patterns.png",
       "before_text": "# Agentic Design Patterns *A Hands-On Guide to Building Intelligent Systems, [Antonio Gulli](https://www.linkedin.com/in/searchguy/)*",
       "after_text": "Table of Contents \\- total 424 pages   \\= 1+2+1+1+4+9+103+61+34+114+74+5+4 11 [Dedication](https://docs.google.com/document/d/1cQ61mNpiWn6eSORmWjEjF44vN2Lpba8kyKmNwIC60ig/edit?usp=sharing), 1 page"
