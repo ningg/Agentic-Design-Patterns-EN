@@ -1,15 +1,15 @@
 To my son, Bruno,
 
-> 献给我的儿子布鲁诺，
+> 献给我的儿子 Bruno，
 
 who at two years old, brought a new and brilliant light into my life. As I explore the systems that will define our tomorrow, it is the world you will inherit that is foremost in my thoughts.
 
-> 你两岁时，为我的生命照进一束崭新而明亮的光。
+> 两岁的你，为我的生命带来了一束崭新而明亮的光。
 > 当我探索那些将定义我们明天的系统时，我心中最为关切的，是你将要继承的世界。
 
 To my sons, Leonardo and Lorenzo, and my daughter Aurora,
 
-> 献给我的儿子莱昂纳多、洛伦佐，以及我的女儿奥罗拉，
+> 献给我的儿子 Leonardo、Lorenzo，以及我的女儿 Aurora，
 
 My heart is filled with pride for the women and men you have become and the wonderful world you are building.
 

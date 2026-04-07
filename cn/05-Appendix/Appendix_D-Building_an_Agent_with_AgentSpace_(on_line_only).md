@@ -12,15 +12,15 @@ AgentSpace is a platform designed to facilitate an "agent-driven enterprise" by 
 
 The platform enables the creation and deployment of specialized AI "agents" that can perform complex tasks and automate processes. These agents are not merely chatbots; they can reason, plan, and execute multi-step actions autonomously. For instance, an agent could research a topic, compile a report with citations, and even generate an audio summary.
 
-> 平台支持创建、上线能扛复杂任务与流程自动化的专业 AI「智能体」。它们远非聊天机器人可比：会拆解目标、制定步骤并自主执行。例如调研议题、输出带引用的报告，或生成音频版摘要。
+> 平台支持创建与部署能够承担复杂任务及流程自动化的专业 AI“智能体”。它们远不止是聊天机器人，而是能够拆解目标、制定步骤并自主执行任务的系统，例如完成主题调研、生成带引用的报告，或产出音频版摘要。
 
 To achieve this, AgentSpace constructs an enterprise knowledge graph, mapping the relationships between people, documents, and data. This allows the AI to understand context and deliver more relevant and personalized results. The platform also includes a no-code interface called Agent Designer for creating custom agents without requiring deep technical expertise.
 
-> 为此会搭建企业级知识图谱，把人、文档、数据之间的关联显式化，让模型回答更贴场景、更个性化。另附 Agent Designer 无代码界面，业务同学也能拼装专属智能体。
+> 为实现这一点，平台会构建企业级知识图谱，将人员、文档与数据之间的关系显式化，从而使模型给出的回答更贴近业务场景，也更具个性化。平台还提供名为 Agent Designer 的无代码界面，使业务人员也能组合并配置专属智能体。
 
 Furthermore, AgentSpace supports a multi-agent system where different AI agents can communicate and collaborate through an open protocol known as the Agent2Agent (A2A) Protocol. This interoperability allows for more complex and orchestrated workflows. Security is a foundational component, with features like role-based access controls and data encryption to protect sensitive enterprise information. Ultimately, AgentSpace aims to enhance productivity and decision-making by embedding intelligent, autonomous systems directly into an organization's operational fabric.
 
-> 多智能体协作则依托开放的 Agent2Agent（A2A）协议，让不同智能体彼此发任务、同步状态，从而编排更长链条的流程。安全侧标配 RBAC、加密等企业级控制。整体诉求是把“会自己办事”的 AI 嵌进日常运营，提高人效与决策质量。
+> 多智能体协作则依托开放的 Agent2Agent（A2A）协议，使不同智能体能够彼此分派任务并同步状态，从而编排更长链条的业务流程。在安全层面，平台原生提供 RBAC、加密等企业级控制能力。整体目标是将“能够自主办理事务”的 AI 嵌入日常运营流程，提升人效与决策质量。
 
 ## How to build an Agent with AgentSpace UI
 
@@ -48,7 +48,7 @@ Fig. 2: Integrate with diverse services, including Google and third-party platfo
 
 The Agent can then utilize its own prompt, chosen from a gallery of pre-made prompts provided by Google, as illustrated in Fig. 3\.
 
-> 接着可为智能体选定提示词：可直接采用 Google 预制模板，如图 3。
+> 接着可为智能体选定提示：可直接采用 Google 预制模板，如图 3。
 
 ![GCP: Googles Gallery of Pre-Assembled Prompts](../assets-new/GCP_Googles_Gallery_of_Pre_Assembled_Prompts.png)
 
@@ -92,11 +92,11 @@ Fig. 6: The AgentSpace User Interface for initiating a chat with your Agent.
 
 In conclusion, AgentSpace provides a functional framework for developing and deploying AI agents within an organization's existing digital infrastructure. The system's architecture links complex backend processes, such as autonomous reasoning and enterprise knowledge graph mapping, to a graphical user interface for agent construction. Through this interface, users can configure agents by integrating various data services and defining their operational parameters via prompts, resulting in customized, context-aware automated systems.
 
-> 综上，AgentSpace 提供在现有 IT 资产之上落地 AI 智能体的完整路径：后端负责推理、知识图谱等企业级能力，前端用可视化向导把数据源、提示词、发布形态串起来，得到可定制、懂上下文的自动化助手。
+> 综上，AgentSpace 提供了一条在既有 IT 基础设施上落地 智能体的完整路径：后端承载推理、知识图谱等企业级能力，前端则通过可视化向导将数据源、提示与发布方式串联起来，最终形成可定制、具备上下文感知能力的自动化助手。
 
 This approach abstracts the underlying technical complexity, enabling the construction of specialized multi-agent systems without requiring deep programming expertise. The primary objective is to embed automated analytical and operational capabilities directly into workflows, thereby increasing process efficiency and enhancing data-driven analysis. For practical instruction, hands-on learning modules are available, such as the "Build a Gen AI Agent with Agentspace" lab on Google Cloud Skills Boost, which provides a structured environment for skill acquisition.
 
-> 这种做法把底层技术复杂度收进平台，使团队在缺乏深厚编程背景时仍能搭建专业化的多智能体应用。首要目标是把自动化分析与运营能力嵌进业务流程，提升效率并强化数据驱动决策。动手实践可参考 Google Cloud Skills Boost 上的实验课，例如「使用 Agentspace 构建生成式 AI 智能体」，在结构化实验环境中掌握关键技能。
+> 这种做法把底层技术复杂度收进平台，使团队在缺乏深厚编程背景时仍能搭建专业化的多智能体应用。首要目标是把自动化分析与运营能力嵌进业务流程，提升效率并强化数据驱动决策。动手实践可参考 Google Cloud Skills Boost 上的实验课，例如「使用 Agentspace 构建生成式 智能体」，在结构化实验环境中掌握关键技能。
 
 ## References
 

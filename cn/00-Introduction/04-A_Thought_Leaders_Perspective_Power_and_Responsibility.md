@@ -3,12 +3,12 @@
 Of all the technology cycles I’ve witnessed over the past four decades—from the birth of the personal computer and the web, to the revolutions in mobile and cloud—none has felt quite like this one. For years, the discourse around Artificial Intelligence was a familiar rhythm of hype and disillusionment, the so-called “AI summers” followed by long, cold winters. But this time, something is different. The conversation has palpably shifted. If the last eighteen months were  
 about the engine—the breathtaking, almost vertical ascent of Large Language Models (LLMs)—the next era will be about the car we build around it. It will be about the frameworks that harness this raw power, transforming it from a generator of plausible text into a true agent of action.
 
-> 过去四十年里，从个人电脑与互联网的诞生，到移动与云计算的变革，我见证过许多技术周期，却没有哪一次像这一次。多年来，围绕人工智能的讨论总在炒作与幻灭之间摇摆，所谓「AI 夏天」之后是漫长寒冬。但这一次不同，风向已然转变。若过去十八个月关乎引擎——大语言模型那令人屏息、近乎垂直的攀升——下一个时代将关乎我们围绕它造出的那辆车：关乎驾驭这股原始力量的框架，把它从「只会生成看似可信的文本」推进为「真正能付诸行动的智能体」。
+> 过去四十年里，从个人电脑与互联网的诞生，到移动与云计算的变革，我见证过许多技术周期，却没有哪一次像这一次。多年来，围绕人工智能的讨论总在炒作与幻灭之间摆荡，所谓“AI 之夏”之后往往接着漫长寒冬。但这一次不同，风向已经明显改变。若过去十八个月关乎的是引擎——大语言模型那令人震撼、近乎垂直的跃升——那么下一个时代关乎的将是我们围绕这台引擎打造的“整辆车”：也就是那些能够驾驭这股原始力量的框架，使它从“生成看似可信的文本”迈向“真正能够采取行动的智能体”。
 
 I admit, I began as a skeptic. Plausibility, I’ve found, is often inversely proportional to one’s own knowledge of a subject. Early models, for all their fluency, felt like they were operating with a kind of impostor syndrome, optimized for credibility over correctness. But then came the inflection point, a step-change brought about by a new class of "reasoning" models. Suddenly, we weren't just conversing with a statistical machine that predicted the next word in a sequence;  
 we were getting a peek into a nascent form of cognition.
 
-> 我承认，起初我是怀疑者。依我的经验，表面可信度往往与一个人对主题的了解成反比。早期模型尽管流利，却像带着「冒充者综合征」，为「像真的」而非「是对的」而优化。但随后出现拐点——新一代「推理」模型带来了阶跃。突然间，我们不再只是与「预测下一个词」的统计机器对话，而是在窥见一种尚处萌芽的认知形态。
+> 我承认，起初我是怀疑的。依我的经验，表面上的“可信感”往往与一个人对某个主题的真实了解成反比。早期模型尽管表达流利，却像患上了“冒充者综合征”，优化目标更偏向“看起来像对的”，而非“真正是对的”。但随后拐点到来——新一代“推理”模型带来了质的跃迁。突然之间，我们不再只是与一台“预测下一个词”的统计机器对话，而是得以窥见一种尚在萌芽中的认知形态。
 
 The first time I experimented with one of the new agentic coding tools, I felt that familiar spark of magic. I tasked it with a personal project I’d never found the time for: migrating a charity website from a simple web builder to a proper, modern CI/CD environment. For the next twenty minutes, it went to work, asking clarifying questions, requesting credentials, and providing status updates. It felt less like using a tool and more like collaborating with a junior developer. When it presented me with a fully deployable package, complete with impeccable documentation and unit tests, I was floored.
 
@@ -16,15 +16,15 @@ The first time I experimented with one of the new agentic coding tools, I felt t
 
 Of course, it wasn't perfect. It made mistakes. It got stuck. It required my supervision and, crucially, my judgment to steer it back on course. The experience drove home a lesson I’ve learned the hard way over a long career: you cannot afford to trust blindly. Yet, the process was fascinating. Peeking into its "chain of thought" was like watching a mind at work—messy, non-linear, full of starts, stops, and self-corrections, not unlike our own human reasoning. It wasn’t a straight line; it was a random walk toward a solution. Here was the kernel of something new: not just an intelligence that could generate content, but one that could generate a *plan*.
 
-> 当然，它并不完美：会犯错、会卡住，需要我的监督，更关键的是靠我的判断把它拉回正轨。这段经历再次印证我职业生涯里艰难学到的一课：绝不能盲信。然而过程令人着迷。窥视其「思维链」如同观察心智运作——杂乱、非线性，充满起停与自纠，与人类推理并无二致；不是直线，而是走向答案的随机游走。这里藏着新事物的内核：不仅能生成内容，还能生成*计划*。
+> 当然，它并不完美：会犯错、会卡住，需要我的监督，更关键的是，还需要我的判断把它拉回正轨。这段经历再次印证了我在职业生涯中艰难学到的一课：绝不能盲目信任。然而，整个过程又极具魅力。窥看它的“思维链”，就像在观察心智运作本身——杂乱、非线性，充满停顿、回撤与自我修正，与人类推理并无二致；它不是一条直线，而是一场朝着答案逼近的随机游走。也正是在这里，我看见了某种新事物的内核：它不仅能生成内容，还能生成*计划*。
 
 This is the promise of agentic frameworks. It’s the difference between a static subway map and a dynamic GPS that reroutes you in real-time. A classic rules-based automaton follows a fixed path; when it encounters an unexpected obstacle, it breaks. An AI agent, powered by a reasoning model, has the potential to observe, adapt, and find another way. It possesses a form of digital common sense that allows it to navigate the countless edge cases of reality. It represents a shift from simply telling a computer *what* to do, to explaining *why* we need something done and trusting it to figure out the *how*.
 
-> 这就是智能体化框架的承诺：好比静态地铁线路图与能实时改道的动态 GPS。经典规则自动机沿固定路径行进，遇意外障碍便崩溃；由推理模型驱动的 AI 智能体却能观察、适应并另寻路径。它具备某种「数字常识」，能在现实的无数边角情形中穿行。这标志着从只告诉计算机*做什么*，转向说明*为何*要做，并信任它找出*如何做*。
+> 这就是智能体化框架的承诺：好比静态地铁线路图与能实时改道的动态 GPS。经典规则自动机沿固定路径行进，遇意外障碍便崩溃；由推理模型驱动的 智能体却能观察、适应并另寻路径。它具备某种「数字常识」，能在现实的无数边角情形中穿行。这标志着从只告诉计算机*做什么*，转向说明*为何*要做，并信任它找出*如何做*。
 
 As exhilarating as this new frontier is, it brings a profound sense of responsibility, particularly from my vantage point as the CIO of a global financial institution. The stakes are immeasurably high. An agent that makes a mistake while creating a recipe for a "Chicken Salmon Fusion Pie" is a fun anecdote. An agent that makes a mistake while executing a trade, managing risk, or handling client data is a real problem. I’ve read the disclaimers and the cautionary tales: the web automation agent that, after failing a login, decided to email a member of parliament to complain about login walls. It’s a darkly humorous reminder that we are dealing with a technology we don’t fully understand.
 
-> 这片新前沿令人振奋，也带来深重责任——站在全球金融机构 CIO 的位置上尤其如此。赌注高得难以估量。智能体在写「鸡肉三文鱼融合派」菜谱时犯错是趣谈；在执行交易、管理风险或处理客户数据时犯错则是真问题。我读过免责声明与警示故事：某网页自动化智能体登录失败后，竟发邮件给国会议员抱怨「登录墙」——以黑色幽默提醒我们：我们面对的是尚未被完全理解的技术。
+> 这片新前沿固然令人振奋，却也伴随着沉甸甸的责任——站在一家全球性金融机构 CIO 的位置上，这一点尤为明显。风险之高，几乎难以估量。智能体在编写一道“鸡肉三文鱼融合派”食谱时出错，不过是个趣闻；但若它在执行交易、管理风险或处理客户数据时出错，那就是真正的问题了。我读过不少免责声明和警示案例：例如某个网页自动化智能体在登录失败后，竟然给国会议员发邮件，抱怨“登录墙”的存在。这种黑色幽默提醒我们：我们正在面对一种尚未被完全理解的技术。
 
 This is where craft, culture, and a relentless focus on our principles become our essential guide. Our Engineering Tenets are not just words on a page; they are our compass. We must *Build with Purpose*, ensuring that every agent we design starts from a clear understanding of the client problem we are solving. We must *Look Around Corners*, anticipating failure modes and designing systems that are resilient by design. And above all, we must *Inspire Trust*, by being transparent about our methods and accountable for our outcomes.
 

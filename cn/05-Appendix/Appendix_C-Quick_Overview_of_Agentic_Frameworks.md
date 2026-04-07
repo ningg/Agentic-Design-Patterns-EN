@@ -18,8 +18,8 @@ Use it for:
 * Summarization: Take user text, feed it to a summarization prompt, and return the output.  
 * Extraction: Extract structured data (like JSON) from a block of text.
 
-> * 简单 RAG：检索文档、构造提示、从 LLM 获得答案。  
-> * 摘要：接收用户文本，送入摘要提示并返回输出。  
+> * 简单 RAG：检索文档、构造提示、从 LLM 获得答案。
+> * 摘要：接收用户文本，送入摘要提示并返回输出。
 > * 抽取：从文本块中提取结构化数据（如 JSON）。
 
 Python
@@ -37,7 +37,7 @@ chain = prompt | model | output_parse
 
 LangGraph is a library built on top of LangChain to handle more advanced agentic systems. It allows you to define your workflow as a graph with nodes (functions or LCEL chains) and edges (conditional logic). Its main advantage is the ability to create cycles, allowing the application to loop, retry, or call tools in a flexible order until a task is complete. It explicitly manages the application state, which is passed between nodes and updated throughout the process.
 
-> LangGraph 跑在 LangChain 之上，面向更“智能体化”的系统：工作流画成图——节点可以是函数或整条 LCEL 链，边上写分支条件。最大卖点是允许回路，应用能反复试错、按需重排工具调用，直到任务收敛。状态由框架显式持有，在节点之间传递、随执行更新。
+> LangGraph 构建在 LangChain 之上，面向更具“智能体特征”的系统：工作流被建模为图，节点可以是函数或整条 LCEL 链，边则承载条件分支。它的最大优势在于支持回路，使应用能够反复尝试、按需调整工具调用顺序，直至任务收敛。状态由框架显式维护，并在节点之间传递与更新。
 
 Use it for:
 
@@ -47,9 +47,9 @@ Use it for:
 * Plan-and-Execute Agents: An agent creates a plan, executes a step, and then loops back to update the plan based on the result.  
 * Human-in-the-Loop: The graph can wait for human input before deciding which node to go to next.
 
-> * 多智能体系统：监督智能体将任务路由给专职工作者，可循环直至目标达成。  
-> * 规划–执行智能体：智能体制定计划、执行一步，再据结果回环更新计划。  
-> * 人在回路：图可在决定下一节点前等待人类输入。
+> * 多智能体系统：监督智能体将任务路由给专职工作者，可循环直至目标达成。
+> * 规划–执行智能体：智能体制定计划、执行一步，再据结果回环更新计划。
+> * 人在回路中：图可在决定下一节点前等待人类输入。
 
 | Feature | LangChain | LangGraph |
 | :---- | :---- | :---- |
@@ -72,7 +72,7 @@ Use it for:
 * Choose LangChain when your application has a clear, predictable, and linear flow of steps. If you can define the process from A to B to C without needing to loop back, LangChain with LCEL is the perfect tool.  
 * Choose LangGraph when you need your application to reason, plan, or operate in a loop. If your agent needs to use tools, reflect on the results, and potentially try again with a different approach, you need the cyclical and stateful nature of LangGraph.
 
-> * 若应用具有清晰、可预测、线性的步骤流，且能从 A→B→C 定义全过程而无需回环，LangChain 与 LCEL 是合适工具。  
+> * 若应用具有清晰、可预测、线性的步骤流，且能从 A→B→C 定义全过程而无需回环，LangChain 与 LCEL 是合适工具。
 > * 若需要应用进行推理、规划或在环中运行；若智能体需使用工具、反思结果并可能换思路重试，则需要 LangGraph 的循环与有状态特性。
 
 ```python
@@ -151,7 +151,7 @@ This code defines and runs a LangGraph workflow that operates in parallel. Its m
 
 Google's Agent Development Kit, or ADK, provides a high-level, structured framework for building and deploying applications composed of multiple, interacting AI agents. It contrasts with LangChain and LangGraph by offering a more opinionated and production-oriented system for orchestrating agent collaboration, rather than providing the fundamental building blocks for an agent's internal logic.
 
-> Google 智能体开发套件（ADK）提供高层、结构化的框架，用于构建与部署由多个交互式 AI 智能体组成的应用。与 LangChain、LangGraph 相比，它更强调“有主见”、面向生产的智能体协作编排，而非仅提供智能体内部逻辑的基础积木。
+> Google 智能体开发套件（ADK）提供高层、结构化的框架，用于构建与部署由多个交互式 智能体组成的应用。与 LangChain、LangGraph 相比，它更强调“有主见”、面向生产的智能体协作编排，而非仅提供智能体内部逻辑的基础积木。
 
 LangChain operates at the most foundational level, offering the components and standardized interfaces to create sequences of operations, such as calling a model and parsing its output. LangGraph extends this by introducing a more flexible and powerful control flow; it treats an agent's workflow as a stateful graph. Using LangGraph, a developer explicitly defines nodes, which are functions or tools, and edges, which dictate the path of execution. This graph structure allows for complex, cyclical reasoning where the system can loop, retry tasks, and make decisions based on an explicitly managed state object that is passed between nodes. It gives the developer fine-grained control over a single agent's thought process or the ability to construct a multi-agent system from first principles.
 
@@ -159,7 +159,7 @@ LangChain operates at the most foundational level, offering the components and s
 
 Google's ADK abstracts away much of this low-level graph construction. Instead of asking the developer to define every node and edge, it provides pre-built architectural patterns for multi-agent interaction. For instance, ADK has built-in agent types like SequentialAgent or ParallelAgent, which manage the flow of control between different agents automatically. It is architected around the concept of a "team" of agents, often with a primary agent delegating tasks to specialized sub-agents. State and session management are handled more implicitly by the framework, providing a more cohesive but less granular approach than LangGraph's explicit state passing. Therefore, while LangGraph gives you the detailed tools to design the intricate wiring of a single robot or a team, Google's ADK gives you a factory assembly line designed to build and manage a fleet of robots that already know how to work together.
 
-> Google ADK 把大量“手动画图”的工作藏起来：不必逐个声明节点与边，而是直接套用多智能体协作的预制模式。例如内置 SequentialAgent、ParallelAgent 等，由框架代管智能体之间的调度。整体以“团队”为中心，常见范式是主智能体把子任务下放给专才型子智能体；状态与会话多半由框架隐式维护，相比 LangGraph 的显式状态传递更省事、颗粒度也更粗。打个比方：LangGraph 像给你全套扳手去布线；ADK 更像一条已为协作调好参数的装配线。
+> Google ADK 将大量底层“手动画图”的工作抽象起来：开发者无须逐一声明节点与边，而是可以直接套用多智能体协作的预制模式。例如，框架内置了 SequentialAgent、ParallelAgent 等组件，用于自动管理智能体之间的调度。整体设计以“团队”为中心，常见范式是由主智能体将子任务分派给专长型子智能体；状态与会话通常也由框架隐式维护。与 LangGraph 相比，这种方式更省事，但控制粒度也更粗一些。可以将二者理解为：LangGraph 更像提供完整布线工具箱，而 ADK 更像一条已经为协作预先配置好的装配线。
 
 ```python
 from google.adk.agents import LlmAgent
@@ -192,7 +192,7 @@ The core components of this framework are Agents, Tasks, and the Crew. An Agent 
 
 When compared to other frameworks, CrewAI occupies a distinct position. It moves away from the low-level, explicit state management and control flow of LangGraph, where a developer wires together every node and conditional edge. Instead of building a state machine, the developer designs a team charter. While Googlés ADK provides a comprehensive, production-oriented platform for the entire agent lifecycle, CrewAI concentrates specifically on the logic of agent collaboration and for simulating a team of specialists
 
-> 相较其他框架，CrewAI 特色鲜明：它刻意远离 LangGraph 式的底层显式状态与逐条连线控制流，与其搭状态机，不如先写清“团队宪章”。Google ADK 覆盖智能体全生命周期的生产级平台；CrewAI 则专注协作逻辑与“专家团队”式分工模拟。
+> 相较其他框架，CrewAI 的定位十分鲜明：它刻意弱化 LangGraph 式的底层显式状态管理与逐条连线的控制流设计，更强调先定义清晰的“团队宪章”。Google ADK 面向智能体全生命周期的生产级平台，而 CrewAI 则更专注于协作逻辑本身，以及对“专家团队”式分工方式的模拟。
 
 ```python
 @crew
@@ -208,7 +208,7 @@ def crew(self) -> Crew:
 
 This code sets up a sequential workflow for a team of AI agents, where they tackle a list of tasks in a specific order, with detailed logging enabled to monitor their progress.
 
-> 上述代码为一队 AI 智能体配置顺序工作流：按既定顺序处理任务列表，并启用详细日志以监视进展。
+> 上述代码为一队 智能体配置顺序工作流：按既定顺序处理任务列表，并启用详细日志以监视进展。
 
 ## Other Agent Development Framework
 
@@ -240,7 +240,7 @@ This code sets up a sequential workflow for a team of AI agents, where they tack
 
 **Strands Agents:** An AWS lightweight and flexible SDK that uses a model-driven approach for building and running AI agents. It is designed to be simple and scalable, supporting everything from basic conversational assistants to complex multi-agent autonomous systems. The framework is model-agnostic, offering broad support for various LLM providers, and includes native integration with the MCP for easy access to external tools. Its core advantage is its simplicity and flexibility, with a customizable agent loop that is easy to get started with. A potential trade-off is that its lightweight design means developers may need to build out more of the surrounding operational infrastructure, such as advanced monitoring or lifecycle management systems, which more comprehensive frameworks might provide out-of-the-box.
 
-> **Strands Agents：** AWS 的轻量灵活 SDK，采用模型驱动方式构建与运行 AI 智能体，设计简单且可扩展，从基础对话助手到复杂多智能体自主系统均可支持。框架与模型无关，广泛支持各 LLM 提供商，并原生集成 MCP 以便接入外部工具。核心优势是简单灵活、可定制的智能体循环、易上手。潜在取舍是轻量设计意味着开发者可能需自行补齐更多周边运维基础设施（如高级监控或生命周期管理），而更全面框架可能开箱即有。
+> **Strands Agents：** AWS 的轻量灵活 SDK，采用模型驱动方式构建与运行 智能体，设计简单且可扩展，从基础对话助手到复杂多智能体自主系统均可支持。框架与模型无关，广泛支持各 LLM 提供商，并原生集成 MCP 以便接入外部工具。核心优势是简单灵活、可定制的智能体循环、易上手。潜在取舍是轻量设计意味着开发者可能需自行补齐更多周边运维基础设施（如高级监控或生命周期管理），而更全面框架可能开箱即有。
 
 ## Conclusion
 

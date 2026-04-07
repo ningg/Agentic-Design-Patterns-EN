@@ -12,7 +12,7 @@ In complex, dynamic environments, Agents frequently encounter numerous potential
 
 Agents employ prioritization to effectively manage tasks, goals, and sub-goals, guiding subsequent actions. This process facilitates informed decision-making when addressing multiple demands, prioritizing vital or urgent activities over less critical ones. It is particularly relevant in real-world scenarios where resources are constrained, time is limited, and objectives may conflict.
 
-> 智能体借助优先级排序统筹任务、目标与子目标，并驱动下一步行动。当多条需求同时涌来时，这一机制支持在信息充分的前提下做取舍，让更重要或更紧迫的事项优先获得资源。在资源吃紧、时间窗口有限、目标还可能相互掣肘的现实条件下，优先级能力几乎是刚需。
+> 智能体借助优先级排序统筹任务、目标与子目标，并据此驱动下一步行动。当多条需求同时出现时，这一机制能够支持基于充分信息进行取舍，使更重要或更紧迫的事项优先获得资源。在资源紧张、时间窗口有限且目标可能相互制约的现实条件下，优先级排序能力几乎不可或缺。
 
 The fundamental aspects of agent prioritization typically involve several elements. First, criteria definition establishes the rules or metrics for task evaluation. These may include urgency (time sensitivity of the task), importance (impact on the primary objective), dependencies (whether the task is a prerequisite for others), resource availability (readiness of necessary tools or information), cost/benefit analysis (effort versus expected outcome), and user preferences for personalized agents. Second, task evaluation involves assessing each potential task against these defined criteria, utilizing methods ranging from simple rules to complex scoring or reasoning by LLMs. Third, scheduling or selection logic refers to the algorithm that, based on the evaluations, selects the optimal next action or task sequence, potentially utilizing a queue or an advanced planning component. Finally, dynamic re-prioritization allows the agent to modify priorities as circumstances change, such as the emergence of a new critical event or an approaching deadline, ensuring agent adaptability and responsiveness.
 
@@ -20,7 +20,7 @@ The fundamental aspects of agent prioritization typically involve several elemen
 
 Prioritization can occur at various levels: selecting an overarching objective (high-level goal prioritization), ordering steps within a plan (sub-task prioritization), or choosing the next immediate action from available options (action selection). Effective prioritization enables agents to exhibit more intelligent, efficient, and robust behavior, especially in complex, multi-objective environments. This mirrors human team organization, where managers prioritize tasks by considering input from all members.
 
-> 优先级既可用于挑选顶层目标，也可用于规划内部的子步骤排序，还可用于在动作空间中选出下一个即时操作。得当的排序让智能体在多目标、多约束场景里更聪明、更省资源、更抗扰动——颇像人类团队里项目经理综合各方输入后拍板的节奏。
+> 优先级既可用于挑选顶层目标，也可用于规划内部子步骤的排序，还可用于在动作空间中选出下一个即时操作。合理的排序机制能够使智能体在多目标、多约束场景中表现得更高效、更节省资源、也更具抗扰动能力，这一点颇似人类团队中项目经理在综合各方输入后作出调度决策的过程。
 
 ## Practical Applications & Use Cases
 
@@ -28,7 +28,7 @@ Prioritization can occur at various levels: selecting an overarching objective (
 
 In various real-world applications, AI agents demonstrate a sophisticated use of prioritization to make timely and effective decisions.
 
-> 现实业务里，AI 智能体已能相当老练地运用优先级，在时限压力下做出兼顾风险与收益的决策。
+> 现实业务里，智能体已能相当老练地运用优先级，在时限压力下做出兼顾风险与收益的决策。
 
 * **Automated Customer Support**: Agents prioritize urgent requests, like system outage reports, over routine matters, such as password resets. They may also give preferential treatment to high-value customers.  
 * **Cloud Computing**: AI manages and schedules resources by prioritizing allocation to critical applications during peak demand, while relegating less urgent batch jobs to off-peak hours to optimize costs.  
@@ -38,17 +38,17 @@ In various real-world applications, AI agents demonstrate a sophisticated use of
 * **Cybersecurity**: Agents monitoring network traffic prioritize alerts by assessing threat severity, potential impact, and asset criticality, ensuring immediate responses to the most dangerous threats.  
 * **Personal Assistant AIs**: Utilize prioritization to manage daily lives, organizing calendar events, reminders, and notifications according to user-defined importance, upcoming deadlines, and current context.
 
-> * **自动化客户支持**：将宕机、批量故障等紧急工单排在密码重置等例行事项之前，并可对高价值客户开启快速通道。  
-> * **云计算**：依据优先级在峰时为关键业务预留算力，把可延后的批处理挪到低谷，以压缩综合成本。  
-> * **自动驾驶**：实时重排动作优先级，安全相关决策（如紧急制动）始终压过车道保持或节油策略。  
-> * **金融交易**：综合盘面、风险敞口、利润目标与快讯流为指令排队，确保高优先级机会先成交。  
-> * **项目管理**：结合截止日、依赖链、人力负载与战略权重，为看板任务动态排序。  
-> * **网络安全**：按威胁等级、影响面与资产重要性为告警分级，让最危险的入侵线索最先得到处置。  
+> * **自动化客户支持**：将宕机、批量故障等紧急工单排在密码重置等例行事项之前，并可对高价值客户开启快速通道。
+> * **云计算**：依据优先级在峰时为关键业务预留算力，把可延后的批处理挪到低谷，以压缩综合成本。
+> * **自动驾驶**：实时重排动作优先级，安全相关决策（如紧急制动）始终优先于车道保持或节油策略。
+> * **金融交易**：综合盘面状态、风险敞口、利润目标与实时资讯流为交易指令排序，确保高优先级机会优先执行。
+> * **项目管理**：结合截止日、依赖链、人力负载与战略权重，为看板任务动态排序。
+> * **网络安全**：按威胁等级、影响面与资产重要性为告警分级，让最危险的入侵线索最先得到处置。
 > * **个人助理**：根据用户标注的重要性、临近日程与当下情境，重新排列提醒、待办与推送。
 
 These examples collectively illustrate how the ability to prioritize is fundamental to the enhanced performance and decision-making capabilities of AI agents across a wide spectrum of situations.
 
-> 以上场景共同表明：会不会「排优先级」，直接决定 AI 智能体能否在纷繁情境里稳住表现、做出靠谱决策。
+> 以上场景共同表明：是否具备有效的优先级排序能力，直接决定 智能体能否在复杂情境中保持稳定表现并作出可靠决策。
 
 ## Hands-On Code Example
 
@@ -280,7 +280,7 @@ The code incorporates a simulation function (`run_simulation`) of asynchronous n
 
 **What:** AI agents operating in complex environments face a multitude of potential actions, conflicting goals, and finite resources. Without a clear method to determine their next move, these agents risk becoming inefficient and ineffective. This can lead to significant operational delays or a complete failure to accomplish primary objectives. The core challenge is to manage this overwhelming number of choices to ensure the agent acts purposefully and logically.
 
-> **是什么：** 复杂环境里，AI 智能体要在海量候选动作、彼此冲突的目标与刚性资源约束之间做取舍。缺乏显式优先级策略时，系统容易陷入低效空转或错失窗口，轻则拖慢运营，重则完不成主目标。本质难题是如何压缩决策空间，让每一步都服务于全局意图。
+> **是什么：** 复杂环境里，智能体要在海量候选动作、彼此冲突的目标与刚性资源约束之间做取舍。缺乏显式优先级策略时，系统容易陷入低效空转或错失窗口，轻则拖慢运营，重则完不成主目标。本质难题是如何压缩决策空间，让每一步都服务于全局意图。
 
 **Why:** The Prioritization pattern provides a standardized solution for this problem by enabling agents to rank tasks and goals. This is achieved by establishing clear criteria such as urgency, importance, dependencies, and resource cost. The agent then evaluates each potential action against these criteria to determine the most critical and timely course of action. This Agentic capability allows the system to dynamically adapt to changing circumstances and manage constrained resources effectively. By focusing on the highest-priority items, the agent's behavior becomes more intelligent, robust, and aligned with its strategic goals.
 
@@ -288,7 +288,7 @@ The code incorporates a simulation function (`run_simulation`) of asynchronous n
 
 **Rule of thumb:** Use the Prioritization pattern when an Agentic system must autonomously manage multiple, often conflicting, tasks or goals under resource constraints to operate effectively in a dynamic environment.
 
-> **经验法则：** 只要智能体需要在资源上限内自治地并行处理多条（且可能互相打架的）任务或目标，又必须持续适应动态环境，就应显式引入优先级排序模式。
+> **经验法则：** 只要智能体需要在资源上限内自治地并行处理多条任务或目标，且这些任务、目标之间可能彼此冲突，同时系统又必须持续适应动态环境，就应显式引入优先级排序模式。
 
 **Visual summary:**
 
@@ -310,10 +310,10 @@ Fig.1: Prioritization Design pattern
 * Prioritization occurs at various levels, encompassing overarching strategic objectives and immediate tactical decisions.
 * Effective prioritization results in increased efficiency and improved operational robustness of AI agents.
 
-> * 优先级是智能体在复杂多目标场景里保持效能的底层能力。  
-> * 典型排序依据包括紧迫性、重要性、依赖链与资源成本等可量化或可归则的准则。  
-> * 动态重排让系统能随实时事件切换焦点，而不是死守初始计划。  
-> * 优先级既作用于战略层（选目标），也作用于战术层（选下一步动作）。  
+> * 优先级是智能体在复杂多目标场景里保持效能的底层能力。
+> * 典型排序依据包括紧迫性、重要性、依赖链与资源成本等可量化或可归则的准则。
+> * 动态重排让系统能随实时事件切换焦点，而不是死守初始计划。
+> * 优先级既作用于战略层（选目标），也作用于战术层（选下一步动作）。
 > * 良好的排序策略直接提升吞吐、稳定性与对突发状况的承受力。
 
 # Conclusions
@@ -322,7 +322,7 @@ Fig.1: Prioritization Design pattern
 
 In conclusion, the prioritization pattern is a cornerstone of effective agentic AI, equipping systems to navigate the complexities of dynamic environments with purpose and intelligence. It allows an agent to autonomously evaluate a multitude of conflicting tasks and goals, making reasoned decisions about where to focus its limited resources. This agentic capability moves beyond simple task execution, enabling the system to act as a proactive, strategic decision-maker. By weighing criteria such as urgency, importance, and dependencies, the agent demonstrates a sophisticated, human-like reasoning process.
 
-> 总之，优先级模式堪称智能体系统的「操作系统」：它让代理在混沌环境里仍能围绕明确意图行动——自主消化冲突需求，决定有限资源投向哪里，并给出可追溯的排序理由。相比线性脚本，这种能力更接近战略参谋；通过对紧迫性、重要性与依赖关系的综合权衡，系统表现出类人水平的取舍智慧。
+> 总之，优先级模式堪称智能体系统的“操作系统”：它使智能体即使处于复杂多变的环境中，仍能围绕明确目标展开行动，自主处理冲突需求，决定有限资源的投向，并给出可追溯的排序依据。相较于线性脚本，这种能力更接近具备战略判断的调度机制；通过对紧迫性、重要性与依赖关系的综合权衡，系统得以展现出更成熟的决策能力。
 
 A key feature of this agentic behavior is dynamic re-prioritization, which grants the agent the autonomy to adapt its focus in real-time as conditions change. As demonstrated in the code example, the agent interprets ambiguous requests, autonomously selects and uses the appropriate tools, and logically sequences its actions to fulfill its objectives. This ability to self-manage its workflow is what separates a true agentic system from a simple automated script. Ultimately, mastering prioritization is fundamental for creating robust and intelligent agents that can operate effectively and reliably in any complex, real-world scenario.
 

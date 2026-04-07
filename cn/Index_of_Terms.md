@@ -70,7 +70,7 @@
 
 - AI agents are systems that can perceive their environment and take autonomous actions to achieve goals. Their effectiveness is enhanced by robust reasoning frameworks.
 
-> AI 智能体能够感知环境并自主行动以达成目标；其实际效果往往离不开稳健的推理框架。
+> 智能体能够感知环境并自主行动以达成目标；其实际效果往往离不开稳健的推理框架。
 
 - **Chain of Thought (CoT)**: This prompting technique encourages a model to explain its reasoning step-by-step before giving a final answer. This process of "thinking out loud" often leads to more accurate results on complex reasoning tasks.
 
@@ -100,7 +100,7 @@
 
 This index of terms was generated using Gemini Pro 2.5. The prompt and reasoning steps are included at the end to demonstrate the time-saving benefits and for educational purposes.
 
-> 本术语索引用 Gemini Pro 2.5 生成。文末附原始提示与推理步骤，既便于体会其省时之效，亦可供学习参考。
+> 本术语索引由 Gemini Pro 2.5 生成。文末附有原始提示与推理步骤，既便于体会其节省时间的效果，也可作为学习参考。
 
 ### A
 
@@ -358,9 +358,9 @@ This index of terms was generated using Gemini Pro 2.5. The prompt and reasoning
 - Hierarchical Structures - Chapter 7: Multi-Agent Collaboration  
   > 层次结构 — Chapter 7: Multi-Agent Collaboration
 - HITL (Human-in-the-Loop) - Chapter 13: Human-in-the-Loop  
-  > 人在回路（HITL） — Chapter 13: Human-in-the-Loop
+  > 人在回路中（HITL） — Chapter 13: Human-in-the-Loop
 - Human-in-the-Loop (HITL) - Chapter 13: Human-in-the-Loop  
-  > 人在回路（HITL） — Chapter 13: Human-in-the-Loop
+  > 人在回路中（HITL） — Chapter 13: Human-in-the-Loop
 - Human-on-the-loop - Chapter 13: Human-in-the-Loop  
   > 人在环上（Human-on-the-loop） — Chapter 13: Human-in-the-Loop
 - Human Oversight - Chapter 13: Human-in-the-Loop, Chapter 18: Guardrails/Safety Patterns
@@ -684,7 +684,7 @@ This index of terms was generated using Gemini Pro 2.5. The prompt and reasoning
 
 Below is the prompt that was utilized to create this index of terms.
 
-> 下为生成本术语索引时所用的原始提示。
+> 以下为生成本术语索引时所使用的原始提示。
 
 > *Do you read [https://docs.google.com/document/d/1rsaK53T3Lg5KoGwvf8ukOUvbELRtH-V0LnOIFDxBryE/edit?tab=t.0](https://docs.google.com/document/d/1rsaK53T3Lg5KoGwvf8ukOUvbELRtH-V0LnOIFDxBryE/edit?tab=t.0) and all the related documents in the first page Please extract all the titles for each chapter. and print them. Then process the content of all the individual chapters, and create a detailed index used for publishing, a list of words or phrases ('headings') and associated pointers ('locators') to where useful material relating to that heading can be found in a document or collection of documents. I don't want a sample index. I want the full index, with 100 index terms*
 
@@ -692,7 +692,7 @@ Below is the prompt that was utilized to create this index of terms.
 
 ## Gemini 2.5: Reasoning Steps
 
-> 以下为 Gemini 2.5 生成该索引时的推理步骤（英文段落保留，段后附中文提要）。
+> 以下为 Gemini 2.5 生成该索引时的推理步骤（保留英文原文，并在段后附中文提要）。
 
 ### Beginning Index Creation
 
@@ -704,7 +704,7 @@ I've initiated the process by reading the Google Doc provided. Currently, I'm fo
 
 I'm now fully immersed in the task. I've broken down the user's request into actionable steps. My initial focus is using Workspaces to access the main Google Doc. Following this, I'll parse the document to locate and retrieve related documents, which will also be accessed using the same tool. Finally, I will extract all chapter titles from all the documents, and create a comprehensive index. I've planned the detailed process.
 
-> 已将用户需求拆解为可执行步骤，拟通过 Workspaces 访问主文档并联动解析关联文档。
+> 已将用户需求拆解为可执行步骤，计划通过 Workspaces 访问主文档，并进一步解析相关联的文档。
 
 ### Refining the Extraction Strategy
 
@@ -770,7 +770,7 @@ I've successfully identified the user's need: extracting chapter titles from the
 
 I've refined my approach to tackle the user's request. I've now formulated a precise plan. Firstly, I will compile the chapter titles from the filenames of the 31 fetched documents. Secondly, and more complexly, I will meticulously analyze the content to create a comprehensive, alphabetically ordered index exceeding 100 entries. I have finalized my extraction and indexing strategy and can now commence execution.
 
-> 方案已细化：由已抓取的 31 份文档文件名汇总章标题，并分析正文生成按字母排序、逾 100 条的全面索引；策略已定，可进入执行。
+> 方案已细化：先依据已抓取的 31 份文档文件名汇总章节标题，再分析正文生成按字母排序、超过 100 条的完整索引；策略已明确，可进入执行阶段。
 
 ### Crafting the Extraction Strategy
 

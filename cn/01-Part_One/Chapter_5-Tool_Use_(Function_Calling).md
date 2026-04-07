@@ -4,11 +4,11 @@
 
 So far, we've discussed agentic patterns that primarily involve orchestrating interactions between language models and managing the flow of information within the agent's internal workflow (Chaining, Routing, Parallelization, Reflection). However, for agents to be truly useful and interact with the real world or external systems, they need the ability to use Tools.
 
-> 前文讨论的智能体模式，主要关注如何编排语言模型之间的交互，以及如何管理智能体内部工作流中的信息流（链式、路由、并行与反思）。但若要在现实中真正有用，并与外部系统或物理世界打交道，智能体还必须具备使用工具（Tools）的能力。
+> 前文讨论的智能体模式，主要关注如何编排语言模型之间的交互，以及如何管理智能体内部工作流中的信息流（链式、路由、并行与反思）。但如果要在现实世界中真正发挥作用，并与外部系统乃至物理世界发生交互，智能体还必须具备使用工具（Tools）的能力。
 
 The Tool Use pattern, often implemented through a mechanism called Function Calling, enables an agent to interact with external APIs, databases, services, or even execute code. It allows the LLM at the core of the agent to decide when and how to use a specific external function based on the user's request or the current state of the task.
 
-> 工具使用模式通常借助「函数调用」（Function Calling）实现，使智能体能够调用外部 API、数据库与服务，乃至执行代码；核心的 LLM 可根据用户请求或任务当前状态，决定何时、以何种方式调用哪一项外部函数。
+> 工具使用模式通常借助“函数调用”（Function Calling）来实现，使智能体能够调用外部 API、数据库与服务，乃至执行代码；位于核心的大语言模型可根据用户请求或任务当前状态，决定何时、以何种方式调用哪一个外部函数。
 
 The process typically involves:
 
@@ -21,20 +21,20 @@ The process typically involves:
 5. **Observation/Result:** The output or result from the tool execution is returned to the agent.  
 6. **LLM Processing (Optional but common):** The LLM receives the tool's output as context and uses it to formulate a final response to the user or decide on the next step in the workflow (which might involve calling another tool, reflecting, or providing a final answer).
 
-> 1. **工具定义：** 向 LLM 说明外部函数或能力，包括用途、名称、可接受参数及其类型与描述。  
-> 2. **LLM 决策：** LLM 同时接收用户请求与可用工具定义，据此判断是否需要调用一个或多个工具才能完成请求。  
-> 3. **函数调用生成：** 若决定使用工具，则生成结构化输出（多为 JSON），指明要调用的工具名称，以及从用户请求中解析出的参数。  
-> 4. **工具执行：** 智能体框架或编排层拦截该输出，识别目标工具，并以给定参数执行真实的外部函数。  
-> 5. **观察/结果：** 将工具执行的输出或结果交还给智能体。  
+> 1. **工具定义：** 向 LLM 说明外部函数或能力，包括用途、名称、可接受参数及其类型与描述。
+> 2. **LLM 决策：** LLM 同时接收用户请求与可用工具定义，据此判断是否需要调用一个或多个工具才能完成请求。
+> 3. **函数调用生成：** 若决定使用工具，则生成结构化输出（多为 JSON），指明要调用的工具名称，以及从用户请求中解析出的参数。
+> 4. **工具执行：** 智能体框架或编排层拦截该输出，识别目标工具，并以给定参数执行真实的外部函数。
+> 5. **观察/结果：** 将工具执行的输出或结果交还给智能体。
 > 6. **LLM 再处理（可选但常见）：** LLM 将工具输出纳入上下文，用于生成对用户的最终回复，或决定工作流下一步（可能再次调用工具、进行反思，或直接给出答案）。
 
 This pattern is fundamental because it breaks the limitations of the LLM's training data and allows it to access up-to-date information, perform calculations it can't do internally, interact with user-specific data, or trigger real-world actions. Function calling is the technical mechanism that bridges the gap between the LLM's reasoning capabilities and the vast array of external functionalities available.
 
-> 该模式之所以重要，在于它突破训练数据的边界：让模型获取最新信息、完成内部难以完成的计算、访问用户专属数据，或触发真实世界中的动作；而函数调用正是连接 LLM 推理能力与海量外部功能的技术桥梁。
+> 该模式之所以重要，在于它突破了训练数据的边界：让模型能够获取最新信息、完成其内部难以胜任的计算、访问用户专属数据，或触发真实世界中的动作；而函数调用正是连接 LLM 推理能力与海量外部功能之间的技术桥梁。
 
 While "function calling" aptly describes invoking specific, predefined code functions, it's useful to consider the more expansive concept of "tool calling." This broader term acknowledges that an agent's capabilities can extend far beyond simple function execution. A "tool" can be a traditional function, but it can also be a complex API endpoint, a request to a database, or even an instruction directed at another specialized agent. This perspective allows us to envision more sophisticated systems where, for instance, a primary agent might delegate a complex data analysis task to a dedicated "analyst agent" or query an external knowledge base through its API. Thinking in terms of "tool calling" better captures the full potential of agents to act as orchestrators across a diverse ecosystem of digital resources and other intelligent entities.
 
-> 「函数调用」贴切地描述了对预定义代码函数的调用，但「工具调用」的视角更广：智能体的能力远不止执行简单函数——工具可以是传统函数、复杂 API、数据库查询，甚至是指向另一专精智能体的指令。由此可以设想更复杂的系统：例如主智能体把繁重的数据分析交给「分析师智能体」，或通过 API 查询外部知识库。用「工具调用」来思考，更能体现智能体在多元数字资源与其他智能体生态中担任编排者的潜力。
+> “函数调用”确实贴切地描述了对预定义代码函数的调用，但“工具调用”的视角更为宽广：智能体的能力远不止执行简单函数——工具既可以是传统函数，也可以是复杂 API、数据库查询，甚至是发往另一位专精智能体的指令。由此可以设想更复杂的系统：例如主智能体把繁重的数据分析任务委派给“分析师智能体”，或通过 API 查询外部知识库。用“工具调用”的框架来思考，更能体现智能体在多元数字资源与其他智能体生态中担任编排者的潜力。
 
 Frameworks like LangChain, LangGraph, and Google Agent Developer Kit (ADK) provide robust support for defining tools and integrating them into agent workflows, often leveraging the native function calling capabilities of modern LLMs like those in the Gemini or OpenAI series. On the "canvas" of these frameworks, you define the tools and then configure agents (typically LLM Agents) to be aware of and capable of using these tools.
 
@@ -48,7 +48,7 @@ Tool Use is a cornerstone pattern for building powerful, interactive, and extern
 
 The Tool Use pattern is applicable in virtually any scenario where an agent needs to go beyond generating text to perform an action or retrieve specific, dynamic information:
 
-> 只要智能体不能满足于「只生成文本」，而要执行动作或获取特定的动态信息，工具使用模式几乎总是适用：
+> 只要智能体不能停留在“仅生成文本”这一层，而是需要执行动作或获取特定的动态信息，工具使用模式几乎总是适用：
 
 ### 1. Information Retrieval from External Sources
 
@@ -60,8 +60,8 @@ Accessing real-time data or information that is not present in the LLM's trainin
   * **Tool:** A weather API that takes a location and returns the current weather conditions.  
   * **Agent Flow:** User asks, "What's the weather in London?", LLM identifies the need for the weather tool, calls the tool with "London", tool returns data, LLM formats the data into a user-friendly response.
 
-> * **用例：** 天气智能体。  
->   * **工具：** 接收地点并返回当前天气状况的天气 API。  
+> * **用例：** 天气智能体。
+>   * **工具：** 接收地点并返回当前天气状况的天气 API。
 >   * **流程：** 用户问「伦敦天气如何？」→ LLM 判断需要天气工具 → 以「London」为参数调用 → 工具返回数据 → LLM 整理为易读回复。
 
 ### 2. Interacting with Databases and APIs
@@ -74,8 +74,8 @@ Performing queries, updates, or other operations on structured data.
   * **Tools:** API calls to check product inventory, get order status, or process payments.  
   * **Agent Flow:** User asks "Is product X in stock?", LLM calls the inventory API, tool returns stock count, LLM tells the user the stock status.
 
-> * **用例：** 电商智能体。  
->   * **工具：** 用于查询库存、订单状态或处理支付的 API。  
+> * **用例：** 电商智能体。
+>   * **工具：** 用于查询库存、订单状态或处理支付的 API。
 >   * **流程：** 用户问「X 有没有货？」→ LLM 调用库存 API → 返回数量 → LLM 告知库存情况。
 
 ### 3. Performing Calculations and Data Analysis
@@ -88,8 +88,8 @@ Using external calculators, data analysis libraries, or statistical tools.
   * **Tools:** A calculator function, a stock market data API, a spreadsheet tool.  
   * **Agent Flow:** User asks "What's the current price of AAPL and calculate the potential profit if I bought 100 shares at $150?", LLM calls stock API, gets current price, then calls calculator tool, gets result, formats response.
 
-> * **用例：** 金融智能体。  
->   * **工具：** 计算函数、股市行情 API、电子表格工具等。  
+> * **用例：** 金融智能体。
+>   * **工具：** 计算函数、股市行情 API、电子表格工具等。
 >   * **流程：** 用户询问 AAPL 现价，以及若以 150 美元买入 100 股的潜在收益 → LLM 调用股价 API → 再调用计算工具 → 整理为清晰回答。
 
 ### 4. Sending Communications
@@ -102,8 +102,8 @@ Sending emails, messages, or making API calls to external communication services
   * **Tool:** An email sending API.  
   * **Agent Flow:** User says, "Send an email to John about the meeting tomorrow.", LLM calls an email tool with the recipient, subject, and body extracted from the request.
 
-> * **用例：** 个人助理智能体。  
->   * **工具：** 邮件发送 API。  
+> * **用例：** 个人助理智能体。
+>   * **工具：** 邮件发送 API。
 >   * **流程：** 用户说「给 John 发邮件说明天开会的事」→ LLM 从请求中抽取收件人、主题、正文并调用邮件工具。
 
 ### 5. Executing Code
@@ -116,8 +116,8 @@ Running code snippets in a safe environment to perform specific tasks.
   * **Tool:** A code interpreter.  
   * **Agent Flow:** User provides a Python snippet and asks, "What does this code do?", LLM uses the interpreter tool to run the code and analyze its output.
 
-> * **用例：** 编程助手智能体。  
->   * **工具：** 代码解释器。  
+> * **用例：** 编程助手智能体。
+>   * **工具：** 代码解释器。
 >   * **流程：** 用户提供 Python 片段并问「这段代码做什么？」→ LLM 通过解释器运行代码并分析输出。
 
 ### 6. Controlling Other Systems or Devices
@@ -130,8 +130,8 @@ Interacting with smart home devices, IoT platforms, or other connected systems.
   * **Tool:** An API to control smart lights.  
   * **Agent Flow:** User says, "Turn off the living room lights." LLM calls the smart home tool with the command and target device.
 
-> * **用例：** 智能家居智能体。  
->   * **工具：** 控制智能灯具的 API。  
+> * **用例：** 智能家居智能体。
+>   * **工具：** 控制智能灯具的 API。
 >   * **流程：** 用户说「关掉客厅灯」→ LLM 携带命令与目标设备信息调用智能家居工具。
 
 Tool Use is what transforms a language model from a text generator into an agent capable of sensing, reasoning, and acting in the digital or physical world (see Fig. 1\)
@@ -253,7 +253,7 @@ asyncio.run(main())
 
 The code sets up a tool-calling agent using the LangChain library and the Google Gemini model. It defines a `search_information` tool that simulates providing factual answers to specific queries. The tool has predefined responses for "weather in london," "capital of france," and "population of earth," and a default response for other queries. A ChatGoogleGenerativeAI model is initialized, ensuring it has tool-calling capabilities. A ChatPromptTemplate is created to guide the agent's interaction. The `create_tool_calling_agent` function is used to combine the language model, tools, and prompt into an agent. An AgentExecutor is then set up to manage the agent's execution and tool invocation. The `run_agent_with_tool` asynchronous function is defined to invoke the agent with a given query and print the result. The main asynchronous function prepares multiple queries to be run concurrently. These queries are designed to test both the specific and default responses of the `search_information` tool. Finally, the asyncio.run(main()) call executes all the agent tasks. The code includes checks for successful LLM initialization before proceeding with agent setup and execution.
 
-> 上述代码基于 LangChain 与 Google Gemini 搭建工具调用智能体：其中 `search_information` 工具模拟对特定查询返回事实性答案，对「weather in london」「capital of france」「population of earth」等查询有预设回复，其余则走默认分支。初始化具备工具调用能力的 ChatGoogleGenerativeAI，并用 ChatPromptTemplate 引导对话；`create_tool_calling_agent` 将模型、工具与提示模板组合为智能体，`AgentExecutor` 负责运行时调度与工具执行。`run_agent_with_tool` 异步发起查询并打印结果；`main` 并发运行多条查询，以覆盖特定路径与默认路径；最后通过 `asyncio.run(main())` 执行全部任务；代码在 LLM 初始化成功后才继续完成智能体的搭建与运行。
+> 上述代码基于 LangChain 与 Google Gemini 搭建了一个工具调用智能体：其中 `search_information` 工具模拟对特定查询返回事实性答案，对“weather in london”“capital of france”“population of earth”等查询设有预置回复，其余情况则走默认分支。代码先初始化具备工具调用能力的 `ChatGoogleGenerativeAI`，再用 `ChatPromptTemplate` 引导对话；`create_tool_calling_agent` 将模型、工具与提示模板组合为智能体，`AgentExecutor` 负责运行时调度与工具执行。`run_agent_with_tool` 以异步方式发起查询并打印结果；`main` 则并发运行多条查询，以覆盖特定路径与默认路径；最后通过 `asyncio.run(main())` 执行全部任务。整个流程仅在 LLM 初始化成功后才继续完成智能体的构建与运行。
 
 # Hands-On Code Example (CrewAI)
 
@@ -381,7 +381,7 @@ This code demonstrates a simple application using the Crew.ai library to simulat
 
 The Google Agent Developer Kit (ADK) includes a library of natively integrated tools that can be directly incorporated into an agent's capabilities.
 
-> Google 智能体开发套件（ADK）内置一批可原生集成、直接纳入智能体能力体系的工具。
+> Google 智能体开发套件（ADK）内置了一批可原生集成、可直接纳入智能体能力体系的工具。
 
 **Google search:** A primary example of such a component is the Google Search tool. This tool serves as a direct interface to the Google Search engine, equipping the agent with the functionality to perform web searches and retrieve external information.
 
@@ -671,7 +671,7 @@ Overall, this code provides a basic framework for building a conversational AI a
 
 **Vertex Extensions:** A Vertex AI extension is a structured API wrapper that enables a model to connect with external APIs for real-time data processing and action execution. Extensions offer enterprise-grade security, data privacy, and performance guarantees. They can be used for tasks like generating and running code, querying websites, and analyzing information from private datastores. Google provides prebuilt extensions for common use cases like Code Interpreter and Vertex AI Search, with the option to create custom ones. The primary benefit of extensions includes strong enterprise controls and seamless integration with other Google products. The key difference between extensions and function calling lies in their execution: Vertex AI automatically executes extensions, whereas function calls require manual execution by the user or client.
 
-> **Vertex 扩展：** Vertex AI 扩展是一种结构化 API 封装，使模型能够连接外部 API，进行实时数据处理与动作执行；在安全性、数据隐私与性能上提供企业级保障。可用于生成并运行代码、查询网站、分析私有数据存储中的信息等场景。Google 提供 Code Interpreter、Vertex AI Search 等预置扩展，也支持自定义。其主要价值在于强企业管控以及与 Google 产品体系的顺畅集成。与函数调用的关键差异在执行方式：Vertex AI 会自动执行扩展，而函数调用通常需由用户或客户端手动触发执行。
+> **Vertex 扩展：** Vertex AI 扩展是一种结构化 API 封装，使模型能够连接外部 API，进行实时数据处理与动作执行，并在安全性、数据隐私与性能层面提供企业级保障。它可用于生成并运行代码、查询网站、分析私有数据存储中的信息等场景。Google 提供了 Code Interpreter、Vertex AI Search 等预置扩展，也支持开发者自定义扩展。其主要价值在于更强的企业级管控能力，以及与 Google 产品体系的顺畅集成。它与函数调用的关键差异体现在执行方式上：Vertex AI 会自动执行扩展，而函数调用通常仍需由用户或客户端手动触发。
 
 ## At a Glance
 
@@ -705,12 +705,12 @@ Fig.2: Tool use design pattern
 * LangChain simplifies tool definition using the @tool decorator and provides `create_tool_calling_agent` and AgentExecutor for building tool-using agents.  
 * Google ADK has a number of very useful pre-built tools such as Google Search, Code Execution and Vertex AI Search Tool.
 
-> * 工具使用（函数调用）使智能体能够与外部系统交互并获取动态信息。  
-> * 需要以清晰的描述与参数向 LLM 定义工具。  
-> * 由 LLM 决定何时调用工具，并生成结构化的函数调用。  
-> * 智能体框架负责执行真实的工具调用，并将结果返回给 LLM。  
-> * 要打造能采取真实世界行动、提供最新信息的智能体，工具使用不可或缺。  
-> * LangChain 借助 `@tool` 等简化工具定义，并通过 `create_tool_calling_agent` 与 AgentExecutor 搭建会用工具的智能体。  
+> * 工具使用（函数调用）使智能体能够与外部系统交互并获取动态信息。
+> * 需要以清晰的描述与参数向 LLM 定义工具。
+> * 由 LLM 决定何时调用工具，并生成结构化的函数调用。
+> * 智能体框架负责执行真实的工具调用，并将结果返回给 LLM。
+> * 要打造能采取真实世界行动、提供最新信息的智能体，工具使用不可或缺。
+> * LangChain 借助 `@tool` 等简化工具定义，并通过 `create_tool_calling_agent` 与 AgentExecutor 搭建会用工具的智能体。
 > * Google ADK 提供 Google 搜索、代码执行、Vertex AI Search 等实用预置工具。
 
 ## Conclusion

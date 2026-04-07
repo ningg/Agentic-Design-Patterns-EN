@@ -2,7 +2,7 @@
 
 In simple terms, an **AI agent** is a system designed to perceive its environment and take actions to achieve a specific goal. It's an evolution from a standard Large Language Model (LLM), enhanced with the abilities to plan, use tools, and interact with its surroundings. Think of an Agentic AI as a smart assistant that learns on the job. It follows a simple, five-step loop to get things done (see Fig.1):
 
-> 简而言之，**AI 智能体**是为感知环境并采取行动、以达成特定目标而设计的系统。它在标准大语言模型（LLM）之上演进，具备规划、调用工具并与环境交互等能力。不妨把智能体化 AI 视为边做边学的智能助手：它依一个简单的五步闭环推进任务（见图 1）：
+> 简而言之，**智能体**是为感知环境、采取行动并达成特定目标而设计的系统。它建立在标准大语言模型（LLM）之上，并进一步具备规划、调用工具以及与环境交互的能力。不妨把智能体化 AI 视为一位在实践中持续学习的智能助手：它通过一个清晰的五步闭环来推进任务（见图 1）：
 
 1. **Get the Mission:** You give it a goal, like "organize my schedule."
 2. **Scan the Scene:** It gathers all the necessary information—reading emails, checking calendars, and accessing contacts—to understand what's happening.
@@ -10,10 +10,10 @@ In simple terms, an **AI agent** is a system designed to perceive its environmen
 4. **Take Action:** It executes the plan by sending invitations, scheduling meetings, and updating your calendar.
 5. **Learn and Get Better:** It observes successful outcomes and adapts accordingly. For example, if a meeting is rescheduled, the system learns from this event to enhance its future performance.
 
-> 1. **获取任务：** 你为它设定目标，例如「整理我的日程」。  
-> 2. **扫描现场：** 收集所需信息——读邮件、查日历、访问联系人——以把握当前状况。  
-> 3. **思考对策：** 权衡可行路径，形成行动计划。  
-> 4. **采取行动：** 依计划发送邀请、安排会议、更新日历等。  
+> 1. **获取任务：** 你为它设定目标，例如「整理我的日程」。
+> 2. **扫描现场：** 收集所需信息——读邮件、查日历、访问联系人——以把握当前状况。
+> 3. **思考对策：** 权衡可行路径，形成行动计划。
+> 4. **采取行动：** 依计划发送邀请、安排会议、更新日历等。
 > 5. **学习改进：** 观察结果并持续调整；例如会议改期后，系统从该事件学习，以改进后续表现。
 
 ![Agentic AI Problem-Solving Process](../assets-new/Agentic_AI_Problem_Solving_Process.png)
@@ -24,11 +24,11 @@ Fig.1: Agentic AI functions as an intelligent assistant, continuously learning t
 
 Agents are becoming increasingly popular at a stunning pace. According to recent studies, a majority of large IT companies are actively using these agents, and a fifth of them just started within the past year. The financial markets are also taking notice. By the end of 2024, AI agent startups had raised more than $2 billion, and the market was valued at $5.2 billion. It's expected to explode to nearly $200 billion in value by 2034\. In short, all signs point to AI agents playing a massive role in our future economy.
 
-> 智能体正以惊人速度普及。近期研究显示，多数大型 IT 企业已在积极使用智能体，其中约五分之一是在过去一年才起步。资本市场同样瞩目：截至 2024 年底，AI 智能体初创公司融资逾 20 亿美元，市场规模约 52 亿美元；预计到 2034 年将飙升至近 2000 亿美元。简言之，种种信号表明，智能体将在未来经济中扮演关键角色。
+> 智能体正以惊人速度普及。近期研究显示，多数大型 IT 企业已在积极使用智能体，其中约五分之一是在过去一年才起步。资本市场同样瞩目：截至 2024 年底，智能体初创公司融资逾 20 亿美元，市场规模约 52 亿美元；预计到 2034 年将飙升至近 2000 亿美元。简言之，种种信号表明，智能体将在未来经济中扮演关键角色。
 
 In just two years, the AI paradigm has shifted dramatically, moving from simple automation to sophisticated, autonomous systems (see Fig. 2). Initially, workflows relied on basic prompts and triggers to process data with LLMs. This evolved with Retrieval-Augmented Generation (RAG), which enhanced reliability by grounding models on factual information. We then saw the development of individual AI Agents capable of using various tools.  Today, we are entering the era of Agentic AI, where a team of specialized agents works in concert to achieve complex goals, marking a significant leap in AI's collaborative power.
 
-> 短短两年间，AI 范式剧烈位移：从简单自动化走向成熟的自主系统（见图 2）。起初，工作流依赖基础提示与触发器，用 LLM 处理数据；继而出现检索增强生成（RAG），通过把模型锚定在事实信息上提升可靠性；再演进到能调用多种工具的独立 AI 智能体。今天我们正迈入智能体化 AI 时代：多支专精智能体协同攻关复杂目标，标志着协作智能的一次显著跃升。
+> 短短两年间，AI 范式发生了剧烈迁移：从简单自动化走向更成熟的自主系统（见图 2）。最初，工作流主要依赖基础提示与触发器，用 LLM 处理数据；随后出现检索增强生成（RAG），通过让模型建立在事实信息之上来提升可靠性；再进一步，则是能够调用多种工具的独立智能体。如今，我们正迈入智能体化 AI 时代：多名专精智能体协同完成复杂目标，标志着协作智能的一次重要跃升。
 
 ![Transitioning from LLMs to RAG, then to Agentic RAG, and finally to Agentic AI](../assets-new/Transitioning_from_LLMs_to_RAG_to_Agentic_RAG_to_Agentic_AI.png)
 
@@ -68,7 +68,7 @@ At this level, an agent's capabilities expand significantly, encompassing strate
 
 First, the agent moves beyond single-tool use to tackle complex, multi-part problems through strategic problem-solving. As it executes a sequence of actions, it actively performs context engineering: the strategic process of selecting, packaging, and managing the most relevant information for each step. For example, to find a coffee shop between two locations, it first uses a mapping tool. It then engineers this output, curating a short, focused context—perhaps just a list of street names—to feed into a local search tool, preventing cognitive overload and ensuring the second step is efficient and accurate. To achieve maximum accuracy from an AI, it must be given a short, focused, and powerful context. Context engineering is the discipline that accomplishes this by strategically selecting, packaging, and managing the most critical information from all available sources. It effectively curates the model's limited attention to prevent overload and ensure high-quality, efficient performance on any given task. For detailed information, refer to the Appendix A\.
 
-> 首先，智能体不再局限于单工具调用，而以策略化解题应对复杂、多段式问题。执行一连串动作时，它主动做上下文工程：为每一步甄选、封装并维护最相关的信息。例如要在两地之间找咖啡馆，可先用地图工具，再对输出做工程化处理，压缩成短而聚焦的上下文（也许只是一串街名）交给本地搜索工具，既避免认知过载，又保证第二步高效、准确。若要让 AI 发挥最高准确度，就必须提供短、聚焦且信息密度高的上下文；上下文工程正是从所有可用来源中策略性拣选、封装并维护关键信息的学问——在模型有限的注意力预算下做「策展」，防止过载并换取高质量、高效率的任务表现。详见附录 A。
+> 首先，智能体不再局限于单次工具调用，而是通过策略性解题来应对复杂、多阶段问题。在执行一连串动作时，它会主动进行上下文工程：为每一步甄选、封装并维护最相关的信息。例如，要在两地之间寻找咖啡馆，可先调用地图工具，再对输出进行工程化处理，压缩为短小、聚焦的上下文（也许只是一串街道名称），再交给本地搜索工具；这样既能避免认知过载，又能保证第二步高效而准确。若要让 AI 发挥最高准确度，就必须提供简洁、聚焦且信息密度高的上下文；而上下文工程，正是从所有可用来源中策略性筛选、封装并维护关键信息的学问——在模型有限的注意力预算下完成“策展”，避免过载，并换取高质量、高效率的任务表现。详见附录 A。
 
 This level leads to proactive and continuous operation. A travel assistant linked to your email demonstrates this by engineering the context from a verbose flight confirmation email; it selects only the key details (flight numbers, dates, locations) to package for subsequent tool calls to your calendar and a weather API.
 
@@ -106,13 +106,13 @@ While this vision of autonomous, team-based automation is already being develope
 
 AI agent development is progressing at an unprecedented pace across domains such as software automation, scientific research, and customer service among others. While current systems are impressive, they are just the beginning. The next wave of innovation will likely focus on making agents more reliable, collaborative, and deeply integrated into our lives. Here are five leading hypotheses for what's next (see Fig. 4).
 
-> AI 智能体开发在软件自动化、科学研究、客户服务等领域正以空前速度推进。今天的系统虽已亮眼，却只是序幕。下一波创新或将集中在：提升可靠性、强化协作、以及把智能体更深地嵌入日常生活。以下是与「下一步」相关的五条主流假设（见图 4）。
+> 智能体开发在软件自动化、科学研究、客户服务等领域正以空前速度推进。今天的系统虽已亮眼，却只是序幕。下一波创新或将集中在：提升可靠性、强化协作、以及把智能体更深地嵌入日常生活。以下是与「下一步」相关的五条主流假设（见图 4）。
 
 ### Hypothesis 1: The Emergence of the Generalist Agent
 
 The first hypothesis is that AI agents will evolve from narrow specialists into true generalists capable of managing complex, ambiguous, and long-term goals with high reliability. For instance, you could give an agent a simple prompt like, "Plan my company's offsite retreat for 30 people in Lisbon next quarter." The agent would then manage the entire project for weeks, handling everything from budget approvals and flight negotiations to venue selection and creating a detailed itinerary from employee feedback, all while providing regular updates. Achieving this level of autonomy will require fundamental breakthroughs in AI reasoning, memory, and near-perfect reliability. An alternative, yet not mutually exclusive, approach is the rise of Small Language Models (SLMs). This "Lego-like" concept involves composing systems from small, specialized expert agents rather than scaling up a single monolithic model. This method promises systems that are cheaper, faster to debug, and easier to deploy. Ultimately, the development of large generalist models and the composition of smaller specialized ones are both plausible paths forward, and they could even complement each other.
 
-> 假设一：AI 智能体将从「窄域专才」演化为能高可靠地驾驭复杂、模糊、长期目标的真正通才。例如你可下达：「为 30 人规划下季度在里斯本的公司团建。」智能体或可数周操盘全案——预算审批、机票磋商、场地遴选，以及基于员工反馈迭代详细行程，并持续同步进展。这种级别的自主，依赖推理、记忆与近乎完美可靠性上的根本性突破。另一条并行路径（与前者不互斥）是小语言模型（SLM）崛起：以「乐高式」的小型专精智能体拼装系统，而非一味堆叠单一巨型模型，有望更经济、更易排错、更易部署。大通才模型与小模型组合都是可行路线，亦可相互补强。
+> 假设一：智能体将从「窄域专才」演化为能高可靠地驾驭复杂、模糊、长期目标的真正通才。例如你可下达：「为 30 人规划下季度在里斯本的公司团建。」智能体或可数周操盘全案——预算审批、机票磋商、场地遴选，以及基于员工反馈迭代详细行程，并持续同步进展。这种级别的自主，依赖推理、记忆与近乎完美可靠性上的根本性突破。另一条并行路径（与前者不互斥）是小语言模型（SLM）崛起：以「乐高式」的小型专精智能体拼装系统，而非一味堆叠单一巨型模型，有望更经济、更易排错、更易部署。大通才模型与小模型组合都是可行路线，亦可相互补强。
 
 ### Hypothesis 2: Deep Personalization and Proactive Goal Discovery
 
@@ -146,7 +146,7 @@ The fourth hypothesis is that highly autonomous agents will become active partic
 
 This hypothesis posits the emergence of intelligent systems that operate not from explicit programming, but from a declared goal. The user simply states the desired outcome, and the system autonomously figures out how to achieve it. This marks a fundamental shift towards metamorphic multi-agent systems capable of true self-improvement at both the individual and collective levels.
 
-> 假设五：将出现不必依赖冗长显式编程、而由「声明目标」驱动的智能系统。用户只需描述期望结果，系统便自主推导达成路径。这标志着迈向可演化的多智能体架构：无论个体还是集群，都有望实现真正意义上的自我改进。
+> 假设五：将出现不再依赖冗长显式编程、而由“目标声明”驱动的智能系统。用户只需描述期望结果，系统便能自主推导实现路径。这标志着我们正迈向一种可演化的多智能体架构：无论个体还是整体，都有望实现真正意义上的自我改进。
 
 This system would be a dynamic entity, not a single agent. It would have the ability to analyze its own performance and modify the topology of its multi-agent workforce, creating, duplicating, or removing agents as needed to form the most effective team for the task at hand. This evolution happens at multiple levels:
 
@@ -155,8 +155,8 @@ This system would be a dynamic entity, not a single agent. It would have the abi
 - Architectural Modification: At the deepest level, individual agents can rewrite their own source code and re-architect their internal structures for higher efficiency, as in the original hypothesis.  
 - Instructional Modification: At a higher level, the system continuously performs automatic prompt engineering and context engineering. It refines the instructions and information given to each agent, ensuring they are operating with optimal guidance without any human intervention.
 
-> - **架构修改：** 在底层，单个智能体可改写自身源码并重构内部结构以换取更高效率（与原始假设一致）。  
-> - **指令修改：** 在更高层，系统持续执行自动提示工程与上下文工程，精炼下发给各智能体的指令与信息，使其在少人或无人介入时仍能获得较优指引。
+> - **架构修改：** 在底层，单个智能体可改写自身源码并重构内部结构以换取更高效率（与原始假设一致）。
+> - **指令修改：** 在更高层，系统持续执行自动提示工程与上下文工程，精炼下发给各智能体的提示与信息，使其在少人或无人介入时仍能获得较优指引。
 
 For instance, an entrepreneur would simply declare the intent: "Launch a successful e-commerce business selling artisanal coffee." The system, without further programming, would spring into action. It might initially spawn a "Market Research" agent and a "Branding" agent. Based on the initial findings, it could decide to remove the branding agent and spawn three new specialized agents: a "Logo Design" agent, a "Webstore Platform" agent, and a "Supply Chain" agent. It would constantly tune their internal prompts for better performance. If the webstore agent becomes a bottleneck, the system might duplicate it into three parallel agents to work on different parts of the site, effectively re-architecting its own structure on the fly to best achieve the declared goal.
 
@@ -166,7 +166,7 @@ For instance, an entrepreneur would simply declare the intent: "Launch a success
 
 In essence, an AI agent represents a significant leap from traditional models, functioning as an autonomous system that perceives, plans, and acts to achieve specific goals. The evolution of this technology is advancing from single, tool-using agents to complex, collaborative multi-agent systems that tackle multifaceted objectives. Future hypotheses predict the emergence of generalist, personalized, and even physically embodied agents that will become active participants in the economy. This ongoing development signals a major paradigm shift towards self-improving, goal-driven systems poised to automate entire workflows and fundamentally redefine our relationship with technology.
 
-> 总之，相对传统模型，AI 智能体是一次范式级跃迁：它以自主系统之姿感知环境、规划路径并付诸行动以达成目标。技术脉络正由「单智能体 + 工具调用」迈向「协作式多智能体」以拆解多维目标。前述假设则指向通才化、深度个性化乃至具身智能体全面参与经济活动的未来。这一演进标志着自我改进、目标驱动系统的兴起，有望把整条工作流自动化，并重塑人与技术的关系。
+> 总之，相对传统模型，智能体是一次范式级跃迁：它以自主系统之姿感知环境、规划路径并付诸行动以达成目标。技术脉络正由「单智能体 + 工具调用」迈向「协作式多智能体」以拆解多维目标。前述假设则指向通才化、深度个性化乃至具身智能体全面参与经济活动的未来。这一演进标志着自我改进、目标驱动系统的兴起，有望把整条工作流自动化，并重塑人与技术的关系。
 
 ## References
 

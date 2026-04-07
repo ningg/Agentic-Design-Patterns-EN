@@ -28,12 +28,12 @@ Most Common Applications and Use Cases:
 * **Anomaly Detection in Agent Behavior:** Identifying unusual or unexpected actions taken by an agent that might indicate an error, a malicious attack, or an emergent un-desired behavior.  
 * **Learning Progress Assessment:** For agents designed to learn, tracking their learning curve, improvement in specific skills, or generalization capabilities over different tasks or data sets.
 
-> * **线上系统性能跟踪：** 持续观测生产环境中智能体的准确率、时延与资源占用（例如客服场景的解决率、响应时间）。  
-> * **智能体改进的 A/B 测试：** 并行对比不同版本或策略的效果，筛选更优方案（如对物流智能体并行试用两种规划算法）。  
-> * **合规与安全审计：** 自动生成审计报告，长期追踪智能体对伦理准则、法规与安全规程的遵守情况；报告可由人类或其他智能体复核，并在异常时产出 KPI 或触发告警。  
-> * **企业系统：** 治理企业级智能体 AI 需要新的抓手——AI「合约（Contract）」；以动态协议把委派任务的目标、规则与控制措施书面化、可执行化。  
-> * **漂移检测：** 跟踪智能体输出随时间的相关性或准确度，识别输入分布变化（概念漂移）或环境变迁带来的性能衰减。  
-> * **智能体行为异常检测：** 识别反常或出乎意料的行动，可能预示错误、恶意攻击或涌现的不良行为。  
+> * **线上系统性能跟踪：** 持续观测生产环境中智能体的准确率、时延与资源占用（例如客服场景的解决率、响应时间）。
+> * **智能体改进的 A/B 测试：** 并行对比不同版本或策略的效果，筛选更优方案（如对物流智能体并行试用两种规划算法）。
+> * **合规与安全审计：** 自动生成审计报告，长期追踪智能体对伦理准则、法规与安全规程的遵守情况；报告可由人类或其他智能体复核，并在异常时产出 KPI 或触发告警。
+> * **企业系统：** 治理企业级智能体 AI 需要新的控制机制，即 AI「合约（Contract）」；通过动态协议将委派任务的目标、规则与控制措施书面化、可执行化。
+> * **漂移检测：** 跟踪智能体输出随时间的相关性或准确度，识别输入分布变化（概念漂移）或环境变迁带来的性能衰减。
+> * **智能体行为异常检测：** 识别反常或出乎意料的行动，可能预示错误、恶意攻击或涌现的不良行为。
 > * **学习进度评估：** 针对具备学习能力的智能体，记录学习曲线、专项技能进步，以及在跨任务、跨数据集上的泛化表现。
 
 ## Hands-On Code Example
@@ -42,7 +42,7 @@ Most Common Applications and Use Cases:
 
 Developing a comprehensive evaluation framework for AI agents is a challenging endeavor, comparable to an academic discipline or a substantial publication in its complexity. This difficulty stems from the multitude of factors to consider, such as model performance, user interaction, ethical implications, and broader societal impact. Nevertheless, for practical implementation, the focus can be narrowed to critical use cases essential for the efficient and effective functioning of AI agents.
 
-> 为 AI 智能体搭建完备的评估框架难度很大，复杂程度不亚于一门独立学科或一部重量级专著；难点在于需同时权衡模型表现、用户交互、伦理影响与社会影响等维度。落地实践中，可将范围收窄到对智能体高效、可靠运行真正关键的核心用例。
+> 为 智能体搭建完备的评估框架难度很大，复杂程度不亚于一门独立学科或一部重量级专著；难点在于需同时权衡模型表现、用户交互、伦理影响与社会影响等维度。落地实践中，可将范围收窄到对智能体高效、可靠运行真正关键的核心用例。
 
 **Agent Response Assessment:** This core process is essential for evaluating the quality and accuracy of an agent's outputs. It involves determining if the agent delivers pertinent, correct,  logical, unbiased, and accurate information in response to given inputs. Assessment metrics may include factual correctness, fluency, grammatical precision, and adherence to the user's intended purpose.
 
@@ -73,9 +73,9 @@ The problem lies in its method of comparison. The function performs a strict, ch
 
 Even after removing whitespace and converting to lowercase, these two strings are not identical. As a result, the function will incorrectly return an accuracy score of `0.0`, even though both sentences convey the same meaning.
 
-> 症结在于比较策略：实现采用严格逐字比对。示例中：  
-> * `agent_response`：「The capital of France is Paris.」  
-> * `ground_truth`：「Paris is the capital of France.」  
+> 症结在于比较策略：实现采用严格逐字比对。示例中：
+> * `agent_response`：「The capital of France is Paris.」
+> * `ground_truth`：「Paris is the capital of France.」
 > 即便去掉空白并统一小写，两串仍不一致，函数会误报 `0.0`，而两句语义其实相同。
 
 A straightforward comparison falls short in assessing semantic similarity, only succeeding if an agent's response exactly matches the expected output. A more effective evaluation necessitates advanced Natural Language Processing (NLP) techniques to discern the meaning between sentences. For thorough AI agent evaluation in real-world scenarios, more sophisticated metrics are often indispensable. These metrics can encompass String Similarity Measures like Levenshtein distance and Jaccard similarity, Keyword Analysis for the presence or absence of specific keywords, Semantic Similarity using cosine similarity with embedding models, LLM-as-a-Judge Evaluations (discussed later for assessing nuanced correctness and helpfulness), and RAG-specific Metrics such as faithfulness and relevance.
@@ -281,7 +281,7 @@ The Python code defines a class LLMJudgeForLegalSurvey designed to evaluate the 
 
 The core functionality involves sending a survey question to the model along with a detailed rubric for evaluation. The rubric specifies five criteria for judging survey questions: Clarity & Precision, Neutrality & Bias, Relevance & Focus, Completeness, and Appropriateness for Audience. For each criterion, a score from 1 to 5 is assigned, and a detailed rationale and feedback are required in the output. The code constructs a prompt that includes the rubric and the survey question to be evaluated.
 
-> 核心做法是把待评问题与详尽的评分 rubric 一并提交给模型。Rubric 覆盖五项：清晰度与精确性、中立性与偏见、相关性与聚焦、完整性、受众适配度；每项 1–5 分，并需附理由与改进建议。提示词由 rubric 与目标问题拼接而成。
+> 核心做法是把待评问题与详尽的评分 rubric 一并提交给模型。Rubric 覆盖五项：清晰度与精确性、中立性与偏见、相关性与聚焦、完整性、受众适配度；每项 1–5 分，并需附理由与改进建议。提示由 rubric 与目标问题拼接而成。
 
 The `judge_survey_question` method sends this prompt to the configured Gemini model, requesting a JSON response formatted according to the defined structure. The expected output JSON includes an overall score, a summary rationale, detailed feedback for each criterion, a list of concerns, and a recommended action. The class handles potential errors during the AI model interaction, such as JSON decoding issues or empty responses. The script demonstrates its operation by evaluating examples of legal survey questions, illustrating how the AI assesses quality based on the predefined criteria.
 
@@ -313,11 +313,11 @@ This involves examining the quality of decisions, the reasoning process, and the
 
 Evaluation of AI agents involves two primary approaches: using test files and using evalset files. Test files, in JSON format, represent single, simple agent-model interactions or sessions and are ideal for unit testing during active development, focusing on rapid execution and simple session complexity. Each test file contains a single session with multiple turns, where a turn is a user-agent interaction including the user’s query, expected tool use trajectory, intermediate agent responses, and final response. For example, a test file might detail a user request to “Turn off `device_2` in the Bedroom,” specifying the agent’s use of a `set_device_info` tool with parameters like location: Bedroom, `device_id: device_2`, and status: OFF, and an expected final response of “I have set the `device_2` status to off.” Test files can be organized into folders and may include a `test_config`.json file to define evaluation criteria. Evalset files utilize a dataset called an “evalset” to evaluate interactions, containing multiple potentially lengthy sessions suited for simulating complex, multi-turn conversations and integration tests. An evalset file comprises multiple “evals,” each representing a distinct session with one or more “turns” that include user queries, expected tool use, intermediate responses, and a reference final response. An example evalset might include a session where the user first asks “What can you do?” and then says “Roll a 10 sided dice twice and then check if 9 is a prime or not,” defining expected `roll_die` tool calls and a `check_prime` tool call, along with the final response summarizing the dice rolls and the prime check.
 
-> AI 智能体评估常见两类载体：**测试文件（test files）**与 **evalset 文件**。测试文件多为 JSON，描述相对简单的单次智能体—模型会话，适合开发期的快速单测，强调结构清晰、执行轻量。单文件通常对应一个多轮会话；每轮包含用户查询、期望的工具调用轨迹、中间回复与最终回复。例如用户说「把卧室里的 `device_2` 关掉」，期望调用 `set_device_info`（如 location: Bedroom、`device_id: device_2`、status: OFF），并以「已将 `device_2` 关闭」一类话术收尾。测试集可按目录组织，并辅以 `test_config.json` 声明评估规则。**Evalset** 则面向更贴近集成的场景：一个 evalset 可收录多条较长会话，用于复杂多轮对话或端到端回归；文件内包含多条 eval，每条 eval 含一个或多个 turn，字段同样覆盖查询、期望工具轨迹、中间态与参考终答。示例会话：用户先问能力边界，再要求「掷两次十面骰并判断 9 是否质数」，并校验应出现的 `roll_die`、`check_prime` 等调用及最终汇总回复。
+> 智能体评估常见两类载体：**测试文件（test files）**与 **evalset 文件**。测试文件多为 JSON，描述相对简单的单次智能体—模型会话，适合开发期的快速单测，强调结构清晰、执行轻量。单文件通常对应一个多轮会话；每轮包含用户查询、期望的工具调用轨迹、中间回复与最终回复。例如用户说「把卧室里的 `device_2` 关掉」，期望调用 `set_device_info`（如 location: Bedroom、`device_id: device_2`、status: OFF），并以「已将 `device_2` 关闭」一类话术收尾。测试集可按目录组织，并辅以 `test_config.json` 声明评估规则。**Evalset** 则面向更贴近集成的场景：一个 evalset 可收录多条较长会话，用于复杂多轮对话或端到端回归；文件内包含多条 eval，每条 eval 含一个或多个 turn，字段同样覆盖查询、期望工具轨迹、中间态与参考终答。示例会话：用户先问能力边界，再要求「掷两次十面骰并判断 9 是否质数」，并校验应出现的 `roll_die`、`check_prime` 等调用及最终汇总回复。
 
 **Multi-agents**: Evaluating a complex AI system with multiple agents is much like assessing a team project. Because there are many steps and handoffs, its complexity is an advantage, allowing you to check the quality of work at each stage. You can examine how well each individual "agent" performs its specific job, but you must also evaluate how the entire system is performing as a whole.
 
-> **多智能体：** 评估多智能体复杂系统，很像评审团队项目：环节与交接多，反而便于按阶段设检查点；既要衡量各角色的专责完成度，也要衡量系统整体的协同效果。
+> **多智能体：** 评估复杂的多智能体系统，很像评估团队协作项目：由于环节与交接众多，反而更便于按阶段设置检查点；既要衡量各角色职责的完成质量，也要评估系统整体的协同效果。
 
 To do this, you ask key questions about the team's dynamics, supported by concrete examples:
 
@@ -328,9 +328,9 @@ To do this, you ask key questions about the team's dynamics, supported by concre
 * Is the right agent being chosen for the right task? If a user asks about the weather for their trip, the system should use a specialized 'Weather Agent' that provides live data. If it instead uses a 'General Knowledge Agent' that gives a generic answer like "it's usually warm in summer," it has chosen the wrong tool for the job.  
 * Finally, does adding more agents improve performance? If you add a new 'Restaurant-Reservation Agent' to the team, does it make the overall trip-planning better and more efficient? Or does it create conflicts and slow the system down, indicating a problem with scalability?.
 
-> * **协作是否闭环？** 例如航班代理出票后，是否把准确日期与目的地交接给酒店代理？若握手失败，可能出现「订对航班、订错周」的荒诞结果。  
-> * **计划是否被遵守？** 既定顺序是先机票后酒店时，酒店代理是否在确认舱位前就锁房？亦需留意某个代理是否陷入「找完美租车」式死循环。  
-> * **角色是否匹配任务？** 用户问行程天气，应路由到能拉实时数据的天气代理；若通识代理只回一句「夏天一般很热」，属于典型的工具错配。  
+> * **协作是否闭环？** 例如航班代理出票后，是否把准确日期与目的地交接给酒店代理？若握手失败，可能出现「订对航班、订错周」的荒诞结果。
+> * **计划是否被遵守？** 既定顺序是先机票后酒店时，酒店代理是否在确认舱位前就锁房？亦需留意某个代理是否陷入「找完美租车」式死循环。
+> * **角色是否匹配任务？** 用户问行程天气，应路由到能拉实时数据的天气代理；若通识代理只回一句「夏天一般很热」，属于典型的工具错配。
 > * **扩容是否真增效？** 新增餐厅预订代理后，整体行程规划是更顺滑还是更撕扯、更慢？后者往往暴露编排或接口设计的扩展性债务。
 
 ## From Agents to Advanced Contractors
@@ -339,11 +339,11 @@ To do this, you ask key questions about the team's dynamics, supported by concre
 
  Recently, it has been proposed (Agent Companion, gulli et al.) an evolution from simple AI agents to advanced "contractors", moving from probabilistic, often unreliable systems to more deterministic and accountable ones designed for complex, high-stakes environments (see Fig.2)
 
-> 近期研究（Agent Companion，Gulli 等）提出从简单 AI 智能体演进到高级「承包商」：从概率性强、可靠性参差的设计，转向面向复杂高风险任务、更可预期且可追责的体系（见图 2）。
+> 近期研究（Agent Companion，Gulli 等）提出从简单 智能体演进到高级「承包商」：从概率性强、可靠性参差的设计，转向面向复杂高风险任务、更可预期且可追责的体系（见图 2）。
 
  Today's common AI agents operate on brief, underspecified instructions, which makes them suitable for simple demonstrations but brittle in production, where ambiguity leads to failure. The "contractor" model addresses this by establishing a rigorous, formalized relationship between the user and the AI, built upon a foundation of clearly defined and mutually agreed-upon terms, much like a legal service agreement in the human world. This transformation is supported by four key pillars that collectively ensure clarity, reliability, and robust execution of tasks that were previously beyond the scope of autonomous systems
 
-> 当下许多智能体仍依赖简短、含糊的指令，演示尚可，上线却易因歧义翻车。「承包商」范式通过在用户与 AI 之间缔结严谨、可执行的约定来应对：条款清晰、双方确认，类比人类世界中的服务合同。其背后有四根支柱协同保障透明、可靠与稳健交付，让过去难以交给自主系统的高难任务变得可托付。
+> 当下许多智能体仍依赖简短且语义不充分的指令，这类方式在演示场景中尚可运作，但在生产环境里常因歧义而失效。“承包商”范式则通过在用户与 AI 之间建立严谨、可执行的约定来应对这一问题：条款清晰、双方确认，类似于现实世界中的服务合同。其背后的四大支柱共同保障透明性、可靠性与稳健交付，使过去难以交给自主系统处理的高难任务逐步具备可托付性。
 
 First is the pillar of the Formalized Contract, a detailed specification that serves as the single source of truth for a task. It goes far beyond a simple prompt. For example, a contract for a financial analysis task wouldn't just say "analyze last quarter's sales"; it would demand "a 20-page PDF report analyzing European market sales from Q1 2025, including five specific data visualizations, a comparative analysis against Q1 2024, and a risk assessment based on the included dataset of supply chain disruptions." This contract explicitly defines the required deliverables, their precise specifications, the acceptable data sources, the scope of work, and even the expected computational cost and completion time, making the outcome objectively verifiable.
 
@@ -377,7 +377,7 @@ Ultimately, this contractor framework reimagines AI interaction by embedding pri
 
 Before concluding, let's look at a concrete example of a framework that supports evaluation. Agent evaluation with Google's ADK (see Fig.3) can be conducted via three methods: web-based UI (adk web) for interactive evaluation and dataset generation, programmatic integration using pytest for incorporation into testing pipelines, and direct command-line interface (adk eval) for automated evaluations suitable for regular build generation and verification processes.
 
-> 收尾前看一个带评估能力的框架示例。借助 Google ADK（见图 3）评估智能体，大致有三条路：用 Web UI（`adk web`）做交互评测与数据集沉淀；用 pytest 将评估嵌入 CI/CD；或用 CLI（`adk eval`）在构建与回归中批量跑分。
+> 收尾前看一个具备评估能力的框架示例。借助 Google ADK（见图 3）评估智能体，大致有三种方式：使用 Web UI（`adk web`）开展交互式评测并沉淀数据集；使用 pytest 将评估嵌入 CI/CD 流程；或使用 CLI（`adk eval`）在构建与回归过程中批量执行评估。
 
 ![Evaluation Support for Google ADK](../assets-new/Evaluation_Support_for_Google_ADK.png)
 
@@ -431,13 +431,13 @@ Fig.4: Evaluation and Monitoring design pattern
 * Agent evaluations can be executed via a web-based UI for interactive testing, programmatically with pytest for CI/CD integration, or through a command-line interface for automated workflows.  
 * In order to make AI reliable for complex, high-stakes tasks, we must move from simple prompts to formal "contracts" that precisely define verifiable deliverables and scope. This structured agreement allows the Agents to negotiate, clarify ambiguities, and iteratively validate its own work, transforming it from an unpredictable tool into an accountable and trustworthy system.
 
-> * 评估智能体不能停留在传统单测，而要在真实负载下持续度量有效性、效率与合规度。  
-> * 典型落地包括线上指标看板、面向迭代的 A/B、合规与安全审计，以及对漂移与异常行为的监测。  
-> * 入门可从回复正确率入手；生产级场景通常还要叠加延迟、token、成本与工具使用等维度。  
-> * 行动轨迹是核心观测对象：把实际路径与金标准对照，可定位逻辑漏洞与资源浪费。  
-> * ADK 以测试文件支撑快速单测，以 evalset 支撑更接近集成的场景，两者都显式描述期望行为。  
-> * 执行层可选 Web 交互、pytest 嵌入流水线，或 CLI 批量回归。  
-> * 若要在高风险任务上托付 AI，需由含糊提示升级为写明可验证交付物与边界的正式「合约」；结构化协议支持协商、消歧与自证，让系统从黑箱工具演进为可追责的伙伴。
+> * 评估智能体不能停留在传统单测，而要在真实负载下持续度量有效性、效率与合规度。
+> * 典型落地包括线上指标看板、面向迭代的 A/B、合规与安全审计，以及对漂移与异常行为的监测。
+> * 入门可从回复正确率入手；生产级场景通常还要叠加延迟、token、成本与工具使用等维度。
+> * 行动轨迹是核心观测对象：把实际路径与金标准对照，可定位逻辑漏洞与资源浪费。
+> * ADK 以测试文件支撑快速单测，以 evalset 支撑更接近集成的场景，两者都显式描述期望行为。
+> * 执行层可选 Web 交互、pytest 嵌入流水线，或 CLI 批量回归。
+> * 若要在高风险任务上托付 AI，就需要从含糊提示升级为写明可验证交付物与边界的正式“合约”；结构化协议支持协商、消歧与自证，使系统从难以追踪的工具演进为可追责的协作伙伴。
 
 ## Conclusions
 
@@ -445,7 +445,7 @@ Fig.4: Evaluation and Monitoring design pattern
 
 In conclusion, effectively evaluating AI agents requires moving beyond simple accuracy checks to a continuous, multi-faceted assessment of their performance in dynamic environments. This involves practical monitoring of metrics like latency and resource consumption, as well as sophisticated analysis of an agent's decision-making process through its trajectory. For nuanced qualities like helpfulness, innovative methods such as the LLM-as-a-Judge are becoming essential, while frameworks like Google's ADK provide structured tools for both unit and integration testing. The challenge intensifies with multi-agent systems, where the focus shifts to evaluating collaborative success and effective cooperation.
 
-> 总之，评估 AI 智能体不能只盯准确率，而要在动态环境里持续、立体地观测：既跟踪延迟与资源等硬指标，也借助轨迹还原决策链路。对「有用性」这类软指标，LLM-as-a-Judge 正成为常用补充；Google ADK 等工具则把单测与集成评估产品化。多智能体场景进一步抬高难度，评估重心自然转向协作质量与任务衔接。
+> 总之，评估 智能体不能只盯准确率，而要在动态环境里持续、立体地观测：既跟踪延迟与资源等硬指标，也借助轨迹还原决策链路。对「有用性」这类软指标，LLM-as-a-Judge 正成为常用补充；Google ADK 等工具则把单测与集成评估产品化。多智能体场景进一步抬高难度，评估重心自然转向协作质量与任务衔接。
 
 To ensure reliability in critical applications, the paradigm is shifting from simple, prompt-driven agents to advanced "contractors" bound by formal agreements. These contractor agents operate on explicit, verifiable terms, allowing them to negotiate, decompose tasks, and self-validate their work to meet rigorous quality standards. This structured approach transforms agents from unpredictable tools into accountable systems capable of handling complex, high-stakes tasks. Ultimately, this evolution is crucial for building the trust required to deploy sophisticated agentic AI in mission-critical domains.
 

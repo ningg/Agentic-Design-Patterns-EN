@@ -8,7 +8,7 @@ Resource-Aware Optimization enables intelligent agents to dynamically monitor an
 
 For example, consider an agent tasked with analyzing a large dataset for a financial analyst. If the analyst needs a preliminary report immediately, the agent might use a faster, more affordable model to quickly summarize key trends. However, if the analyst requires a highly accurate forecast for a critical investment decision and has a larger budget and more time, the agent would allocate more resources to utilize a powerful, slower, but more precise predictive model. A key strategy in this category is the fallback mechanism, which acts as a safeguard when a preferred model is unavailable due to being overloaded or throttled. To ensure graceful degradation, the system automatically switches to a default or more affordable model, maintaining service continuity instead of failing completely.
 
-> 举例：智能体要为分析师处理大体量金融数据——若对方只要「马上看一眼」的初稿，可选用更快、更省的模型速览主趋势；若涉及关键投资决策、预算与时间更充裕，则可加码调用更强、更慢、误差更可控的预测模型。在这一类系统里，回退机制尤为关键：首选模型因过载或限流不可用时，系统自动切到默认或更经济的备选，以优雅降级维持可用性，而不是一崩到底。
+> 举例来说，智能体需要为分析师处理大规模金融数据时，若对方只需要快速查看初步结论，便可选用更快、更经济的模型概览主要趋势；若任务涉及关键投资决策，且预算与时间更充裕，则可投入更多资源，调用更强但更慢、误差控制更好的预测模型。在此类系统中，回退机制尤为关键：当首选模型因过载或限流而不可用时，系统会自动切换到默认或更经济的备选模型，以优雅降级维持服务连续性，而非整体失效。
 
 ## Practical Applications & Use Cases
 
@@ -25,11 +25,11 @@ Practical use cases include:
 * **Data Usage Management:** An agent opting for summarized data retrieval instead of full dataset downloads to save bandwidth or storage.  
 * **Adaptive Task Allocation:** In multi-agent systems, agents self-assign tasks based on their current computational load or available time.
 
-> * **成本敏感的 LLM 选型：** 在预算硬约束下，复杂任务走大模型、轻量问答走小模型。  
-> * **延迟优先：** 实时场景可牺牲一定推理深度，换更短的端到端时延。  
-> * **能效与续航：** 边缘或电池供电环境下调度算力，尽量拉长可用时间。  
-> * **可靠性回退：** 主模型故障或限流时自动切备用模型，保障业务连续与体验平滑降级。  
-> * **数据与带宽：** 用摘要或抽样拉数，替代整库搬运，节省带宽与本地存储。  
+> * **成本敏感的 LLM 选型：** 在预算硬约束下，复杂任务走大模型、轻量问答走小模型。
+> * **延迟优先：** 实时场景可牺牲一定推理深度，换更短的端到端时延。
+> * **能效与续航：** 边缘或电池供电环境下调度算力，尽量拉长可用时间。
+> * **可靠性回退：** 主模型故障或限流时自动切备用模型，保障业务连续与体验平滑降级。
+> * **数据与带宽：** 用摘要或抽样拉数，替代整库搬运，节省带宽与本地存储。
 > * **负载感知的任务分派：** 多智能体按各自当前算力余量与时间片自组织认领子任务。
 
 ## Hands-On Code Example
@@ -38,7 +38,7 @@ Practical use cases include:
 
 An intelligent system for answering user questions can assess the difficulty of each question. For simple queries, it utilizes a cost-effective language model such as Gemini Flash. For complex inquiries, a more powerful, but expensive, language model (like Gemini Pro) is considered. The decision to use the more powerful model also depends on resource availability, specifically budget and time constraints. This system dynamically selects appropriate models.
 
-> 问答系统可先判别请求难度：直白问题交给 Gemini Flash 一类经济型模型；高难推理再考虑 Gemini Pro 等更强、更贵的后端。是否「升舱」还取决于当下预算与时间窗口，由策略层动态拍板。
+> 问答系统可先判别请求难度：直白问题交给 Gemini Flash 一类经济型模型；复杂推理再考虑 Gemini Pro 等能力更强、成本更高的后端。是否切换到更高配置的模型，还取决于当下预算与时间窗口，并由策略层动态决策。
 
 For example, consider a travel planner built with a hierarchical agent. The high-level planning, which involves understanding a user's complex request, breaking it down into a multi-step itinerary, and making logical decisions, would be managed by a sophisticated and more powerful LLM like Gemini Pro. This is the "planner" agent that requires a deep understanding of context and the ability to reason.
 
@@ -46,7 +46,7 @@ For example, consider a travel planner built with a hierarchical agent. The high
 
 However, once the plan is established, the individual tasks within that plan, such as looking up flight prices, checking hotel availability, or finding restaurant reviews, are essentially simple, repetitive web queries. These "tool function calls" can be executed by a faster and more affordable model like Gemini Flash. It is easier to visualize why the affordable model can be used for these straightforward web searches, while the intricate planning phase requires the greater intelligence of the more advanced model to ensure a coherent and logical travel plan.
 
-> 行程骨架敲定后，查票价、看空房、搜点评等子步骤多为模板化检索，对应的工具调用可交给 Gemini Flash 等轻量模型。直觉上：机械查询走省模型，统筹规划走强模型，才能在成本与行程质量间取得平衡。
+> 行程框架确定后，查票价、查空房、检索点评等子步骤大多属于模式化检索，对应的工具调用可交给 Gemini Flash 等轻量模型处理。简言之，常规查询使用低成本模型，统筹规划交由高能力模型，才能在成本与方案质量之间取得平衡。
 
 Google's ADK supports this approach through its multi-agent architecture, which allows for modular and scalable applications. Different agents can handle specialized tasks. Model flexibility enables the direct use of various Gemini models, including both Gemini Pro and Gemini Flash, or integration of other models through LiteLLM. The ADK's orchestration capabilities support dynamic, LLM-driven routing for adaptive behavior. Built-in evaluation features allow systematic assessment of agent performance, which can be used for system refinement (see the Chapter on Evaluation and Monitoring).
 
@@ -122,7 +122,7 @@ The Critique Agent evaluates responses from language models, providing feedback 
 
 Additionally, its feedback can signal reinforcement learning or fine-tuning; consistent identification of inadequate Flash model responses, for instance, can refine the router agent's logic. While not directly managing the budget, the Critique Agent contributes to indirect budget management by identifying suboptimal routing choices, such as directing simple queries to a Pro model or complex queries to a Flash model, which leads to poor results. This informs adjustments that improve resource allocation and cost savings.
 
-> 这些信号亦可喂给强化学习或监督微调：若 Flash 屡次在特定题型上失手，可上调该类的路由阈值。Critique 虽不直接「管账」，却能暴露错配——如简单题误送 Pro、难题误送 Flash——从而间接收紧资源浪费。
+> 这些信号亦可输入强化学习或监督微调流程：若 Flash 屡次在特定题型上失手，可上调该类的路由阈值。Critique 虽不直接「管账」，却能暴露错配——如简单题误送 Pro、难题误送 Flash——从而间接收紧资源浪费。
 
 The Critique Agent can be configured to review either only the generated text from the answering agent or both the original query and the generated text, enabling a comprehensive evaluation of the response's alignment with the initial question.
 
@@ -144,14 +144,14 @@ The Critic Agent operates based on a predefined system prompt that outlines its 
 
 This system uses a resource-aware optimization strategy to handle user queries efficiently. It first classifies each query into one of three categories to determine the most appropriate and cost-effective processing pathway. This approach avoids wasting computational resources on simple requests while ensuring complex queries get the necessary attention. The three categories are:
 
-> 该示例用资源感知路由处理用户查询：先把请求分成三类，再映射到最省算力又够用的处理链——轻问句不滥用大模型，重推理与强时效需求则单独加码。三类定义如下：
+> 该示例通过资源感知路由处理用户查询：先将请求划分为三类，再映射到兼顾成本与效果的处理链路，避免在轻量问题上滥用大模型，同时为高强度推理或强时效需求投入额外资源。三类定义如下：
 
 * simple: For straightforward questions that can be answered directly without complex reasoning or external data.  
 * reasoning: For queries that require logical deduction or multi-step thought processes, which are routed to more powerful models.  
 * `internetsearch`: For questions needing current information, which automatically triggers a Google Search to provide an up-to-date answer.
 
-> * simple：事实清晰、无需链式推理或外源数据的直球问题。  
-> * reasoning：依赖逻辑、演算或多步推断的请求，交给更强模型。  
+> * simple：事实清晰、无需链式推理或外源数据的直球问题。
+> * reasoning：依赖逻辑、演算或多步推断的请求，交给更强模型。
 > * `internetsearch`：强依赖当下事实或训练集未覆盖的信息，自动走 Google 搜索再综合作答。
 
 The code is under the MIT license and available on Github: ([https://github.com/mahtabsyed/21-Agentic-Patterns/blob/main/16ResourceAwareOptLLMReflectionv2.ipynb](https://github.com/mahtabsyed/21-Agentic-Patterns/blob/main/16_Resource_Aware_Opt_LLM_Reflection_v2.ipynb))
@@ -307,7 +307,7 @@ if __name__ == "__main__":
 
 This Python code implements a prompt routing system to answer user questions. It begins by loading necessary API keys from a .env file for OpenAI and Google Custom Search. The core functionality lies in classifying the user's prompt into three categories: simple, reasoning, or internet search. A dedicated function utilizes an OpenAI model for this classification step. If the prompt requires current information, a Google search is performed using the Google Custom Search API. Another function then generates the final response, selecting an appropriate OpenAI model based on the classification. For internet search queries, the search results are provided as context to the model. The main `handleprompt` function orchestrates this workflow, calling the classification and search (if needed) functions before generating the response. It returns the classification, the model used, and the generated answer. This system efficiently directs different types of queries to optimized methods for a better response.
 
-> 这段 Python 以提示路由驱动问答：`.env` 中读取 OpenAI 与 Google 自定义搜索密钥；`classify_prompt` 借助 OpenAI 将输入打上 simple / reasoning / internet_search 标签；命中搜索类则先拉取检索结果，再连同用户问题喂给对应档位的补全模型。入口函数 `handle_prompt`（正文一处误作 handleprompt）串联分类、可选搜索与生成，最终返回标签、实际调用模型与答案，实现按题型分摊算力。
+> 这段 Python 以提示路由驱动问答：`.env` 中读取 OpenAI 与 Google 自定义搜索密钥；`classify_prompt` 借助 OpenAI 将输入打上 simple / reasoning / internet_search 标签；命中搜索类则先拉取检索结果，再连同用户问题一并传给对应档位的补全模型。入口函数 `handle_prompt`（正文一处误作 handleprompt）串联分类、可选搜索与生成，最终返回标签、实际调用模型与答案，实现按题型分摊算力。
 
 # Hands-On Code Example (OpenRouter)
 
@@ -389,7 +389,7 @@ Resource-aware optimization is paramount in developing intelligent agent systems
 
 **Dynamic Model Switching** is a critical technique involving the strategic selection of large language models  based on the intricacies of the task at hand and the available computational resources. When faced with simple queries, a lightweight, cost-effective LLM can be deployed, whereas complex, multifaceted problems necessitate the utilization of more sophisticated and resource-intensive models.
 
-> **动态模型切换：** 按任务难度与当下算力余量切换后端；「快问快答」走轻量模型，「深水区」再唤醒旗舰模型。
+> **动态模型切换：** 根据任务难度与当前算力余量切换后端；简单问答使用轻量模型，复杂高难任务再调用能力更强的旗舰模型。
 
 **Adaptive Tool Use & Selection** ensures agents can intelligently choose from a suite of tools, selecting the most appropriate and efficient one for each specific sub-task, with careful consideration given to factors like API usage costs, latency, and execution time. This dynamic tool selection enhances overall system efficiency by optimizing the use of external APIs and services.
 
@@ -460,12 +460,12 @@ Fig. 2: Resource-Aware Optimization Design Pattern
 * Optimization Through Feedback and Flexibility: Evaluation capabilities for critique and model integration flexibility contribute to adaptive and self-improving system behavior.  
 * Additional Resource-Aware Optimizations: Other methods include Adaptive Tool Use & Selection, Contextual Pruning & Summarization, Proactive Resource Prediction, Cost-Sensitive Exploration in Multi-Agent Systems, Energy-Efficient Deployment, Parallelization & Distributed Computing Awareness, Learned Resource Allocation Policies, Graceful Degradation and Fallback Mechanisms, and Prioritization of Critical Tasks.
 
-> * 资源感知优化是智能体落地的「运营层」：在运行期同时盯紧算力、时间与账单，并据此切换模型与执行路径。  
-> * 多智能体拆分利于伸缩：Google ADK 等框架让回答、路由、批评等角色解耦，便于独立演进。  
-> * LLM 级动态路由：按难度与预算在 Gemini Flash、Gemini Pro 等档位间调度，直接作用于 P99 延迟与单请求成本。  
-> * Critique 闭环：专用质检智能体输出纠错信号与监控指标，持续收紧路由策略。  
-> * 评估与模型可插拔：统一的评测面 + 多后端适配，使系统能随业务反馈自我校准。  
-> * 工具箱不止换模：尚含自适应工具选择、上下文剪枝/摘要、容量预测、通信成本敏感的多智能体协同、能效部署、并行扇出、可学习调度与多级回退等；关键任务亦可单独保配额。
+> * 资源感知优化是智能体落地的「运营层」：在运行期同时盯紧算力、时间与账单，并据此切换模型与执行路径。
+> * 多智能体拆分利于伸缩：Google ADK 等框架让回答、路由、批评等角色解耦，便于独立演进。
+> * LLM 级动态路由：按难度与预算在 Gemini Flash、Gemini Pro 等档位间调度，直接作用于 P99 延迟与单请求成本。
+> * Critique 闭环：专用质检智能体输出纠错信号与监控指标，持续收紧路由策略。
+> * 评估与模型可插拔：统一的评测面 + 多后端适配，使系统能随业务反馈自我校准。
+> * 资源优化并不止于模型切换：还包括自适应工具选择、上下文剪枝与摘要、容量预测、通信成本敏感的多智能体协同、能效部署、并行分发、可学习调度与多级回退等；关键任务也可单独预留配额。
 
 ## Conclusions
 

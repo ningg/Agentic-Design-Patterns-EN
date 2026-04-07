@@ -2,7 +2,7 @@
 
 While a monolithic agent architecture can be effective for well-defined problems, its capabilities are often constrained when faced with complex, multi-domain tasks. The Multi-Agent Collaboration pattern addresses these limitations by structuring a system as a cooperative ensemble of distinct, specialized agents. This approach is predicated on the principle of task decomposition, where a high-level objective is broken down into discrete sub-problems. Each sub-problem is then assigned to an agent possessing the specific tools, data access, or reasoning capabilities best suited for that task.
 
-> 单体智能体架构在边界清晰的问题上往往行之有效，但面对复杂、跨领域任务时，能力易受瓶颈制约。多智能体协作模式将系统组织为彼此配合、角色各异的专业化智能体集合，以化解上述局限。其前提是任务分解：将高层目标拆为离散子问题，再分别指派给在工具、数据访问或推理能力上最为契合的智能体。
+> 单体智能体架构在边界清晰的问题上往往行之有效，但面对复杂、跨领域任务时，其能力很容易触及瓶颈。多智能体协作模式通过将系统组织为彼此配合、角色各异的专业化智能体集合，来化解这些局限。其前提是任务分解：先将高层目标拆解为离散子问题，再分别指派给在工具、数据访问或推理能力上最为契合的智能体。
 
 For example, a complex research query might be decomposed and assigned to a Research Agent for information retrieval, a Data Analysis Agent for statistical processing, and a Synthesis Agent for generating the final report. The efficacy of such a system is not merely due to the division of labor but is critically dependent on the mechanisms for inter-agent communication. This requires a standardized communication protocol and a shared ontology, allowing agents to exchange data, delegate sub-tasks, and coordinate their actions to ensure the final output is coherent.
 
@@ -16,7 +16,7 @@ This distributed architecture offers several advantages, including enhanced modu
 
 The Multi-Agent Collaboration pattern involves designing systems where multiple independent or semi-independent agents work together to achieve a common goal. Each agent typically has a defined role, specific goals aligned with the overall objective, and potentially access to different tools or knowledge bases. The power of this pattern lies in the interaction and synergy between these agents.
 
-> 多智能体协作模式，即设计由多个独立或半独立智能体协同达成共同目标的系统。各智能体通常具备清晰角色、与总体目标对齐的子目标，并可调用不同工具或知识库；该模式的力量来自智能体之间的交互与协同放大。
+> 多智能体协作模式，是指设计由多个独立或半独立智能体协同达成共同目标的系统。各智能体通常具备清晰的角色、与总体目标对齐的子目标，并可调用不同的工具或知识库；该模式的力量，来自智能体之间的交互以及协同放大效应。
 
 Collaboration can take various forms:
 
@@ -28,10 +28,10 @@ Collaboration can take various forms:
 * **Hierarchical Structures:** A manager agent might delegate tasks to worker agents dynamically based on their tool access or plugin capabilities and synthesize their results. Each agent can also handle relevant groups of tools, rather than a single agent handling all the tools.  
 * **Expert Teams:** Agents with specialized knowledge in different domains (e.g., a researcher, a writer, an editor) collaborate to produce a complex output.
 
-> * **顺序交接：** 某一智能体完成后将输出移交给下一智能体，以推进流水线的下一步（与规划模式相近，但显式涉及多个智能体）。  
-> * **并行处理：** 多个智能体同时处理问题的不同片段，随后再合并结果。  
-> * **辩论与共识：** 持有不同视角与信息源的智能体通过讨论评估备选项，最终形成共识或更具信息量的决策。  
-> * **层级结构：** 管理者智能体可依据下属的工具或插件能力动态分派任务并汇总结果；各智能体亦可分管工具子集，避免由单一智能体包揽全部工具。  
+> * **顺序交接：** 某一智能体完成后将输出移交给下一智能体，以推进流水线的下一步（与规划模式相近，但显式涉及多个智能体）。
+> * **并行处理：** 多个智能体同时处理问题的不同片段，随后再合并结果。
+> * **辩论与共识：** 持有不同视角与信息源的智能体通过讨论评估备选项，最终形成共识或更具信息量的决策。
+> * **层级结构：** 管理者智能体可依据下属的工具或插件能力动态分派任务并汇总结果；各智能体亦可分管工具子集，避免由单一智能体包揽全部工具。
 > * **专家团队：** 具备不同领域专长的智能体（如研究、写作、编辑）协作产出复杂成果。
 
 * **Critic-Reviewer:** Agents create initial outputs such as plans, drafts, or answers. A second group of agents then critically assesses this output for adherence to policies, security, compliance, correctness, quality, and alignment with organizational objectives. The original creator or a final agent revises the output based on this feedback. This pattern is particularly effective for code generation, research writing, logic checking, and ensuring ethical alignment. The advantages of this approach include increased robustness, improved quality, and a reduced likelihood of hallucinations or errors.
@@ -40,7 +40,7 @@ Collaboration can take various forms:
 
 A multi-agent system (see Fig.1) fundamentally comprises the delineation of agent roles and responsibilities, the establishment of communication channels through which agents exchange information, and the formulation of a task flow or interaction protocol that directs their collaborative endeavors.
 
-> 多智能体系统（见图 1）在结构上至少包含三要素：厘清各智能体的角色与职责、搭建信息交换通道，以及制定引导协作的任务流或交互协议。
+> 多智能体系统（见图 1）在结构上至少包含三个关键要素：明确各智能体的角色与职责、建立信息交换通道，以及制定引导协作的任务流或交互协议。
 
 ![Multi-Agent System](../assets-new/Multi_Agent_System.png)
 
@@ -56,7 +56,7 @@ Frameworks such as Crew AI and Google ADK are engineered to facilitate this para
 
 Multi-Agent Collaboration is a powerful pattern applicable across numerous domains:
 
-> 多智能体协作是一种可广泛应用于诸多领域的有力模式：
+> 多智能体协作是一种在众多领域都极具潜力的模式：
 
 * **Complex Research and Analysis:** A team of agents could collaborate on a research project. One agent might specialize in searching academic databases, another in summarizing findings, a third in identifying trends, and a fourth in synthesizing the information into a report. This mirrors how a human research team might operate.  
 * **Software Development:** Imagine agents collaborating on building software. One agent could be a requirements analyst, another a code generator, a third a tester, and a fourth a documentation writer. They could pass outputs between each other to build and verify components.  
@@ -66,23 +66,23 @@ Multi-Agent Collaboration is a powerful pattern applicable across numerous domai
 * **Supply Chain Optimization:** Agents could represent different nodes in a supply chain (suppliers, manufacturers, distributors) and collaborate to optimize inventory levels, logistics, and scheduling in response to changing demand or disruptions.  
 * **Network Analysis & Remediation**: Autonomous operations benefit greatly from an agentic architecture, particularly in failure pinpointing. Multiple agents can collaborate to triage and remediate issues, suggesting optimal actions. These agents can also integrate with traditional machine learning models and tooling, leveraging existing systems while simultaneously offering the advantages of Generative AI.
 
-> * **复杂研究与分析：** 多智能体可像人类研究团队那样分工：分别负责学术库检索、文献摘要、趋势研判与报告综合。  
-> * **软件开发：** 可设想由需求分析、代码生成、测试、文档等智能体依次传递产出，共同构建与验证组件。  
-> * **创意内容生成：** 营销活动可串联市场调研、文案、平面设计（图像生成工具）与社交媒体排期等智能体协同完成。  
-> * **金融分析：** 可分别专精行情拉取、新闻情绪、技术分析与投资建议等子任务。  
-> * **客服升级：** 一线智能体处理常规咨询，复杂问题按难度逐级交接给技术或账务专家智能体。  
-> * **供应链优化：** 以智能体映射供应商、制造商、分销商等节点，协同优化库存、物流与排期，以响应需求波动或突发扰动。  
+> * **复杂研究与分析：** 多智能体可像人类研究团队那样分工：分别负责学术库检索、文献摘要、趋势研判与报告综合。
+> * **软件开发：** 可设想由需求分析、代码生成、测试、文档等智能体依次传递产出，共同构建与验证组件。
+> * **创意内容生成：** 营销活动可串联市场调研、文案、平面设计（图像生成工具）与社交媒体排期等智能体协同完成。
+> * **金融分析：** 可分别专精行情拉取、新闻情绪、技术分析与投资建议等子任务。
+> * **客服升级：** 一线智能体处理常规咨询，复杂问题按难度逐级交接给技术或账务专家智能体。
+> * **供应链优化：** 以智能体映射供应商、制造商、分销商等节点，协同优化库存、物流与排期，以响应需求波动或突发扰动。
 > * **网络分析与修复：** 自主运维尤其受益于智能体架构以定位故障；多智能体可协作完成分诊、修复建议与最优动作推荐，亦可与传统机器学习及运维工具集成，在复用既有系统的同时发挥生成式 AI 的长处。
 
 The capacity to delineate specialized agents and meticulously orchestrate their interrelationships empowers developers to construct systems exhibiting enhanced modularity, scalability, and the ability to address complexities that would prove insurmountable for a singular, integrated agent.
 
-> 清晰划分专业智能体并精心编排其相互关系，使开发者能够构建模块化程度更高、更易扩展、足以应对单体集成智能体难以驾驭的复杂度的系统。
+> 通过清晰划分专业化智能体并精心编排其相互关系，开发者能够构建出模块化程度更高、更易扩展，也足以应对单体集成智能体难以驾驭之复杂度的系统。
 
 ## Multi-Agent Collaboration: Exploring Interrelationships and Communication Structures
 
 Understanding the intricate ways in which agents interact and communicate is fundamental to designing effective multi-agent systems. As depicted in Fig. 2, a spectrum of interrelationship and communication models exists, ranging from the simplest single-agent scenario to complex, custom-designed collaborative frameworks. Each model presents unique advantages and challenges, influencing the overall efficiency, robustness, and adaptability of the multi-agent system.
 
-> 理解智能体如何交互与通信，是设计有效多智能体系统的根基。如图 2 所示，从最简单的单智能体到复杂的定制协作框架，存在一整条关系与通信模型的谱系；各模型利弊互现，并共同塑造系统的整体效率、鲁棒性与适应性。
+> 理解智能体如何交互与通信，是设计高效多智能体系统的根基。如图 2 所示，从最简单的单智能体，到复杂的定制化协作框架，存在一整条关系与通信模型的谱系；各类模型各有优劣，并共同塑造系统的整体效率、鲁棒性与适应性。
 
 ### 1. Single Agent
 
@@ -100,7 +100,7 @@ The "Network" model represents a significant step towards collaboration, where m
 
 In the "Supervisor" model, a dedicated agent, the "supervisor," oversees and coordinates the activities of a group of subordinate agents. The supervisor acts as a central hub for communication, task allocation, and conflict resolution. This hierarchical structure offers clear lines of authority and can simplify management and control. However, it introduces a single point of failure (the supervisor) and can become a bottleneck if the supervisor is overwhelmed by a large number of subordinates or complex tasks.
 
-> 「监督者」模型由专职监督智能体统筹下属群体，充当通信、任务分派与冲突调解的中心枢纽：层级权威清晰，利于管控，但监督者本身构成单点故障风险，且在下属数量庞大或任务高度复杂时易演变为性能瓶颈。
+> “监督者”模型由专职监督智能体统筹下属群体，充当通信、任务分派与冲突调解的中心枢纽：这种层级结构权责清晰、便于管控，但监督者本身也会带来单点故障风险，并且在下属数量庞大或任务高度复杂时，容易演变为性能瓶颈。
 
 ### 4. Supervisor as a Tool
 
@@ -136,7 +136,7 @@ This Python code defines an AI-powered crew using the CrewAI framework to genera
 
 Two tasks are defined accordingly: one for researching the trends and another for writing the blog post, with the writing task depending on the output of the research task. These agents and tasks are then assembled into a Crew, specifying a sequential process where tasks are executed in order. The Crew is initialized with the agents, tasks, and a language model (specifically the "gemini-2.0-flash" model). The main function executes this crew using the kickoff() method, orchestrating the collaboration between the agents to produce the desired output. Finally, the code prints the final result of the crew's execution, which is the generated blog post.
 
-> 该 Python 示例借助 CrewAI 组建 AI crew，用于生成关于 AI 趋势的博文：先配置运行环境并从 .env 读取 API 密钥；核心角色为两名智能体——研究员负责汇总趋势，作者依据研究结论撰稿；任务与之对应，写作任务显式依赖研究任务的输出；再将二者编入 Crew 并设定为顺序执行流程，以 gemini-2.0-flash 等模型作为 LLM；在 `main` 中通过 `kickoff()` 编排协作并打印最终博文。
+> 该 Python 示例借助 CrewAI 组建一个 AI crew，用于生成关于 AI 趋势的博客文章：先配置运行环境并从 `.env` 读取 API 密钥；核心角色为两名智能体——研究员负责检索并汇总趋势，作者依据研究结论撰写博文；任务与角色一一对应，写作任务显式依赖研究任务的输出；随后将二者编入 Crew，并设定为顺序执行流程，以 `gemini-2.0-flash` 等模型作为 LLM；在 `main` 中通过 `kickoff()` 编排协作并输出最终博文。
 
 ```python
 import os
@@ -508,16 +508,16 @@ Fig.3: Multi-Agent design pattern
 * Collaboration can take forms like sequential handoffs, parallel processing, debate, or hierarchical structures.  
 * This pattern is ideal for complex problems requiring diverse expertise or multiple distinct stages.
 
-> * 多智能体协作指多个智能体为同一目标而协同运作。  
-> * 该模式依托专精角色、任务分布式拆分以及智能体间通信机制。  
-> * 协作可表现为顺序交接、并行处理、辩论共识或层级结构等多种形式。  
+> * 多智能体协作指多个智能体为同一目标而协同运作。
+> * 该模式依托专精角色、任务分布式拆分以及智能体间通信机制。
+> * 协作可表现为顺序交接、并行处理、辩论共识或层级结构等多种形式。
 > * 尤为适合需要多元专长或经历多个清晰阶段的复杂问题。
 
 ## Conclusion
 
 This chapter explored the Multi-Agent Collaboration pattern, demonstrating the benefits of orchestrating multiple specialized agents within systems. We examined various collaboration models, emphasizing the pattern's essential role in addressing complex, multifaceted problems across diverse domains. Understanding agent collaboration naturally leads to an inquiry into their interactions with the external environment.
 
-> 本章梳理多智能体协作模式，说明在系统中编排多名专精智能体所能带来的收益；并回顾多种协作拓扑，凸显该模式在应对跨领域、多侧面复杂问题时的核心价值。对智能体协作的理解，自然延伸为对其与外部环境如何交互的追问。
+> 本章梳理了多智能体协作模式，说明在系统中编排多名专精智能体所能带来的收益；并回顾了多种协作拓扑，凸显该模式在应对跨领域、多侧面复杂问题时的核心价值。对智能体协作的理解，也自然会延伸到另一个问题：它们究竟如何与外部环境发生交互。
 
 ## References
 

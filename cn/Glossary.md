@@ -24,7 +24,7 @@
 
 **Grounding:** Grounding is the process of connecting a model's outputs to verifiable, real-world information sources to ensure factual accuracy and reduce hallucinations. This is often achieved with techniques like RAG to make AI systems more trustworthy.
 
-> **接地（Grounding）：** 指将模型输出锚定到可核查的外部事实来源，以提升真实性并抑制幻觉。常见做法包括检索增强生成（RAG）等，用于增强系统的可验证性与可信度。
+> **接地（Grounding）：** 指将模型输出锚定到可核查的现实信息源，以提升事实准确性并降低幻觉。常见做法包括检索增强生成（RAG）等，从而增强系统的可验证性与可信度。
 
 ## Core AI Model Architectures
 
@@ -52,7 +52,7 @@
 
 The development of a powerful language model follows a distinct sequence. It begins with Pre-training, where a massive base model is built by training it on a vast dataset of general internet text to learn language, reasoning, and world knowledge. Next is Fine-tuning, a specialization phase where the general model is further trained on smaller, task-specific datasets to adapt its capabilities for a particular purpose. The final stage is Alignment, where the specialized model's behavior is adjusted to ensure its outputs are helpful, harmless, and aligned with human values.
 
-> 强大语言模型的研制通常分三阶段：首先是**预训练（Pre-training）**，在海量通用互联网文本上学习语言规律、推理与世界知识，得到基础模型；其次是**微调（Fine-tuning）**，用规模较小、任务相关的数据继续训练，使能力贴合具体用途；最后是**对齐（Alignment）**，调整专用模型的行为，使输出更有帮助、更安全并符合人类价值观。
+> 强大语言模型的开发通常分为三个阶段：首先是**预训练（Pre-training）**，在海量通用互联网文本上学习语言规律、推理能力与世界知识，形成基础模型；其次是**微调（Fine-tuning）**，使用规模较小、与任务相关的数据继续训练，使能力贴合具体用途；最后是**对齐（Alignment）**，调整模型行为，使输出更有帮助、更安全，并更符合人类价值观。
 
 **Pre-training Techniques:** Pre-training is the initial phase where a model learns general knowledge from vast amounts of data. The top techniques for this involve different objectives for the model to learn from. The most common is Causal Language Modeling (CLM), where the model predicts the next word in a sentence. Another is Masked Language Modeling (MLM), where the model fills in intentionally hidden words in a text. Other important methods include Denoising Objectives, where the model learns to restore a corrupted input to its original state, Contrastive Learning, where it learns to distinguish between similar and dissimilar pieces of data, and Next Sentence Prediction (NSP), where it determines if two sentences logically follow each other.
 
@@ -70,11 +70,11 @@ The development of a powerful language model follows a distinct sequence. It beg
 
 AI agents are systems that can perceive their environment and take autonomous actions to achieve goals. Their effectiveness is enhanced by robust reasoning frameworks.
 
-> AI 智能体是能够感知环境、自主决策并执行动作以达成目标的系统；要充分发挥能力，通常需要依托稳健的推理框架。
+> 智能体是能够感知环境、自主决策并执行动作以达成目标的系统；要充分发挥其能力，通常需要依托稳健的推理框架。
 
 **Chain of Thought (CoT):** This prompting technique encourages a model to explain its reasoning step-by-step before giving a final answer. This process of "thinking out loud" often leads to more accurate results on complex reasoning tasks.
 
-> **思维链（CoT）：** 该提示技术鼓励模型在给出最终答案前先逐步展开推理过程。这种分步「出声思考」的做法，常能提升模型在算术、逻辑与常识等复杂推理任务上的表现。
+> **思维链（CoT）：** 该提示技术鼓励模型在给出最终答案前先逐步展开推理过程。这种显式分步推理的做法，常能提升模型在算术、逻辑与常识等复杂任务上的表现。
 
 **Tree of Thoughts (ToT):** Tree of Thoughts is an advanced reasoning framework where an agent explores multiple reasoning paths simultaneously, like branches on a tree. It allows the agent to self-evaluate different lines of thought and choose the most promising one to pursue, making it more effective at complex problem-solving.
 

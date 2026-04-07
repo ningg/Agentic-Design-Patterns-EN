@@ -27,7 +27,7 @@ In agent systems, memory refers to an agent's ability to retain and utilize info
 
 Memory management is vital for agents to track information and perform intelligently over time. This is essential for agents to surpass basic question-answering capabilities. Applications include:
 
-> 记忆管理让智能体能够跟踪信息、在长时间尺度上保持「聪明」；若只想做一次性问答尚可凑合，要做更复杂的代理行为，记忆几乎不可或缺。典型应用包括：
+> 记忆管理使智能体能够持续跟踪信息，并在较长时间尺度上保持稳定表现；对于一次性问答任务，记忆机制或许尚非刚需，但只要涉及更复杂的代理行为，它几乎就是基础设施。典型应用包括：
 
 * **Chatbots and Conversational AI:** Maintaining conversation flow relies on short-term memory. Chatbots require remembering prior user inputs to provide coherent responses. Long-term memory enables chatbots to recall user preferences, past issues, or prior discussions, offering personalized and continuous interactions.  
 * **Task-Oriented Agents:** Agents managing multi-step tasks need short-term memory to track previous steps, current progress, and overall goals. This information might reside in the task's context or temporary storage. Long-term memory is crucial for accessing specific user-related data not in the immediate context.  
@@ -36,11 +36,11 @@ Memory management is vital for agents to track information and perform intellige
 * **Information Retrieval (RAG):** Agents designed for answering questions access a knowledge base, their long-term memory, often implemented within Retrieval Augmented Generation (RAG). The agent retrieves relevant documents or data to inform its responses.  
 * **Autonomous Systems:** Robots or self-driving cars require memory for maps, routes, object locations, and learned behaviors. This involves short-term memory for immediate surroundings and long-term memory for general environmental knowledge.
 
-> * **聊天机器人与对话式 AI：** 对话连贯依赖短期记忆，需要记住先前的用户输入才能前后呼应。长期记忆则可召回偏好、历史工单或旧话题，支撑个性化与连续服务。  
-> * **任务导向智能体：** 多步任务靠短期记忆跟踪已完成步骤、当前进度与总体目标（可放在任务上下文或临时存储中）。长期记忆则用于调取未载入当前上下文的用户侧数据。  
-> * **个性化体验：** 借助长期记忆存储并检索偏好、行为轨迹与画像信息，使回复与推荐更贴合个人。  
-> * **学习与改进：** 从历次交互中沉淀成功路径、失败教训与新事实，写入长期记忆以便日后调整策略；强化学习场景下也常把习得策略或知识落在外部记忆中。  
-> * **信息检索（RAG）：** 面向问答的智能体往往把知识库当作长期记忆，并通过**检索增强生成（RAG）** 在回答前检索相关文档或结构化数据，再与生成模型结合。  
+> * **聊天机器人与对话式 AI：** 对话连贯依赖短期记忆，需要记住先前的用户输入才能前后呼应。长期记忆则可召回偏好、历史工单或旧话题，支撑个性化与连续服务。
+> * **任务导向智能体：** 多步任务靠短期记忆跟踪已完成步骤、当前进度与总体目标（可放在任务上下文或临时存储中）。长期记忆则用于调取未载入当前上下文的用户侧数据。
+> * **个性化体验：** 借助长期记忆存储并检索偏好、行为轨迹与画像信息，使回复与推荐更贴合个人。
+> * **学习与改进：** 从历次交互中沉淀成功路径、失败教训与新事实，写入长期记忆以便日后调整策略；强化学习场景下也常把习得策略或知识落在外部记忆中。
+> * **信息检索（RAG）：** 面向问答的智能体往往把知识库当作长期记忆，并通过**检索增强生成（RAG）** 在回答前检索相关文档或结构化数据，再与生成模型结合。
 > * **自主系统：** 机器人或自动驾驶需要地图、路径、物体位姿与已学习行为等；短期记忆对应局部感知与当下决策，长期记忆对应环境模型与可复用规则。
 
 Memory enables agents to maintain history, learn, personalize interactions, and manage complex, time-dependent problems.
@@ -53,7 +53,7 @@ Memory enables agents to maintain history, learn, personalize interactions, and 
 
 The Google Agent Developer Kit (ADK) offers a structured method for managing context and memory, including components for practical application. A solid grasp of ADK's Session, State, and Memory is vital for building agents that need to retain information.
 
-> ADK 以结构化方式管理上下文与记忆，并提供可直接落地的组件；要构建「会记东西」的智能体，需要扎实理解 Session、State 与 Memory 三者分工。
+> ADK 以结构化方式管理上下文与记忆，并提供可直接落地的组件；要构建具备持续记忆能力的智能体，需要扎实理解 Session、State 与 Memory 三者的职责分工。
 
 Just as in human interactions, agents require the ability to recall previous exchanges to conduct coherent and natural conversations. ADK simplifies context management through three core concepts and their associated services.
 
@@ -67,8 +67,8 @@ Every interaction with an agent can be considered a unique conversation thread. 
 * **State (`session.state`):** Data stored within a Session, containing information relevant only to the current, active chat thread.  
 * **Memory:** A searchable repository of information sourced from various past chats or external sources, serving as a resource for data retrieval beyond the immediate conversation.
 
-> * **Session：** 单条聊天线程，记录该轮交互中的消息与动作（Events），并承载与该对话相关的临时数据（State）。  
-> * **State（`session.state`）：** 附着在 Session 内，只描述**当前这条**活跃线程的运行时数据。  
+> * **Session：** 单条聊天线程，记录该轮交互中的消息与动作（Events），并承载与该对话相关的临时数据（State）。
+> * **State（`session.state`）：** 附着在 Session 内，只描述**当前这条**活跃线程的运行时数据。
 > * **Memory：** 可检索的长期知识存放处，内容可来自历史多轮会话或外部系统，用于在当前对话之外取数、补全背景。
 
 ADK provides dedicated services for managing critical components essential for building complex, stateful, and context-aware agents. The SessionService manages chat threads (Session objects) by handling their initiation, recording, and termination, while the MemoryService oversees the storage and retrieval of long-term knowledge (Memory).
@@ -87,7 +87,7 @@ A Session object in ADK is designed to track and manage individual chat threads.
 
 > ADK 中的 `Session` 用来表示并跟踪**单条**聊天线程。开启对话时，`SessionService` 会创建 `google.adk.sessions.Session`，其中封装该线程的标识（`id`、`app_name`、`user_id`）、按时间排序的 `Event` 序列、会话级临时 state，以及 `last_update_time` 等元数据。
 >
-> 应用代码通常不直接「手搓」`Session`，而是通过 `SessionService` 间接操作；后者负责会话全生命周期——新建、恢复、追加事件（含 state 变更）、列举活动会话、删除会话数据等。ADK 内置多种 `SessionService` 实现，例如 `InMemorySessionService` 适合开发与联调，但**不会在应用重启后保留数据**。
+> 应用代码通常不会直接手动构造 `Session`，而是通过 `SessionService` 间接操作；后者负责会话全生命周期——新建、恢复、追加事件（含 state 变更）、列举活动会话、删除会话数据等。ADK 内置多种 `SessionService` 实现，例如 `InMemorySessionService` 适合开发与联调，但**不会在应用重启后保留数据**。
 
 ```python
 # Example: Using InMemorySessionService 
@@ -425,20 +425,20 @@ memory_service = VertexAiRagMemoryService(
 
 In LangChain and LangGraph, Memory is a critical component for creating intelligent and natural-feeling conversational applications. It allows an AI agent to remember information from past interactions, learn from feedback, and adapt to user preferences. LangChain's memory feature provides the foundation for this by referencing a stored history to enrich current prompts and then recording the latest exchange for future use. As agents handle more complex tasks, this capability becomes essential for both efficiency and user satisfaction.
 
-> 在 LangChain 与 LangGraph 生态里，**Memory（记忆）** 是让对话「像真人」的关键构件：智能体得以引用过往交互、吸收反馈并调整偏好。LangChain 侧的经典做法是把历史消息注入提示模板，同时在每轮结束后把新往来写回存储——这为更复杂的多轮任务打下上下文基础。
+> 在 LangChain 与 LangGraph 生态里，**Memory（记忆）** 是实现自然多轮对话的关键能力：智能体得以引用过往交互、吸收反馈并调整偏好。LangChain 侧的经典做法是把历史消息注入提示模板，同时在每轮结束后把新往来写回存储——这为更复杂的多轮任务打下上下文基础。
 
 **Short-Term Memory:** This is thread-scoped, meaning it tracks the ongoing conversation within a single session or thread. It provides immediate context, but a full history can challenge an LLM's context window, potentially leading to errors or poor performance. LangGraph manages short-term memory as part of the agent's state, which is persisted via a checkpointer, allowing a thread to be resumed at any time.
 
 **Long-Term Memory:** This stores user-specific or application-level data across sessions and is shared between conversational threads. It is saved in custom "namespaces" and can be recalled at any time in any thread. LangGraph provides stores to save and recall long-term memories, enabling agents to retain knowledge indefinitely.
 
-> **短期记忆：** 作用域通常是**单个线程（thread）**，跟踪该线程内的连续对话；能即时提供上下文，但若把完整历史一股脑塞进提示，容易触达模型**上下文窗口**上限，引发截断、幻觉或性能问题。LangGraph 把这部分视作图状态的一部分，可通过 **checkpointer** 做持久化，从而在任意时刻恢复线程。  
+> **短期记忆：** 作用域通常是**单个线程（thread）**，跟踪该线程内的连续对话；能即时提供上下文，但若把完整历史一股脑塞进提示，容易触达模型**上下文窗口**上限，引发截断、幻觉或性能问题。LangGraph 把这部分视作图状态的一部分，可通过 **checkpointer** 做持久化，从而在任意时刻恢复线程。
 > **长期记忆：** 跨会话保存用户级或应用级数据，并在多条线程之间共享；一般落在自定义的「命名空间」下，任何线程在需要时都能检索。LangGraph 的 **store** 抽象负责长期记忆的写入与查询，使知识可以跨天、跨周地保留。
 
 LangChain provides several tools for managing conversation history, ranging from manual control to automated integration within chains.
 
 **ChatMessageHistory: Manual Memory Management.** For direct and simple control over a conversation's history outside of a formal chain, the ChatMessageHistory class is ideal. It allows for the manual tracking of dialogue exchanges.
 
-> LangChain 提供从「完全手工」到「链内自动拼接」的多层对话历史工具。  
+> LangChain 提供从「完全手工」到「链内自动拼接」的多层对话历史工具。
 > **ChatMessageHistory：** 当你暂时不想搭建完整 Chain，只想在代码里显式维护消息列表时，这是最轻量的选择。
 
 ```python
@@ -574,10 +574,10 @@ print(response)
 * **Episodic Memory: Remembering Experiences:** This involves recalling past events or actions. For AI agents, episodic memory is often used to remember how to accomplish a task. In practice, it's frequently implemented through few-shot example prompting, where an agent learns from past successful interaction sequences to perform tasks correctly.  
 * **Procedural Memory: Remembering Rules:**  This is the memory of how to perform tasks—the agent's core instructions and behaviors, often contained in its system prompt. It's common for agents to modify their own prompts to adapt and improve. An effective technique is "Reflection," where an agent is prompted with its current instructions and recent interactions, then asked to refine its own instructions.
 
-> **长期记忆的三种常见形态：**  
-> * **语义记忆（Semantic，记「事实」）：** 存放稳定的事实与概念——例如用户偏好、业务领域知识。实现上可以是持续合并的用户画像 JSON，也可以是一组可检索的事实文档，用来为模型输出提供**事实锚定**。  
-> * **情景记忆（Episodic，记「经历」）：** 对应「上次发生了什么、当时怎么做的」。在智能体场景里，常体现为可复用的任务轨迹；工程上多见 **few-shot 示例库**，从历史上成功的交互序列中抽样喂给模型。  
-> * **程序性记忆（Procedural，记「规则」）：** 描述「应当如何行动」——核心指令、策略与行为规范，通常落在系统提示或代理配置中。进阶做法是让模型基于近期表现**反思（Reflection）** 并改写自身指令，使行为随时间自我校准。
+> **长期记忆的三种常见形态：**
+> * **语义记忆（Semantic，记「事实」）：** 存放稳定的事实与概念——例如用户偏好、业务领域知识。实现上可以是持续合并的用户画像 JSON，也可以是一组可检索的事实文档，用来为模型输出提供**事实锚定**。
+> * **情景记忆（Episodic，记「经历」）：** 对应「上次发生了什么、当时怎么做的」。在智能体场景里，常体现为可复用的任务轨迹；工程上多见 **few-shot 示例库**，从历史上成功的交互序列中抽样提供给模型。
+> * **程序性记忆（Procedural，记「规则」）：** 描述「应当如何行动」——核心指令、策略与行为规范，通常落在系统提示或智能体配置中。进阶做法是让模型基于近期表现**反思（Reflection）** 并改写自身指令，使行为随时间自我校准。
 
 Below is pseudo-code demonstrating how an agent might use reflection to update its procedural memory stored in a LangGraph BaseStore
 

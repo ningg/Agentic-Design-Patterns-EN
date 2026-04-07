@@ -12,7 +12,7 @@ Learning and adaptation are pivotal for enhancing the capabilities of artificial
 
 Agents learn and adapt by changing their thinking, actions, or knowledge based on new experiences and data. This allows agents to evolve from simply following instructions to becoming smarter over time.
 
-> 智能体在新经验与数据的基础上调整其思考、行为或知识，由此学习与适应，并从机械执行指令逐步演进为随时间推移而更加「聪明」。
+> 智能体基于新经验与新数据调整其思考方式、行为策略或知识结构，由此实现学习与适应，并从机械执行指令逐步演进为能够随时间持续优化的系统。
 
 * **Reinforcement Learning:** Agents try actions and receive rewards for positive outcomes and penalties for negative ones, learning optimal behaviors in changing situations. Useful for agents controlling robots or playing games.  
 * **Supervised Learning:** Agents learn from labeled examples, connecting inputs to desired outputs, enabling tasks like decision-making and pattern recognition. Ideal for agents sorting emails or predicting trends.  
@@ -21,11 +21,11 @@ Agents learn and adapt by changing their thinking, actions, or knowledge based o
 * **Online Learning:** Agents continuously update knowledge with new data, essential for real-time reactions and ongoing adaptation in dynamic environments. Critical for agents processing continuous data streams.  
 * **Memory-Based Learning:** Agents recall past experiences to adjust current actions in similar situations, enhancing context awareness and decision-making. Effective for agents with memory recall capabilities.
 
-> * **强化学习：** 尝试动作，对好结果得奖励、坏结果受惩罚，在变化情境中学习最优行为；适用于控制机器人或玩游戏等智能体。  
-> * **监督学习：** 从标注样本学习输入到期望输出的映射，支持决策与模式识别等；适合分拣邮件或预测趋势的智能体。  
-> * **无监督学习：** 从未标注数据中发现隐含关联与模式，辅助洞察、组织与环境心智地图；适合无特定指引下探索数据的智能体。  
-> * **基于 LLM 的少样本/零样本学习：** 借助 LLM，用极少示例或清晰指令快速适应新任务与新情境。  
-> * **在线学习：** 持续用新数据更新知识，对实时反应与动态环境中的持续适应至关重要；适合处理连续数据流的智能体。  
+> * **强化学习：** 尝试动作，对好结果得奖励、坏结果受惩罚，在变化情境中学习最优行为；适用于控制机器人或玩游戏等智能体。
+> * **监督学习：** 从标注样本学习输入到期望输出的映射，支持决策与模式识别等；适合分拣邮件或预测趋势的智能体。
+> * **无监督学习：** 从未标注数据中发现隐含关联与模式，辅助洞察、组织与环境心智地图；适合无特定指引下探索数据的智能体。
+> * **基于 LLM 的少样本/零样本学习：** 借助 LLM，用极少示例或清晰指令快速适应新任务与新情境。
+> * **在线学习：** 持续用新数据更新知识，对实时反应与动态环境中的持续适应至关重要；适合处理连续数据流的智能体。
 > * **基于记忆的学习：** 回忆过去经验以在相似情境下调整当前行为，增强情境感知与决策；适合具备记忆召回能力的智能体。
 
 Agents adapt by changing strategy, understanding, or goals based on learning. This is vital for agents in unpredictable, changing, or new environments.
@@ -44,8 +44,8 @@ The core idea behind PPO is to make small, careful updates to the agent's policy
 2. Evaluate a "Surrogate" Goal: PPO calculates how a potential policy update would change the expected reward. However, instead of just maximizing this reward, it uses a special "clipped" objective function.  
 3. The "Clipping" Mechanism: This is the key to PPO's stability. It creates a "trust region" or a safe zone around the current policy. The algorithm is prevented from making an update that is too different from the current strategy. This clipping acts like a safety brake, ensuring the agent doesn't take a huge, risky step that undoes its learning.
 
-> 1. **收集数据：** 智能体以当前策略与环境交互（如玩游戏），收集一批（状态、动作、奖励）轨迹。  
-> 2. **评估替代目标（surrogate）：** PPO 估算一次策略更新会如何改变期望奖励；但并非一味最大化该量，而是借助带「裁剪」的替代目标函数。  
+> 1. **收集数据：** 智能体以当前策略与环境交互（如玩游戏），收集一批（状态、动作、奖励）轨迹。
+> 2. **评估替代目标（surrogate）：** PPO 估算一次策略更新会如何改变期望奖励；但并非一味最大化该量，而是借助带「裁剪」的替代目标函数。
 > 3. **裁剪机制：** 这是 PPO 稳定性的关键：在当前策略周围划定「信任域」或安全区，禁止更新与现行策略偏离过大；裁剪如同安全阀，避免智能体迈出过大、冒险的一步而毁掉已得进展。
 
 In short, PPO balances improving performance with staying close to a known, working strategy, which prevents catastrophic failures during training and leads to more stable learning.
@@ -64,18 +64,18 @@ To understand DPO, it helps to first understand the traditional PPO-based alignm
   1. Train a Reward Model: First, you collect human feedback data where people rate or compare different LLM responses (e.g., "Response A is better than Response B"). This data is used to train a separate AI model, called a reward model, whose job is to predict what score a human would give to any new response.  
   2. Fine-Tune with PPO: Next, the LLM is fine-tuned using PPO. The LLM's goal is to generate responses that get the highest possible score from the reward model. The reward model acts as the "judge" in the training game.
 
-> * **PPO 路径（两步）：**  
->   1. **训练奖励模型：** 收集人类对不同回复的评分或比较数据（如「A 比 B 好」），训练单独的奖励模型，预测人类会给新回复打多少分。  
+> * **PPO 路径（两步）：**
+>   1. **训练奖励模型：** 收集人类对不同回复的评分或比较数据（如「A 比 B 好」），训练单独的奖励模型，预测人类会给新回复打多少分。
 >   2. **用 PPO 微调：** 再用 PPO 微调 LLM，使其生成在奖励模型看来得分最高的回复；奖励模型在训练中充当「裁判」。
 
 This two-step process can be complex and unstable. For instance, the LLM might find a loophole and learn to "hack" the reward model to get high scores for bad responses.
 
-> 两步流程可能复杂且不稳定：例如 LLM 可能钻奖励模型的空子，使劣质回复仍能骗得高分。
+> 两步流程可能既复杂又不稳定：例如 LLM 可能利用奖励模型的漏洞，让质量欠佳的回复仍获得较高评分。
 
 * The DPO Approach (Direct Process): DPO skips the reward model entirely. Instead of translating human preferences into a reward score and then optimizing for that score, DPO uses the preference data directly to update the LLM's policy.  
 * It works by using a mathematical relationship that directly links preference data to the optimal policy. It essentially teaches the model: "Increase the probability of generating responses like the *preferred* one and decrease the probability of generating ones like the *disfavored* one."
 
-> * **DPO 路径（直接）：** 完全跳过奖励模型；不先把偏好变成奖励分数再优化，而是直接用偏好数据更新 LLM 策略。  
+> * **DPO 路径（直接）：** 完全跳过奖励模型；不先把偏好变成奖励分数再优化，而是直接用偏好数据更新 LLM 策略。
 > * 借助将偏好数据与最优策略直接关联的数学关系，实质上教模型：**提高**生成*被偏好*回复的概率，**降低**生成*不被偏好*回复的概率。
 
 In essence, DPO simplifies alignment by directly optimizing the language model on human preference data. This avoids the complexity and potential instability of training and using a separate reward model, making the alignment process more efficient and robust.
@@ -99,14 +99,14 @@ Adaptive agents exhibit enhanced performance in variable environments through it
 * **Game AI agents** enhance player engagement by dynamically adapting strategic algorithms, thereby increasing game complexity and challenge.  
 * **Knowledge Base Learning Agents**: Agents can leverage Retrieval Augmented Generation (RAG) to maintain a dynamic knowledge base of problem descriptions and proven solutions (see the Chapter 14). By storing successful strategies and challenges encountered, the agent can reference this data during decision-making, enabling it to adapt to new situations more effectively by applying previously successful patterns or avoiding known pitfalls.
 
-> * **个性化助手智能体：** 纵向分析个体用户行为以精炼交互协议，优化回复生成。  
-> * **交易机器人智能体：** 依据高分辨率实时市场数据动态调参，优化决策算法，提高收益并缓释风险。  
-> * **应用智能体：** 根据观测到的用户行为动态改 UI 与功能，提升参与度与易用性。  
-> * **机器人与自动驾驶智能体：** 融合传感器数据与历史动作分析，增强导航与响应，在多样环境中安全高效运行。  
-> * **欺诈检测智能体：** 用新识别的欺诈模式精炼预测模型，改进异常检测、加强安全并减少损失。  
-> * **推荐智能体：** 用用户偏好学习算法提高选品精度，提供高度个性化与情境相关推荐。  
-> * **游戏 AI 智能体：** 动态调整策略算法，提升参与度与挑战度。  
-> * **知识库学习智能体：** 可利用 RAG 维护问题描述与已验证解法的动态知识库（见第 14 章）；存储成功策略与遇过的难题，在决策时检索，以更有效地适应新情境——复用成功模式或避开已知陷阱。
+> * **个性化助手智能体：** 纵向分析个体用户行为以精炼交互协议，优化回复生成。
+> * **交易机器人智能体：** 依据高分辨率实时市场数据动态调参，优化决策算法，提高收益并缓释风险。
+> * **应用智能体：** 根据观测到的用户行为动态改 UI 与功能，提升参与度与易用性。
+> * **机器人与自动驾驶智能体：** 融合传感器数据与历史动作分析，增强导航与响应，在多样环境中安全高效运行。
+> * **欺诈检测智能体：** 用新识别的欺诈模式精炼预测模型，改进异常检测、加强安全并减少损失。
+> * **推荐智能体：** 用用户偏好学习算法提高选品精度，提供高度个性化与情境相关推荐。
+> * **游戏 智能体：** 动态调整策略算法，提升参与度与挑战度。
+> * **知识库学习智能体：** 可利用 RAG 维护问题描述与已验证解法的动态知识库（见第 14 章）；通过沉淀成功策略与曾遇到的难题，并在决策时按需检索，更有效地适应新情境，复用成功模式、规避已知陷阱。
 
 ## Case Study: The Self-Improving Coding Agent (SICA)
 
@@ -142,7 +142,7 @@ Fig.2 : Performance across iterations. Key improvements are annotated with their
 
 SICA's architecture comprises a foundational toolkit for basic file operations, command execution, and arithmetic calculations. It includes mechanisms for result submission and the invocation of specialized sub-agents (coding, problem-solving, and reasoning). These sub-agents decompose complex tasks and manage the LLM's context length, especially during extended improvement cycles.
 
-> SICA 架构包含基础文件操作、命令执行与算术等工具包；含结果提交机制及专用子智能体（编程、解题、推理）的调用；这些子智能体分解复杂任务并管理 LLM 上下文长度，尤其在长期改进循环中。
+> SICA 的架构包含基础文件操作、命令执行与算术等工具集，也包含结果提交机制以及专用子智能体（编程、解题、推理）的调用能力；这些子智能体负责拆解复杂任务，并在长期改进循环中帮助管理 LLM 的上下文长度。
 
 An asynchronous overseer, another LLM, monitors SICA's behavior, identifying potential issues such as loops or stagnation. It communicates with SICA and can intervene to halt execution if necessary. The overseer receives a detailed report of SICA's actions, including a callgraph and a log of messages and tool actions, to identify patterns and inefficiencies.
 
@@ -154,7 +154,7 @@ SICA's LLM organizes information within its context window, its short-term memor
 
 **SICA: A Look at the Code:** Delving deeper into SICA's implementation reveals several key design choices that underpin its capabilities. As discussed, the system is built with a modular architecture, incorporating several sub-agents, such as a coding agent, a problem-solver agent, and a reasoning agent. These sub-agents are invoked by the main agent, much like tool calls, serving to decompose complex tasks and efficiently manage context length, especially during those extended meta-improvement iterations.
 
-> **SICA：代码一瞥：** 深入实现可见若干关键设计：模块化架构、多个子智能体（编程、解题、推理等）；主智能体像调用工具一样调用它们，以分解复杂任务并高效管理上下文，尤其在漫长的元改进迭代中。
+> **SICA：实现剖面：** 深入其实现可见若干关键设计：模块化架构、多个子智能体（编程、解题、推理等）；主智能体像调用工具一样调度它们，以分解复杂任务并高效管理上下文，尤其适用于漫长的元改进迭代。
 
 The project is actively developed and aims to provide a robust framework for those interested in post-training LLMs on tool use and other agentic tasks, with the full code available for further exploration and contribution at the [https://github.com/MaximeRobeyns/self_improving_coding_agent/](https://github.com/MaximeRobeyns/self_improving_coding_agent/) GitHub repository.
 
@@ -182,7 +182,7 @@ A notable challenge in the initial SICA implementation was prompting the LLM-bas
 
 **AlphaEvolve** is an AI agent developed by Google designed to discover and optimize algorithms. It utilizes a combination of LLMs, specifically Gemini models (Flash and Pro), automated evaluation systems, and an evolutionary algorithm framework. This system aims to advance both theoretical mathematics and practical computing applications.
 
-> **AlphaEvolve** 是 Google 开发的 AI 智能体，用于发现与优化算法；结合 LLM（Gemini Flash 与 Pro）、自动评估系统与进化算法框架，旨在推进理论数学与实用计算应用。
+> **AlphaEvolve** 是 Google 开发的 智能体，用于发现与优化算法；结合 LLM（Gemini Flash 与 Pro）、自动评估系统与进化算法框架，旨在推进理论数学与实用计算应用。
 
 AlphaEvolve employs an ensemble of Gemini models. Flash is used for generating a wide range of initial algorithm proposals, while Pro provides more in-depth analysis and refinement. Proposed algorithms are then automatically evaluated and scored based on predefined criteria. This evaluation provides feedback that is used to iteratively improve the solutions, leading to optimized and novel algorithms.
 
@@ -235,7 +235,7 @@ for name, value in best_program.metrics.items():
 
 **What:** AI agents often operate in dynamic and unpredictable environments where pre-programmed logic is insufficient. Their performance can degrade when faced with novel situations not anticipated during their initial design. Without the ability to learn from experience, agents cannot optimize their strategies or personalize their interactions over time. This rigidity limits their effectiveness and prevents them from achieving true autonomy in complex, real-world scenarios.
 
-> **问题：** AI 智能体常在动态不可预测环境中运行，预编程逻辑不足；面对设计时未预料的新情境，表现可能下降；若不能从经验学习，就无法优化策略或随时间个性化交互。这种僵化限制有效性，阻碍其在复杂真实场景中实现真正自主。
+> **问题：** 智能体常运行在动态、不可预测的环境中，单靠预编程逻辑往往不足；一旦遇到设计阶段未覆盖的新情境，系统表现就可能明显下滑。若不能从经验中学习，便无法持续优化策略或逐步实现个性化交互，这种僵化会直接限制其有效性，并阻碍其在复杂真实场景中实现真正的自主运行。
 
 **Why:** The standardized solution is to integrate learning and adaptation mechanisms, transforming static agents into dynamic, evolving systems. This allows an agent to autonomously refine its knowledge and behaviors based on new data and interactions. Agentic systems can use various methods, from reinforcement learning to more advanced techniques like self-modification, as seen in the Self-Improving Coding Agent (SICA). Advanced systems like Google's AlphaEvolve leverage LLMs and evolutionary algorithms to discover entirely new and more efficient solutions to complex problems. By continuously learning, agents can master new tasks, enhance their performance, and adapt to changing conditions without requiring constant manual reprogramming.
 
@@ -269,15 +269,15 @@ Fig.4: Learning and adapting pattern
 * An agent system, equipped with basic coding tools, can autonomously edit itself, and thereby improve its performance on benchmark tasks  
 * AlphaEvolve is Google's AI agent that leverages LLMs and an evolutionary framework to autonomously discover and optimize algorithms, significantly enhancing both fundamental research and practical computing applications..
 
-> * 学习与适应指智能体利用经验把事做得更好、应对新情境。  
-> * 「适应」是学习带来的行为或知识上的可见变化。  
-> * SICA 通过基于历史表现修改代码实现自改进，催生了 Smart Editor、AST Symbol Locator 等工具。  
-> * 专用「子智能体」与「监督者」有助于自改进系统管理大任务、保持正轨。  
-> * LLM「上下文窗口」的组织方式（系统提示、核心提示、助手消息）对智能体运行效率极为重要。  
-> * 本模式对需在持续变化、不确定或强调个性化交互的环境中运行的智能体至关重要。  
-> * 构建会学习的智能体常需接入机器学习工具并管理数据流。  
-> * 配备基础编程工具的智能体系统可自主编辑自身，从而在基准任务上改进表现。  
-> * AlphaEvolve 是 Google 结合 LLM 与进化框架自主发现与优化算法的 AI 智能体，显著增强基础研究与实用计算应用。
+> * 学习与适应指智能体利用经验把事做得更好、应对新情境。
+> * 「适应」是学习带来的行为或知识上的可见变化。
+> * SICA 通过基于历史表现修改代码实现自改进，催生了 Smart Editor、AST Symbol Locator 等工具。
+> * 专用「子智能体」与「监督者」有助于自改进系统管理大任务、保持正轨。
+> * LLM「上下文窗口」的组织方式（系统提示、核心提示、助手消息）对智能体运行效率极为重要。
+> * 本模式对需在持续变化、不确定或强调个性化交互的环境中运行的智能体至关重要。
+> * 构建会学习的智能体常需接入机器学习工具并管理数据流。
+> * 配备基础编程工具的智能体系统可自主编辑自身，从而在基准任务上改进表现。
+> * AlphaEvolve 是 Google 结合 LLM 与进化框架自主发现与优化算法的 智能体，显著增强基础研究与实用计算应用。
 
 ## Conclusion
 
@@ -285,7 +285,7 @@ Fig.4: Learning and adapting pattern
 
 This chapter examines the crucial roles of learning and adaptation in Artificial Intelligence. AI agents enhance their performance through continuous data acquisition and experience. The Self-Improving Coding Agent (SICA) exemplifies this by autonomously improving its capabilities through code modifications.
 
-> 本章考察学习与适应在人工智能中的关键作用：AI 智能体通过持续获取数据与经验提升表现；SICA 通过修改代码自主改进能力，是典型例证。
+> 本章考察学习与适应在人工智能中的关键作用：智能体通过持续获取数据与经验提升表现；SICA 通过修改代码自主改进能力，是典型例证。
 
 We have reviewed the fundamental components of agentic AI, including architecture, applications, planning, multi-agent collaboration, memory management, and learning and adaptation. Learning principles are particularly vital for coordinated improvement in multi-agent systems. To achieve this, tuning data must accurately reflect the complete interaction trajectory, capturing the individual inputs and outputs of each participating agent.
 
@@ -293,7 +293,7 @@ We have reviewed the fundamental components of agentic AI, including architectur
 
 These elements contribute to significant advancements, such as Google's AlphaEvolve. This AI system independently discovers and refines algorithms by LLMs, automated assessment, and an evolutionary approach, driving progress in scientific research and computational techniques. Such patterns can be combined to construct sophisticated AI systems. Developments like AlphaEvolve demonstrate that autonomous algorithmic discovery and optimization by AI agents are attainable.
 
-> 这些要素共同推动重大进展，如 Google 的 AlphaEvolve：该系统借助 LLM、自动评估与进化方法独立发现与精炼算法，推动科研与计算技术进步。此类模式可组合构建复杂 AI 系统；AlphaEvolve 等发展表明，由 AI 智能体自主进行算法发现与优化是可以实现的。
+> 这些要素共同推动重大进展，如 Google 的 AlphaEvolve：该系统借助 LLM、自动评估与进化方法独立发现与精炼算法，推动科研与计算技术进步。此类模式可组合构建复杂 AI 系统；AlphaEvolve 等发展表明，由 智能体自主进行算法发现与优化是可以实现的。
 
 ## References
 

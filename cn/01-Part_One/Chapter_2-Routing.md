@@ -8,11 +8,11 @@
 
 While sequential processing via prompt chaining is a foundational technique for executing deterministic, linear workflows with language models, its applicability is limited in scenarios requiring adaptive responses. Real-world agentic systems must often arbitrate between multiple potential actions based on contingent factors, such as the state of the environment, user input, or the outcome of a preceding operation. This capacity for dynamic decision-making, which governs the flow of control to different specialized functions, tools, or sub-processes, is achieved through a mechanism known as routing.
 
-> 借助提示链做顺序处理，是运行确定性、线性语言模型工作流的基础手段，但在需要自适应响应的场景中，其适用性有限。真实世界里的智能体系统常常要根据环境状态、用户输入或上一步结果等情境因素，在多种可能动作之间做出取舍。这种动态决策能力——将控制流导向不同的专用函数、工具或子流程——由所谓「路由」的机制来实现。
+> 借助提示链进行顺序处理，是执行确定性、线性语言模型工作流的基础手段；但在需要自适应响应的场景中，它的适用性就会受到限制。现实世界中的智能体系统，往往需要根据环境状态、用户输入或前一步结果等情境因素，在多种可能动作之间做出选择。这种动态决策能力——即将控制流导向不同专用函数、工具或子流程——正是由“路由”机制来实现的。
 
 Routing introduces conditional logic into an agent's operational framework, enabling a shift from a fixed execution path to a model where the agent dynamically evaluates specific criteria to select from a set of possible subsequent actions. This allows for more flexible and context-aware system behavior.
 
-> 路由在智能体的运行框架中引入条件逻辑，使其从固定执行路径，转向由智能体按特定标准动态评估、并从一组候选后续动作中择一执行，从而获得更灵活、更具情境感知力的系统行为。
+> 路由在智能体的运行框架中引入条件逻辑，使系统从固定执行路径转向按特定标准动态评估，并从一组候选后续动作中择一执行，从而获得更灵活、更具情境感知能力的行为方式。
 
 For instance, an agent designed for customer inquiries, when equipped with a routing function, can first classify an incoming query to determine the user's intent. Based on this classification, it can then direct the query to a specialized agent for direct question-answering, a database retrieval tool for account information, or an escalation procedure for complex issues, rather than defaulting to a single, predetermined response pathway.  Therefore, a more sophisticated agent using routing could:
 
@@ -25,25 +25,25 @@ For instance, an agent designed for customer inquiries, when equipped with a rou
    * If the intent is "technical support", route to a different chain that accesses troubleshooting guides or escalates to a human.  
    * If the intent is unclear, route to a clarification sub-agent or prompt chain.
 
-> 1. 分析用户查询。  
-> 2. 依据其*意图*对查询进行**路由**：  
->    * 若意图为「查订单状态」，则路由到与订单库交互的子智能体或工具链。  
->    * 若意图为「产品信息」，则路由到检索产品目录的子智能体或链。  
->    * 若意图为「技术支持」，则路由到可访问排障指南或升级人工的另一条链。  
+> 1. 分析用户查询。
+> 2. 依据其*意图*对查询进行**路由**：
+>    * 若意图为「查订单状态」，则路由到与订单库交互的子智能体或工具链。
+>    * 若意图为「产品信息」，则路由到检索产品目录的子智能体或链。
+>    * 若意图为「技术支持」，则路由到可访问排障指南或升级人工的另一条链。
 >    * 若意图不清，则路由到澄清子智能体或提示链。
 
 The core component of the Routing pattern is a mechanism that performs the evaluation and directs the flow. This mechanism can be implemented in several ways:
 
-> 路由模式的核心，是负责评估并引导控制流的机制；该机制可有多种实现方式：
+> 路由模式的核心，在于一个负责评估并引导控制流的机制；这一机制可以通过多种方式实现：
 
 * **LLM-based Routing:** The language model itself can be prompted to analyze the input and output a specific identifier or instruction that indicates the next step or destination. For example, a prompt might ask the LLM to "Analyze the following user query and output only the category: 'Order Status', 'Product Info', 'Technical Support', or 'Other'." The agentic system then reads this output and directs the workflow accordingly.  
 * **Embedding-based Routing:** The input query can be converted into a vector embedding (see RAG, Chapter 14). This embedding is then compared to embeddings representing different routes or capabilities. The query is routed to the route whose embedding is most similar. This is useful for semantic routing, where the decision is based on the meaning of the input rather than just keywords.  
 * **Rule-based Routing:** This involves using predefined rules or logic (e.g., if-else statements, switch cases) based on keywords, patterns, or structured data extracted from the input. This can be faster and more deterministic than LLM-based routing, but is less flexible for handling nuanced or novel inputs.  
 * **Machine Learning Model-Based Routing**: it employs a discriminative model, such as a classifier, that has been specifically trained on a small corpus of labeled data to perform a routing task. While it shares conceptual similarities with embedding-based methods, its key characteristic is the supervised fine-tuning process, which adjusts the model's parameters to create a specialized routing function. This technique is distinct from LLM-based routing because the decision-making component is not a generative model executing a prompt at inference time. Instead, the routing logic is encoded within the fine-tuned model's learned weights. While LLMs may be used in a pre-processing step to generate synthetic data for augmenting the training set, they are not involved in the real-time routing decision itself.
 
-> * **基于 LLM 的路由：** 可提示语言模型分析输入，并输出表示下一步或目的地的标识符或指令。例如要求模型「分析下列用户查询，仅输出类别：『订单状态』『产品信息』『技术支持』或『其他』」；智能体系统再据此引导工作流。  
-> * **基于嵌入的路由：** 将查询编码为向量嵌入（见 RAG，第 14 章），再与各条路径或能力对应的嵌入比相似度，路由到最相近的一条；适用于语义路由，即决策依据是含义而非仅关键词。  
-> * **基于规则的路由：** 使用预定义规则或逻辑（如 if-else、switch），根据关键词、模式或从输入抽取的结构化数据分流；通常比基于 LLM 的路由更快、更确定，但对细腻或全新输入的适应性较弱。  
+> * **基于 LLM 的路由：** 可提示语言模型分析输入，并输出表示下一步或目标去向的标识符或指令。例如要求模型“分析下列用户查询，仅输出类别：‘订单状态’‘产品信息’‘技术支持’或‘其他’”；智能体系统再据此推进工作流。
+> * **基于嵌入的路由：** 将查询编码为向量嵌入（见 RAG，第 14 章），再与各条路径或能力对应的嵌入进行相似度比较，并路由到最接近的一条；适用于语义路由，即决策依据是语义而非仅凭关键词。
+> * **基于规则的路由：** 使用预定义规则或逻辑（如 if-else、switch），根据关键词、模式或从输入抽取的结构化数据分流；通常比基于 LLM 的路由更快、更确定，但对细腻或全新输入的适应性较弱。
 > * **基于机器学习模型的路由：** 采用判别模型（如分类器），在小型标注语料上专门训练以完成路由。与嵌入法在概念上有相通之处，但关键在于监督微调：调整参数以形成专用路由函数。与基于 LLM 的路由不同之处在于，决策部件并非在推理时执行提示的生成模型，而是编码在微调后模型的权重里。LLM 可用于预处理阶段生成合成数据以扩充训练集，但不参与实时路由决策。
 
 Routing mechanisms can be implemented at multiple junctures within an agent's operational cycle. They can be applied at the outset to classify a primary task, at intermediate points within a processing chain to determine a subsequent action, or during a subroutine to select the most appropriate tool from a given set.
@@ -72,7 +72,7 @@ In human-computer interaction, such as with virtual assistants or AI-driven tuto
 
 Within automated data and document processing pipelines, routing serves as a classification and distribution function. Incoming data, such as emails, support tickets, or API payloads, is analyzed based on content, metadata, or format. The system then directs each item to a corresponding workflow, such as a sales lead ingestion process, a specific data transformation function for JSON or CSV formats, or an urgent issue escalation path.
 
-> 在自动数据与文档处理流水线中，路由承担分类与分发：对邮件、工单或 API 负载等待处理数据，按内容、元数据或格式分析后，分别导入对应工作流，如销售线索接入、针对 JSON/CSV 的专用转换函数，或紧急问题升级通道。
+> 在自动化数据与文档处理流水线中，路由承担分类与分发职能：系统会根据邮件、工单或 API 载荷的内容、元数据或格式进行分析，再将其分配到相应工作流，例如销售线索接入流程、面向 JSON/CSV 的专用转换函数，或紧急问题升级通道。
 
 In complex systems involving multiple specialized tools or agents, routing acts as a high-level dispatcher. A research system composed of distinct agents for searching, summarizing, and analyzing information would use a router to assign tasks to the most suitable agent based on the current objective. Similarly, an AI coding assistant uses routing to identify the programming language and user's intent—to debug, explain, or translate—before passing a code snippet to the correct specialized tool.
 
@@ -233,7 +233,7 @@ As mentioned, this Python code constructs a simple agent-like system using the L
 
 A core component is the `coordinator_router_chain`, which utilizes a ChatPromptTemplate to instruct the language model to categorize incoming user requests into one of three categories: `booker`, `info`, or `unclear`. The output of this router chain is then used by a RunnableBranch to delegate the original request to the corresponding handler function. The RunnableBranch checks the decision from the language model and directs the request data to either the `booking_handler`, `info_handler`, or `unclear_handler`. The `coordinator_agent` combines these components, first routing the request for a decision and then passing the request to the chosen handler. The final output is extracted from the handler's response.
 
-> 核心组件是 `coordinator_router_chain`：借助 `ChatPromptTemplate` 指示模型将用户请求归入 `booker`、`info` 或 `unclear` 三类之一；路由链的输出再由 `RunnableBranch` 接手，把原始请求转交给对应处理函数。`RunnableBranch` 根据模型决策，将请求数据导向 `booking_handler`、`info_handler` 或 `unclear_handler`。`coordinator_agent` 整合上述部件：先为请求求解决策路径，再交给被选中的处理器，并从处理器返回中提取最终输出。
+> 核心组件是 `coordinator_router_chain`：它借助 `ChatPromptTemplate` 指示模型将用户请求归类为 `booker`、`info` 或 `unclear` 三类之一；随后，路由链的输出由 `RunnableBranch` 接手，并将原始请求转交给对应处理函数。`RunnableBranch` 会根据模型给出的决策，将请求数据导向 `booking_handler`、`info_handler` 或 `unclear_handler`。`coordinator_agent` 则整合上述部件：先为请求判定路由方向，再交由被选中的处理器执行，并从其返回结果中提取最终输出。
 
 The main function demonstrates the system's usage with three example requests, showcasing how different inputs are routed and processed by the simulated agents. Error handling for language model initialization is included to ensure robustness. The code structure mimics a basic multi-agent framework where a central coordinator delegates tasks to specialized agents based on intent.
 
@@ -457,9 +457,9 @@ Fig.1: Router pattern, using an LLM as a Router
 * Routing logic can be implemented using LLMs, rule-based systems, or embedding similarity.  
 * Frameworks like LangGraph and Google ADK provide structured ways to define and manage routing within agent workflows, albeit with different architectural approaches.
 
-> * 路由使智能体能按条件对工作流中的「下一步」做动态决策。  
-> * 使智能体能应对多样输入并调整行为，突破纯线性执行。  
-> * 路由逻辑可用 LLM、规则系统或嵌入相似度等方式实现。  
+> * 路由使智能体能按条件对工作流中的「下一步」做动态决策。
+> * 使智能体能应对多样输入并调整行为，突破纯线性执行。
+> * 路由逻辑可用 LLM、规则系统或嵌入相似度等方式实现。
 > * LangGraph 与 Google ADK 等框架提供在智能体工作流内定义与管理路由的结构化途径，尽管架构取向不同。
 
 ## Conclusion

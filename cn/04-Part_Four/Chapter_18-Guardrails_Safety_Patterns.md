@@ -4,11 +4,11 @@
 
 Guardrails, also referred to as safety patterns, are crucial mechanisms that ensure intelligent agents operate safely, ethically, and as intended, particularly as these agents become more autonomous and integrated into critical systems. They serve as a protective layer, guiding the agent's behavior and output to prevent harmful, biased, irrelevant, or otherwise undesirable responses. These guardrails can be implemented at various stages, including Input Validation/Sanitization to filter malicious content, Output Filtering/Post-processing to analyze generated responses for toxicity or bias, Behavioral Constraints (Prompt-level) through direct instructions, Tool Use Restrictions to limit agent capabilities, External Moderation APIs for content moderation, and Human Oversight/Intervention via "Human-in-the-Loop" mechanisms.
 
-> 护栏（也称安全模式）用来保证智能体安全、合规、按设计工作，在系统越来越自主、越来越关键时尤其不可缺少。它像一层缓冲：约束行为与生成结果，挡掉有害、带偏见、跑题或其他不合适的输出。可以嵌在整条链路的不同位置：输入侧做校验与净化；输出侧做过滤与后处理；在提示里写死行为边界；限制可调用的工具；接入第三方审核 API；关键节点再挂「人在回路」做人工复核或急停。
+> 护栏（也称安全模式）用来保证智能体安全、合规、按设计工作，在系统越来越自主、越来越关键时尤其不可缺少。它像一层缓冲：约束行为与生成结果，挡掉有害、带偏见、跑题或其他不合适的输出。可以嵌在整条链路的不同位置：输入侧做校验与净化；输出侧做过滤与后处理；在提示里写死行为边界；限制可调用的工具；接入第三方审核 API；关键节点再挂「人在回路中」做人工复核或急停。
 
 The primary aim of guardrails is not to restrict an agent's capabilities but to ensure its operation is robust, trustworthy, and beneficial. They function as a safety measure and a guiding influence, vital for constructing responsible AI systems, mitigating risks, and maintaining user trust by ensuring predictable, safe, and compliant behavior, thus preventing manipulation and upholding ethical and legal standards. Without them, an AI system may be unconstrained, unpredictable, and potentially hazardous. To further mitigate these risks, a less computationally intensive model can be employed as a rapid, additional safeguard to pre-screen inputs or double-check the outputs of the primary model for policy violations.
 
-> 护栏的目的不是把模型「捆死」，而是让它**稳、可信、对人类有用**。它既是保险丝，也是价值观与产品规范的执行者：用可预期、安全、合规的行为降低被滥用风险，守住伦理与法律底线。若完全裸跑，系统可能变得难以预测甚至伤人。实务上，还常配一颗更小、更快的「副模型」当哨兵：先扫一遍用户输入，或事后抽查主模型输出，看有没有踩红线。
+> 护栏的目的并不是过度限制模型能力，而是让系统具备**稳定性、可信度与实际效用**。它既是保险机制，也是价值观与产品规范的执行层：通过可预期、安全、合规的行为降低被滥用风险，守住伦理与法律底线。若系统在缺乏约束的情况下直接运行，其行为可能变得难以预测，甚至造成现实伤害。实务中，还常配备一款更小、更快的“副模型”作为哨兵：用于预先筛查用户输入，或在事后抽查主模型输出，判断是否触碰政策红线。
 
 ## Practical Applications & Use Cases
 
@@ -26,17 +26,17 @@ Guardrails are applied across a range of agentic applications:
 * **Social Media Content Moderation:** To automatically identify and flag posts containing hate speech, misinformation, or graphic content.  
 * **Scientific Research Assistants:** To prevent the agent from fabricating research data or drawing unsupported conclusions, emphasizing the need for empirical validation and peer review.
 
-> * **客服机器人：** 避免辱骂用户、瞎给医疗/法律建议、或答非所问；可对恶意提问直接拒答或转人工。  
-> * **内容生成：** 让稿件、广告文案、创意输出对齐品牌与法规，拦截仇恨、谣言、色情等；常用规则 + 模型双检，必要时自动打码或重写。  
-> * **教育辅导：** 降低胡编答案、灌输偏见、聊不该聊的话题的风险；可叠课程大纲与白名单知识源。  
-> * **法律检索助手：** 明确禁止「假装律师下结论」，只能给信息检索与阅读辅助，并引导用户找持证律师。  
-> * **招聘 / HR：** 过滤歧视性措辞与不公平筛选条件，减小算法偏见带来的合规风险。  
-> * **社区审核：** 自动标记仇恨、谣言、血腥暴力等内容，供人工复审或自动处置。  
+> * **客服机器人：** 避免辱骂用户、瞎给医疗/法律建议、或答非所问；可对恶意提问直接拒答或转人工。
+> * **内容生成：** 让稿件、广告文案、创意输出对齐品牌与法规，拦截仇恨、谣言、色情等；常用规则 + 模型双检，必要时自动打码或重写。
+> * **教育辅导：** 降低胡编答案、灌输偏见、聊不该聊的话题的风险；可叠课程大纲与白名单知识源。
+> * **法律检索助手：** 明确禁止「假装律师下结论」，只能给信息检索与阅读辅助，并引导用户找持证律师。
+> * **招聘 / HR：** 过滤歧视性措辞与不公平筛选条件，减小算法偏见带来的合规风险。
+> * **社区审核：** 自动标记仇恨、谣言、血腥暴力等内容，供人工复审或自动处置。
 > * **科研助理：** 防止伪造数据、夸大结论；强制引用可核验来源，并提醒需实验与同行评议。
 
 In these scenarios, guardrails function as a defense mechanism, protecting users, organizations, and the AI system's reputation.
 
-> 在这些场景里，护栏就是第一道防线：护住终端用户、公司品牌，也护住模型提供方自己的口碑与法律责任。
+> 在这些场景中，护栏就是第一道防线：既保护终端用户与企业品牌，也帮助模型提供方控制声誉与法律风险。
 
 ## Hands-On Code CrewAI Example
 
@@ -52,7 +52,7 @@ Monitoring and observability are vital for maintaining compliance by continuousl
 
 Error handling and resilience are also essential. Anticipating failures and designing the system to manage them gracefully includes using try-except blocks and implementing retry logic with exponential backoff for transient issues. Clear error messages are key for troubleshooting. For critical decisions or when guardrails detect issues, integrating human-in-the-loop processes allows for human oversight to validate outputs or intervene in agent workflows.
 
-> 容错也不能省：该 try/catch 的地方要包全，对外部依赖要有退避重试；错误信息要既能给开发看，也能给运营看。遇到高风险动作或护栏报警，应能自动降级到「人在回路」——让人类看一眼再放行或手动纠偏。
+> 容错也不能省：该 try/catch 的地方要包全，对外部依赖要有退避重试；错误信息要既能给开发看，也能给运营看。遇到高风险动作或护栏报警，应能自动降级到「人在回路中」——让人类看一眼再放行或手动纠偏。
 
 Agent configuration acts as another guardrail layer. Defining roles, goals, and backstories guides agent behavior and reduces unintended outputs. Employing specialized agents over generalists maintains focus. Practical aspects like managing the LLM's context window and setting rate limits prevent API restrictions from being exceeded. Securely managing API keys, protecting sensitive data, and considering adversarial training are critical for advanced security to enhance model robustness against malicious attacks.
 
@@ -60,7 +60,7 @@ Agent configuration acts as another guardrail layer. Defining roles, goals, and 
 
 Let's see an example. This code demonstrates how to use CrewAI to add a safety layer to an AI system by using a dedicated agent and task, guided by a specific prompt and validated by a Pydantic-based guardrail, to screen potentially problematic user inputs before they reach a primary AI.
 
-> 示例展示如何用 CrewAI 叠一层「策略预审」：单独放一个 Policy Agent + Task，配长提示描述红线，再用 Pydantic guardrail 把 LLM 输出钉死在合法 JSON 上，最后才允许流量进入主模型。
+> 示例展示了如何用 CrewAI 叠加一层“策略预审”：单独配置一个 Policy Agent 与对应 Task，通过长提示明确政策红线，再利用基于 Pydantic 的 guardrail 将 LLM 输出约束为合法 JSON，最后才允许请求进入主模型。
 
 ````python
 # Copyright (c) 2025 Marco Fago
@@ -322,19 +322,19 @@ if __name__ == "__main__":
 
 This Python code constructs a sophisticated content policy enforcement mechanism. At its core, it aims to pre-screen user inputs to ensure they adhere to stringent safety and relevance policies before being processed by a primary AI system. 
 
-> 这段 Python 搭了一套可运行的内容策略门神：主对话模型动笔之前，先过一遍策略判定，只有合规才放行。
+> 这段 Python 构建了一套可运行的内容策略拦截机制：在主对话模型生成内容之前，先执行一次策略审查，只有判定合规的请求才会被放行。
 
 A crucial component is the `SAFETY_GUARDRAIL_PROMPT`, a comprehensive textual instruction set designed for a large language model. This prompt defines the role of an "AI Content Policy Enforcer" and details several critical policy directives. These directives cover attempts to subvert instructions (often termed "jailbreaking"), categories of prohibited content such as discriminatory or hateful speech, hazardous activities, explicit material, and abusive language. The policies also address irrelevant or off-domain discussions, specifically mentioning sensitive societal controversies, casual conversations unrelated to the AI's function, and requests for academic dishonesty. Furthermore, the prompt includes directives against discussing proprietary brands or services negatively or engaging in discussions about competitors. The prompt explicitly provides examples of permissible inputs for clarity and outlines an evaluation process where the input is assessed against every directive, defaulting to "compliant" only if no violation is demonstrably found. The expected output format is strictly defined as a JSON object containing `compliance_status`, `evaluation_summary`, and a list of `triggered_policies`.
 
-> 核心在长提示 `SAFETY_GUARDRAIL_PROMPT`：让副模型扮演「内容合规官」，逐条对照政策——包括越狱/指令劫持、仇恨与歧视、危险与违法、色情与骚扰、以及跑题到政治宗教八卦作业代写等；还可加品牌保护与竞品话题禁令。提示里给了正例帮助对齐，并要求**只要确凿违反任一条就判 non-compliant**；若有灰区则默认放行。最终必须吐出固定 JSON：`compliance_status`、`evaluation_summary`、`triggered_policies`。
+> 核心在于长提示 `SAFETY_GUARDRAIL_PROMPT`：它要求副模型扮演“内容合规官”，逐条对照政策要求，覆盖越狱 / 指令劫持、仇恨与歧视、危险与违法、色情与骚扰，以及与系统职责无关的政治、宗教、八卦、代写作业等内容；还可进一步加入品牌保护与竞品话题限制。提示中提供了正例以帮助模型对齐，并要求**只要明确违反任一条规则，就判定为 `non-compliant`**；若存在灰区，则默认放行。最终输出必须为固定 JSON：`compliance_status`、`evaluation_summary`、`triggered_policies`。
 
 To ensure the LLM's output conforms to this structure, a Pydantic model named PolicyEvaluation is defined. This model specifies the expected data types and descriptions for the JSON fields. Complementing this is the `validate_policy_evaluation` function, acting as a technical guardrail. This function receives the raw output from the LLM, attempts to parse it, handles potential markdown formatting, validates the parsed data against the PolicyEvaluation Pydantic model, and performs basic logical checks on the content of the validated data, such as ensuring the `compliance_status` is one of the allowed values and that the summary and triggered policies fields are correctly formatted. If validation fails at any point, it returns False along with an error message; otherwise, it returns True and the validated PolicyEvaluation object.
 
-> 光有 JSON 说明不够，代码里用 `PolicyEvaluation` 把字段类型钉死；`validate_policy_evaluation` 则是硬闸门：若输出外包了一层 Markdown 的 JSON 围栏就先剥掉，再反序列化、走 Pydantic，并检查枚举值、摘要非空、`triggered_policies` 必须是列表等。任何一步挂掉都返回 `(False, 错误原因)`，通过才返回 `(True, 结构化对象)`。
+> 仅有 JSON 规范说明并不足够，代码中还通过 `PolicyEvaluation` 明确定义字段类型；`validate_policy_evaluation` 则承担技术层面的强约束：若输出被包裹在 Markdown 的 JSON 代码块中，会先去除外层包装，再执行反序列化、Pydantic 校验，并检查枚举值是否合法、摘要是否非空、`triggered_policies` 是否为列表等。任一步骤失败都会返回 `(False, 错误原因)`，只有全部通过才返回 `(True, 结构化对象)`。
 
 Within the CrewAI framework, an Agent named `policy_enforcer_agent` is instantiated. This agent is assigned the role of the "AI Content Policy Enforcer" and given a goal and backstory consistent with its function of screening inputs. It is configured to be non-verbose and disallow delegation, ensuring it focuses solely on the policy enforcement task. This agent is explicitly linked to a specific LLM (gemini/gemini-2.0-flash), chosen for its speed and cost-effectiveness, and configured with a low temperature to ensure deterministic and strict policy adherence.
 
-> `policy_enforcer_agent` 被设成专职安检员：`verbose=False`、`allow_delegation=False`，避免它跑去干别的。模型选 `gemini/gemini-2.0-flash` 这种又快又便宜的档位，`temperature=0` 让判定尽量稳定、可复现。
+> `policy_enforcer_agent` 被配置为专职审核代理：`verbose=False`、`allow_delegation=False`，以避免偏离既定职责。模型选用 `gemini/gemini-2.0-flash` 这类时延低、成本可控的版本，`temperature=0` 则有助于提升判定结果的稳定性与可复现性。
 
 A Task called `evaluate_input_task` is then defined. Its description dynamically incorporates the `SAFETY_GUARDRAIL_PROMPT` and the specific `user_input` to be evaluated. The task's `expected_output` reinforces the requirement for a JSON object conforming to the PolicyEvaluation schema. Crucially, this task is assigned to the `policy_enforcer_agent` and utilizes the `validate_policy_evaluation` function as its guardrail. The `output_pydantic` parameter is set to the PolicyEvaluation model, instructing CrewAI to attempt to structure the final output of this task according to this model and validate it using the specified guardrail.
 
@@ -346,11 +346,11 @@ These components are then assembled into a Crew. The crew consists of the `polic
 
 A helper function, `run_guardrail_crew`, encapsulates the execution logic. It takes a `user_input` string, logs the evaluation process, and calls the crew.kickoff method with the input provided in the inputs dictionary. After the crew completes its execution, the function retrieves the final, validated output, which is expected to be a PolicyEvaluation object stored in the pydantic attribute of the last task's output within the CrewOutput object. Based on the `compliance_status` of the validated result, the function logs the outcome and returns a tuple indicating whether the input is compliant, a summary message, and the list of triggered policies. Error handling is included to catch exceptions during crew execution.
 
-> `run_guardrail_crew` 是对外友好封装：`kickoff` 后从 `CrewOutput.tasks_output[-1].pydantic` 抠出 `PolicyEvaluation`，读 `compliance_status` 决定布尔返回值，同时把 human-readable 摘要和触发条款列表一并带回；异常路径统一转成「判失败 + 错误文案」。
+> `run_guardrail_crew` 对外封装了执行逻辑：`kickoff` 之后，从 `CrewOutput.tasks_output[-1].pydantic` 中提取 `PolicyEvaluation`，再根据 `compliance_status` 生成布尔返回值，同时返回可读摘要与触发条款列表；异常路径则统一转换为“判定失败 + 错误说明”。
 
 Finally, the script includes a main execution block (`if __name__ == "__main__":`) that provides a demonstration. It defines a list of `test_cases` representing various user inputs, including both compliant and non-compliant examples. It then iterates through these test cases, calling `run_guardrail_crew` for each input and using the `print_test_case_result` function to format and display the outcome of each test, clearly indicating the input, the compliance status, the summary, and any policies that were violated, along with the suggested action (proceed or block). This main block serves to showcase the functionality of the implemented guardrail system with concrete examples.
 
-> `__main__` 里列了一组正负样例，循环调用 `run_guardrail_crew` 并用 `print_test_case_result` 漂亮打印：输入原文、合规与否、模型解释、命中条款、以及建议下游系统「放行 / 拦截」。这是把抽象策略变成可演示回归测试的最小闭环。
+> `__main__` 中列出了一组正负样例，循环调用 `run_guardrail_crew`，并通过 `print_test_case_result` 规范输出：包括原始输入、合规判定、模型解释、命中条款，以及建议下游系统“放行 / 拦截”。这构成了将抽象策略转化为可演示回归测试的最小闭环。
 
 ## Hands-On Code Vertex AI Example
 
@@ -362,7 +362,7 @@ Google Cloud's Vertex AI provides a multi-faceted approach to mitigating risks a
 
 For robust safety, consider these essential practices: use a less computationally intensive model (e.g., Gemini Flash Lite) as an extra safeguard, employ isolated code execution environments, rigorously evaluate and monitor agent actions, and restrict agent activity within secure network boundaries (e.g., VPC Service Controls). Before implementing these, conduct a detailed risk assessment tailored to the agent's functionalities, domain, and deployment environment. Beyond technical safeguards, sanitize all model-generated content before displaying it in user interfaces to prevent malicious code execution in browsers. Let's see an example.
 
-> 落地建议包括：用更小模型做二次裁判；代码执行放进沙箱；对智能体行为做红队与持续监控；用 VPC Service Controls 等把数据面锁在可信网络里。上线前按场景做威胁建模。别忘了前端也要消毒——模型若吐出 HTML/JS，直接塞进 DOM 可能变成 XSS。下面给一段最小回调示例。
+> 落地建议包括：使用更小的模型进行二次裁决；将代码执行置于沙箱环境；对智能体行为开展红队测试与持续监控；并利用 VPC Service Controls 等机制将数据面限制在可信网络内。上线前还应按场景完成威胁建模。同时也不要忽视前端消毒工作，如果模型生成 HTML / JS 并被直接插入 DOM，就可能引发 XSS。下面给出一个最小回调示例。
 
 ```python
 from google.adk.agents import Agent  # Correct import
@@ -417,15 +417,15 @@ This code defines an agent and a validation callback for tool execution. It impo
 
 It's worth emphasizing that guardrails can be implemented in various ways. While some are simple allow/deny lists based on specific patterns, more sophisticated guardrails can be created using prompt-based instructions. 
 
-> 护栏没有银弹：可以是正则/词典级黑白名单，也可以是把整本政策写进提示词，让副模型当裁判。
+> 护栏并不存在“银弹”方案：既可以采用正则或词典级别的黑白名单，也可以将完整政策写入提示，让副模型承担裁决职责。
 
 LLMs, such as Gemini, can power robust, prompt-based safety measures like callbacks. This approach helps mitigate risks associated with content safety, agent misalignment, and brand safety that may stem from unsafe user and tool inputs. A fast and cost-effective LLM, like Gemini Flash, is well-suited for screening these inputs.
 
-> 像 Gemini 这类通用 LLM 很适合充当「提示驱动的策略引擎」，配合回调即可覆盖内容安全、目标对齐漂移、品牌声誉等复合风险；Flash 系列 latency 低、单价便宜，做实时过滤刚刚好。
+> 像 Gemini 这类通用 LLM 很适合充当“提示驱动的策略引擎”，配合回调即可覆盖内容安全、目标对齐漂移、品牌声誉等复合风险；Flash 系列时延低、成本可控，适合承担实时过滤任务。
 
 For example, an LLM can be directed to act as a safety guardrail. This is particularly useful in preventing "Jailbreak" attempts, which are specialized prompts designed to bypass an LLM's safety features and ethical restrictions. The aim of a Jailbreak is to trick the AI into generating content it is programmed to refuse, such as harmful instructions, malicious code, or offensive material. Essentially, it's an adversarial attack that exploits loopholes in the AI's programming to make it violate its own rules.
 
-> 典型攻击面是越狱提示：攻击者编造叙事，诱导模型输出本应拒绝的有害教程、恶意代码或仇恨言论——本质上是针对对齐与提示工程的对抗样本，目标是让模型自己撕掉用户可见的安全层。
+> 典型攻击面之一是越狱提示：攻击者通过构造特定叙事，诱导模型输出本应拒绝的有害教程、恶意代码或仇恨言论。从本质上看，这是一类针对对齐机制与提示工程的对抗样本，目标是诱使模型绕过面向用户的安全约束。
 
 ````markdown
 You are an AI Safety Guardrail, designed to filter and block unsafe inputs to a primary AI agent. Your critical role is to ensure that the primary AI agent only processes appropriate and safe content.
@@ -503,13 +503,13 @@ However, a robust agent architecture extends beyond just one pattern. Several ot
 * Observability through Structured Logging: A reliable system is one you can understand. For agents, this means implementing deep observability. Instead of just seeing the final output, engineers need structured logs that capture the agent’s entire "chain of thought"—which tools it called, the data it received, its reasoning for the next step, and the confidence scores for its decisions. This is essential for debugging and performance tuning.  
 * The Principle of Least Privilege: Security is paramount. An agent should be granted the absolute minimum set of permissions required to perform its task. An agent designed to summarize public news articles should only have access to a news API, not the ability to read private files or interact with other company systems. This drastically limits the "blast radius" of potential errors or malicious exploits.
 
-> * **模块化与关注点分离：** 「一个 agent 包打天下」往往最难测、最难回滚；拆成检索、推理、总结、对客沟通等微服务式智能体，边界清晰，才能单独压测与灰度。多智能体还能天然并行，故障也更容易隔离。  
-> * **结构化日志与链路追踪：** 线上排障不能只看最终回复；要把工具入参、返回体截断摘要、中间 CoT、置信度或投票结果全部打进可查询日志，才能回答「它为什么当时那么想」。  
+> * **模块化与关注点分离：** 「一个 agent 包打天下」往往最难测、最难回滚；拆成检索、推理、总结、对客沟通等微服务式智能体，边界清晰，才能单独压测与灰度。多智能体还能天然并行，故障也更容易隔离。
+> * **结构化日志与链路追踪：** 线上排障不能只看最终回复；要把工具入参、返回体截断摘要、中间 CoT、置信度或投票结果全部打进可查询日志，才能回答「它为什么当时那么想」。
 > * **最小权限：** 能读公开资讯就别给内网数据库 key；能调用只读 API 就别给写权限——把 blast radius 压到最低，是应对提示注入与工具滥用的最后一道物理闸。
 
 By integrating these core principles—fault tolerance, modular design, deep observability, and strict security—we move from simply creating a functional agent to engineering a resilient, production-grade system. This ensures that the agent's operations are not only effective but also robust, auditable, and trustworthy, meeting the high standards required of any well-engineered software.
 
-> 把容错、拆分、可观测、最小权限串成闭环，产品形态才会从「Demo 能跑」进化到「半夜报警也能自愈」——这才是生产级智能体与玩具脚本的差距。
+> 只有将容错、模块拆分、可观测性与最小权限原则串联成闭环，系统才能从“可演示的原型”演进为具备生产韧性的工程体系。这正是生产级智能体与实验性脚本之间的本质差异。
 
 ## At a Glance
 
@@ -548,11 +548,11 @@ Fig. 1: Guardrail design pattern
 * Effective guardrails are crucial for maintaining user trust and protecting the reputation of the Agents and its developers.  
 * The most effective way to build reliable, production-grade Agents is to treat them as complex software, applying the same proven engineering best practices—like fault tolerance, state management, and robust testing—that have governed traditional systems for decades.
 
-> * 没有护栏，就别谈负责任 AI——它是挡有害、偏见与跑题输出的底线。  
-> * 纵深防御：输入、输出、提示、工具、第三方审核、人工复核，可以叠床架屋，不该只选一层。  
-> * 多种机制互补（规则 + 小模型 + 大模型自审）通常比单一方案更抗绕过。  
-> * 攻击面会变，护栏要跟着迭代；把线上违规样本回流进评估集是常态工作。  
-> * 用户信任与品牌资产直接挂钩于你是否能在事故前拦截、事故后溯源。  
+> * 没有护栏，就别谈负责任 AI——它是挡有害、偏见与跑题输出的底线。
+> * 纵深防御：输入、输出、提示、工具、第三方审核、人工复核，可以叠床架屋，不该只选一层。
+> * 多种机制互补（规则 + 小模型 + 大模型自审）通常比单一方案更抗绕过。
+> * 攻击面会变，护栏要跟着迭代；把线上违规样本回流进评估集是常态工作。
+> * 用户信任与品牌资产直接挂钩于你是否能在事故前拦截、事故后溯源。
 > * 把智能体当分布式系统来运维：容错、状态、测试、发布流水线，老办法依然管用。
 
 ## Conclusion
@@ -561,7 +561,7 @@ Fig. 1: Guardrail design pattern
 
 Implementing effective guardrails represents a core commitment to responsible AI development, extending beyond mere technical execution. Strategic application of these safety patterns enables developers to construct intelligent agents that are robust and efficient, while prioritizing trustworthiness and beneficial outcomes. Employing a layered defense mechanism, which integrates diverse techniques ranging from input validation to human oversight, yields a resilient system against unintended or harmful outputs. Ongoing evaluation and refinement of these guardrails are essential for adaptation to evolving challenges and ensuring the enduring integrity of agentic systems. Ultimately, carefully designed guardrails empower AI to serve human needs in a safe and effective manner.
 
-> 把护栏做好，等于向用户与监管同时表态：我们认真看待风险，而不是只追指标。分层策略让系统在遭遇提示注入、工具滥用或模型抽风时仍有冗余；持续评估则保证新场景、新语种、新政策上线后旧防线不会瞬间失效。最终目标只有一个——让 AI 真的帮到人，而不是在暗处伤人。
+> 做好护栏，等于同时向用户与监管传递一个明确信号：系统真正重视风险治理，而非只关注业务指标。分层防御策略使系统在遭遇提示注入、工具滥用或模型异常时仍保有冗余；持续评估则确保旧有防线不会在新场景、新语种或新政策上线后迅速失效。最终目标只有一个：让 AI 真正服务于人，而不是在隐蔽处造成伤害。
 
 ## **References**
 

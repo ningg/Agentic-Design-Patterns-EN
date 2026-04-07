@@ -2,13 +2,13 @@
 
 Intelligent behavior often involves more than just reacting to the immediate input. It requires foresight, breaking down complex tasks into smaller, manageable steps, and strategizing how to achieve a desired outcome. This is where the Planning pattern comes into play. At its core, planning is the ability for an agent or a system of agents to formulate a sequence of actions to move from an initial state towards a goal state.
 
-> 智能行为往往不仅是对即时输入做出反应，更需要前瞻：将复杂任务拆解为更小、可管理的步骤，并谋划如何达成期望结果。这便是规划（Planning）模式发挥作用之处——其核心在于，智能体或多智能体系统能够制定一系列行动，从初始状态迈向目标状态。
+> 智能行为往往不仅仅是对即时输入做出反应，更需要前瞻性：将复杂任务拆解为更小、可管理的步骤，并谋划如何达成期望结果。这正是规划（Planning）模式发挥作用之处——其核心在于，智能体或多智能体系统能够制定一系列行动，从初始状态迈向目标状态。
 
 ## Planning Pattern Overview
 
 In the context of AI, it's helpful to think of a planning agent as a specialist to whom you delegate a complex goal. When you ask it to "organize a team offsite," you are defining the what—the objective and its constraints—but not the how. The agent's core task is to autonomously chart a course to that goal. It must first understand the initial state (e.g., budget, number of participants, desired dates) and the goal state (a successfully booked offsite), and then discover the optimal sequence of actions to connect them. The plan is not known in advance; it is created in response to the request.
 
-> 在 AI 语境下，不妨将规划智能体视为可托付复杂目标的专家。当你让它「组织一次团队外出活动」时，你阐明的是目标与约束，而非具体做法。智能体的核心任务是自主规划通往该目标的路线：先厘清初始状态（如预算、人数、意向日期）与目标状态（活动成功预订），再发现连接二者的最优行动序列。计划并非事先写就，而是应请求动态生成。
+> 在 AI 语境下，不妨将规划智能体视为一位可以托付复杂目标的专家。当你让它“组织一次团队外出活动”时，你给出的其实是目标及其约束，而不是具体做法。智能体的核心任务，是自主规划通往该目标的路径：先厘清初始状态（如预算、人数、意向日期）与目标状态（活动成功预订），再找出连接二者的最优行动序列。计划并不是预先写死的，而是根据请求动态生成的。
 
 A hallmark of this process is adaptability. An initial plan is merely a starting point, not a rigid script. The agent's real power is its ability to incorporate new information and steer the project around obstacles. For instance, if the preferred venue becomes unavailable or a chosen caterer is fully booked, a capable agent doesn't simply fail. It adapts. It registers the new constraint, re-evaluates its options, and formulates a new plan, perhaps by suggesting alternative venues or dates.
 
@@ -22,7 +22,7 @@ However, it is crucial to recognize the trade-off between flexibility and predic
 
 The Planning pattern is a core computational process in autonomous systems, enabling an agent to synthesize a sequence of actions to achieve a specified goal, particularly within dynamic or complex environments. This process transforms a high-level objective into a structured plan composed of discrete, executable steps.
 
-> 规划模式是自主系统中的核心计算过程，使智能体能够综合出一系列行动以达成既定目标，在动态或复杂环境中尤为关键。它将高层目标转化为由离散、可执行步骤构成的结构化计划。
+> 规划模式是自主系统中的核心计算过程，使智能体能够综合出一系列行动以达成既定目标，在动态或复杂环境中尤为关键。它将高层目标转化为由离散且可执行的步骤构成的结构化计划。
 
 In domains such as procedural task automation, planning is used to orchestrate complex workflows. For example, a business process like onboarding a new employee can be decomposed into a directed sequence of sub-tasks, such as creating system accounts, assigning training modules, and coordinating with different departments. The agent generates a plan to execute these steps in a logical order, invoking necessary tools or interacting with various systems to manage dependencies.
 
@@ -30,7 +30,7 @@ In domains such as procedural task automation, planning is used to orchestrate c
 
 Within robotics and autonomous navigation, planning is fundamental for state-space traversal. A system, whether a physical robot or a virtual entity, must generate a path or sequence of actions to transition from an initial state to a goal state. This involves optimizing for metrics such as time or energy consumption while adhering to environmental constraints, like avoiding obstacles or following traffic regulations.
 
-> 在机器人与自主导航中，规划是状态空间遍历的基础。无论物理机器人还是虚拟实体，都须生成路径或行动序列，使系统从初始状态过渡到目标状态；这要求在时间、能耗等指标上优化，同时满足环境约束，如避障或遵守交通规则。
+> 在机器人与自主导航领域，规划是状态空间遍历的基础。无论是物理机器人还是虚拟实体，都必须生成一条路径或一系列行动，使系统从初始状态过渡到目标状态；这要求它在时间、能耗等指标上进行优化，同时满足环境约束，例如避开障碍物或遵守交通规则。
 
 This pattern is also critical for structured information synthesis. When tasked with generating a complex output like a research report, an agent can formulate a plan that includes distinct phases for information gathering, data summarization, content structuring, and iterative refinement. Similarly, in customer support scenarios involving multi-step problem resolution, an agent can create and follow a systematic plan for diagnosis, solution implementation, and escalation.
 
@@ -113,13 +113,13 @@ print(result)
 
 This code uses the CrewAI library to create an AI agent that plans and writes a summary on a given topic. It starts by importing necessary libraries, including Crew.ai and `langchain_openai`, and loading environment variables from a .env file. A ChatOpenAI language model is explicitly defined for use with the agent. An Agent named `planner_writer_agent` is created with a specific role and goal: to plan and then write a concise summary. The agent's backstory emphasizes its expertise in planning and technical writing. A Task is defined with a clear description to first create a plan and then write a summary on the topic "The importance of Reinforcement Learning in AI", with a specific format for the expected output. A Crew is assembled with the agent and task, set to process them sequentially. Finally, the crew.kickoff() method is called to execute the defined task and the result is printed.
 
-> 该代码借助 CrewAI 库构建既能规划又能撰写指定主题摘要的 AI 智能体：先导入 Crew.ai、`langchain_openai` 等依赖，并从 .env 加载环境变量；显式实例化 ChatOpenAI 供智能体调用。`planner_writer_agent` 的角色与目标是先规划再撰写简明摘要，背景故事突出规划与技术写作能力。任务要求先列出要点计划，再围绕「The importance of Reinforcement Learning in AI」撰写约 200 词摘要，并对期望输出格式作出明确规定。将该智能体与任务编入 Crew，采用顺序处理流程；最后通过 `crew.kickoff()` 执行任务并打印结果。
+> 该代码借助 CrewAI 库构建既能规划又能撰写指定主题摘要的 智能体：先导入 Crew.ai、`langchain_openai` 等依赖，并从 .env 加载环境变量；显式实例化 ChatOpenAI 供智能体调用。`planner_writer_agent` 的角色与目标是先规划再撰写简明摘要，背景故事突出规划与技术写作能力。任务要求先列出要点计划，再围绕「The importance of Reinforcement Learning in AI」撰写约 200 词摘要，并对期望输出格式作出明确规定。将该智能体与任务编入 Crew，采用顺序处理流程；最后通过 `crew.kickoff()` 执行任务并打印结果。
 
 ## Google DeepResearch
 
 Google Gemini DeepResearch (see Fig.1)  is an agent-based system designed for autonomous information retrieval and synthesis. It functions through a multi-step agentic pipeline that dynamically and iteratively queries Google Search to systematically explore complex topics. The system is engineered to process a large corpus of web-based sources, evaluate the collected data for relevance and knowledge gaps, and perform subsequent searches to address them. The final output consolidates the vetted information into a structured, multi-page summary with citations to the original sources.
 
-> Google Gemini DeepResearch（见图 1）是面向自主信息检索与综合的智能体系统，通过多步智能体流水线动态、迭代地调用 Google 搜索，系统性地探索复杂主题。系统可处理大量网页来源，评估已获数据的相关性与知识缺口并持续搜索补全；最终将核实后的信息整合为带引用的结构化多页摘要。
+> Google Gemini DeepResearch（见图 1）是一套面向自主信息检索与综合的智能体系统，它通过多步智能体流水线动态、迭代地调用 Google 搜索，系统性地探索复杂主题。系统能够处理大量网页来源，评估已获取数据的相关性与知识缺口，并持续搜索补全；最终将核实后的信息整合为带引用的结构化多页摘要。
 
 Expanding on this, the system's operation is not a single query-response event but a managed, long-running process. It begins by deconstructing a user's prompt into a multi-point research plan (see Fig. 1), which is then presented to the user for review and modification. This allows for a collaborative shaping of the research trajectory before execution. Once the plan is approved, the agentic pipeline initiates its iterative search-and-analysis loop. This involves more than just executing a series of predefined searches; the agent dynamically formulates and refines its queries based on the information it gathers, actively identifying knowledge gaps, corroborating data points, and resolving discrepancies.
 
@@ -167,7 +167,7 @@ The efficiency of this approach stems from the automation of the iterative searc
 
 The OpenAI Deep Research API is a specialized tool designed to automate complex research tasks. It utilizes an advanced, agentic model that can independently reason, plan, and synthesize information from real-world sources. Unlike a simple Q\&A model, it takes a high-level query and autonomously breaks it down into sub-questions, performs web searches using its built-in tools, and delivers a structured, citation-rich final report. The API provides direct programmatic access to this entire process, using  at the time of writing models like o3-deep-research-2025-06-26 for high-quality synthesis and the faster o4-mini-deep-research-2025-06-26 for latency-sensitive application
 
-> OpenAI Deep Research API 面向复杂研究任务的自动化，依托能够独立推理、规划并从真实世界来源综合信息的高级智能体模型。与简单问答模型不同，它在接收高层查询后会自主拆分子问题，借助内置工具执行网页检索，并交付结构化、引用充分的最终报告。API 以编程方式开放上述全流程；截至本文撰写，可选用 o3-deep-research-2025-06-26 以侧重高质量综合，或 o4-mini-deep-research-2025-06-26 以兼顾低延迟场景。
+> OpenAI Deep Research API 面向复杂研究任务的自动化，依托能够独立推理、规划并从真实世界来源综合信息的高级智能体模型。与简单问答模型不同，它在接收高层查询后会自主拆分子问题，借助内置工具执行网页检索，并交付结构化、引用充分的最终报告。该 API 以编程方式开放了上述全流程；截至本文撰写时，可选用 `o3-deep-research-2025-06-26` 以侧重高质量综合，或 `o4-mini-deep-research-2025-06-26` 以兼顾低延迟场景。
 
 The Deep Research API is useful because it automates what would otherwise be hours of manual research, delivering professional-grade, data-driven reports suitable for informing business strategy, investment decisions, or policy recommendations. Its key benefits include:
 
@@ -177,8 +177,8 @@ The Deep Research API is useful because it automates what would otherwise be hou
 * **Transparency:** Unlike the abstracted process in ChatGPT, the API exposes all intermediate steps, including the agent's reasoning, the specific web search queries it executed, and any code it ran. This allows for detailed debugging, analysis, and a deeper understanding of how the final answer was constructed.  
 * **Extensibility:** It supports the Model Context Protocol (MCP), enabling developers to connect the agent to private knowledge bases and internal data sources, blending public web research with proprietary information.
 
-> * **结构化与引用输出：** 生成条理清晰的报告，行内引用与来源元数据相对应，使论断可核实、有数据支撑。  
-> * **透明性：** 与 ChatGPT 中高度抽象的过程不同，API 暴露完整中间步骤，包括智能体推理、实际执行的网页检索查询以及所运行代码，便于调试、复盘并理解最终答案的构成方式。  
+> * **结构化与引用输出：** 生成条理清晰的报告，行内引用与来源元数据相对应，使论断可核实、有数据支撑。
+> * **透明性：** 与 ChatGPT 中高度抽象的过程不同，API 暴露完整中间步骤，包括智能体推理、实际执行的网页检索查询以及所运行代码，便于调试、复盘并理解最终答案的构成方式。
 > * **可扩展性：** 支持模型上下文协议（MCP），开发者可将智能体接入私有知识库与内部数据源，将公开网页研究与专有信息相结合。
 
 To use the API, you send a request to the client.responses.create endpoint, specifying a model, an input prompt, and the tools the agent can use. The input typically includes a `system_message` that defines the agent's persona and desired output format, along with the `user_query`. You must also include the `web_search_preview` tool and can optionally add others like `code_interpreter` or custom MCP tools (see Chapter 10) for internal data.
@@ -315,17 +315,17 @@ Fig.4; Planning design pattern
 * Explicitly prompting or designing tasks to require planning steps encourages this behavior in agent frameworks.  
 * Google Deep Research is an agent analyzing on our behalf sources obtained using Google Search as a tool. It reflects, plans, and executes
 
-> * 规划使智能体能够将复杂目标分解为可依次执行的步骤。  
-> * 对多步任务、工作流自动化以及在复杂环境中寻路至关重要。  
-> * LLM 可依据任务描述生成逐步方案以落实规划。  
-> * 在提示或任务设计中显式要求规划环节，有助于在智能体框架中巩固该行为。  
+> * 规划使智能体能够将复杂目标分解为可依次执行的步骤。
+> * 对多步任务、工作流自动化以及在复杂环境中寻路至关重要。
+> * LLM 可依据任务描述生成逐步方案以落实规划。
+> * 在提示或任务设计中显式要求规划环节，有助于在智能体框架中巩固该行为。
 > * Google Deep Research 是以 Google 搜索为工具、代用户分析所获来源的智能体；具备反思、规划与执行能力。
 
 ## Conclusion
 
 In conclusion, the Planning pattern is a foundational component that elevates agentic systems from simple reactive responders to strategic, goal-oriented executors. Modern large language models provide the core capability for this, autonomously decomposing high-level objectives into coherent, actionable steps. This pattern scales from straightforward, sequential task execution, as demonstrated by the CrewAI agent creating and following a writing plan, to more complex and dynamic systems. The Google DeepResearch agent exemplifies this advanced application, creating iterative research plans that adapt and evolve based on continuous information gathering. Ultimately, planning provides the essential bridge between human intent and automated execution for complex problems. By structuring a problem-solving approach, this pattern enables agents to manage intricate workflows and deliver comprehensive, synthesized results.
 
-> 总之，规划模式是基础构件，将智能体系统从简单的反应式应答，提升为更具战略性与目标导向的执行者。现代大语言模型提供了将高层目标自主分解为连贯、可执行步骤的核心能力。该模式既涵盖 CrewAI 智能体制定并遵循写作计划这类线性顺序执行，也可扩展至更复杂、更动态的系统；Google DeepResearch 智能体便是高阶范例——在持续信息收集中迭代研究计划并不断调整。归根结底，规划在复杂问题中架起人类意图与自动执行之间的桥梁；借助结构化的解题路径，使智能体能够驾驭错综复杂的工作流，并交付全面、综合的成果。
+> 总之，规划模式是智能体系统的基础构件之一，它将系统从简单的反应式应答者，提升为更具战略性、也更具目标导向的执行者。现代大语言模型提供了将高层目标自主拆解为连贯、可执行步骤的核心能力。该模式既适用于 Crew智能体制定并遵循写作计划这类线性顺序执行，也能够扩展到更复杂、更动态的系统；Google DeepResearch 智能体便是一个高阶范例——它能够在持续的信息收集过程中迭代研究计划并不断调整。归根结底，规划在复杂问题中架起了人类意图与自动执行之间的桥梁；借助结构化的解题路径，智能体得以驾驭错综复杂的工作流，并交付全面、综合的成果。
 
 ## References
 

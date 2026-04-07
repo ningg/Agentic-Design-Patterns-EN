@@ -4,7 +4,7 @@
 
 Individual AI agents often face limitations when tackling complex, multifaceted problems, even with advanced capabilities. To overcome this, Inter-Agent Communication (A2A) enables diverse AI agents, potentially built with different frameworks, to collaborate effectively. This collaboration involves seamless coordination, task delegation, and information exchange.
 
-> 即便单体能力突出，单一 AI 智能体面对复杂、多侧面的任务时仍往往力不从心。智能体间通信（A2A）让多种、且可能基于不同框架构建的智能体能够协同工作，实现顺畅协调、任务委派与信息交换。
+> 即便单体能力突出，单一 智能体面对复杂、多侧面的任务时仍往往力不从心。智能体间通信（A2A）让多种、且可能基于不同框架构建的智能体能够协同工作，实现顺畅协调、任务委派与信息交换。
 
 Google's A2A protocol is an open  standard designed to facilitate this universal communication. This chapter will explore A2A, its practical applications, and its implementation within the Google ADK.
 
@@ -16,7 +16,7 @@ Google's A2A protocol is an open  standard designed to facilitate this universal
 
 The Agent2Agent (A2A) protocol is an open standard designed to enable communication and collaboration between different AI agent frameworks. It ensures interoperability, allowing AI agents developed with technologies like LangGraph, CrewAI, or Google ADK to work together regardless of their origin or framework differences.
 
-> Agent2Agent（A2A）协议是开放标准，用于在不同 AI 智能体框架之间建立通信与协作。它保障互操作性，使基于 LangGraph、CrewAI 或 Google ADK 等技术的智能体，无论出自哪家、采用何种框架，都能协同工作。
+> Agent2Agent（A2A）协议是开放标准，用于在不同 智能体框架之间建立通信与协作。它保障互操作性，使基于 LangGraph、CrewAI 或 Google ADK 等技术的智能体，无论出自哪家、采用何种框架，都能协同工作。
 
 A2A is supported by a range of technology companies and service providers, including Atlassian, Box, LangChain, MongoDB, Salesforce, SAP, and ServiceNow. Microsoft plans to integrate A2A into Azure AI Foundry and Copilot Studio, demonstrating its commitment to open protocols. Additionally, Auth0 and SAP are integrating A2A support into their platforms and agents.
 
@@ -32,7 +32,7 @@ As an open-source protocol, A2A welcomes community contributions to facilitate i
 
 The A2A protocol provides a structured approach for agent interactions, built upon several core concepts. A thorough grasp of these concepts is crucial for anyone developing or integrating with A2A-compliant systems. The foundational pillars of A2A include Core Actors, Agent Card, Agent Discovery, Communication and Tasks,  Interaction mechanisms, and Security, all of which will be reviewed in detail.
 
-> A2A 协议以若干核心概念为基石，为智能体交互提供结构化路径。开发与集成符合 A2A 的系统前，宜先吃透这些概念。其支柱涵盖：核心参与者、智能体卡片（Agent Card）、智能体发现、通信与任务、交互机制与安全；下文分节说明。
+> A2A 协议以若干核心概念为基础，为智能体交互提供结构化框架。在开发或集成符合 A2A 的系统之前，应先充分理解这些概念。其核心支柱包括：核心参与者、智能体卡片（Agent Card）、智能体发现、通信与任务、交互机制与安全；下文将分节说明。
 
 **Core Actors:** A2A involves three main entities:
 
@@ -42,9 +42,9 @@ The A2A protocol provides a structured approach for agent interactions, built up
 * A2A Client (Client Agent): An application or AI agent that acts on the user's behalf to request actions or information.  
 * A2A Server (Remote Agent): An AI agent or system that provides an HTTP endpoint to process client requests and return results. The remote agent operates as an "opaque" system, meaning the client does not need to understand its internal operational details.
 
-> * 用户：发起需要智能体协助的请求。  
-> * A2A 客户端（Client Agent）：代表用户去请求操作或获取信息的应用或 AI 智能体。  
-> * A2A 服务端（Remote Agent）：提供 HTTP 端点处理客户端请求并返回结果的 AI 智能体或系统。远端智能体以「黑盒」方式对外服务，客户端不必知晓其内部实现。
+> * 用户：发起需要智能体协助的请求。
+> * A2A 客户端（Client Agent）：代表用户去请求操作或获取信息的应用或 智能体。
+> * A2A 服务端（Remote Agent）：提供 HTTP 端点处理客户端请求并返回结果的 智能体或系统。远端智能体以黑盒方式对外提供服务，客户端无须知晓其内部实现。
 
 **Agent Card:** An agent's digital identity is defined by its Agent Card, usually a JSON file. This file contains key information for client interaction and automatic discovery, including the agent's identity, endpoint URL, and version. It also details supported capabilities like streaming or push notifications, specific skills, default input/output modes, and authentication requirements. Below is an example of an Agent Card for a WeatherBot.
 
@@ -125,8 +125,8 @@ The A2A protocol provides a structured approach for agent interactions, built up
 * Curated Registries**:** These provide a centralized catalog where Agent Cards are published and can be queried based on specific criteria. This is well-suited for enterprise environments needing centralized management and access control.  
 * Direct Configuration**:** Agent Card information is embedded or privately shared. This method is appropriate for closely coupled or private systems where dynamic discovery isn't crucial.
 
-> * 知名 URI（Well-Known URI）：将 Agent Card 放在约定路径（如 `/.well-known/agent.json`），便于公网或域内广泛、可自动化的发现。  
-> * **策展注册表（Curated Registries）：** 集中发布 Agent Card 并支持按条件检索，适合需要统一治理与访问控制的企业环境。  
+> * 知名 URI（Well-Known URI）：将 Agent Card 放在约定路径（如 `/.well-known/agent.json`），便于公网或域内广泛、可自动化的发现。
+> * **策展注册表（Curated Registries）：** 集中发布 Agent Card 并支持按条件检索，适合需要统一治理与访问控制的企业环境。
 > * **直接配置（Direct Configuration）：** 将 Agent Card 内嵌或线下分发，适合紧耦合或私有部署、且不强调动态发现的场景。
 
 Regardless of the chosen method, it is important to secure Agent Card endpoints. This can be achieved through access control, mutual TLS (mTLS), or network restrictions, especially if the card contains sensitive (though non-secret) information.
@@ -143,16 +143,16 @@ This communication  contains attributes, which are key-value metadata describing
 
 **Interaction Mechanisms**: Request/Response (Polling) Server-Sent Events (SSE). A2A provides multiple interaction methods to suit a variety of AI application needs, each with a distinct mechanism:
 
-> **交互机制：** 涵盖同步请求/响应、异步轮询、服务器推送事件（SSE）等。A2A 提供多种交互形态，以匹配不同 AI 应用的时延与连接需求：
+> **交互机制：** 涵盖同步请求/响应、异步轮询、服务器发送事件（SSE）等。A2A 提供多种交互形态，以匹配不同 AI 应用在时延与连接方式上的需求：
 
 * Synchronous Request/Response: For quick, immediate operations. In this model, the client sends a request and actively waits for the server to process it and return a complete response in a single, synchronous exchange.  
 * Asynchronous Polling: Suited for tasks that take longer to process. The client sends a request, and the server immediately acknowledges it with a "working" status and a task ID. The client is then free to perform other actions and can periodically poll the server by sending new requests to check the status of the task until it is marked as "completed" or "failed."  
 * Streaming Updates (Server-Sent Events \- SSE): Ideal for receiving real-time, incremental results. This method establishes a persistent, one-way connection from the server to the client. It allows the remote agent to continuously push updates, such as status changes or partial results, without the client needing to make multiple requests.  
 * Push Notifications (Webhooks): Designed for very long-running or resource-intensive tasks where maintaining a constant connection or frequent polling is inefficient. The client can register a webhook URL, and the server will send an asynchronous notification (a "push") to that URL when the task's status changes significantly (e.g., upon completion).
 
-> * **同步请求/响应：** 面向低时延、一次性拿全结果的场景；客户端发出请求并在同一次往返内等待服务端返回完整答复。  
-> * **异步轮询：** 适合耗时任务；服务端先返回「进行中」与任务 ID，客户端可穿插其他工作并周期性拉取状态，直到标记为「完成」或「失败」。  
-> * **流式更新（SSE）：** 适合实时、增量呈现；建立服务端到客户端的长连接，远端智能体可持续推送状态或片段结果，免却高频轮询。  
+> * **同步请求/响应：** 面向低时延、一次性拿全结果的场景；客户端发出请求并在同一次往返内等待服务端返回完整答复。
+> * **异步轮询：** 适合耗时任务；服务端先返回「进行中」与任务 ID，客户端可穿插其他工作并周期性拉取状态，直到标记为「完成」或「失败」。
+> * **流式更新（SSE）：** 适合实时、增量呈现；建立服务端到客户端的长连接，远端智能体可持续推送状态或片段结果，免却高频轮询。
 > * **推送通知（Webhooks）：** 适合超长或重负载任务；客户端预先登记 webhook，状态显著变化（如完结）时由服务端异步回调该 URL。
 
 The Agent Card specifies whether an agent supports streaming or push notification capabilities. Furthermore, A2A is modality-agnostic, meaning it can facilitate these interaction patterns not just for text, but also for other data types like audio and video, enabling rich, multimodal AI applications. Both streaming and push notification capabilities are specified within the Agent Card.
@@ -265,8 +265,8 @@ Inter-Agent Communication is indispensable for building sophisticated AI solutio
 * **Automated Workflow Orchestration:** In enterprise settings, A2A can facilitate complex workflows by enabling agents to delegate and coordinate tasks. For instance, an agent might handle initial data collection, then delegate to another agent for analysis, and finally to a third for report generation, all communicating via the A2A protocol.  
 * **Dynamic Information Retrieval:** Agents can communicate to retrieve and exchange real-time information. A primary agent might request live market data from a specialized "data fetching agent," which then uses external APIs to gather the information and send it back.
 
-> * **多框架协作：** 典型场景是让彼此独立、底层各异（ADK、LangChain、CrewAI 等）的智能体仍能互通协作，这是复杂多智能体系统的底座能力。  
-> * **自动化工作流编排：** 在企业流程中，A2A 支撑跨智能体的任务委派与协同；例如采集→分析→成稿可由不同智能体接力完成，全程走 A2A。  
+> * **多框架协作：** 典型场景是让彼此独立、底层各异（ADK、LangChain、CrewAI 等）的智能体仍能互通协作，这是复杂多智能体系统的底座能力。
+> * **自动化工作流编排：** 在企业流程中，A2A 支撑跨智能体的任务委派与协同；例如采集→分析→成稿可由不同智能体接力完成，全程走 A2A。
 > * **动态信息检索：** 智能体可互发请求、交换实时数据；主智能体可向专责的「数据拉取智能体」索要行情，后者调用外部 API 后回传结果。
 
 ## Hands-On Code Example
@@ -405,7 +405,7 @@ Further exploration of A2A is recommended through the code demonstration at [htt
 
 **What:** Individual AI agents, especially those built on different frameworks, often struggle with complex, multi-faceted problems on their own. The primary challenge is the lack of a common language or protocol that allows them to communicate and collaborate effectively. This isolation prevents the creation of sophisticated systems where multiple specialized agents can combine their unique skills to solve larger tasks. Without a standardized approach, integrating these disparate agents is costly, time-consuming, and hinders the development of more powerful, cohesive AI solutions.
 
-> **是什么：** 单个 AI 智能体——尤其分属不同框架时——往往难以独力搞定复杂、跨域问题；症结在于缺少通用「语言」或协议来可靠协作。各自为战会阻碍多专精智能体组队攻坚；若无标准，异构集成既贵又慢，也拖累整体方案的能力上限。
+> **是什么：** 单个 智能体，尤其是来自不同框架时，往往难以独立处理复杂的跨域问题；根本原因在于缺少能够支持可靠协作的通用“语言”或协议。各自为战会阻碍多类专精智能体协同完成复杂任务；若缺乏统一标准，异构系统集成不仅成本高、周期长，也会限制整体方案的能力上限。
 
 **Why:** The Inter-Agent Communication (A2A) protocol provides an open, standardized solution for this problem. It is an HTTP-based protocol that enables interoperability, allowing distinct AI agents to coordinate, delegate tasks, and share information seamlessly, regardless of their underlying technology. A core component is the Agent Card, a digital identity file that describes an agent's capabilities, skills, and communication endpoints, facilitating discovery and interaction. A2A defines various interaction mechanisms, including synchronous and asynchronous communication, to support diverse use cases. By creating a universal standard for agent collaboration, A2A fosters a modular and scalable ecosystem for building complex, multi-agent Agentic systems.
 
@@ -413,7 +413,7 @@ Further exploration of A2A is recommended through the code demonstration at [htt
 
 **Rule of Thumb:** Use this pattern when you need to orchestrate collaboration between two or more AI agents, especially if they are built using different frameworks (e.g., Google ADK, LangGraph, CrewAI). It is ideal for building complex, modular applications where specialized agents handle specific parts of a workflow, such as delegating data analysis to one agent and report generation to another. This pattern is also essential when an agent needs to dynamically discover and consume the capabilities of other agents to complete a task.
 
-> **经验法则：** 需要编排两个及以上 AI 智能体、且栈不统一（Google ADK、LangGraph、CrewAI 等）时，优先考虑 A2A。亦适用于复杂模块化应用：按子任务拆分专精智能体，例如分析岗与成稿岗分立。若运行时要动态发现、调用他方智能体能力以闭环任务，同样离不开 A2A 这类标准。
+> **经验法则：** 当需要编排两个及以上 智能体，且其技术栈并不统一（如 Google ADK、LangGraph、CrewAI 等）时，应优先考虑 A2A。它同样适用于复杂的模块化应用：可按子任务拆分专精智能体，例如分别负责分析与成稿。若系统还需在运行时动态发现并调用其他智能体能力以闭环完成任务，A2A 这类标准通常也是关键选择。
 
 **Visual Summary:**
 
@@ -441,12 +441,12 @@ Key Takeaways:
 * Tools such as Trickle AI aid in visualizing and tracking A2A communications, which helps developers monitor, debug, and optimize multi-agent systems.  
 * While A2A is a high-level protocol for managing tasks and workflows between different agents, the Model Context Protocol (MCP) provides a standardized interface for LLMs to interface with external resources
 
-> * Google A2A 是基于 HTTP 的开放标准，用于跨框架 AI 智能体的通信与协同。  
-> * AgentCard 是智能体的数字名片，供他方自动发现并理解其能力与接入方式。  
-> * 协议同时支持同步请求-响应（`tasks/send`）与流式订阅（`tasks/sendSubscribe`），匹配不同时延与连接模型。  
-> * 内置多轮会话与 `input-required` 等状态，智能体可在交互中索要缺失信息并延续上下文。  
-> * 鼓励按能力拆分的模块化部署：专精智能体可分端口独立演进，利于伸缩与分布式拓扑。  
-> * Trickle AI 等工具可观测 A2A 流量，辅助排障与性能调优。  
+> * Google A2A 是基于 HTTP 的开放标准，用于跨框架 智能体的通信与协同。
+> * AgentCard 是智能体的数字名片，供他方自动发现并理解其能力与接入方式。
+> * 协议同时支持同步请求-响应（`tasks/send`）与流式订阅（`tasks/sendSubscribe`），匹配不同时延与连接模型。
+> * 内置多轮会话与 `input-required` 等状态，智能体可在交互中索要缺失信息并延续上下文。
+> * 鼓励按能力拆分的模块化部署：专精智能体可分端口独立演进，利于伸缩与分布式拓扑。
+> * Trickle AI 等工具可观测 A2A 流量，辅助排障与性能调优。
 > * A2A 面向跨智能体的任务与工作流编排；MCP 则标准化 LLM 与外部工具、数据源的对接，二者分工互补。
 
 ## Conclusions
@@ -455,11 +455,11 @@ Key Takeaways:
 
 The Inter-Agent Communication (A2A) protocol establishes a vital, open standard to overcome the inherent isolation of individual AI agents. By providing a common HTTP-based framework, it ensures seamless collaboration and interoperability between agents built on different platforms, such as Google ADK, LangGraph, or CrewAI. A core component is the Agent Card, which serves as a digital identity, clearly defining an agent's capabilities and enabling dynamic discovery by other agents. The protocol's flexibility supports various interaction patterns, including synchronous requests, asynchronous polling, and real-time streaming, catering to a wide range of application needs.
 
-> 智能体间通信（A2A）以开放标准打破「单体智能体孤岛」：在统一 HTTP 语义之上，让基于 Google ADK、LangGraph、CrewAI 等栈的智能体能够互认、互调。Agent Card 将身份、技能与端点结构化呈现，支撑运行时发现与按需组合。协议在同步、异步轮询、实时流式等模式间灵活切换，可覆盖从低时延问答到长时任务的谱系。
+> 智能体间通信（A2A）以开放标准打破单个智能体彼此隔离的局面：在统一的 HTTP 语义之上，使基于 Google ADK、LangGraph、CrewAI 等技术栈的智能体能够实现互认与互操作。Agent Card 以结构化方式描述身份、技能与端点，支撑运行时发现与按需组合。协议在同步、异步轮询、实时流式等模式间灵活切换，可覆盖从低时延问答到长时任务的广泛场景。
 
 This enables the creation of modular and scalable architectures where specialized agents can be combined to orchestrate complex automated workflows. Security is a fundamental aspect, with built-in mechanisms like mTLS and explicit authentication requirements to protect communications. While complementing other standards like MCP, A2A's unique focus is on the high-level coordination and task delegation between agents. The strong backing from major technology companies and the availability of practical implementations highlight its growing importance. This protocol paves the way for developers to build more sophisticated, distributed, and intelligent multi-agent systems. Ultimately, A2A is a foundational pillar for fostering an innovative and interoperable ecosystem of collaborative AI.
 
-> 在此之上，可用专精智能体拼装模块化、可横向扩展的自动化流水线。安全层面，mTLS、显式认证与审计等机制为跨智能体流量兜底。与 MCP 等标准并列时，A2A 的独特价值在于「智能体对智能体」的高层编排与任务下发。产业侧的持续投入与可参考实现，正推动其成为分布式、协作式 AI 生态的重要基础设施之一。
+> 在此基础上，可通过专精智能体构建模块化、可横向扩展的自动化流程。安全层面，mTLS、显式认证与审计等机制为跨智能体通信提供保障。与 MCP 等标准并列时，A2A 的独特价值在于面向“智能体对智能体”的高层编排与任务委派。产业界的持续投入与丰富的参考实现，正推动其成为分布式、协作式 AI 生态的重要基础设施之一。
 
 ## References
 

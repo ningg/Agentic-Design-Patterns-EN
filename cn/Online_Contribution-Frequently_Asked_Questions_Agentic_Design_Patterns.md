@@ -8,7 +8,7 @@
 
 An agentic design pattern is a reusable, high-level solution to a common problem encountered when building intelligent, autonomous systems (agents). These patterns provide a structured framework for designing agent behaviors, much like software design patterns do for traditional programming. They help developers build more robust, predictable, and effective AI agents.
 
-> 智能体设计模式是在构建智能自主系统（智能体）时，对常见问题的可复用高层解决方案。这些模式为设计智能体行为提供结构化框架，作用类似于传统编程中的软件设计模式，帮助开发者打造更稳健、可预期、更有效的 AI 智能体。
+> 智能体设计模式是在构建智能自主系统（智能体）时，对常见问题的可复用高层解决方案。这些模式为设计智能体行为提供结构化框架，作用类似于传统编程中的软件设计模式，帮助开发者打造更稳健、可预期、更有效的 智能体。
 
 ## 2. What is the main goal of this guide?
 
@@ -43,7 +43,7 @@ Based on the table of contents, the guide covers several key patterns, including
 - **Multi-Agent Collaboration:** The architecture for having multiple specialized agents work together to solve a problem, often involving a "leader" or "orchestrator" agent.  
 > - **多智能体协作（Multi-Agent Collaboration）：** 由多名专业智能体协同解题的架构，通常设有「负责人」或「编排」角色。
 - **Human-in-the-Loop:** The integration of human oversight and intervention, allowing for feedback, correction, and approval of an agent's actions.  
-> - **人在回路（Human-in-the-Loop）：** 在人类监督与介入之下，对智能体行为给予反馈、纠正与批准。
+> - **人在回路中（Human-in-the-Loop）：** 在人类监督与介入之下，对智能体行为给予反馈、纠正与批准。
 
 ## 5. Why is "planning" an important pattern
 
@@ -116,11 +116,11 @@ Yes, reflection can be an iterative process. An agent can be made to reflect on 
 
 ## 13. What is the Planning pattern in the context of AI agents?
 
-> ## 13. 在 AI 智能体语境下，规划模式是什么？
+> ## 13. 在 智能体语境下，规划模式是什么？
 
 The Planning pattern involves enabling an agent to break down a complex, high-level goal into a sequence of smaller, actionable steps. Instead of trying to solve a big problem at once, the agent first creates a "plan" and then executes each step in the plan, which is a much more reliable approach.
 
-> 规划模式指让智能体把复杂的高层目标拆成一串更小、可执行的步骤。与其一口吞掉大问题，不如先立「计划」再逐步落实，可靠性强得多。
+> 规划模式是指让智能体把复杂的高层目标拆解为一系列更小、可执行的步骤。与其试图一次性解决整个问题，不如先形成明确计划，再按步骤推进，这种方式通常更为可靠。
 
 ## 14. Why is planning necessary for complex tasks?
 
@@ -128,7 +128,7 @@ The Planning pattern involves enabling an agent to break down a complex, high-le
 
 LLMs can struggle with tasks that require multiple steps or dependencies. Without a plan, an agent might lose track of the overall objective, miss crucial steps, or fail to handle the output of one step as the input for the next. A plan provides a clear roadmap, ensuring all requirements of the original request are met in a logical order.
 
-> LLM 面对多步骤或强依赖的任务时往往吃力。若无计划，智能体容易丢掉总体目标、漏掉关键步骤，或不能把上一步产出正确喂给下一步。计划相当于路线图，有助于按逻辑顺序满足原始请求中的各项要求。
+> LLM 面对多步骤或强依赖的任务时往往难以胜任。若无计划，智能体容易丢掉总体目标、漏掉关键步骤，或不能把上一步产出正确传递给下一步。计划相当于路线图，有助于按逻辑顺序满足原始请求中的各项要求。
 
 ## 15. What is a common way to implement the Planning pattern?
 
@@ -152,7 +152,7 @@ A robust planning pattern allows for dynamic adjustments. If a step fails or the
 
 This is a design choice. In many cases, showing the plan to the user first for approval is a great practice. This aligns with the "Human-in-the-Loop" pattern, giving the user transparency and control over the agent's proposed actions before they are executed.
 
-> 这属于设计取舍。许多场景下，先展示计划并征得用户同意是良好实践，契合「人在回路」：在执行前提高透明度，并让用户对拟采取的行动拥有控制权。
+> 这属于设计取舍。许多场景下，先展示计划并征得用户同意是良好实践，契合「人在回路中」：在执行前提高透明度，并让用户对拟采取的行动拥有控制权。
 
 ## 18. What does the "Tool Use" pattern entail?
 
@@ -195,7 +195,7 @@ Key challenges include:
 
 ## 22. What is the Human-in-the-Loop (HITL) pattern?
 
-> ## 22. 什么是人在回路（HITL）模式？
+> ## 22. 什么是人在回路中（HITL）模式？
 
 HITL is a pattern that integrates human oversight and interaction into the agent's workflow. Instead of being fully autonomous, the agent pauses at critical junctures to ask for human feedback, approval, clarification, or direction.
 
@@ -239,7 +239,7 @@ Common points for human intervention include:
 
 It can be, which is why the key is to find the right balance. HITL should be implemented at critical checkpoints, not for every single action. The goal is to build a collaborative partnership between the human and the agent, where the agent handles the bulk of the work and the human provides strategic guidance.
 
-> 确实可能，故贵在拿捏分寸。HITL 宜设在关键检查点，而非每个细粒度动作。理想状态是人机协作：智能体扛下大头，人类在战略上把关、纠偏。
+> 的确可能，因此关键在于把握介入粒度。HITL 更适合设置在关键检查点，而非覆盖每一个细粒度动作。理想状态是人机协作：智能体承担主要执行工作，人类则在战略层面把关与纠偏。
 
 ## 26. What is the Multi-Agent Collaboration pattern?
 
@@ -247,7 +247,7 @@ It can be, which is why the key is to find the right balance. HITL should be imp
 
 This pattern involves creating a system composed of multiple specialized agents that work together to achieve a common goal. Instead of one "generalist" agent trying to do everything, you create a team of "specialist" agents, each with a specific role or expertise.
 
-> 该模式依靠多名专业智能体协作达成共同目标。与其让一名「通才」包办，不如组一支「专家」队，各司其职、各展所长。
+> 该模式通过多名专业智能体协作来达成共同目标。与其让单一“通才”智能体包揽全部工作，不如组织一支分工明确的“专家团队”，各司其职、发挥专长。
 
 ## 27. What are the benefits of a multi-agent system?
 
@@ -256,7 +256,7 @@ This pattern involves creating a system composed of multiple specialized agents 
 - **Modularity and Specialization:** Each agent can be fine-tuned and prompted for its specific task (e.g., a "researcher" agent, a "writer" agent, a "code" agent), leading to higher quality results.  
 > - **模块化与专业化：** 各智能体可围绕本职做微调与提示工程（如「研究」「写作」「代码」角色），整体产出质量往往更高。
 - **Reduced Complexity:** Breaking a complex workflow down into specialized roles makes the overall system easier to design, debug, and maintain.  
-> - **降低复杂度：** 把复杂工作流拆到不同专业角色上，整体设计、调试与维护都更顺手。
+> - **降低复杂度：** 将复杂工作流拆分给不同专业角色后，整体设计、调试与维护都会更易于管理。
 - **Simulated Brainstorming:** Different agents can offer different perspectives on a problem, leading to more creative and robust solutions, similar to how a human team works.  
 > - **模拟头脑风暴：** 不同智能体各抒己见，更容易碰撞出有创意且更稳妥的方案，接近人类团队研讨的效果。
 
@@ -321,7 +321,7 @@ While you can't guarantee the exact wording of an agent's output, you can create
 
 Prompting an agent involves creating a detailed "system prompt" or constitution that acts as its operating instructions. This goes beyond a single user query; it defines the agent's role, its available tools, the patterns it should follow (like ReAct or Planning), its constraints, and its personality.
 
-> 给智能体写提示，通常要准备详尽的「系统提示」或类宪章的运行说明，远不止一句用户问话：须界定角色、可用工具、宜采用的模式（如 ReAct 或规划）、边界约束与语气人格等。
+> 为智能体设计提示时，通常需要准备详尽的“系统提示”或类似宪章的运行说明，远不止一句用户提问：其中应明确角色、可用工具、应采用的模式（如 ReAct 或规划）、约束边界以及语气风格等。
 
 ## What are the key components of a good system prompt for an agent?
 
