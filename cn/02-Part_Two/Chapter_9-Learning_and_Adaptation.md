@@ -4,7 +4,7 @@
 
 Learning and adaptation are pivotal for enhancing the capabilities of artificial intelligence agents. These processes enable agents to evolve beyond predefined parameters, allowing them to improve autonomously through experience and environmental interaction. By learning and adapting, agents can effectively manage novel situations and optimize their performance without constant manual intervention. This chapter explores the principles and mechanisms underpinning agent learning and adaptation in detail.
 
-> 学习与适应对提升人工智能智能体的能力至关重要。这些过程使智能体能超越预设参数，通过经验与环境交互自主改进；从而有效应对新情境、优化表现，而无需持续人工干预。本章详细探讨支撑智能体学习与适应的原理与机制。
+> 学习与适应对提升 AI 智能体的能力至关重要。这些过程使智能体能超越预设参数，通过经验与环境交互自主改进；从而有效应对新情境、优化表现，而无需持续人工干预。本章详细探讨支撑智能体学习与适应的原理与机制。
 
 ## The Big Picture
 

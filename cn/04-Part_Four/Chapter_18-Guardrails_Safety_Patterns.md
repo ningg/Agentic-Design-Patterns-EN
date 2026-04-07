@@ -561,7 +561,7 @@ Fig. 1: Guardrail design pattern
 
 Implementing effective guardrails represents a core commitment to responsible AI development, extending beyond mere technical execution. Strategic application of these safety patterns enables developers to construct intelligent agents that are robust and efficient, while prioritizing trustworthiness and beneficial outcomes. Employing a layered defense mechanism, which integrates diverse techniques ranging from input validation to human oversight, yields a resilient system against unintended or harmful outputs. Ongoing evaluation and refinement of these guardrails are essential for adaptation to evolving challenges and ensuring the enduring integrity of agentic systems. Ultimately, carefully designed guardrails empower AI to serve human needs in a safe and effective manner.
 
-> 有效实施护栏体现对负责任 AI 开发的核心承诺，超越单纯技术执行。战略性运用这些安全模式，使开发者能构建既稳健高效、又以可信与有益结果为优先的智能智能体。从输入校验到人工监督的分层防御整合多种技术，可抵御非预期或有害输出。持续评估与改进护栏对适应新挑战、维护智能体系统长期完整性必不可少。归根结底，精心设计的护栏使 AI 能够安全、有效地服务于人的需求。
+> 有效实施护栏体现对负责任 AI 开发的核心承诺，超越单纯技术执行。战略性运用这些安全模式，使开发者能构建既稳健高效、又以可信与有益结果为优先的智能体。从输入校验到人工监督的分层防御整合多种技术，可抵御非预期或有害输出。持续评估与改进护栏对适应新挑战、维护智能体系统长期完整性必不可少。归根结底，精心设计的护栏使 AI 能够安全、有效地服务于人的需求。
 
 ## **References**
 

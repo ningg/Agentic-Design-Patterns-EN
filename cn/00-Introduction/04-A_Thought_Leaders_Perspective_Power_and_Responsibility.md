@@ -3,7 +3,7 @@
 Of all the technology cycles I’ve witnessed over the past four decades—from the birth of the personal computer and the web, to the revolutions in mobile and cloud—none has felt quite like this one. For years, the discourse around Artificial Intelligence was a familiar rhythm of hype and disillusionment, the so-called “AI summers” followed by long, cold winters. But this time, something is different. The conversation has palpably shifted. If the last eighteen months were  
 about the engine—the breathtaking, almost vertical ascent of Large Language Models (LLMs)—the next era will be about the car we build around it. It will be about the frameworks that harness this raw power, transforming it from a generator of plausible text into a true agent of action.
 
-> 过去四十年间，从个人电脑与互联网的诞生，到移动与云的变革，我见证过许多技术周期，但没有一次像这一次。多年来，围绕人工智能的讨论总在炒作与幻灭之间摇摆，所谓「AI 夏天」之后是漫长寒冬。但这一次不同，讨论明显转向。若过去十八个月关乎引擎——大语言模型令人屏息的近乎垂直攀升——下一个时代将关乎我们围绕它造出的那辆车：关乎驾驭这股原始力量的框架，把它从「生成似可信文本」变成「真正付诸行动的代理」。
+> 过去四十年间，从个人电脑与互联网的诞生，到移动与云的变革，我见证过许多技术周期，但没有一次像这一次。多年来，围绕人工智能的讨论总在炒作与幻灭之间摇摆，所谓「AI 夏天」之后是漫长寒冬。但这一次不同，讨论明显转向。若过去十八个月关乎引擎——大语言模型令人屏息的近乎垂直攀升——下一个时代将关乎我们围绕它造出的那辆车：关乎驾驭这股原始力量的框架，把它从「生成似可信文本」变成「真正付诸行动的智能体」。
 
 I admit, I began as a skeptic. Plausibility, I’ve found, is often inversely proportional to one’s own knowledge of a subject. Early models, for all their fluency, felt like they were operating with a kind of impostor syndrome, optimized for credibility over correctness. But then came the inflection point, a step-change brought about by a new class of "reasoning" models. Suddenly, we weren't just conversing with a statistical machine that predicted the next word in a sequence;  
 we were getting a peek into a nascent form of cognition.

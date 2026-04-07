@@ -2,11 +2,13 @@
 
 Throughout this book  we have journeyed from the foundational concepts of agentic AI to the practical implementation of sophisticated, autonomous systems. We began with the premise that building intelligent agents is akin to creating a complex work of art on a technical canvas—a process that requires not just a powerful cognitive engine like a large language model, but also a robust set of architectural blueprints. These blueprints, or agentic patterns, provide the structure and reliability needed to transform simple, reactive models into proactive, goal-oriented entities capable of complex reasoning and action.
 
-> 纵观全书，我们从代理式人工智能的基础概念一路走来，直至复杂自主系统的实际落地。我们从一个前提出发：构建智能体好比在技术画布上创作一件复杂的艺术品——这一过程不仅需要像大语言模型那样强大的认知引擎，还需要一套坚实的架构蓝图。这些蓝图，即代理式模式，提供了将简单、反应式模型转变为能够进行复杂推理与行动的主动、目标导向实体所需的结构与可靠性。
+> 纵观全书，我们从智能体 AI 的基础概念一路走来，直至复杂自主系统的实际落地。我们从一个前提出发：构建智能体好比在技术画布上创作一件复杂的艺术品——这一过程不仅需要像大语言模型那样强大的认知引擎，还需要一套坚实的架构蓝图。
+>
+> 这些蓝图，即**智能体模式**（agentic patterns），提供了将简单、反应式模型转变为能够进行复杂推理与行动的主动、目标导向实体所需的结构与可靠性。
 
 This concluding chapter will synthesize the core principles we have explored. We will first review the key agentic patterns, grouping them into a cohesive framework that underscores their collective importance. Next, we will examine how these individual patterns can be composed into more complex systems, creating a powerful synergy. Finally, we will look ahead to the future of agent development, exploring the emerging trends and challenges that will shape the next generation of intelligent systems.
 
-> 本章结语将综合我们探讨过的核心原则。我们首先回顾关键的代理式模式，并将其归入一个连贯的框架，以凸显其整体重要性。接着，我们考察这些单个模式如何组合成更复杂的系统，从而产生强大的协同效应。最后，我们展望智能体开发的未来，探讨将塑造下一代智能系统的新兴趋势与挑战。
+> 本章结语将综合我们探讨过的核心原则。我们首先回顾关键的智能体模式，并将其归入一个连贯的框架，以凸显其整体重要性。接着，我们考察这些单个模式如何组合成更复杂的系统，从而产生强大的协同效应。最后，我们展望智能体开发的未来，探讨将塑造下一代智能系统的新兴趋势与挑战。
 
 ## Review of key agentic principles
 
@@ -38,7 +40,7 @@ These principles, when applied through their respective patterns, provide a robu
 
 > The true power of agentic design emerges not from the application of a single pattern in isolation, but from the artful composition of multiple patterns to create sophisticated, multi-layered systems. The agentic canvas is rarely populated by a single, simple workflow; instead, it becomes a tapestry of interconnected patterns that work in concert to achieve a complex objective.
 
-> 代理式设计的真正力量并非来自孤立地应用某一种模式，而是来自将多种模式巧妙组合，以构建精密、多层的系统。代理式画布上很少只存在单一、简单的工作流；相反，它会成为一幅由相互关联的模式织成的挂毯，这些模式协同运作以实现复杂目标。
+> 智能体设计的真正力量并非来自孤立地应用某一种模式，而是来自将多种模式巧妙组合，以构建精密、多层的系统。智能体画布上很少只存在单一、简单的工作流；相反，它会成为一幅由相互关联的模式织成的挂毯，这些模式协同运作以实现复杂目标。
 
 Consider the development of an autonomous AI research assistant, a task that requires a combination of planning, information retrieval, analysis, and synthesis. Such a system would be a prime example of pattern composition:
 
@@ -66,21 +68,21 @@ Consider the development of an autonomous AI research assistant, a task that req
 
 In this example, at least five distinct agentic patterns are woven together. The Planning pattern provides the high-level structure, Tool Use grounds the operation in real-world data, Multi-Agent Collaboration enables specialization and division of labor, Reflection ensures quality, and Memory Management maintains coherence. This composition transforms a set of individual capabilities into a powerful, autonomous system capable of tackling a task that would be far too complex for a single prompt or a simple chain.
 
-> 在此例中，至少五种不同的代理式模式被编织在一起。规划模式提供高层结构，工具使用使运作扎根于真实数据，多智能体协作实现专业化与分工，反思保障质量，记忆管理维持连贯性。这种组合将一组独立能力转变为强大的自主系统，能够应对对单一提示或简单链而言过于复杂的任务。
+> 在此例中，至少五种不同的智能体模式被编织在一起。规划模式提供高层结构，工具使用使运作扎根于真实数据，多智能体协作实现专业化与分工，反思保障质量，记忆管理维持连贯性。这种组合将一组独立能力转变为强大的自主系统，能够应对对单一提示或简单链而言过于复杂的任务。
 
 ## Looking to the Future
 
 The composition of agentic patterns into complex systems, as illustrated by our AI research assistant, is not the end of the story but rather the beginning of a new chapter in software development. As we look ahead, several emerging trends and challenges will define the next generation of intelligent systems, pushing the boundaries of what is possible and demanding even greater sophistication from their creators.
 
-> 如我们的 AI 研究助手所示，将代理式模式组合为复杂系统并非故事的终点，而是软件开发新篇章的起点。展望未来，若干新兴趋势与挑战将界定下一代智能系统，拓展可能性的边界，并对其创造者提出更高的精巧度要求。
+> 如我们的 AI 研究助手所示，将智能体模式组合为复杂系统并非故事的终点，而是软件开发新篇章的起点。展望未来，若干新兴趋势与挑战将界定下一代智能系统，拓展可能性的边界，并对系统构建者提出更高的工程与设计要求。
 
 The journey toward more advanced agentic AI will be marked by a drive for greater **autonomy and reasoning**. The patterns we have discussed provide the scaffolding for goal-oriented behavior, but the future will require agents that can navigate ambiguity, perform abstract and causal reasoning, and even exhibit a degree of common sense. This will likely involve tighter integration with novel model architectures and neuro-symbolic approaches that blend the pattern-matching strengths of LLMs with the logical rigor of classical AI. We will see a shift from human-in-the-loop systems, where the agent is a co-pilot, to human-on-the-loop systems, where agents are trusted to execute complex, long-running tasks with minimal oversight, reporting back only when the objective is complete or a critical exception occurs.
 
-> 迈向更先进的代理式人工智能的旅程，将以对更强**自主性与推理能力**的追求为标志。我们讨论过的模式为目标导向行为提供了脚手架，但未来需要能够驾驭模糊性、进行抽象与因果推理、甚至具备一定常识的智能体。这很可能涉及与新型模型架构及神经符号方法的更紧密结合，将大语言模型的模式匹配优势与经典 AI 的逻辑严谨性相融合。我们将看到从人在回路中（智能体作为副驾驶）向人在回路上方（智能体被信任以最少监督执行复杂、长时程任务，仅在目标完成或出现关键异常时汇报）的转变。
+> 迈向更先进的智能体 AI 的旅程，将以对更强**自主性与推理能力**的追求为标志。我们讨论过的模式为目标导向行为提供了脚手架，但未来需要能够驾驭模糊性、进行抽象与因果推理、甚至具备一定常识的智能体。这很可能涉及与新型模型架构及神经符号方法的更紧密结合，将大语言模型的模式匹配优势与经典 AI 的逻辑严谨性相融合。我们将看到从**人在回路中**（human-in-the-loop，智能体作副驾驶）向**人在环上**（human-on-the-loop，智能体在较少人工监督下执行长时程任务，仅在目标完成或出现关键异常时再汇报）的转变。
 
 This evolution will be accompanied by the rise of **agentic ecosystems and standardization**. The Multi-Agent Collaboration pattern highlights the power of specialized agents, and the future will see the emergence of open marketplaces and platforms where developers can deploy, discover, and orchestrate fleets of agents-as-a-service. For this to succeed, the principles behind the Model Context Protocol (MCP) and Inter-Agent Communication (A2A) will become paramount, leading to industry-wide standards for how agents, tools, and models exchange not just data, but also context, goals, and capabilities.
 
-> 这一演进将伴随着**代理式生态与标准化**的兴起。多智能体协作模式凸显了专职智能体的力量，未来将出现开放市场与平台，开发者可在其上部署、发现与编排成群的「智能体即服务」。若要成功，模型上下文协议（MCP）与智能体间通信（A2A）背后的原则将变得至关重要，并推动全行业规范智能体、工具与模型如何交换的不仅是数据，还有语境、目标与能力。
+> 这一演进将伴随着**智能体生态与标准化**的兴起。多智能体协作模式凸显了专职智能体的力量，未来将出现开放市场与平台，开发者可在其上部署、发现与编排成群的「智能体即服务」。若要成功，模型上下文协议（MCP）与智能体间通信（A2A）背后的原则将变得至关重要，并推动全行业规范智能体、工具与模型如何交换的不仅是数据，还有语境、目标与能力。
 
 A prime example of this growing ecosystem is the "Awesome Agents" GitHub repository, a valuable resource that serves as a curated list of open-source AI agents, frameworks, and tools. It showcases the rapid innovation in the field by organizing cutting-edge projects for applications ranging from software development to autonomous research and conversational AI.
 
@@ -94,12 +96,12 @@ However, this path is not without its formidable challenges. The core issues of 
 
 Throughout this guide, we have framed the construction of intelligent agents as an art form practiced on a technical canvas. These Agentic Design patterns are your palette and your brushstrokes—the foundational elements that allow you to move beyond simple prompts and create dynamic, responsive, and goal-oriented entities. They provide the architectural discipline needed to transform the raw cognitive power of a large language model into a reliable and purposeful system.
 
-> 纵观本指南，我们将智能体的构建框定为在技术画布上实践的一种艺术形式。这些代理式设计模式是你的调色板与笔触——是让你超越简单提示、创造动态、响应式且目标导向实体的基础要素。它们提供了将大语言模型原始认知能力转化为可靠且有目的系统所需的架构纪律。
+> 纵观本指南，我们将智能体的构建框定为在技术画布上实践的一种艺术形式。这些智能体设计模式是你的调色板与笔触——是让你超越简单提示、创造动态、响应式且目标导向实体的基础要素。它们提供了将大语言模型原始认知能力转化为可靠且有目的系统所需的架构纪律。
 
 The true craft lies not in mastering a single pattern but in understanding their interplay—in seeing the canvas as a whole and composing a system where planning, tool use, reflection, and collaboration work in harmony. The principles of agentic design are the grammar of a new language of creation, one that allows us to instruct machines not just on what to do, but on how to *be*.
 
-> 真正的技艺不在于精通单一模式，而在于理解它们的相互作用——将画布视为整体，并组合出规划、工具使用、反思与协作和谐共存的系统。代理式设计的原则是一种崭新创造语言的语法，使我们不仅能指示机器做什么，还能指示它们如何**存在**。
+> 真正的技艺不在于精通单一模式，而在于理解它们的相互作用——将画布视为整体，并组合出规划、工具使用、反思与协作和谐共存的系统。智能体设计的原则是一种崭新创造语言的语法，使我们不仅能指示机器做什么，还能指示它们如何**存在**。
 
 The field of agentic AI is one of the most exciting and rapidly evolving domains in technology. The concepts and patterns detailed here are not a final, static dogma but a starting point—a solid foundation upon which to build, experiment, and innovate. The future is not one where we are simply users of AI, but one where we are the architects of intelligent systems that will help us solve the world’s most complex problems. The canvas is before you, the patterns are in your hands. Now, it is time to build.
 
-> 代理式人工智能是技术领域最令人兴奋、演进最快的方向之一。此处详述的概念与模式并非终极、僵化的教条，而是起点——是在其上构建、实验与创新的坚实基础。未来不是我们仅仅作为 AI 用户的时代，而是我们成为智能系统架构师、借助它们帮助解决世界上最复杂问题的时代。画布已在眼前，模式已在手中。现在，是时候动手构建了。
+> 智能体 AI 是技术领域最令人兴奋、演进最快的方向之一。此处详述的概念与模式并非终极、僵化的教条，而是起点——是在其上构建、实验与创新的坚实基础。未来不是我们仅仅作为 AI 用户的时代，而是我们成为智能系统架构师、借助它们帮助解决世界上最复杂问题的时代。画布已在眼前，模式已在手中。现在，是时候动手构建了。

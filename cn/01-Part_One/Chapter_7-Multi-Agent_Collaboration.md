@@ -2,7 +2,7 @@
 
 While a monolithic agent architecture can be effective for well-defined problems, its capabilities are often constrained when faced with complex, multi-domain tasks. The Multi-Agent Collaboration pattern addresses these limitations by structuring a system as a cooperative ensemble of distinct, specialized agents. This approach is predicated on the principle of task decomposition, where a high-level objective is broken down into discrete sub-problems. Each sub-problem is then assigned to an agent possessing the specific tools, data access, or reasoning capabilities best suited for that task.
 
-> 单体智能体架构在定义良好的问题上可以有效，但面对复杂、跨领域任务时能力常受限制。多智能体协作模式通过将系统组织为彼此协作、角色各异的专业化智能体集合来应对这些局限。其前提是任务分解：把高层目标拆成离散子问题，再分别交给在工具、数据访问或推理上最匹配的代理。
+> 单体智能体架构在定义良好的问题上可以有效，但面对复杂、跨领域任务时能力常受限制。多智能体协作模式通过将系统组织为彼此协作、角色各异的专业化智能体集合来应对这些局限。其前提是任务分解：把高层目标拆成离散子问题，再分别交给在工具、数据访问或推理上最匹配的智能体。
 
 For example, a complex research query might be decomposed and assigned to a Research Agent for information retrieval, a Data Analysis Agent for statistical processing, and a Synthesis Agent for generating the final report. The efficacy of such a system is not merely due to the division of labor but is critically dependent on the mechanisms for inter-agent communication. This requires a standardized communication protocol and a shared ontology, allowing agents to exchange data, delegate sub-tasks, and coordinate their actions to ensure the final output is coherent.
 

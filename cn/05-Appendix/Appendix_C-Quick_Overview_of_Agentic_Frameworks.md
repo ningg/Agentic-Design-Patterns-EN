@@ -1,6 +1,6 @@
 # Appendix C - Quick overview of Agentic Frameworks
 
-> 附录 C：智能体化框架速览
+> 附录 C：智能体框架速览
 
 ## LangChain
 

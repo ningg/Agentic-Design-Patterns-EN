@@ -26,7 +26,7 @@ This 424-page guide tackles the real challenges we face when building intelligen
 
 The book covers essential agentic patterns including Prompt Chaining, Routing, Planning, and Multi-Agent Systems, all with practical, code-based examples. You'll find comprehensive coverage of Tool Use, Memory Management, and RAG implementation, plus advanced topics like Reasoning Techniques and Inter-Agent Communication.
 
-> 全书涵盖提示链、路由、规划与多智能体系统等核心代理式模式，均配有可运行的代码示例。工具使用、记忆管理与 RAG 实现有全面讲解，并涉及推理技术与智能体间通信等进阶主题。
+> 全书涵盖提示链、路由、规划与多智能体系统等核心智能体模式，均配有可运行的代码示例。工具使用、记忆管理与 RAG 实现有全面讲解，并涉及推理技术与智能体间通信等进阶主题。
 
 Inside you will find:
 
@@ -86,7 +86,7 @@ Most AI content stops at “how to call an API.” But in real-world systems you
 
 This book answers all that with patterns you can actually apply. The 70+ page appendix alone is worth the investment, featuring Advanced Prompting techniques and an overview of Agentic Frameworks.
 
-> 本书以可实际应用的模式回答上述问题。仅 70 余页的附录就物有所值，涵盖高级提示技巧与代理式框架概览。
+> 本书以可实际应用的模式回答上述问题。仅 70 余页的附录就物有所值，涵盖高级提示技巧与智能体框架概览。
 
 ## Table of Contents
 
@@ -216,11 +216,11 @@ This book answers all that with patterns you can actually apply. The 70+ page ap
 
 - [Appendix B: AI Agentic Interactions: From GUI to Real-World Environment](cn/05-Appendix/Appendix_B-AI_Agentic_Interactions_From_GUI_to_Real_World_Environment.md)
 
-> - [附录 B：AI 代理式交互：从图形界面到真实世界环境](cn/05-Appendix/Appendix_B-AI_Agentic_Interactions_From_GUI_to_Real_World_Environment.md)
+> - [附录 B：AI 智能体交互：从图形界面到真实世界环境](cn/05-Appendix/Appendix_B-AI_Agentic_Interactions_From_GUI_to_Real_World_Environment.md)
 
 - [Appendix C: Quick Overview of Agentic Frameworks](cn/05-Appendix/Appendix_C-Quick_Overview_of_Agentic_Frameworks.md)
 
-> - [附录 C：代理式框架速览](cn/05-Appendix/Appendix_C-Quick_Overview_of_Agentic_Frameworks.md)
+> - [附录 C：智能体框架速览](cn/05-Appendix/Appendix_C-Quick_Overview_of_Agentic_Frameworks.md)
 
 - [Appendix D: Building an Agent with AgentSpace (online only)](cn/05-Appendix/Appendix_D-Building_an_Agent_with_AgentSpace_(on_line_only).md)
 
@@ -246,4 +246,4 @@ This repository is licensed under the [MIT License](LICENSE).
 
 Agentic Design Patterns
 
-> Agentic Design Patterns（代理式设计模式）
+> Agentic Design Patterns（智能体设计模式）
