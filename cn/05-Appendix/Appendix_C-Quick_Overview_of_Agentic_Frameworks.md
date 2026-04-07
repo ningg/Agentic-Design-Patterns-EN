@@ -8,7 +8,7 @@
 
 LangChain is a framework for developing applications powered by LLMs. Its core strength lies in its LangChain Expression Language (LCEL), which allows you to "pipe" components together into a chain. This creates a clear, linear sequence where the output of one step becomes the input for the next. It's built for workflows that are Directed Acyclic Graphs (DAGs), meaning the process flows in one direction without loops.
 
-> LangChain 是用于开发由 LLM 驱动的应用的框架。其核心优势在于 LangChain 表达式语言（LCEL），可将组件用“管道”连成链，形成清晰的线性序列：上一步输出成为下一步输入。它面向有向无环图（DAG）式工作流，即过程单向流动、无环。
+> LangChain 面向由 LLM 驱动的应用开发。亮点是 LangChain 表达式语言（LCEL）：像搭管道一样把组件串成链，输出逐步传递，形成易读的线性流水线。典型形态是有向无环图（DAG）——数据沿单一方向推进，不出现回路。
 
 Use it for:
 
@@ -29,7 +29,7 @@ Python
 chain = prompt | model | output_parse
 ```
 
-> 代码示例语言：Python。
+> （以下代码示例为 Python。）
 
 ## LangGraph
 
@@ -37,7 +37,7 @@ chain = prompt | model | output_parse
 
 LangGraph is a library built on top of LangChain to handle more advanced agentic systems. It allows you to define your workflow as a graph with nodes (functions or LCEL chains) and edges (conditional logic). Its main advantage is the ability to create cycles, allowing the application to loop, retry, or call tools in a flexible order until a task is complete. It explicitly manages the application state, which is passed between nodes and updated throughout the process.
 
-> LangGraph 是构建在 LangChain 之上的库，用于处理更高级的智能体化系统。可将工作流定义为图：节点为函数或 LCEL 链，边为条件逻辑。其主要优势是能构造环，使应用可循环、重试或按灵活顺序调用工具直至任务完成。它显式管理应用状态，状态在节点间传递并在过程中更新。
+> LangGraph 跑在 LangChain 之上，面向更“智能体化”的系统：工作流画成图——节点可以是函数或整条 LCEL 链，边上写分支条件。最大卖点是允许回路，应用能反复试错、按需重排工具调用，直到任务收敛。状态由框架显式持有，在节点之间传递、随执行更新。
 
 Use it for:
 
@@ -155,11 +155,11 @@ Google's Agent Development Kit, or ADK, provides a high-level, structured framew
 
 LangChain operates at the most foundational level, offering the components and standardized interfaces to create sequences of operations, such as calling a model and parsing its output. LangGraph extends this by introducing a more flexible and powerful control flow; it treats an agent's workflow as a stateful graph. Using LangGraph, a developer explicitly defines nodes, which are functions or tools, and edges, which dictate the path of execution. This graph structure allows for complex, cyclical reasoning where the system can loop, retry tasks, and make decisions based on an explicitly managed state object that is passed between nodes. It gives the developer fine-grained control over a single agent's thought process or the ability to construct a multi-agent system from first principles.
 
-> LangChain 处于最基础层，提供组件与标准化接口以构造操作序列（如调用模型并解析输出）。LangGraph 在此基础上引入更灵活强大的控制流，将智能体工作流视为有状态图：开发者显式定义节点（函数或工具）与边（执行路径）。该图结构支持复杂循环推理——系统可循环、重试任务，并基于在节点间传递的显式管理状态对象做决策。开发者既可细粒度控制单个智能体的“思维过程”，也可从零原则构建多智能体系统。
+> LangChain 处于最底层，提供组件与标准化接口以串联操作（例如调用模型并解析输出）。LangGraph 在此基础上带来更灵活、更强大的控制流，把工作流建模为有状态图：开发者显式声明节点（函数或工具）与边（执行路径）。图结构支撑复杂的循环式推理——系统可以回环、重试，并依据在节点之间传递、由框架显式管理的状态对象做决策。你既可以细粒度地塑造单个智能体的“思路”，也可以从第一性原理出发搭建多智能体系统。
 
 Google's ADK abstracts away much of this low-level graph construction. Instead of asking the developer to define every node and edge, it provides pre-built architectural patterns for multi-agent interaction. For instance, ADK has built-in agent types like SequentialAgent or ParallelAgent, which manage the flow of control between different agents automatically. It is architected around the concept of a "team" of agents, often with a primary agent delegating tasks to specialized sub-agents. State and session management are handled more implicitly by the framework, providing a more cohesive but less granular approach than LangGraph's explicit state passing. Therefore, while LangGraph gives you the detailed tools to design the intricate wiring of a single robot or a team, Google's ADK gives you a factory assembly line designed to build and manage a fleet of robots that already know how to work together.
 
-> Google ADK 将大量底层图构建抽象掉：不要求开发者定义每个节点与边，而是提供多智能体交互的预制架构模式。例如 ADK 内置 SequentialAgent、ParallelAgent 等类型，自动管理不同智能体间的控制流。其架构围绕智能体“团队”概念，常由主智能体向专职子智能体委派任务。状态与会话管理更多由框架隐式处理，比 LangGraph 显式传状态更内聚、粒度更粗。因此，LangGraph 像提供细工具以设计单台机器人或团队的复杂走线；Google ADK 则像提供为整队已会协作的机器人而设的工厂流水线。
+> Google ADK 把大量“手动画图”的工作藏起来：不必逐个声明节点与边，而是直接套用多智能体协作的预制模式。例如内置 SequentialAgent、ParallelAgent 等，由框架代管智能体之间的调度。整体以“团队”为中心，常见范式是主智能体把子任务下放给专才型子智能体；状态与会话多半由框架隐式维护，相比 LangGraph 的显式状态传递更省事、颗粒度也更粗。打个比方：LangGraph 像给你全套扳手去布线；ADK 更像一条已为协作调好参数的装配线。
 
 ```python
 from google.adk.agents import LlmAgent
@@ -188,11 +188,11 @@ CrewAI offers an orchestration framework for building multi-agent systems by foc
 
 The core components of this framework are Agents, Tasks, and the Crew. An Agent is defined not just by its function but by a persona, including a specific role, a goal, and a backstory, which guides its behavior and communication style. A Task is a discrete unit of work with a clear description and expected output, assigned to a specific Agent. The Crew is the cohesive unit that contains the Agents and the list of Tasks, and it executes a predefined Process. This process dictates the workflow, which is typically either sequential, where the output of one task becomes the input for the next in line, or hierarchical, where a manager-like agent delegates tasks and coordinates the workflow among other agents.
 
-> 核心组件为 Agent、Task 与 Crew。Agent 不仅由功能定义，还由人设界定——具体角色、目标与背景故事，指导其行为与沟通风格。Task 是带清晰描述与预期产出的离散工作单元，指派给特定 Agent。Crew 是包含 Agents 与 Task 列表的凝聚单元，执行预定义的 Process。Process 规定工作流：常见为顺序式（上一任务输出成为下一任务输入），或层级式（类管理者智能体委派任务并协调其他智能体）。
+> 三大构件是 Agent、Task 与 Crew：Agent 由角色、目标与背景故事刻画，用以约束行为与沟通风格；Task 为可验收的工作单元，含清晰描述与预期产出，并指派给特定 Agent；Crew 聚合 Agents 与 Tasks，按预定义 Process 执行——常见为顺序式（前一任务输出作为后一任务输入），或层级式（管理者型智能体委派与协调其他智能体）。
 
 When compared to other frameworks, CrewAI occupies a distinct position. It moves away from the low-level, explicit state management and control flow of LangGraph, where a developer wires together every node and conditional edge. Instead of building a state machine, the developer designs a team charter. While Googlés ADK provides a comprehensive, production-oriented platform for the entire agent lifecycle, CrewAI concentrates specifically on the logic of agent collaboration and for simulating a team of specialists
 
-> 与其他框架相比，CrewAI 定位鲜明：它远离 LangGraph 那种底层显式状态管理与控制流（开发者连接每个节点与条件边）。不是搭状态机，而是设计“团队宪章”。Googlés ADK 面向整个智能体生命周期的综合生产平台；CrewAI 则聚焦智能体协作逻辑与模拟专家团队。
+> 相较其他框架，CrewAI 特色鲜明：它刻意远离 LangGraph 式的底层显式状态与逐条连线控制流，与其搭状态机，不如先写清“团队宪章”。Google ADK 覆盖智能体全生命周期的生产级平台；CrewAI 则专注协作逻辑与“专家团队”式分工模拟。
 
 ```python
 @crew
@@ -248,7 +248,7 @@ This code sets up a sequential workflow for a team of AI agents, where they tack
 
 The landscape of agentic frameworks offers a diverse spectrum of tools, from low-level libraries for defining agent logic to high-level platforms for orchestrating multi-agent collaboration. At the foundational level, LangChain enables simple, linear workflows, while LangGraph introduces stateful, cyclical graphs for more complex reasoning. Higher-level frameworks like CrewAI and Google's ADK shift the focus to orchestrating teams of agents with predefined roles, while others like LlamaIndex specialize in data-intensive applications. This variety presents developers with a core trade-off between the granular control of graph-based systems and the streamlined development of more opinionated platforms. Consequently, selecting the right framework hinges on whether the application requires a simple sequence, a dynamic reasoning loop, or a managed team of specialists. Ultimately, this evolving ecosystem empowers developers to build increasingly sophisticated AI systems by choosing the precise level of abstraction their project demands.
 
-> 智能体化框架生态工具多样：从定义智能体逻辑的底层库，到编排多智能体协作的高层平台。基础层上，LangChain 支持简单线性工作流，LangGraph 引入有状态、含环的图以支持更复杂推理。CrewAI、Google ADK 等更高层框架侧重按预设角色编排团队；LlamaIndex 等则专攻数据密集型应用。开发者在图式系统的细粒度控制与“有主见”平台的精简开发之间面临核心权衡。因此选型取决于应用是需要简单序列、动态推理环，还是受管理的专家团队。不断演进的生态使开发者能按项目所需的抽象层次，构建日益复杂的 AI 系统。
+> 智能体框架谱系很宽：既有刻画内部逻辑的底层库，也有专注多智能体编排的上层平台。底座上，LangChain 适合笔直的流水线，LangGraph 则用带状态、可回环的图承载更曲折的推理。再往上，CrewAI、Google ADK 等强调“按角色组团队”；LlamaIndex 一类则把精力放在数据接入与检索。核心权衡在于：要 LangGraph 式的细粒度可控，还是要 ADK 式平台的省事上手。选型时先想清楚——你需要的是线性脚本、会反思的循环，还是一支分工明确的虚拟团队。生态仍在快速演进，开发者可以按项目所需的抽象层级，拼装出越来越复杂的 AI 系统。
 
 References
 

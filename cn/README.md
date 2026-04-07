@@ -2,11 +2,11 @@
 
 This repository contains the full text of the book "Agentic Design Patterns" by Antonio Gulli and Mauro Sauco. The content has been compiled and organized by Tom Mathews  for easy access and reference for the community.
 
-> 本仓库收录 Antonio Gulli 与 Mauro Sauco 所著《Agentic Design Patterns》全书正文；内容由 Tom Mathews 整理编排，便于社区查阅与参考。
+> 本仓库收录 Antonio Gulli 与 Mauro Sauco 所著《Agentic Design Patterns》全书正文；内容由 Tom Mathews 整理编排，供社区查阅与参考。
 
 Agentic Design Patterns - Book Cover
 
-> Agentic Design Patterns - 图书封面
+> 《Agentic Design Patterns》图书封面
 
 ## Authorship and Credit
 
@@ -22,35 +22,35 @@ Agentic Design Patterns - Book Cover
 
 This 424-page guide tackles the real challenges we face when building intelligent, autonomous AI systems. It bridges the gap between theory and implementation—exactly what our field needs right now. This is the best resource for anyone serious about building real AI systems. If you're an engineer, researcher, or product manager ready to move beyond basic LLM applications and build truly robust AI agents, this is for you.
 
-> 这本 424 页的指南直面构建智能、自主 AI 系统时的真实挑战。它弥合理论与实现之间的鸿沟——正是我们当下领域所需要的。对于任何认真想打造真实 AI 系统的人来说，这是极佳的资源。若你是工程师、研究员或产品经理，已准备好超越基础大语言模型应用、构建真正稳健的 AI 智能体，本书正适合你。
+> 这本 424 页的指南直面构建智能、自主 AI 系统时的真实挑战，在理论与工程实现之间架起桥梁——正切合当下领域所需。对任何想认真打造可落地 AI 系统的人而言，这都是极佳的资源。若你是工程师、研究员或产品经理，希望超越基础大语言模型应用、构建真正稳健的智能体系统，本书正适合你。
 
 The book covers essential agentic patterns including Prompt Chaining, Routing, Planning, and Multi-Agent Systems, all with practical, code-based examples. You'll find comprehensive coverage of Tool Use, Memory Management, and RAG implementation, plus advanced topics like Reasoning Techniques and Inter-Agent Communication.
 
-> 全书涵盖提示链、路由、规划与多智能体系统等核心智能体模式，均配有可运行的代码示例。工具使用、记忆管理与 RAG 实现有全面讲解，并涉及推理技术与智能体间通信等进阶主题。
+> 全书涵盖提示链、路由、规划与多智能体协作等核心**智能体设计模式**，均配有可运行的代码示例；工具使用、记忆管理与 RAG 实现讲解完整，并延伸至推理技术与智能体间通信等进阶主题。
 
 Inside you will find:
 
-> 书中内容包括：
+> 书中主要内容包括：
 
 - **Real code examples:** Not just theory, but working implementations.
 
-> - **真实代码示例：** 不止理论，更有可运行实现。
+> - **真实代码示例：** 不止于理论，更有可运行实现。
 
 - **Proven patterns:** Memory handling, exception logic, resource control, safety guardrails.
 
-> - **经实践检验的模式：** 内存处理、异常逻辑、资源控制、安全护栏。
+> - **经实践检验的智能体模式：** 记忆与上下文处理、异常逻辑、资源约束、安全护栏。
 
 - **Advanced techniques:** Multi-agent orchestration, inter-agent messaging, human-in-the-loop.
 
-> - **进阶技术：** 多智能体编排、智能体间消息、人在回路。
+> - **进阶技术：** 多智能体编排、智能体间消息传递、人在回路（human-in-the-loop）。
 
 - **Full chapter on MCP (Model Context Protocol):** A key framework for integrating tools with agents.
 
-> - **MCP（模型上下文协议）完整一章：** 将工具与智能体集成的关键框架。
+> - **MCP（模型上下文协议）专章：** 将外部工具与智能体集成的关键框架。
 
 It covers 21 core patterns across 4 sections:
 
-> 全书分 4 个部分介绍 21 种核心模式：
+> 全书分四部分介绍 21 种核心智能体模式：
 
 1. Foundational patterns (prompt chaining, routing, tool use)
 
@@ -62,7 +62,7 @@ It covers 21 core patterns across 4 sections:
 
 3. Production concerns (error handling, safety, evaluation)
 
-> 3. 生产关切（错误处理、安全、评估）
+> 3. 生产实践关切（错误处理、安全、评估）
 
 4. Multi-agent architectures
 
@@ -70,7 +70,7 @@ It covers 21 core patterns across 4 sections:
 
 Most AI content stops at “how to call an API.” But in real-world systems you need to ask:
 
-> 多数 AI 内容止步于「如何调用 API」。但在真实系统中，你还需要追问：
+> 多数 AI 内容止步于「如何调用 API」。在真实系统中，你还需要追问：
 
 - What if the agent gets stuck mid-task?
 
@@ -78,15 +78,15 @@ Most AI content stops at “how to call an API.” But in real-world systems you
 
 - How do you preserve memory across long sessions?
 
-> - 如何在长会话中保持记忆？
+> - 如何在长会话中保持记忆连贯？
 
 - How do you prevent chaos when you run 10+ agents?
 
-> - 运行 10 个以上智能体时如何避免混乱？
+> - 同时运行十余个智能体时，如何避免失控与混乱？
 
 This book answers all that with patterns you can actually apply. The 70+ page appendix alone is worth the investment, featuring Advanced Prompting techniques and an overview of Agentic Frameworks.
 
-> 本书以可实际应用的模式回答上述问题。仅 70 余页的附录就物有所值，涵盖高级提示技巧与智能体框架概览。
+> 本书以可切实落地的智能体设计模式回应上述问题。附录逾 70 页即值回票价，涵盖进阶提示工程与智能体开发框架概览。
 
 ## Table of Contents
 
@@ -114,7 +114,7 @@ This book answers all that with patterns you can actually apply. The 70+ page ap
 
 - [What makes an AI system an Agent?](cn/00-Introduction/06-What_makes_an_AI_system_an_Agent.md)
 
-> - [什么使 AI 系统成为智能体？](cn/00-Introduction/06-What_makes_an_AI_system_an_Agent.md)
+> - [怎样的 AI 系统才算智能体？](cn/00-Introduction/06-What_makes_an_AI_system_an_Agent.md)
 
 ### Part One: Foundational Patterns
 
@@ -220,7 +220,7 @@ This book answers all that with patterns you can actually apply. The 70+ page ap
 
 - [Appendix C: Quick Overview of Agentic Frameworks](cn/05-Appendix/Appendix_C-Quick_Overview_of_Agentic_Frameworks.md)
 
-> - [附录 C：智能体框架速览](cn/05-Appendix/Appendix_C-Quick_Overview_of_Agentic_Frameworks.md)
+> - [附录 C：智能体设计与开发框架速览](cn/05-Appendix/Appendix_C-Quick_Overview_of_Agentic_Frameworks.md)
 
 - [Appendix D: Building an Agent with AgentSpace (online only)](cn/05-Appendix/Appendix_D-Building_an_Agent_with_AgentSpace_(on_line_only).md)
 
@@ -246,4 +246,4 @@ This repository is licensed under the [MIT License](LICENSE).
 
 Agentic Design Patterns
 
-> Agentic Design Patterns（智能体设计模式）
+> 《Agentic Design Patterns》（智能体设计模式）

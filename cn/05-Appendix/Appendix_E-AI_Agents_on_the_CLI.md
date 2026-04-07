@@ -8,11 +8,11 @@
 
 ​​The developer's command line, long a bastion of precise, imperative commands, is undergoing a profound transformation. It is evolving from a simple shell into an intelligent, collaborative workspace powered by a new class of tools: AI Agent Command-Line Interfaces (CLIs). These agents move beyond merely executing commands; they understand natural language, maintain context about your entire codebase, and can perform complex, multi-step tasks that automate significant parts of the development lifecycle.
 
-> 开发者的命令行长期是精确、命令式指令的堡垒，如今正经历深刻变革：从简单 shell 演进为由一类新工具——AI 智能体命令行界面（CLI）——驱动的智能协作工作空间。这些智能体不止执行命令，还能理解自然语言、维护对整个代码库的上下文，并能完成复杂多步任务，自动化开发生命周期中的大量环节。
+> 对开发者而言，命令行曾是精确、命令式操作的阵地；如今它正被一类新工具重塑——AI 智能体 CLI。终端不再只是敲命令的壳，而逐步变成能对话、能记住仓库上下文的协作空间：智能体不仅代跑指令，还能用自然语言理解意图，串联多步操作，覆盖开发生命周期里大段可自动化的工作。
 
 This guide provides an in-depth look at four leading players in this burgeoning field, exploring their unique strengths, ideal use cases, and distinct philosophies to help you determine which tool best fits your workflow. It is important to note that many of the example use cases provided for a specific tool can often be accomplished by the other agents as well. The key differentiator between these tools frequently lies in the quality, efficiency, and nuance of the results they are able to achieve for a given task. There are specific benchmarks designed to measure these capabilities, which will be discussed in the following sections.
 
-> 本指南深入介绍该新兴领域的四个主要参与者，探讨其各自优势、适用场景与理念差异，帮助你判断哪款工具最契合自己的工作流。需注意：为某一工具列举的许多示例用例，其他智能体往往也能完成；工具之间的关键差异，常常体现在对特定任务所能达到的结果质量、效率与细腻度上。下文将讨论用于衡量这些能力的专门基准测试。
+> 下文聚焦四家代表性产品，比较各自强项、典型场景与产品哲学，方便你对号入座。提醒一点：文中所举用例大多可被其他工具复现，真正拉开差距的往往是“同样需求下答案是否稳、快、细”。文末还会提到专门评测 CLI 智能体能力的基准。
 
 ## Claude CLI (Claude Code)
 
@@ -20,7 +20,7 @@ This guide provides an in-depth look at four leading players in this burgeoning 
 
 Anthropic's Claude CLI is engineered as a high-level coding agent with a deep, holistic understanding of a project's architecture. Its core strength is its "agentic" nature, allowing it to create a mental model of your repository for complex, multi-step tasks. The interaction is highly conversational, resembling a pair programming session where it explains its plans before executing. This makes it ideal for professional developers working on large-scale projects involving significant refactoring or implementing features with broad architectural impacts.
 
-> Anthropic 的 Claude CLI 被设计为高层编码智能体，能整体、深入地理解项目架构。其核心优势在于「智能体」属性：可为复杂多步任务在仓库上建立心智模型。交互高度对话化，类似结对编程——执行前会说明计划。因此适合从事大规模项目、重大重构或具有广泛架构影响功能实现的专业开发者。
+> Claude CLI 面向“懂整仓”的编码智能体：先把仓库结构吃透，再拆解多步改造。对话风格接近结对编程——动手前会先摊计划。更适合大型代码库、深度重构或牵涉面很广的功能演进。
 
 **Example Use Cases:**
 
@@ -35,7 +35,7 @@ Anthropic's Claude CLI is engineered as a high-level coding agent with a deep, h
 
 Claude CLI functions as a specialized coding assistant, with inherent tools for core development tasks, including file ingestion, code structure analysis, and edit generation. Its deep integration with Git facilitates direct branch and commit management. The agent's extensibility is mediated by the Multi-tool Control Protocol (MCP), enabling users to define and integrate custom tools. This allows for interactions with private APIs, database queries, and execution of project-specific scripts. This architecture positions the developer as the arbiter of the agent's functional scope, effectively characterizing Claude as a reasoning engine augmented by user-defined tooling.
 
-> Claude CLI 作为专业编码助手，内置文件摄取、代码结构分析与编辑生成等核心开发能力。与 Git 深度集成便于直接管理分支与提交。智能体的可扩展性通过多工具控制协议（MCP）实现，用户可定义并集成自定义工具，从而对接私有 API、数据库查询与项目特定脚本。该架构使开发者成为智能体功能边界的裁定者，实质上把 Claude 刻画为由用户定义工具增强的推理引擎。
+> Claude CLI 定位在“会写代码的智能体”：内置读文件、理解结构、批量改写等基础能力，并与 Git 深度打通，分支与提交可直接在对话中完成。扩展面交给 MCP（多工具控制协议）——你能挂载自定义工具，对接内网 API、数据库或项目脚本。整体隐喻是：开发者划定能力边界，Claude 则在用户提供的工具集上充当推理核心。
 
 ## Gemini CLI
 
@@ -43,7 +43,7 @@ Claude CLI functions as a specialized coding assistant, with inherent tools for 
 
 Google's Gemini CLI is a versatile, open-source AI agent designed for power and accessibility. It stands out with the advanced Gemini 2.5 Pro model, a massive context window, and multimodal capabilities (processing images and text). Its open-source nature, generous free tier, and "Reason and Act" loop make it a transparent, controllable, and excellent all-rounder for a broad audience, from hobbyists to enterprise developers, especially those within the Google Cloud ecosystem.
 
-> Google 的 Gemini CLI 是面向能力与易用性的多功能开源 AI 智能体。其突出点包括先进的 Gemini 2.5 Pro 模型、超大上下文窗口以及多模态能力（处理图像与文本）。开源、慷慨的免费额度与「推理—行动」循环使其透明、可控，是从爱好者到企业开发者（尤其身处 Google Cloud 生态者）的出色全能选择。
+> Gemini CLI 开源且易上手，可接入 Gemini 2.5 Pro、长上下文与图文多模态能力。其「推理—行动」循环使行为路径相对透明，免费额度亦较为充裕。无论个人实验还是企业场景（尤其已采用 Google Cloud），均属均衡之选。
 
 **Example Use Cases:**
 
@@ -60,7 +60,7 @@ Google's Gemini CLI is a versatile, open-source AI agent designed for power and 
 
 Gemini CLI is equipped with a suite of built-in tools that allow it to interact with its environment. These include tools for file system operations (like reading and writing), a shell tool for running commands, and tools for accessing the internet via web fetching and searching. For broader context, it uses specialized tools to read multiple files at once and a memory tool to save information for later sessions. This functionality is built on a secure foundation: sandboxing isolates the model's actions to prevent risk, while MCP servers act as a bridge, enabling Gemini to safely connect to your local environment or other APIs.
 
-> Gemini CLI 配备一组内置工具以与环境交互，包括文件系统读写、用于运行命令的 shell 工具，以及通过抓取与搜索访问互联网的工具。为获取更广上下文，还提供一次读取多文件的工具及跨会话保存信息的记忆工具。这些能力建立在安全基础之上：沙箱隔离模型行为以降低风险；MCP 服务器作为桥梁，使 Gemini 能安全连接本地环境或其他 API。
+> 工具箱覆盖读写文件、跑 shell、联网检索/抓取，也支持批量读档与跨会话“记事本”。执行默认落在沙箱里控风险；需要接内网或私有 API 时，可经 MCP 服务器扩展，把外部能力安全地接到对话里。
 
 ## Aider
 
@@ -68,7 +68,7 @@ Gemini CLI is equipped with a suite of built-in tools that allow it to interact 
 
 Aider is an open-source AI coding assistant that acts as a true pair programmer by working directly on your files and committing changes to Git. Its defining feature is its directness; it applies edits, runs tests to validate them, and automatically commits every successful change. Being model-agnostic, it gives users complete control over cost and capabilities. Its git-centric workflow makes it perfect for developers who value efficiency, control, and a transparent, auditable trail of all code modifications.
 
-> Aider 是开源 AI 编码助手，通过直接修改文件并向 Git 提交变更，扮演真正的结对程序员。其鲜明特点是直接：应用编辑、运行测试验证，并在每次成功后自动提交。与具体模型解耦，用户可完全掌控成本与能力。以 Git 为中心的工作流适合重视效率、可控性以及所有代码变更可追溯、可审计的开发者。
+> Aider 是开源 AI 编码助手，工作方式极为直接：就地修改仓库文件，运行测试验证，并在每次成功后自动提交至 Git。模型可更换，成本与能力由用户掌控。若以 Git 为中心、重视变更可追溯与可审计，该工具尤为契合。
 
 **Example Use Cases:**
 
@@ -87,7 +87,7 @@ Aider is an open-source AI coding assistant that acts as a true pair programmer 
 
 GitHub Copilot CLI extends the popular AI pair programmer into the terminal, with its primary advantage being its native, deep integration with the GitHub ecosystem. It understands the context of a project *within GitHub*. Its agent capabilities allow it to be assigned a GitHub issue, work on a fix, and submit a pull request for human review.
 
-> GitHub Copilot CLI 将广受欢迎的 AI 结对编程能力延伸到终端，主要优势是与 GitHub 生态的原生深度集成。它能理解项目在 *GitHub 内*的上下文。其智能体能力可承接 GitHub issue、着手修复并提交拉取请求供人工审阅。
+> Copilot CLI 将 Copilot 能力延伸至终端，核心优势在于与 GitHub 数据面的深度集成：Issue、PR 与代码索引天然联动。在智能体模式下，可承接指定 issue、创建分支修复缺陷并打开拉取请求供人工审阅。
 
 **Example Use Cases:**
 
@@ -106,15 +106,15 @@ GitHub Copilot CLI extends the popular AI pair programmer into the terminal, wit
 
 Terminal-Bench is a novel evaluation framework designed to assess the proficiency of AI agents in executing complex tasks within a command-line interface. The terminal is identified as an optimal environment for AI agent operation due to its text-based, sandboxed nature. The initial release, Terminal-Bench-Core-v0, comprises 80 manually curated tasks spanning domains such as scientific workflows and data analysis. To ensure equitable comparisons, Terminus, a minimalistic agent, was developed to serve as a standardized testbed for various language models. The framework is designed for extensibility, allowing for the integration of diverse agents through containerization or direct connections. Future developments include enabling massively parallel evaluations and incorporating established benchmarks. The project encourages open-source contributions for task expansion and collaborative framework enhancement.
 
-> Terminal-Bench 是用于评估 AI 智能体在命令行界面中执行复杂任务熟练度的新型评估框架。终端因其基于文本、可沙箱化的特性，被视为智能体运行的理想环境。初始版本 Terminal-Bench-Core-v0 包含 80 道人工精选任务，覆盖科学工作流与数据分析等领域。为保证公平比较，开发了极简智能体 Terminus，作为多种语言模型的标准化试验台。框架可扩展，支持通过容器化或直接连接集成不同智能体。未来计划包括大规模并行评估与纳入既有基准。项目欢迎开源贡献以扩充任务并共同完善框架。
+> Terminal-Bench 用来量化“CLI 智能体到底有多能打”。终端纯文本、易容器化，是理想的评测场。首发 Terminal-Bench-Core-v0 含 80 道人工挑选任务，横跨科研脚本、数据分析等。为公平对比，还提供极简基线智能体 Terminus，方便横向测不同模型。框架支持外挂自家 agent，也规划并行跑分与兼容其他基准，欢迎社区继续加题。
 
 ## Conclusion
 
-> ## 结论
+> ## 结语
 
 The emergence of these powerful AI command-line agents marks a fundamental shift in software development, transforming the terminal into a dynamic and collaborative environment. As we've seen, there is no single "best" tool; instead, a vibrant ecosystem is forming where each agent offers a specialized strength. The ideal choice depends entirely on the developer's needs: Claude for complex architectural tasks, Gemini for versatile and multimodal problem-solving, Aider for git-centric and direct code editing, and GitHub Copilot for seamless integration into the GitHub workflow. As these tools continue to evolve, proficiency in leveraging them will become an essential skill, fundamentally changing how developers build, debug, and manage software.
 
-> 这些强大的 AI 命令行智能体的出现标志着软件开发的根本性转变，使终端成为动态、协作的环境。如我们所见，没有唯一的「最佳」工具；相反，一个充满活力的生态正在形成，各智能体各有所长。理想选择完全取决于开发者需求：复杂架构任务选 Claude，多用途与多模态解题选 Gemini，以 Git 为中心的直接改代码选 Aider，与 GitHub 工作流无缝衔接选 GitHub Copilot。随着工具持续演进，熟练运用它们将成为核心技能，从根本上改变开发者构建、调试与管理软件的方式。
+> 强大 AI CLI 的兴起，正在改写软件开发的面貌：终端从被动执行器，变成可协作、可编排的环境。并不存在放之四海皆准的“第一名”；更健康的心态是把它们看作互补生态——按场景挑选：偏架构级改造可看 Claude，偏多模态与云原生整合可看 Gemini，偏 Git 内闭环与可审计提交可看 Aider，深度嵌在 GitHub issue/PR 流程里则看 Copilot CLI。工具还会迭代，学会与它们共舞，将逐步成为工程师的基本功。
 
 ## References
 

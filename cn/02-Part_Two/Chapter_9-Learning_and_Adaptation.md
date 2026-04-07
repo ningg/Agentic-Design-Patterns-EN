@@ -4,7 +4,7 @@
 
 Learning and adaptation are pivotal for enhancing the capabilities of artificial intelligence agents. These processes enable agents to evolve beyond predefined parameters, allowing them to improve autonomously through experience and environmental interaction. By learning and adapting, agents can effectively manage novel situations and optimize their performance without constant manual intervention. This chapter explores the principles and mechanisms underpinning agent learning and adaptation in detail.
 
-> 学习与适应对提升 AI 智能体的能力至关重要。这些过程使智能体能超越预设参数，通过经验与环境交互自主改进；从而有效应对新情境、优化表现，而无需持续人工干预。本章详细探讨支撑智能体学习与适应的原理与机制。
+> 学习与适应是提升人工智能体能力的关键。这些过程使智能体得以突破预设参数，经由经验与环境互动自主改进，从而有效应对新情境、优化表现，而无需持续人工干预。本章将深入阐述支撑智能体学习与适应的原理与机制。
 
 ## The Big Picture
 
@@ -12,7 +12,7 @@ Learning and adaptation are pivotal for enhancing the capabilities of artificial
 
 Agents learn and adapt by changing their thinking, actions, or knowledge based on new experiences and data. This allows agents to evolve from simply following instructions to becoming smarter over time.
 
-> 智能体通过在新经验与数据基础上改变其思考、行为或知识来学习与适应，从而从单纯执行指令演进为随时间变得更「聪明」。
+> 智能体在新经验与数据的基础上调整其思考、行为或知识，由此学习与适应，并从机械执行指令逐步演进为随时间推移而更加「聪明」。
 
 * **Reinforcement Learning:** Agents try actions and receive rewards for positive outcomes and penalties for negative ones, learning optimal behaviors in changing situations. Useful for agents controlling robots or playing games.  
 * **Supervised Learning:** Agents learn from labeled examples, connecting inputs to desired outputs, enabling tasks like decision-making and pattern recognition. Ideal for agents sorting emails or predicting trends.  
@@ -34,7 +34,7 @@ Agents adapt by changing strategy, understanding, or goals based on learning. Th
 
 **Proximal Policy Optimization (PPO)** is a reinforcement learning algorithm used to train agents in environments with a continuous range of actions, like controlling a robot's joints or a character in a game. Its main goal is to reliably and stably improve an agent's decision-making strategy, known as its policy.
 
-> **近端策略优化（PPO）** 是一种强化学习算法，用于在动作连续的环境中训练智能体（如控制机器人关节或游戏角色）；其主要目标是以可靠、稳定的方式改进智能体的决策策略（策略）。
+> **近端策略优化（PPO）** 是一种强化学习算法，适用于动作空间连续的场景（例如控制机器人关节或游戏角色）；其主旨是在可靠、稳定的前提下改进智能体的决策策略。
 
 The core idea behind PPO is to make small, careful updates to the agent's policy. It avoids drastic changes that could cause performance to collapse. Here's how it works:
 
@@ -44,9 +44,9 @@ The core idea behind PPO is to make small, careful updates to the agent's policy
 2. Evaluate a "Surrogate" Goal: PPO calculates how a potential policy update would change the expected reward. However, instead of just maximizing this reward, it uses a special "clipped" objective function.  
 3. The "Clipping" Mechanism: This is the key to PPO's stability. It creates a "trust region" or a safe zone around the current policy. The algorithm is prevented from making an update that is too different from the current strategy. This clipping acts like a safety brake, ensuring the agent doesn't take a huge, risky step that undoes its learning.
 
-> 1. **收集数据：** 智能体用当前策略与环境交互（如玩游戏），收集一批（状态、动作、奖励）经验。  
-> 2. **评估「代理」目标：** PPO 计算潜在策略更新会如何改变期望奖励；但不只是最大化该奖励，而是使用特殊的「裁剪」目标函数。  
-> 3. **裁剪机制：** 这是 PPO 稳定性的关键——在当前策略周围建立「信任域」或安全区，防止更新与当前策略偏离过大；裁剪如同安全刹车，避免智能体迈出过大、有风险的一步而抵消已学内容。
+> 1. **收集数据：** 智能体以当前策略与环境交互（如玩游戏），收集一批（状态、动作、奖励）轨迹。  
+> 2. **评估替代目标（surrogate）：** PPO 估算一次策略更新会如何改变期望奖励；但并非一味最大化该量，而是借助带「裁剪」的替代目标函数。  
+> 3. **裁剪机制：** 这是 PPO 稳定性的关键：在当前策略周围划定「信任域」或安全区，禁止更新与现行策略偏离过大；裁剪如同安全阀，避免智能体迈出过大、冒险的一步而毁掉已得进展。
 
 In short, PPO balances improving performance with staying close to a known, working strategy, which prevents catastrophic failures during training and leads to more stable learning.
 
@@ -70,7 +70,7 @@ To understand DPO, it helps to first understand the traditional PPO-based alignm
 
 This two-step process can be complex and unstable. For instance, the LLM might find a loophole and learn to "hack" the reward model to get high scores for bad responses.
 
-> 两步流程可能复杂且不稳定：例如 LLM 可能钻空子「黑」奖励模型，让劣质回复也得高分。
+> 两步流程可能复杂且不稳定：例如 LLM 可能钻奖励模型的空子，使劣质回复仍能骗得高分。
 
 * The DPO Approach (Direct Process): DPO skips the reward model entirely. Instead of translating human preferences into a reward score and then optimizing for that score, DPO uses the preference data directly to update the LLM's policy.  
 * It works by using a mathematical relationship that directly links preference data to the optimal policy. It essentially teaches the model: "Increase the probability of generating responses like the *preferred* one and decrease the probability of generating ones like the *disfavored* one."
@@ -80,7 +80,7 @@ This two-step process can be complex and unstable. For instance, the LLM might f
 
 In essence, DPO simplifies alignment by directly optimizing the language model on human preference data. This avoids the complexity and potential instability of training and using a separate reward model, making the alignment process more efficient and robust.
 
-> 本质上，DPO 通过直接在人偏好数据上优化语言模型来简化对齐，避免单独训练与使用奖励模型的复杂性与潜在不稳定，使对齐更高效、更稳健。
+> 本质上，DPO 直接依据人类偏好数据优化语言模型，从而简化对齐流程：绕开单独训练奖励模型及其在环调用所带来的复杂性与不稳定，使对齐路径更短、更稳。
 
 ## Practical Applications & Use Cases
 
@@ -118,7 +118,7 @@ The Self-Improving Coding Agent (SICA), developed by Maxime Robeyns, Laurence Ai
 
 SICA's self-improvement operates through an iterative cycle (see Fig.1). Initially, SICA reviews an archive of its past versions and their performance on benchmark tests. It selects the version with the highest performance score, calculated based on a weighted formula considering success, time, and computational cost. This selected version then undertakes the next round of self-modification. It analyzes the archive to identify potential improvements and then directly alters its codebase. The modified agent is subsequently tested against benchmarks, with the results recorded in the archive. This process repeats, facilitating learning directly from past performance. This self-improvement mechanism allows SICA to evolve its capabilities without requiring traditional training paradigms.
 
-> SICA 的自改进通过迭代循环运作（见图 1）。起初它审视过往版本及其在基准测试上的表现，按成功度、时间与算力成本等加权公式选出得分最高版本，由该版本进行下一轮自修改：分析档案寻找改进点并直接改动代码库；修改后的智能体再跑基准，结果记入档案。过程重复，使学习直接来自历史表现；该机制使 SICA 无需传统训练范式即可演进能力。
+> SICA 的自改进依托迭代闭环（见图 1）：先回顾历史版本及其基准表现，按成功率、耗时与算力成本等加权打分，选出最优版本作为下一轮改动的起点；该版本分析档案、寻找可改进之处并直接改写代码库，随后新版本再次跑分入库。循环往复，使改进直接锚定在可观测的表现上；由此，SICA 不必依赖传统离线训练范式也能持续演进。
 
 ![SICA's self-improvement, learning and adapting based on its past versions](../assets-new/SICAs_self_improvement_learning_and_adapting_based_on_its_past_versions.png)
 
@@ -128,7 +128,7 @@ Fig.1: SICA's self-improvement, learning and adapting based on its past versions
 
 SICA underwent significant self-improvement, leading to advancements in code editing and navigation. Initially, SICA utilized a basic file-overwriting approach for code changes. It subsequently developed a "Smart Editor" capable of more intelligent and contextual edits. This evolved into a "Diff-Enhanced Smart Editor," incorporating diffs for targeted modifications and pattern-based editing, and a "Quick Overwrite Tool" to reduce processing demands.
 
-> SICA 经显著自改进，在代码编辑与导航上取得进展：起初用基础整文件覆盖改代码；随后发展出更智能、具情境感的「Smart Editor」；再演化为融入 diff 以做针对性修改与模式编辑的「Diff-Enhanced Smart Editor」，以及降低处理开销的「Quick Overwrite Tool」。
+> SICA 经多轮自改进，在代码编辑与导航上进展明显：起初以整文件覆盖等基础方式改代码；随后发展出更智能、更具情境感的「Smart Editor」；再演化为结合 diff 做定向修改与模式编辑的「Diff-Enhanced Smart Editor」，以及用于降低处理负担的「Quick Overwrite Tool」。
 
 SICA further implemented "Minimal Diff Output Optimization" and "Context-Sensitive Diff Minimization," using Abstract Syntax Tree (AST) parsing for efficiency. Additionally, a "SmartEditor Input Normalizer" was added. In terms of navigation, SICA independently created an "AST Symbol Locator," using the code's structural map (AST) to identify definitions within the codebase. Later, a "Hybrid Symbol Locator" was developed, combining a quick search with AST checking. This was further optimized via "Optimized AST Parsing in Hybrid Symbol Locator" to focus on relevant code sections, improving search speed.(see Fig. 2)
 
@@ -170,7 +170,7 @@ To ensure transparency and control, the system features robust observability thr
 
 In terms of its core intelligence, the agent framework supports LLM integration from various providers, enabling experimentation with different models to find the best fit for specific tasks. Finally, a critical component is the asynchronous overseer, an LLM that runs concurrently with the main agent. This overseer periodically assesses the agent's behavior for pathological deviations or stagnation and can intervene by sending notifications or even cancelling the agent's execution if necessary. It receives a detailed textual representation of the system's state, including a callgraph and an event stream of LLM messages, tool calls, and responses, which allows it to detect inefficient patterns or repeated work.
 
-> 核心智能方面，框架支持接入多家 LLM 提供商，便于为不同任务试验模型。最后，异步监督者是关键组件：与主智能体并发运行，周期性评估行为是否病态偏离或停滞，可通过通知乃至取消执行进行干预；其接收含调用图与 LLM 消息、工具调用与响应的事件流等系统状态文本表示，以发现低效或重复工作。
+> 在模型侧，框架可对接多家 LLM 提供商，便于按任务试错选型。另一关键组件是异步监督者：与主智能体并行运行，周期性检视是否陷入循环、停滞或异常路径，必要时发通知甚至终止运行；它拿到的是系统状态的文本化快照——含调用图以及 LLM 消息、工具调用与响应构成的事件流——据此识别低效与重复劳动。
 
 A notable challenge in the initial SICA implementation was prompting the LLM-based agent to independently propose novel, innovative, feasible, and engaging modifications during each meta-improvement iteration. This limitation, particularly in fostering open-ended learning and authentic creativity in LLM agents, remains a key area of investigation in current research.
 
@@ -194,7 +194,7 @@ In practical computing, AlphaEvolve has been deployed within Google's infrastruc
 
 In the realm of fundamental research, AlphaEvolve has contributed to the discovery of new algorithms for matrix multiplication, including a method for 4x4 complex-valued matrices that uses 48 scalar multiplications, surpassing previously known solutions. In broader mathematical research, it has rediscovered existing state-of-the-art solutions to over 50 open problems in 75% of cases and improved upon existing solutions in 20% of cases, with examples including advancements in the kissing number problem.
 
-> 在基础研究方面，AlphaEvolve 助力发现矩阵乘法新算法，包括对 4×4 复矩阵仅用 48 次标量乘且优于先前已知解的方法；在更广数学研究中，对 50 余个开放问题约 75% 复现现有最优解、约 20% 改进现有解，例子含接吻数等问题进展。
+> 在基础研究方面，AlphaEvolve 助力发现矩阵乘法新算法，其中包括对 4×4 复矩阵仅用 48 次标量乘法、优于此前已知结果的方法；在更广的数学研究中，对 50 余个开放问题约有 75% 复现了已知最优解、约 20% 改进了既有解，接吻数等问题即为一例。
 
 **OpenEvolve** is an evolutionary coding agent that leverages LLMs (see Fig.3) to iteratively optimize code. It orchestrates a pipeline of LLM-driven code generation, evaluation, and selection to continuously enhance programs for a wide range of tasks. A key aspect of OpenEvolve is its capability to evolve entire code files, rather than being limited to single functions. The agent is designed for versatility, offering support for multiple programming languages and compatibility with OpenAI-compatible APIs for any LLM. Furthermore, it incorporates multi-objective optimization, allows for flexible prompt engineering, and is capable of distributed evaluation to efficiently handle complex coding challenges.
 
@@ -274,7 +274,7 @@ Fig.4: Learning and adapting pattern
 > * SICA 通过基于历史表现修改代码实现自改进，催生了 Smart Editor、AST Symbol Locator 等工具。  
 > * 专用「子智能体」与「监督者」有助于自改进系统管理大任务、保持正轨。  
 > * LLM「上下文窗口」的组织方式（系统提示、核心提示、助手消息）对智能体运行效率极为重要。  
-> * 本模式对需在持续变化、不确定或需个性化 touch 的环境中运行的智能体至关重要。  
+> * 本模式对需在持续变化、不确定或强调个性化交互的环境中运行的智能体至关重要。  
 > * 构建会学习的智能体常需接入机器学习工具并管理数据流。  
 > * 配备基础编程工具的智能体系统可自主编辑自身，从而在基准任务上改进表现。  
 > * AlphaEvolve 是 Google 结合 LLM 与进化框架自主发现与优化算法的 AI 智能体，显著增强基础研究与实用计算应用。

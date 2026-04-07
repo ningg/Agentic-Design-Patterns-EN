@@ -4,7 +4,7 @@
 
 To enable LLMs to function effectively as agents, their capabilities must extend beyond multimodal generation. Interaction with the external environment is necessary, including access to current data, utilization of external software, and execution of specific operational tasks. The Model Context Protocol (MCP) addresses this need by providing a standardized interface for LLMs to interface with external resources. This protocol serves as a key mechanism to facilitate consistent and predictable integration.
 
-> 要使 LLM 有效充当智能体，能力须超越多模态生成；必须与外部环境交互——获取最新数据、使用外部软件、执行具体操作。模型上下文协议（MCP）通过为 LLM 连接外部资源提供标准化接口来满足这一需求；该协议是实现一致、可预测集成的关键机制。
+> 要让 LLM 真正胜任智能体角色，能力不能止步于多模态生成，还须与外部环境互动——拉取最新数据、调用外部软件、执行具体操作。模型上下文协议（MCP）为此提供标准化接口，使 LLM 能够连接外部资源；它是实现一致、可预测集成的关键机制。
 
 ## MCP Pattern Overview
 
@@ -12,19 +12,19 @@ To enable LLMs to function effectively as agents, their capabilities must extend
 
 Imagine a universal adapter that allows any LLM to plug into any external system, database, or tool without a custom integration for each one. That's essentially what the Model Context Protocol (MCP) is. It's an open standard designed to standardize how LLMs like Gemini, OpenAI's GPT models, Mixtral, and Claude communicate with external applications, data sources, and tools. Think of it as a universal connection mechanism that simplifies how LLMs obtain context, execute actions, and interact with various systems.
 
-> 想象一种通用适配器，让任意 LLM 无需为每个系统单独集成即可接入外部系统、数据库或工具——这本质上就是 MCP。它是开放标准，旨在统一 Gemini、OpenAI GPT、Mixtral、Claude 等 LLM 与外部应用、数据源和工具的通信方式；可视为简化 LLM 获取上下文、执行动作并与各系统交互的通用连接机制。
+> 不妨设想一种通用适配器：任意 LLM 不必为每个系统各写一套集成，即可接入外部系统、数据库或工具——MCP 要做的正是这件事。作为开放标准，它旨在规范 Gemini、OpenAI GPT、Mixtral、Claude 等模型与外部应用、数据源及工具之间的通信，相当于为「取上下文、执行动作、联动各系统」提供统一的连接层。
 
 MCP operates on a client-server architecture. It defines how different elements—data (referred to as resources), interactive templates (which are essentially prompts), and actionable functions (known as tools)—are exposed by an MCP server. These are then consumed by an MCP client, which could be an LLM host application or an AI agent itself. This standardized approach dramatically reduces the complexity of integrating LLMs into diverse operational environments.
 
-> MCP 采用客户端—服务器架构：规定数据（称为 resources）、交互模板（实质为 prompts）与可执行函数（称为 tools）如何由 MCP 服务器暴露，再由 MCP 客户端（可为 LLM 宿主应用或 AI 智能体本身）消费。这种标准化显著降低将 LLM 集成到多样运行环境的复杂度。
+> MCP 采用客户端—服务器架构：约定数据（resources）、交互模板（本质上即 prompts）与可执行函数（tools）如何由服务器发布、由客户端订阅；客户端可以是 LLM 宿主应用，也可以是 AI 智能体自身。这一标准化大幅降低了在异构运行环境中接入 LLM 的工程量。
 
 However, MCP is a contract for an "agentic interface," and its effectiveness depends heavily on the design of the underlying APIs it exposes. There is a risk that developers simply wrap pre-existing, legacy APIs without modification, which can be suboptimal for an agent. For example, if a ticketing system's API only allows retrieving full ticket details one by one, an agent asked to summarize high-priority tickets will be slow and inaccurate at high volumes. To be truly effective, the underlying API should be improved with deterministic features like filtering and sorting to help the non-deterministic agent work efficiently. This highlights that agents do not magically replace deterministic workflows; they often require stronger deterministic support to succeed.
 
-> 然而，MCP 只是「智能体接口」的契约，成效很大程度上取决于其暴露的底层 API 设计。风险在于开发者仅原封不动封装遗留 API，对智能体未必合适。例如工单系统 API 若只能逐条拉取完整工单，要在高并发下总结高优先级工单就会又慢又不准。要真正有效，底层 API 应增强过滤、排序等确定性能力，辅助非确定性的智能体高效工作。这说明智能体并不会魔法般取代确定性工作流；它们往往更需要更强的确定性支撑才能成功。
+> 然而，MCP 只是「智能体接口」层面的契约，实际效果很大程度上取决于底层 API 的设计。若开发者仅把遗留 API 原样包一层，往往并不适合智能体消费。例如工单 API 若只能逐条拉取完整工单，要在高业务量下汇总高优先级工单就会既慢又易错。要发挥价值，底层 API 宜补充过滤、排序等确定性能力，以支撑本质上非确定性的智能体高效工作。这也意味着：智能体并不能凭空取代确定性流程，反而常常依赖更扎实的确定性基础设施。
 
 Furthermore, MCP can wrap an API whose input or output is still not inherently understandable by the agent. An API is only useful if its data format is agent-friendly, a guarantee that MCP itself does not enforce. For instance, creating an MCP server for a document store that returns files as PDFs is mostly useless if the consuming agent cannot parse PDF content. The better approach would be to first create an API that returns a textual version of the document, such as Markdown, which the agent can actually read and process. This demonstrates that developers must consider not just the connection, but the nature of the data being exchanged to ensure true compatibility.
 
-> 此外，MCP 可包装输入/输出仍非智能体天然可理解的 API；只有数据格式对智能体友好，API 才有用，而 MCP 本身并不保证这一点。例如文档库 MCP 若返回 PDF，而消费端智能体不能解析 PDF，则几乎无用。更好做法是提供返回 Markdown 等文本形态的 API，使智能体能读能处理。这表明开发者须同时考虑连接与交换数据的形态，以确保真正兼容。
+> 此外，即便经 MCP 暴露，API 的输入输出仍可能难以被智能体直接理解；唯有数据形态对智能体友好，接口才真正有用，而这一点并非 MCP 所能担保。例如文档库的 MCP 若一律返回 PDF，而消费侧无法解析 PDF，则价值甚微。更稳妥的做法是先提供能返回 Markdown 等可机读文本的 API，再在其上封装 MCP。这说明开发者既要设计「连得上」，也要设计「读得懂」。
 
 ## MCP vs. Tool Function Calling
 
@@ -40,7 +40,7 @@ Tool function calling can be thought of as a direct request from an LLM to a spe
 
 In contrast, the Model Context Protocol (MCP) operates as a standardized interface for LLMs to discover, communicate with, and utilize external capabilities. It functions as an open protocol that facilitates interaction with a wide range of tools and systems, aiming to establish an ecosystem where any compliant tool can be accessed by any compliant LLM. This fosters interoperability, composability and reusability across different systems and implementations. By adopting a federated model, we significantly improve interoperability and unlock the value of existing assets. This strategy allows us to bring disparate and legacy services into a modern ecosystem simply by wrapping them in an MCP-compliant interface. These services continue to operate independently, but can now be composed into new applications and workflows, with their collaboration orchestrated by LLMs. This fosters agility and reusability without requiring costly rewrites of foundational systems.
 
-> 相比之下，MCP 作为标准化接口，供 LLM 发现、通信并利用外部能力；它是开放协议，促进与广泛工具与系统交互，目标建立「任意合规工具可被任意合规 LLM 访问」的生态，提升互操作、组合与复用。采用联邦模型可显著改善互操作性并释放存量资产价值：用 MCP 合规接口包裹异构与遗留服务即可纳入现代生态；服务仍独立运行，但可被组合进新应用与工作流，由 LLM 编排协作，在不必昂贵重写基础系统的前提下获得敏捷与复用。
+> 相比之下，MCP 是供 LLM 发现、通信并调用外部能力的标准化接口；作为开放协议，它推动与各类工具、系统对接，力图形成「任意合规工具可被任意合规 LLM 调用」的生态，提升互操作、组合与复用。联邦式接入能显著改善互操作性、盘活存量资产：为异构或遗留服务加上符合 MCP 的外壳，即可纳入现代应用版图；服务本身仍可独立运维，同时能被编排进新的应用与工作流，由 LLM 协调协作——无需对底座系统做昂贵重写，即可获得敏捷与复用。
 
 Here's a breakdown of the fundamental distinctions between MCP and tool function calling:
 
@@ -76,7 +76,7 @@ In short, function calling provides direct access to a few specific functions, w
 
 While MCP presents a powerful framework, a thorough evaluation requires considering several crucial aspects that influence its suitability for a given use case. Let's see some aspects in more details:
 
-> MCP 虽是强大框架，全面评估仍需考量影响其是否适合具体用例的若干要点。下面稍细说明：
+> MCP 虽是强有力的框架，是否适合具体场景仍需通盘评估。以下从若干维度略作展开：
 
 * **Tool vs. Resource vs. Prompt**: It's important to understand the specific roles of these components. A resource is static data (e.g., a PDF file, a database record). A tool is an executable function that performs an action (e.g., sending an email, querying an API). A prompt is a template that guides the LLM in how to interact with a resource or tool, ensuring the interaction is structured and effective.  
 * **Discoverability**: A key advantage of MCP is that an MCP client can dynamically query a server to learn what tools and resources it offers. This "just-in-time" discovery mechanism is powerful for agents that need to adapt to new capabilities without being redeployed.  
@@ -87,18 +87,18 @@ While MCP presents a powerful framework, a thorough evaluation requires consider
 * **On-demand vs. Batch**: MCP can support both on-demand, interactive sessions and larger-scale batch processing. The choice depends on the application, from a real-time conversational agent needing immediate tool access to a data analysis pipeline that processes records in batches.  
 * **Transportation Mechanism**: The protocol also defines the underlying transport layers for communication. For local interactions, it uses JSON-RPC over STDIO (standard input/output) for efficient inter-process communication. For remote connections, it leverages web-friendly protocols like Streamable HTTP and Server-Sent Events (SSE) to enable persistent and efficient client-server communication.
 
-> * **Tool / Resource / Prompt：** 须分清角色——resource 多为静态数据（如 PDF、数据库记录）；tool 为可执行动作（如发邮件、调 API）；prompt 为引导 LLM 如何与 resource/tool 交互的模板，使交互结构化、有效。  
-> * **可发现性：** MCP 客户端可动态查询服务器提供的工具与资源；这种「即时」发现对需在不重部署的情况下适应新能力的智能体很有力。  
-> * **安全：** 经任意协议暴露工具与数据都需强安全措施；MCP 实现须含认证与授权，控制谁能连哪些服务器、允许哪些操作。  
-> * **实现：** MCP 虽开放，实现可较复杂；提供商正简化流程，如 Anthropic、FastMCP 等提供 SDK 封装样板代码，便于创建与连接客户端/服务器。  
-> * **错误处理：** 须有完整策略；协议须规定如何把错误（工具执行失败、服务不可用、非法请求等）传回 LLM，使其理解失败并可能换路。  
-> * **本地 vs 远程服务器：** 可与智能体同机本地部署，也可远程；本地利于速度与敏感数据安全，远程利于组织内共享、可扩展访问通用工具。  
-> * **按需 vs 批处理：** MCP 可支持交互式按需会话与大规模批处理；视应用而定——从需即时工具访问的对话智能体到批量处理记录的分析流水线。  
-> * **传输机制：** 协议定义底层传输；本地交互常用 STDIO 上的 JSON-RPC 做进程间通信；远程则可用 Streamable HTTP、SSE 等 Web 友好协议实现持久、高效的客户端—服务器通信。
+> * **Tool / Resource / Prompt：** 三者职责须分清——resource 多为静态数据（如 PDF、数据库记录）；tool 表示可执行动作（如发邮件、调用 API）；prompt 则是引导 LLM 如何与 resource / tool 打交道的模板，使交互有结构、可预期。  
+> * **可发现性：** MCP 客户端可动态查询服务器提供的工具与资源；这种「按需发现」对需要在不重部署的前提下接入新能力的智能体尤其有用。  
+> * **安全：** 通过任何协议对外暴露工具与数据都需要严密防护；MCP 实现应包含认证与授权，明确哪些客户端可连哪些服务器、可执行哪些操作。  
+> * **实现：** 标准虽开放，落地复杂度不低；厂商与社区正降低门槛，例如 Anthropic、FastMCP 等提供 SDK，封装样板代码，便于搭建与连接客户端、服务器。  
+> * **错误处理：** 需要成体系的策略；协议应约定如何把工具执行失败、服务不可用、请求不合法等情况反馈给 LLM，使其能理解失败并尝试替代路径。  
+> * **本地 vs 远程服务器：** 可与智能体同机部署，也可放在远端；本地侧重低延迟与敏感数据隔离，远程便于组织内共享与横向扩展通用工具。  
+> * **按需 vs 批处理：** MCP 既可支撑交互式即时调用，也可支撑大规模批处理；取舍因场景而异——既有依赖秒级工具往返的对话智能体，也有逐批处理记录的数据分析流水线。  
+> * **传输机制：** 协议也定义底层传输：本地侧常见 STDIO 上的 JSON-RPC，用于高效进程间通信；远程侧可采用 Streamable HTTP、SSE 等面向 Web 的协议，维持持久、高效的客户端—服务器通道。
 
 The Model Context Protocol uses a client-server model to standardize information flow. Understanding component interaction is key to MCP's advanced agentic behavior:
 
-> MCP 用客户端—服务器模型标准化信息流。理解组件交互是掌握其高级智能体行为的关键：
+> MCP 以客户端—服务器模型规范信息流。厘清各组件如何协作，是理解其进阶智能体行为的前提：
 
 1. **Large Language Model (LLM)**: The core intelligence. It processes user requests, formulates plans, and decides when it needs to access external information or perform an action.  
 2. **MCP Client**: This is an application or wrapper around the LLM. It acts as the intermediary, translating the LLM's intent into a formal request that conforms to the MCP standard. It is responsible for discovering, connecting to, and communicating with MCP Servers.  
@@ -305,7 +305,7 @@ FastMCP is a high-level Python framework designed to streamline the development 
 
 The library enables rapid definition of tools, resources, and prompts using simple Python decorators. A significant advantage is its automatic schema generation, which intelligently interprets Python function signatures, type hints, and documentation strings to construct necessary AI model interface specifications. This automation minimizes manual configuration and reduces human error.
 
-> 该库可用简单 Python 装饰器快速定义 tools、resources、prompts；一大优势是自动模式生成——根据函数签名、类型注解与文档字符串构建 AI 模型接口规范，减少手工配置与人为错误。
+> 该库可用简洁的 Python 装饰器快速声明 tools、resources、prompts；一大亮点是自动生成 schema——据函数签名、类型注解与文档字符串拼装模型侧所需的接口描述，减轻手写配置与笔误风险。
 
 Beyond basic tool creation, FastMCP facilitates advanced architectural patterns like server composition and proxying. This enables modular development of complex, multi-component systems and seamless integration of existing services into an AI-accessible framework. Additionally, FastMCP includes optimizations for efficient, distributed, and scalable AI-driven applications.
 
@@ -317,7 +317,7 @@ Beyond basic tool creation, FastMCP facilitates advanced architectural patterns 
 
 ## To illustrate, consider a basic "greet" tool provided by the server. ADK agents and other MCP clients can interact with this tool using HTTP once it is active
 
-> ## 举例：服务器提供基础 `greet` 工具；FastMCP 服务启动后，ADK 智能体与其他 MCP 客户端可通过 HTTP 调用该工具
+> ## 示例说明：服务器暴露基础的 `greet` 工具；FastMCP 服务启动后，ADK 智能体及其他 MCP 客户端即可经 HTTP 调用该工具
 
 ```python
 # fastmcp_server.py
@@ -414,7 +414,7 @@ root_agent = LlmAgent(
 
 The script defines an Agent named `fastmcp_greeter_agent` that uses a Gemini language model. It's given a specific instruction to act as a friendly assistant whose purpose is to greet people. Crucially, the code equips this agent with a tool to perform its task. It configures an MCPToolset to connect to a separate server running on localhost:8000, which is expected to be the FastMCP server from the previous example. The agent is specifically granted access to the greet tool hosted on that server. In essence, this code sets up the client side of the system, creating an intelligent agent that understands its goal is to greet people and knows exactly which external tool to use to accomplish it.
 
-> 脚本定义名为 `fastmcp_greeter_agent` 的智能体，使用 Gemini；指令为友好助手、按姓名问候他人。关键是配置 `MCPToolset` 连接 localhost:8000 上运行的 FastMCP 服务器（即前例），并仅暴露 `greet`。本质是搭建客户端：智能体明白目标是问候，并知用哪一外部工具完成。
+> 脚本创建名为 `fastmcp_greeter_agent` 的智能体，底层为 Gemini；系统指令要求其做友好助手、按姓名问候。关键在于用 `MCPToolset` 指向本机 8000 端口上运行的 FastMCP 服务（即前文示例），并通过 `tool_filter` 仅开放 `greet`。这是在搭「客户端」侧：智能体既清楚业务目标，也明确应调用哪一项外部能力。
 
 Creating an `__init__.py` file within the `fastmcp_client_agent` directory is necessary. This ensures the agent is recognized as a discoverable Python package for the ADK.
 

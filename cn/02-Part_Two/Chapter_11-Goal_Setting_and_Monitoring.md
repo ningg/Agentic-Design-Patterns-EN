@@ -4,7 +4,7 @@
 
 For AI agents to be truly effective and purposeful, they need more than just the ability to process information or use tools; they need a clear sense of direction and a way to know if they're actually succeeding. This is where the Goal Setting and Monitoring pattern comes into play. It's about giving agents specific objectives to work towards and equipping them with the means to track their progress and determine if those objectives have been met.
 
-> 要让 AI 智能体真正有效且有目的性，仅有信息处理或工具使用能力还不够；它们需要明确的方向感，以及判断自己是否真正取得进展的手段。这就是「目标设定与监控」模式发挥作用之处：为智能体赋予要达成的具体目标，并提供跟踪进度、判断目标是否已实现的机制。
+> 若要让 AI 智能体真正有效、有的放矢，仅有信息处理或工具调用能力并不足够；还需要清晰的方向感，以及判断自身是否切实取得进展的手段。「目标设定与监控」模式正回应这一点：为智能体明确待达成的具体目标，并配套跟踪进度、判定目标是否完成的机制。
 
 ## Goal Setting and Monitoring Pattern Overview
 
@@ -12,11 +12,11 @@ For AI agents to be truly effective and purposeful, they need more than just the
 
 Think about planning a trip. You don't just spontaneously appear at your destination. You decide where you want to go (the goal state), figure out where you are starting from (the initial state), consider available options (transportation, routes, budget), and then map out a sequence of steps: book tickets, pack bags, travel to the airport/station, board the transport, arrive, find accommodation, etc. This step-by-step process, often considering dependencies and constraints, is fundamentally what we mean by planning in agentic systems.
 
-> 想想规划一次旅行：你不会凭空出现在目的地。你要决定想去哪里（目标状态）、从哪里出发（初始状态）、有哪些可选方案（交通、路线、预算），再排出一连串步骤：订票、打包、前往机场/车站、登车/登机、抵达、找住处等。这种常需考虑依赖与约束的逐步过程，本质上就是智能体系统中的「规划」。
+> 不妨以规划旅行为喻：人不会凭空出现在目的地。先要明确目的地（目标状态）与起点（初始状态），再权衡交通、路线、预算等选项，继而排出步骤：订票、打包、前往机场或车站、登车或登机、抵达、安排住宿等。这种往往牵涉依赖与约束的分步推进，正是智能体系统中「规划」的含义所在。
 
 In the context of AI agents, planning typically involves an agent taking a high-level objective and autonomously, or semi-autonomously, generating a series of intermediate steps or sub-goals. These steps can then be executed sequentially or in a more complex flow, potentially involving other patterns like tool use, routing, or multi-agent collaboration. The planning mechanism might involve sophisticated search algorithms, logical reasoning, or increasingly, leveraging the capabilities of large language models (LLMs) to generate plausible and effective plans based on their training data and understanding of tasks.
 
-> 在 AI 智能体语境下，规划通常指智能体接收高层目标后，自主或半自主地生成一系列中间步骤或子目标；这些步骤可按顺序执行，也可构成更复杂的流程，并可能结合工具使用、路由或多智能体协作等模式。规划机制可能涉及复杂搜索算法、逻辑推理，或越来越多地利用 LLM 的能力，根据其训练数据与任务理解生成可行且有效的计划。
+> 在 AI 智能体语境中，「规划」一般指：在获得高层目标后，自主或半自主地拆解出一串中间步骤或子目标；这些步骤既可线性执行，也可交织成更复杂的流程，并与工具调用、路由、多智能体协作等模式并用。其实现既可依托搜索与逻辑推理，也越来越多地借助 LLM，凭其训练所得与任务理解生成可行、有效的行动方案。
 
 A good planning capability allows agents to tackle problems that aren't simple, single-step queries. It enables them to handle multi-faceted requests, adapt to changing circumstances by replanning, and orchestrate complex workflows. It's a foundational pattern that underpins many advanced agentic behaviors, turning a simple reactive system into one that can proactively work towards a defined objective.
 
@@ -28,7 +28,7 @@ A good planning capability allows agents to tackle problems that aren't simple, 
 
 The Goal Setting and Monitoring pattern is essential for building agents that can operate autonomously and reliably in complex, real-world scenarios. Here are some practical applications:
 
-> 「目标设定与监控」模式对于构建能在复杂真实场景中自主、可靠运行的智能体至关重要。以下是一些实践应用：
+> 「目标设定与监控」是构建能在复杂现实环境中自主、可靠运转的智能体时不可或缺的一环。下面列举若干典型应用：
 
 * **Customer Support Automation:** An agent's goal might be to "resolve customer's billing inquiry." It monitors the conversation, checks database entries, and uses tools to adjust billing. Success is monitored by confirming the billing change and receiving positive customer feedback. If the issue isn't resolved, it escalates.  
 * **Personalized Learning Systems:** A learning agent might have the goal to "improve students’ understanding of algebra." It monitors the student's progress on exercises, adapts teaching materials, and tracks performance metrics like accuracy and completion time, adjusting its approach if the student struggles.  
@@ -54,15 +54,15 @@ This pattern is fundamental for agents that need to operate reliably, achieve sp
 
 To illustrate the Goal Setting and Monitoring pattern, we have an example using LangChain and OpenAI APIs. This Python script outlines an autonomous AI agent engineered to generate and refine Python code. Its core function is to produce solutions for specified problems, ensuring adherence to user-defined quality benchmarks.
 
-> 为说明「目标设定与监控」模式，本节给出使用 LangChain 与 OpenAI API 的示例。该 Python 脚本勾勒了一个自主 AI 智能体，用于生成并迭代改进 Python 代码；核心是为指定问题产出解法，并满足用户定义的质量基准。
+> 为阐释「目标设定与监控」，本节提供基于 LangChain 与 OpenAI API 的示例：Python 脚本刻画了一个能自主生成并反复修订 Python 代码的 AI 智能体，其要义是在给定问题下产出实现，并持续对照用户设定的质量标准。
 
 It employs a "goal-setting and monitoring" pattern where it doesn't just generate code once, but enters into an iterative cycle of creation, self-evaluation, and improvement. The agent's success is measured by its own AI-driven judgment on whether the generated code successfully meets the initial objectives. The ultimate output is a polished, commented, and ready-to-use Python file that represents the culmination of this refinement process.
 
-> 它采用「设定目标 + 监控」模式：不只生成一次代码，而是进入「创作—自评—改进」的迭代循环；成功与否由同一套 AI 判断生成代码是否满足初始目标。最终输出是经打磨、带注释、可直接使用的 `.py` 文件，作为精炼过程的成果。
+> 它体现「目标设定 + 监控」：不是一次性生成即结束，而是进入「编写—自评—改写」的闭环；是否达标由同一套 AI 依据反馈判定。最终交付的是经过多轮打磨、附带注释、可直接运行的 `.py` 文件，作为该精炼过程的落盘结果。
 
  **Dependencies**:
 
->  **依赖：**
+> **依赖：**
 
 ```python
 pip install langchain_openai openai python-dotenv .env file with key in OPENAI_API_KEY
@@ -70,7 +70,7 @@ pip install langchain_openai openai python-dotenv .env file with key in OPENAI_A
 
 You can best understand this script by imagining it as an autonomous AI programmer assigned to a project (see Fig. 1). The process begins when you hand the AI a detailed project brief, which is the specific coding problem it needs to solve.
 
-> 把该脚本想象成被派到项目上的自主 AI 程序员（见图 1）最易理解：你交给它一份详细项目简报，即它要解决的具体编码问题。
+> 最直观的理解方式，是把脚本看作被指派到项目上的自主 AI 程序员（见图 1）：你交付一份详尽的项目简报，也就是待解决的具体编程问题。
 
 ```python
 # MIT License
@@ -293,19 +293,19 @@ Fig.1: Goal Setting and Monitor example
 
 With this assignment in hand, the AI programmer gets to work and produces its first draft of the code. However, instead of immediately submitting this initial version, it pauses to perform a crucial step: a rigorous self-review. It meticulously compares its own creation against every item on the quality checklist you provided, acting as its own quality assurance inspector. After this inspection, it renders a simple, unbiased verdict on its own progress: "True" if the work meets all standards, or "False" if it falls short.
 
-> 接到任务后，AI 程序员先产出代码初稿；但它不会立刻交卷，而是暂停并进行关键一步：严格自审——对照你提供的质量清单逐项检查自己的产出，充当自己的质检员；然后根据审查给出简单、不偏不倚的进展判断：全部达标为「True」，否则为「False」。
+> 接到任务后，AI 程序员会先写出代码初稿，却不会马上交差，而是停下来做关键一步：严格自审——对照你给出的质量清单逐项核对自有产出，身兼作者与质检；随后给出简明、克制的结论：若全部满足要求则为「True」，否则为「False」。
 
 If the verdict is "False," the AI doesn't give up. It enters a thoughtful revision phase, using the insights from its self-critique to pinpoint the weaknesses and intelligently rewrite the code. This cycle of drafting, self-reviewing, and refining continues, with each iteration aiming to get closer to the goals. This process repeats until the AI finally achieves a "True" status by satisfying every requirement, or until it reaches a predefined limit of attempts, much like a developer working against a deadline. Once the code passes this final inspection, the script packages the polished solution, adding helpful comments and saving it to a clean, new Python file, ready for use.
 
-> 若判为「False」，AI 不会放弃，而进入修订阶段：利用自评洞见定位弱点并智能重写。起草—自审—精炼的循环持续进行，每轮都更接近目标；直到全部满足而得「True」，或达到预设尝试上限（类似开发者赶截止日期）。通过最终检查后，脚本将成品打包、添加有用注释并保存为新的整洁 `.py` 文件以供使用。
+> 若结论为「False」，流程不会终止，而进入修订：依据自评所暴露的薄弱点改写代码。起草、自审、打磨的循环反复进行，每一轮都更贴近目标；直至满足全部条件得到「True」，或触及预设迭代上限（类似开发者在截止日前有限次返工）。通过终审后，脚本会把成品整理妥当、附上说明性注释，并写入一份命名清晰的 `.py` 文件，便于直接使用。
 
 **Caveats and Considerations:** It is important to note that this is an exemplary illustration and not production-ready code. For real-world applications, several factors must be taken into account. An LLM may not fully grasp the intended meaning of a goal and might incorrectly assess its performance as successful. Even if the goal is well understood, the model may hallucinate. When the same LLM is responsible for both writing the code and judging its quality, it may have a harder time discovering it is going in the wrong direction.
 
-> **注意与考量：** 本例为示范，非生产级代码。实际应用须考虑：LLM 可能未准确理解目标含义而误判已成功；即便理解正确也可能幻觉；若同一模型既写代码又评判质量，更难发现自己走偏。
+> **注意与考量：** 本例仅供演示，不宜直接用于生产。落地时须谨记：LLM 可能曲解目标却仍判定「已完成」；即便理解无误也可能产生幻觉；若同一模型兼司编码与评审，往往更难察觉自身偏离正轨。
 
 Ultimately, LLMs do not produce flawless code by magic; you still need to run and test the produced code. Furthermore, the "monitoring" in the simple example is basic and creates a potential risk of the process running forever.
 
-> 归根结底，LLM 不会魔法般产出完美代码；你仍需运行并测试生成代码。此外，示例中的「监控」较基础，存在流程可能无限运行的风险。
+> 归根结底，LLM 并不能魔术般给出无瑕代码；生成结果仍需实际运行与测试验证。此外，示例里的「监控」较为简陋，存在迭代无法自行终止、理论上可能一直跑下去的风险。
 
 ```text
 Act as an expert code reviewer with a deep commitment to producing clean, correct, and simple code. Your core mission is to eliminate code "hallucinations" by ensuring every suggestion is grounded in reality and best practices. When I provide you with a code snippet, I want you to: -- Identify and Correct Errors: Point out any logical flaws, bugs, or potential runtime errors. -- Simplify and Refactor: Suggest changes that make the code more readable, efficient, and maintainable without sacrificing correctness. -- Provide Clear Explanations: For every suggested change, explain why it is an improvement, referencing principles of clean code, performance, or security. -- Offer Corrected Code: Show the "before" and "after" of your suggested changes so the improvement is clear. Your feedback should be direct, constructive, and always aimed at improving the quality of the code.
@@ -313,7 +313,7 @@ Act as an expert code reviewer with a deep commitment to producing clean, correc
 
 A more robust approach involves separating these concerns by giving specific roles to a crew of agents. For instance, I have built a personal crew of AI agents using Gemini where each has a specific role:
 
-> 更稳妥的做法是分离职责，让一组智能体各担一角。例如笔者曾用 Gemini 搭建个人智能体小队，角色分工如下：
+> 更稳妥的做法是职责分离，由多个智能体各专一事。例如笔者曾用 Gemini 搭建个人「智能体小队」，角色划分如下：
 
 * The Peer Programmer: Helps write and brainstorm code.  
 * The Code Reviewer: Catches errors and suggests improvements.  
@@ -329,7 +329,7 @@ A more robust approach involves separating these concerns by giving specific rol
 
 In this multi-agent system, the Code Reviewer, acting as a separate entity from the programmer agent, has a prompt similar to the judge in the example, which significantly improves objective evaluation. This structure naturally leads to better practices, as the Test Writer agent can fulfill the need to write unit tests for the code produced by the Peer Programmer.
 
-> 在该多智能体系统中，审查员与程序员分离，其提示类似示例中的「裁判」，能显著改善客观评估；测试编写者可为同伴程序员的代码补全单测，自然导向更好实践。
+> 在这一多智能体设置中，审查者与编码者彼此独立，前者的提示词角色接近示例里的「裁判」，有利于提高评判的客观性；测试编写者则能为同伴程序员的产出补齐单元测试，从结构上推动更稳妥的工程习惯。
 
 I leave to the interested reader the task of adding these more sophisticated controls and making the code closer to production-ready.
 
@@ -389,7 +389,7 @@ Key takeaways include:
 
 This chapter focused on the crucial paradigm of Goal Setting and Monitoring. I highlighted how this concept transforms AI agents from merely reactive systems into proactive, goal-driven entities. The text emphasized the importance of defining clear, measurable objectives and establishing rigorous monitoring procedures to track progress. Practical applications demonstrated how this paradigm supports reliable autonomous operation across various domains, including customer service and robotics. A conceptual coding example illustrates the implementation of these principles within a structured framework, using agent directives and state management to guide and evaluate an agent's achievement of its specified goals. Ultimately, equipping agents with the ability to formulate and oversee goals is a fundamental step toward building truly intelligent and accountable AI systems.
 
-> 本章聚焦「目标设定与监控」这一关键范式，说明它如何将 AI 智能体从纯反应式系统转变为主动、目标驱动的实体；强调明确可衡量目标与严格监控流程以跟踪进度的重要性；实践应用展示该范式如何支撑客户服务、机器人等多领域的可靠自主运行；概念性代码示例说明如何在结构化框架内用指令与状态管理引导并评估智能体达成指定目标。归根结底，让智能体能够制定并监督目标，是构建真正智能且可问责的 AI 系统的基本一步。
+> 本章围绕「目标设定与监控」这一核心范式展开，阐明它如何把 AI 智能体从被动反应式系统，推向主动、目标导向的行为体；并强调可量化目标与严密监控对把握进度不可或缺。应用部分展示该范式如何支撑客服、机器人等场景下的稳健自主运行；示例代码则从工程角度演示如何借助指令与状态管理，引导并检验智能体是否达成既定目标。归根结底，赋予智能体设定目标与审视自身进展的能力，是迈向更可信、更可问责的 AI 系统的基石之一。
 
 ## References
 

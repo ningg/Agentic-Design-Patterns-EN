@@ -1,6 +1,6 @@
 # Appendix A: Advanced Prompting Techniques
 
-> 附录 A：高级提示技术
+> 附录 A：高级提示技巧
 
 ## Introduction to Prompting
 
@@ -8,19 +8,19 @@
 
 Prompting, the primary interface for interacting with language models, is the process of crafting inputs to guide the model towards generating a desired output. This involves structuring requests, providing relevant context, specifying the output format, and demonstrating expected response types. Well-designed prompts can maximize the potential of language models, resulting in accurate, relevant, and creative responses. In contrast, poorly designed prompts can lead to ambiguous, irrelevant, or erroneous outputs.
 
-> 提示（Prompting）是与语言模型交互的主要界面，指设计输入以引导模型生成期望输出的过程。这包括组织请求、提供相关语境、指定输出格式，并示范期望的回应类型。设计良好的提示能充分发挥语言模型的潜力，得到准确、相关且富有创意的回答；设计不当则易导致含糊、无关或错误的输出。
+> 提示是与语言模型打交道的主要方式：通过设计输入，引导模型产出你想要的结果。它涵盖如何组织请求、补充语境、规定输出格式，以及用示例示范期望的回答形态。提示写得好，模型更容易给出准确、相关且有创意的回复；写得含糊，则往往得到模棱两可、文不对题或明显错误的输出。
 
 The objective of prompt engineering is to consistently elicit high-quality responses from language models. This requires understanding the capabilities and limitations of the models and effectively communicating intended goals. It involves developing expertise in communicating with AI by learning how to best instruct it.
 
-> 提示工程的目标是稳定地从语言模型获得高质量回答。这需要理解模型的能力与局限，并有效传达意图目标；也意味着通过学习如何最好地“指挥”AI，来培养与 AI 沟通的专业能力。
+> 提示工程的目标，是让模型在一次次调用中持续给出高质量回答。这要求你理解模型能做什么、做不到什么，并把目标说清楚；也意味着要学会怎样向 AI 下指令，把与模型协作练成一种可迁移的能力。
 
 This appendix details various prompting techniques that extend beyond basic interaction methods. It explores methodologies for structuring complex requests, enhancing the model's reasoning abilities, controlling output formats, and integrating external information. These techniques are applicable to building a range of applications, from simple chatbots to complex multi-agent systems, and can improve the performance and reliability of agentic applications.
 
-> 本附录介绍多种超越基础交互的提示技术，探讨如何组织复杂请求、增强模型推理、控制输出格式以及整合外部信息。这些技术可用于从简单聊天机器人到复杂多智能体系统的各类应用，并有助于提升智能体应用的性能与可靠性。
+> 本附录在基础对话之上，展开一系列提示技巧：如何拆解复杂请求、强化推理、约束输出形态、接入外部知识等。它们既适用于轻量聊天机器人，也适用于复杂多智能体系统，并能整体抬高智能体应用的稳定性与可用性。
 
 Agentic patterns, the architectural structures for building intelligent systems, are detailed in the main chapters. These patterns define how agents plan, utilize tools, manage memory, and collaborate. The efficacy of these agentic systems is contingent upon their ability to interact meaningfully with language models.
 
-> 智能体模式（构建智能系统的架构结构）在正文中详述；它们定义智能体如何规划、使用工具、管理记忆与协作。这些智能体系统能否奏效，取决于其与语言模型能否进行有意义的交互。
+> 智能体模式——即搭建智能系统的结构方式——在正文中有系统阐述：它们规定智能体如何规划、调用工具、维护记忆与彼此协作。整套系统是否好用，很大程度上取决于智能体与语言模型之间能否形成清晰、可重复的交互。
 
 ## Core Prompting Principles
 
@@ -28,35 +28,35 @@ Agentic patterns, the architectural structures for building intelligent systems,
 
 Core Principles for Effective Prompting of Language Models:
 
-> 对语言模型进行有效提示的核心原则：
+> 面向语言模型做有效提示时，应把握以下核心原则：
 
 Effective prompting rests on fundamental principles guiding communication with language models, applicable across various models and task complexities. Mastering these principles is essential for consistently generating useful and accurate responses.
 
-> 有效提示建立在指导人与语言模型沟通的基本原则之上，适用于不同模型与任务复杂度。掌握这些原则，才能持续产生有用且准确的回答。
+> 有效提示背后，是一套与语言模型沟通的通用原则，不因模型换代或任务变难而失效。吃透这些原则，才更容易稳定得到有用且准确的回答。
 
 **Clarity and Specificity**: Instructions should be unambiguous and precise. Language models interpret patterns; multiple interpretations may lead to unintended responses. Define the task, desired output format, and any limitations or requirements. Avoid vague language or assumptions. Inadequate prompts yield ambiguous and inaccurate responses, hindering meaningful output.
 
-> **清晰与具体：** 指令应无歧义且精确。语言模型依赖模式解读；多种理解可能导致非预期回答。应明确任务、期望输出格式以及限制或要求；避免模糊表述或隐含假设。不足的提示会产生含糊、不准确的回答，阻碍有效输出。
+> **清晰与具体：** 指令要写得没有歧义、边界清楚。模型靠模式补全语义，一句话多种读法就会走向意外结果。请写清任务是什么、希望以什么格式交付、有哪些硬性约束；少用“看着办”式措辞，也少埋隐含前提。提示不到位，输出往往含糊或偏离，难以真正可用。
 
 **Conciseness**: While specificity is crucial, it should not compromise conciseness. Instructions should be direct. Unnecessary wording or complex sentence structures can confuse the model or obscure the primary instruction. Prompts should be simple; what is confusing to the user is likely confusing to the model. Avoid intricate language and superfluous information. Use direct phrasing and active verbs to clearly delineate the desired action. Effective verbs include: Act, Analyze, Categorize, Classify, Contrast, Compare, Create, Describe, Define, Evaluate, Extract, Find, Generate, Identify, List, Measure, Organize, Parse, Pick, Predict, Provide, Rank, Recommend, Return, Retrieve, Rewrite, Select, Show, Sort, Summarize, Translate, Write.
 
-> **简洁：** 具体很重要，但不应以冗长为代价。指令应直截了当。多余措辞或复杂句式可能迷惑模型或掩盖主要指令。提示宜简单——让用户困惑的，往往也会让模型困惑。避免绕弯与冗余信息，用直接措辞和主动动词标明期望动作。常用有效动词包括：Act、Analyze、Categorize、Classify、Contrast、Compare、Create、Describe、Define、Evaluate、Extract、Find、Generate、Identify、List、Measure、Organize、Parse、Pick、Predict、Provide、Rank、Recommend、Return、Retrieve、Rewrite、Select、Show、Sort、Summarize、Translate、Write。
+> **简洁：** 具体不等于啰嗦。在信息给足的前提下，尽量直说主干：绕圈子的长句既费 token，也容易把模型带偏。可以记住一条经验法则——你觉得难懂的句子，模型往往也难懂。多用主动动词点明要它做什么，少用装饰性从句。常见好用的动词包括：Act、Analyze、Categorize、Classify、Contrast、Compare、Create、Describe、Define、Evaluate、Extract、Find、Generate、Identify、List、Measure、Organize、Parse、Pick、Predict、Provide、Rank、Recommend、Return、Retrieve、Rewrite、Select、Show、Sort、Summarize、Translate、Write。
 
 **Using Verbs:** Verb choice is a key prompting tool. Action verbs indicate the expected operation. Instead of "Think about summarizing this," a direct instruction like "Summarize the following text" is more effective. Precise verbs guide the model to activate relevant training data and processes for that specific task.
 
-> **使用动词：** 动词选择是关键提示手段。动作动词标明期望的操作。与其说“想想怎么总结这段”，不如直接说“总结以下文本”。精确的动词有助于激活与该任务相关的训练知识与处理路径。
+> **善用动词：** 动词是提示里性价比最高的杠杆之一，直接对应“要模型执行哪类操作”。与其说“想想怎么总结下面这段”，不如明确写“总结以下文本”。动词越贴切，越容易唤起与任务相匹配的知识与推理习惯。
 
 **Instructions Over Constraints:** Positive instructions are generally more effective than negative constraints. Specifying the desired action is preferred to outlining what not to do. While constraints have their place for safety or strict formatting, excessive reliance can cause the model to focus on avoidance rather than the objective. Frame prompts to guide the model directly. Positive instructions align with human guidance preferences and reduce confusion.
 
-> **指令优于约束：** 正面说明“要做什么”通常比罗列“不要做什么”更有效。在安全或严格格式等场景下约束有其位置，但过度依赖会让模型把注意力放在规避而非目标上。应用提示直接引导模型；正面指令更符合人类指导习惯，也减少误解。
+> **指令优于约束：** 多写“请产出什么”，少写一长串“不许怎样”。在安全、合规或版式极严的场景里，否定式约束仍然必要；但若通篇都是禁令，模型容易把注意力耗在躲坑上，反而忘了正事。把力气花在正面引导上，既贴近人类协作习惯，也降低误读空间。
 
 **Experimentation and Iteration:** Prompt engineering is an iterative process. Identifying the most effective prompt requires multiple attempts. Begin with a draft, test it, analyze the output, identify shortcomings, and refine the prompt. Model variations, configurations (like temperature or top-p), and slight phrasing changes can yield different results. Documenting attempts is vital for learning and improvement. Experimentation and iteration are necessary to achieve the desired performance.
 
-> **实验与迭代：** 提示工程是迭代过程，最有效的提示往往需要多次尝试。从草稿开始，测试、分析输出、找出不足并改进提示；不同模型变体、配置（如 temperature、top-p）以及细微措辞变化都会带来不同结果。记录尝试对学习改进至关重要；要达到期望表现，实验与迭代必不可少。
+> **实验与迭代：** 好提示很少一次写成。更稳妥的路径是：先打一版草稿 → 跑真实用例 → 对照目标找差距 → 再改措辞或结构。换模型、调 temperature / top-p、微调一句话，结果都可能明显不同。把每次版本与效果记下来，复盘成本会低很多；想稳定达到预期，迭代几乎是必修课。
 
 These principles form the foundation of effective communication with language models. By prioritizing clarity, conciseness, action verbs, positive instructions, and iteration, a robust framework is established for applying more advanced prompting techniques.
 
-> 这些原则构成与语言模型有效沟通的基础。优先保证清晰、简洁、动作动词、正面指令与迭代，便能为运用更高级的提示技术打下稳固框架。
+> 以上原则是与语言模型协作的底层语法：先把事情说清楚、写短写准、用对动词、多用正面指引，并愿意反复试。做到这几条，再谈更复杂的提示模式，会轻松得多。
 
 ## Basic Prompting Techniques
 
@@ -64,7 +64,7 @@ These principles form the foundation of effective communication with language mo
 
 Building on core principles, foundational techniques provide language models with varying levels of information or examples to direct their responses. These methods serve as an initial phase in prompt engineering and are effective for a wide spectrum of applications.
 
-> 在核心原则之上，基础技术通过提供不同程度的信息或示例来引导模型回答，是提示工程的起步阶段，适用于广泛的应用场景。
+> 在原则之上，基础技术解决的是“给模型多少示范”：零示例、一条示例，或几条示例。它们几乎是所有提示工作的起点，也能覆盖大量日常应用场景。
 
 ### Zero-Shot Prompting
 
@@ -72,13 +72,13 @@ Building on core principles, foundational techniques provide language models wit
 
 Zero-shot prompting is the most basic form of prompting, where the language model is provided with an instruction and input data without any examples of the desired input-output pair. It relies entirely on the model's pre-training to understand the task and generate a relevant response. Essentially, a zero-shot prompt consists of a task description and initial text to begin the process.
 
-> 零样本提示是最基础的形式：只给指令与输入，不提供期望的输入—输出示例对。它完全依赖预训练来理解任务并生成相关回答；本质上由任务描述与起始文本构成。
+> 零样本提示最朴素：只描述任务、贴上输入，不给任何“示范答案”。模型完全靠预训练里见过的模式来猜你要什么；提示本身通常就是“任务说明 + 待处理文本”。
 
 * **When to use:** Zero-shot prompting is often sufficient for tasks that the model has likely encountered extensively during its training, such as simple question answering, text completion, or basic summarization of straightforward text. It's the quickest approach to try first.  
 * **Example:**  
   Translate the following English sentence to French: 'Hello, how are you?'
 
-> * **何时使用：** 对模型在训练中可能大量见过的任务（如简单问答、续写、对直白文本做基础摘要）往往足够；也是应最先尝试的最快路径。  
+> * **何时使用：** 若任务形态在预训练语料里很常见——简单问答、续写、对直白短文做摘要等——零样本往往就够用；也是排查问题时最值得先试的一条捷径。  
 > * **示例：**  
 >   将下列英文句子译成法语：'Hello, how are you?'
 
@@ -88,7 +88,7 @@ Zero-shot prompting is the most basic form of prompting, where the language mode
 
 One-shot prompting involves providing the language model with a single example of the input and the corresponding desired output prior to presenting the actual task. This method serves as an initial demonstration to illustrate the pattern the model is expected to replicate. The purpose is to equip the model with a concrete instance that it can use as a template to effectively execute the given task.
 
-> 单样本提示在呈现真实任务前，先提供一个输入与对应期望输出的示例，作为示范以说明模型应复现的模式，让模型有具体模板可依。
+> 单样本提示会先在正文任务前放一组“输入 → 期望输出”，相当于递给模型一张格式样张；后面的真实请求，就按同一套路来仿写。
 
 * **When to use:** One-shot prompting is useful when the desired output format or style is specific or less common. It gives the model a concrete instance to learn from. It can improve performance compared to zero-shot for tasks requiring a particular structure or tone.  
 * **Example:**  
@@ -99,7 +99,7 @@ One-shot prompting involves providing the language model with a single example o
   English: 'Please.'  
   Spanish:
 
-> * **何时使用：** 当期望的输出格式或风格较特殊、较少见时很有用；给模型一个具体实例学习，相对零样本在需要特定结构或语气时往往更好。  
+> * **何时使用：** 一旦目标格式、语气或体裁不太“标准”，单样本通常比光说不练更有效；有一个看得见的实例，模型更容易对齐结构与口吻。  
 > * **示例：**  
 >   将下列英文句子译成西班牙语：  
 >   English: 'Thank you.'  
@@ -114,7 +114,7 @@ One-shot prompting involves providing the language model with a single example o
 
 Few-shot prompting enhances one-shot prompting by supplying several examples, typically three to five, of input-output pairs. This aims to demonstrate a clearer pattern of expected responses, improving the likelihood that the model will replicate this pattern for new inputs. This method provides multiple examples to guide the model to follow a specific output pattern.
 
-> 少样本提示在单样本基础上提供若干（通常三到五组）输入—输出对，以更清晰地展示期望模式，提高模型对新输入复现该模式的可能性。
+> 少样本提示在单样本之上再叠几组（常见三到五对）输入—输出，让模式更“露骨”；新输入到来时，模型照猫画虎的成功率通常随之上升。
 
 * **When to use:** Few-shot prompting is particularly effective for tasks where the desired output requires adhering to a specific format, style, or exhibiting nuanced variations. It's excellent for tasks like classification, data extraction with specific schemas, or generating text in a particular style, especially when zero-shot or one-shot don't yield consistent results. Using at least three to five examples is a general rule of thumb, adjusting based on task complexity and model token limits.  
 * **Importance of Example Quality and Diversity:** The effectiveness of few-shot prompting heavily relies on the quality and diversity of the examples provided. Examples should be accurate, representative of the task, and cover potential variations or edge cases the model might encounter. High-quality, well-written examples are crucial; even a small mistake can confuse the model and result in undesired output. Including diverse examples helps the model generalize better to unseen inputs.  
@@ -135,10 +135,10 @@ Few-shot prompting enhances one-shot prompting by supplying several examples, ty
   Review: "The visuals were stunning, but the dialogue was weak."  
   Sentiment:
 
-> * **何时使用：** 当输出需严格遵循特定格式、风格或呈现细微变化时特别有效；适合分类、按模式抽取数据、按特定文风生成等，尤其在零样本/单样本不稳定时。一般建议至少三到五例，并按任务复杂度与 token 上限调整。  
-> * **示例质量与多样性的重要性：** 少样本效果高度依赖示例质量与多样性。示例应准确、具代表性，并覆盖模型可能遇到的变体或边界情况；写得好的示例至关重要，小错误也可能误导模型。多样化示例有助于更好泛化到未见输入。  
-> * **分类任务中打乱类别顺序：** 用于分类时，最佳实践是打乱不同类别的示例顺序，避免模型过拟合于示例顺序，促使其独立学习各类关键特征，从而在未见数据上更稳健、可泛化。  
-> * **向“多样本”演进：** 随着 Gemini 等现代 LLM 长上下文能力增强，“多样本”学习越来越有效；复杂任务有时可在提示中直接放入大量（甚至数百）示例，以学习更精细的模式。  
+> * **何时使用：** 需要严格版式、固定栏目、细粒度风格差异，或做分类 / 结构化抽取时，少样本往往是标配；若零样本、单样本抖动大，更应加码示例。经验上三到五对是常见起点，再按任务难度和上下文长度微调。  
+> * **示例质量与多样性的重要性：** 少样本吃的就是“例题”——要真、要像真实业务、要能覆盖拐弯 case。一处小笔误都可能被模型当成规律学走；覆盖面越多样，越不容易在没见过的新输入上翻车。  
+> * **分类任务中打乱类别顺序：** 做分类时，别把同类示例全堆在一起；打乱顺序可以减轻模型对“排列套路”的投机，逼它去学每一类的判别特征，泛化通常更稳。  
+> * **向“多样本”演进：** 长窗口模型（如 Gemini 系列）让“很多例题塞进同一条提示”变得可行；复杂任务有时需要几十上百条示例才能把细粒度模式教会模型。  
 > * **示例：**  
 >   将下列影评情感分类为 POSITIVE、NEUTRAL 或 NEGATIVE：  
 >  
@@ -156,7 +156,7 @@ Few-shot prompting enhances one-shot prompting by supplying several examples, ty
 
 Understanding when to apply zero-shot, one-shot, and few-shot prompting techniques, and thoughtfully crafting and organizing examples, are essential for enhancing the effectiveness of agentic systems. These basic methods serve as the groundwork for various prompting strategies.
 
-> 理解何时采用零样本、单样本与少样本，并认真设计与组织示例，对提升智能体系统效果至关重要；这些基础方法是各类提示策略的基石。
+> 知道什么时候用零 / 单 / 少样本，并愿意花时间打磨示例顺序与内容，是抬高智能体表现的“低成本杠杆”；再花哨的模式，多半也建立在这层基本功之上。
 
 ## Structuring Prompts
 
@@ -164,7 +164,7 @@ Understanding when to apply zero-shot, one-shot, and few-shot prompting techniqu
 
 Beyond the basic techniques of providing examples, the way you structure your prompt plays a critical role in guiding the language model. Structuring involves using different sections or elements within the prompt to provide distinct types of information, such as instructions, context, or examples, in a clear and organized manner. This helps the model parse the prompt correctly and understand the specific role of each piece of text.
 
-> 除提供示例外，提示的组织方式对引导模型至关重要。结构化指在提示中用不同区块或元素清晰呈现指令、语境、示例等信息，帮助模型正确解析并理解各部分作用。
+> 光有示例还不够：提示怎么排版、怎么分块，往往决定模型读不读得懂。结构化就是把指令、背景、样例、待处理输入拆成彼此分明的段落或标签，让模型一眼知道每一段扮演什么角色。
 
 ### System Prompting
 
@@ -172,11 +172,11 @@ Beyond the basic techniques of providing examples, the way you structure your pr
 
 System prompting sets the overall context and purpose for a language model, defining its intended behavior for an interaction or session. This involves providing instructions or background information that establish rules, a persona, or overall behavior. Unlike specific user queries, a system prompt provides foundational guidelines for the model's responses. It influences the model's tone, style, and general approach throughout the interaction. For example, a system prompt can instruct the model to consistently respond concisely and helpfully or ensure responses are appropriate for a general audience. System prompts are also utilized for safety and toxicity control by including guidelines such as maintaining respectful language.
 
-> 系统提示为语言模型设定交互或会话的整体语境与目的，规定预期行为：通过指令或背景建立规则、人格或总体风格。与具体用户问题不同，它为回答提供基础性指引，影响语气、风格与整体取向；也可用于安全与毒性控制（如保持尊重用语）。
+> 系统提示负责给整段对话定调：说明模型扮演谁、遵守哪些红线、默认语气与深度如何。它不像单条用户提问那样转瞬即逝，而是持续约束后续所有回复；也常承担安全与文明用语等底线规则。
 
 Furthermore, to maximize their effectiveness, system prompts can undergo automatic prompt optimization through LLM-based iterative refinement. Services like the Vertex AI Prompt Optimizer facilitate this by systematically improving prompts based on user-defined metrics and target data, ensuring the highest possible performance for a given task.
 
-> 为提升效果，系统提示还可经由基于 LLM 的迭代优化自动改进；Vertex AI Prompt Optimizer 等服务可依据用户定义指标与目标数据系统改进提示，以在特定任务上尽量提高表现。
+> 系统提示同样可以“机器调参”：用 LLM 反复改写、再用你定义的指标打分，自动逼近更优版本。Google Cloud 上的 Vertex AI Prompt Optimizer 就是面向这类闭环的工具之一。
 
 * **Example:**  
   You are a helpful and harmless AI assistant. Respond to all queries in a polite and informative manner. Do not generate content that is harmful, biased, or inappropriate
@@ -190,7 +190,7 @@ Furthermore, to maximize their effectiveness, system prompts can undergo automat
 
 Role prompting assigns a specific character, persona, or identity to the language model, often in conjunction with system or contextual prompting. This involves instructing the model to adopt the knowledge, tone, and communication style associated with that role. For example, prompts such as "Act as a travel guide" or "You are an expert data analyst" guide the model to reflect the perspective and expertise of that assigned role. Defining a role provides a framework for the tone, style, and focused expertise, aiming to enhance the quality and relevance of the output. The desired style within the role can also be specified, for instance, "a humorous and inspirational style."
 
-> 角色提示为语言模型指定人物、人格或身份，常与系统或语境提示配合，使其采用该角色相关的知识、语气与沟通风格。例如 “担任导游” 或 “你是资深数据分析师” 可引导模型从该视角输出；也可进一步指定风格，如幽默且鼓舞人心。
+> 角色提示让模型“戴上某副眼镜”——指定职业身份、口吻或知识边界，常与系统提示、动态语境一起出现。一句“你是资深导游”“你是偏保守的风险分析师”，就会显著改变推理角度与措辞；也可叠加“要幽默但要专业”这类风格细项。
 
 * **Example:**  
   Act as a seasoned travel blogger. Write a short, engaging paragraph about the best hidden gem in Rome.
@@ -204,7 +204,7 @@ Role prompting assigns a specific character, persona, or identity to the languag
 
 Effective prompting involves clear distinction of instructions, context, examples, and input for language models. Delimiters, such as triple backticks (```), XML tags (<instruction>, <context>), or markers (---), can be utilized to visually and programmatically separate these sections. This practice, widely used in prompt engineering, minimizes misinterpretation by the model, ensuring clarity regarding the role of each part of the prompt.
 
-> 有效提示需清晰区分指令、语境、示例与输入。可用三重反引号（```）、XML 标签（如 `<instruction>`、`<context>`）或标记（---）等在视觉与程序上分隔各段，减少模型误读，明确各部分职责。
+> 当提示里同时出现规则、背景、例题和真实输入时，务必让它们“物理上”也分得开：三反引号代码块、XML 风格标签（如 `<instruction>` / `<context>`）、或 `---` 一类的显式分隔线都可以。目的只有一个——降低串台，让模型别把你的数据当成新指令。
 
 * **Example:**  
   <instruction>Summarize the following article, focusing on the main arguments presented by the author.</instruction>  
@@ -224,11 +224,11 @@ Effective prompting involves clear distinction of instructions, context, example
 
 Context engineering, unlike static system prompts, dynamically provides background information crucial for tasks and conversations. This ever-changing information helps models grasp nuances, recall past interactions, and integrate relevant details, leading to grounded responses and smoother exchanges. Examples include previous dialogue, relevant documents (as in Retrieval Augmented Generation), or specific operational parameters. For instance, when discussing a trip to Japan, one might ask for three family-friendly activities in Tokyo, leveraging the existing conversational context. In agentic systems, context engineering is fundamental to core agent behaviors like memory persistence, decision-making, and coordination across sub-tasks. Agents with dynamic contextual pipelines can sustain goals over time, adapt strategies, and collaborate seamlessly with other agents or tools—qualities essential for long-term autonomy. This methodology posits that the quality of a model's output depends more on the richness of the provided context than on the model's architecture. It signifies a significant evolution from traditional prompt engineering, which primarily focused on optimizing the phrasing of immediate user queries. Context engineering expands its scope to include multiple layers of information.
 
-> 与静态系统提示不同，语境工程动态提供任务与对话所需背景信息，帮助模型把握细微差别、回忆过往交互并整合相关细节，使回答更贴切、交流更顺畅。例如历史对话、相关文档（如 RAG）、或运行参数。在智能体系统中，语境工程支撑记忆持久、决策与子任务协调等核心行为；动态语境管线有助于长期维持目标、调整策略并与其他智能体或工具协作。该方法强调：输出质量更多取决于所供语境的丰富度，而非仅取决于模型架构；相对传统提示工程主要优化当下问句措辞，语境工程把范围扩展到多层信息。
+> 如果说系统提示是“长期人设”，语境工程就是“当下这一刻模型该知道什么”。它把历史轮次、检索到的文档（RAG）、工具回包、业务参数等动态拼进窗口，让回答踩在事实与上下文之上，而不是凭空续写。对智能体而言，语境工程直接关系到记忆是否连贯、规划是否靠谱、多步任务能否对齐；一条设计良好的语境管线，往往比换更大模型更能立竿见影。它也标志着提示工作从“打磨一句话”走向“搭建多层信息栈”。
 
 These layers include:
 
-> 这些层次包括：
+> 常见的语境分层包括：
 
 * **System prompts:** Foundational instructions that define the AI's operational parameters (e.g., "You are a technical writer; your tone must be formal and precise").  
 * **External data:**  
@@ -236,21 +236,21 @@ These layers include:
   * **Tool outputs:** Results from the AI using an external API for real-time data (e.g., querying a calendar for availability).  
 * **Implicit data:** Critical information such as user identity, interaction history, and environmental state. Incorporating implicit context presents challenges related to privacy and ethical data management. Therefore, robust governance is essential for context engineering, especially in sectors like enterprise, healthcare, and finance.
 
-> * **系统提示：** 定义 AI 运行参数的基础指令（例如 “你是技术写作者；语气须正式、精确”）。  
+> * **系统提示：** 规定模型“默认工作方式”的底层指令（例：“你是技术文档作者，语气必须正式、可核查”）。  
 > * **外部数据：**  
->   * **检索文档：** 从知识库主动取回以支撑回答的信息（如拉取技术规格）。  
->   * **工具输出：** 调用外部 API 得到的实时数据（如查日历可用时段）。  
-> * **隐式数据：** 用户身份、交互历史、环境状态等关键信息。纳入隐式语境涉及隐私与伦理数据管理挑战，因此尤其在企业、医疗、金融等领域需要健全治理。
+>   * **检索文档：** 从向量库、Wiki、工单系统等拉回的事实片段，用来压住幻觉。  
+>   * **工具输出：** 计算器、日历、CRM、天气 API 等实时回包，让回答跟现实世界同步。  
+> * **隐式数据：** 用户画像、权限、历史行为、设备状态等未明说却影响决策的信息。引入这类信号必须同步考虑隐私、同意与留存策略——在金融、医疗、政务场景尤其要有治理台账。
 
 The core principle is that even advanced models underperform with a limited or poorly constructed view of their operational environment. This practice reframes the task from merely answering a question to building a comprehensive operational picture for the agent. For example, a context-engineered agent would integrate a user's calendar availability (tool output), the professional relationship with an email recipient (implicit data), and notes from previous meetings (retrieved documents) before responding to a query. This enables the model to generate highly relevant, personalized, and pragmatically useful outputs. The "engineering" aspect involves creating robust pipelines to fetch and transform this data at runtime and establishing feedback loops to continually improve context quality.
 
-> 核心原则是：即便先进模型，若对其运行环境视图狭窄或构建不当，表现也会下降。该实践把任务从“回答问题”重构为“为智能体构建完整运行图景”。例如整合用户日历（工具输出）、与收件人的职业关系（隐式数据）、过往会议笔记（检索文档）后再作答，可产生高度相关、个性化且务实有用的输出。“工程”侧则指在运行时拉取与转换数据的稳健管线，以及持续改进语境质量的反馈闭环。
+> 一句话总结：再强的模型，如果“眼前信息”残缺或噪声过大，也会表现得像业余选手。语境工程要做的，就是把问题从“模型会聊天吗”推进到“模型是否掌握了完成此事所需的全部现场情报”。举例：回邮件前同时看到日历空档（工具）、与对方的项目关系（隐式）、上一轮会议纪要（检索），输出才能既礼貌又可执行。工程化部分则包括可靠的数据抓取、清洗、裁剪，以及用评测反哺下一轮语境设计。
 
 To implement this, specialized tuning systems, such as Google's Vertex AI prompt optimizer, can automate the improvement process at scale. By systematically evaluating responses against sample inputs and predefined metrics, these tools can enhance model performance and adapt prompts and system instructions across different models without extensive manual rewriting. Providing an optimizer with sample prompts, system instructions, and a template allows it to programmatically refine contextual inputs, offering a structured method for implementing the necessary feedback loops for sophisticated Context Engineering.  
 This structured approach differentiates a rudimentary AI tool from a more sophisticated, contextually-aware system. It treats context as a primary component, emphasizing what the agent knows, when it knows it, and how it uses that information. This practice ensures the model has a well-rounded understanding of the user's intent, history, and current environment. Ultimately, Context Engineering is a crucial methodology for transforming stateless chatbots into highly capable, situationally-aware systems.
 
-> 实现上，Google Vertex AI prompt optimizer 等专用调优系统可规模化自动改进；通过对样例输入与预定义指标系统评估回答，可提升表现并在不同模型间适配提示与系统指令而无需大量手工改写。向优化器提供样例提示、系统指令与模板，可程序化精炼语境输入，为复杂语境工程建立结构化反馈闭环。  
-> 这种结构化路径区分简陋 AI 工具与更成熟、具语境感知能力的系统：把语境视为首要组件，强调智能体知道什么、何时知道、如何使用。它确保模型对用户意图、历史与当前环境有周全理解；归根结底，语境工程是把无状态聊天机器人转变为高能力、情境感知系统的关键方法。
+> 落地时，可以借助 Vertex AI Prompt Optimizer 这类平台，把“试提示”工业化：批量喂入样本输入，用你定义的指标自动打分，再迭代改写系统指令或提示模板，减少人肉 A/B。  
+> 这背后是一种产品哲学的分野——把语境当成与模型平起平坐的一等公民，明确“何时注入何种信号、如何验证它仍然新鲜”。当意图、历史与环境状态被结构化地呈现给模型，聊天机器人才能从“会接话”进化成“懂现场”的智能体。
 
 ## Structured Output
 
@@ -258,7 +258,7 @@ This structured approach differentiates a rudimentary AI tool from a more sophis
 
 Often, the goal of prompting is not just to get a free-form text response, but to extract or generate information in a specific, machine-readable format. Requesting structured output, such as JSON, XML, CSV, or Markdown tables, is a crucial structuring technique. By explicitly asking for the output in a particular format and potentially providing a schema or example of the desired structure, you guide the model to organize its response in a way that can be easily parsed and used by other parts of your agentic system or application. Returning JSON objects for data extraction is beneficial as it forces the model to create a structure and can limit hallucinations. Experimenting with output formats is recommended, especially for non-creative tasks like extracting or categorizing data.
 
-> 提示的目标常不仅是自由文本，而是以可机读格式抽取或生成信息。明确要求 JSON、XML、CSV 或 Markdown 表等结构化输出是关键技巧；可配合模式或示例，引导模型组织回答，便于智能体系统其他部分解析使用。抽取类任务返回 JSON 有助于强制结构与抑制幻觉。尤其对非创意任务（抽取、分类等），建议多试验输出格式。
+> 很多场景下，你要的不是一段散文，而是下游程序吃得下的数据。直接在提示里点名 JSON、XML、CSV、Markdown 表格等格式，并附上字段说明或样例，模型更容易把列对齐。抽取、打标、填表这类任务尤其推荐 JSON——字段一固定，胡编乱造的空间会小很多。非创意流程里，不妨多试几种载体，看哪种最稳。
 
 * **Example:**  
   Extract the following information from the text below and return it as a JSON object with keys `name`, `address`, and `phone.number`.
@@ -272,15 +272,15 @@ Often, the goal of prompting is not just to get a free-form text response, but t
 
 Effectively utilizing system prompts, role assignments, contextual information, delimiters, and structured output significantly enhances the clarity, control, and utility of interactions with language models, providing a strong foundation for developing reliable agentic systems. Requesting structured output is crucial for creating pipelines where the language model's output serves as the input for subsequent system or processing steps.
 
-> 有效运用系统提示、角色、语境信息、分隔符与结构化输出，可显著提升与语言模型交互的清晰度、可控性与实用性，为构建可靠智能体系统奠定基础；结构化输出对构建“模型输出作为下游步骤输入”的流水线尤为关键。
+> 把系统提示、角色设定、动态语境、分隔符和结构化输出组合使用，交互会从“聊天气”升级成“可编排的流程”；其中结构化输出几乎是所有自动化流水线的硬门槛——没有它，下一步脚本无处下嘴。
 
 **Leveraging Pydantic for an Object-Oriented Facade:** A powerful technique for enforcing structured output and enhancing interoperability is to use the LLM's generated data to populate instances of Pydantic objects. Pydantic is a Python library for data validation and settings management using Python type annotations. By defining a Pydantic model, you create a clear and enforceable schema for your desired data structure. This approach effectively provides an object-oriented facade to the prompt's output, transforming raw text or semi-structured data into validated, type-hinted Python objects.
 
-> **用 Pydantic 做面向对象门面：** 强化结构化输出与互操作性的一种有力做法，是用 LLM 生成数据填充 Pydantic 对象。Pydantic 是基于 Python 类型注解做数据校验与配置管理的库；定义模型即得到清晰可执行的期望结构模式，相当于为提示输出提供 OO 门面，把原始文本或半结构化数据变为经校验、带类型提示的对象。
+> **用 Pydantic 做类型门面：** 让 LLM 吐 JSON 只是第一步，更稳的做法是把字符串解析进 Pydantic 模型。Pydantic 用 Python 类型注解描述字段含义与约束，解析时自动校验、转换类型，相当于在提示与业务逻辑之间加了一道强类型闸门。
 
 You can directly parse a JSON string from an LLM into a Pydantic object using the `model.validate.json` method. This is particularly useful as it combines parsing and validation in a single step.
 
-> 可直接使用 `model.validate.json` 方法将 LLM 的 JSON 字符串解析为 Pydantic 对象；一步同时完成解析与校验，尤为实用。
+> 可直接调用 `model.validate.json`，把 LLM 返回的 JSON 一次性解析并校验成对象；省掉手写 `json.loads` 再加一堆 if 判断。
 
 ```python
 from pydantic import BaseModel, EmailStr, Field, ValidationError
@@ -336,23 +336,23 @@ except ValidationError as e:
 
 This Python code demonstrates how to use the Pydantic library to define a data model and validate JSON data. It defines a User model with fields for name, email, date of birth, and interests, including type hints and descriptions. The code then parses a hypothetical JSON output from a Large Language Model (LLM) using the `model.validate.json` method of the User model. This method handles both JSON parsing and data validation according to the model's structure and types. Finally, the code accesses the validated data from the resulting Python object and includes error handling for ValidationError in case the JSON is invalid.
 
-> 上述代码演示如何用 Pydantic 定义数据模型并校验 JSON：User 模型含姓名、邮箱、出生日期与兴趣等字段及类型与描述；用 User 模型的 `model.validate.json` 方法解析假设的 LLM JSON 输出，同时按结构与类型校验；最后访问已校验对象并在 JSON 无效时捕获 `ValidationError`。
+> 这段示例展示完整闭环：先用 Pydantic 描述 User 结构，再把假想的 LLM JSON 喂给 `model.validate.json` 做解析 + 校验，成功则得到可点属性的 Python 对象；若 JSON 坏了或字段对不上，就落入 `ValidationError` 分支打印原因。
 
 For XML data, the xmltodict library can be used to convert the XML into a dictionary, which can then be passed to a Pydantic model for parsing. By using Field aliases in your Pydantic model, you can seamlessly map the often verbose or attribute-heavy structure of XML to your object's fields.
 
-> 对 XML 数据，可用 xmltodict 转为字典再交给 Pydantic 解析；在模型中使用 `Field` 别名，可把冗长或属性繁多的 XML 结构映射到对象字段。
+> 若上游是 XML，可先用 xmltodict 之类工具展平成字典，再映射到 Pydantic；借助 `Field(alias=...)` 能把层级很深或属性很多的标签，折叠成干净的 Python 属性名。
 
 This methodology is invaluable for ensuring the interoperability of LLM-based components with other parts of a larger system. When an LLM's output is encapsulated within a Pydantic object, it can be reliably passed to other functions, APIs, or data processing pipelines with the assurance that the data conforms to the expected structure and types. This practice of "parse, don't validate" at the boundaries of your system components leads to more robust and maintainable applications.
 
-> 该方法对保证基于 LLM 的组件与更大系统其他部分的互操作极有价值：输出封装在 Pydantic 对象中，可可靠地传给函数、API 或数据处理流水线，并确信结构与类型符合预期。在系统边界“解析即校验”（parse, don't validate）的做法使应用更稳健、更易维护。
+> 一旦 LLM 输出被校验过的对象封装，后续函数、微服务、队列消费者都能按契约办事，而不是在字符串里猜字段。边界上坚持“先 parse 再 business logic”（parse, don't validate），整体故障面会小很多，排障也快。
 
 Effectively utilizing system prompts, role assignments, contextual information, delimiters, and structured output significantly enhances the clarity, control, and utility of interactions with language models, providing a strong foundation for developing reliable agentic systems. Requesting structured output is crucial for creating pipelines where the language model's output serves as the input for subsequent system or processing steps.
 
-> 再次强调：系统提示、角色、语境、分隔符与结构化输出的有效运用，能显著提升交互的清晰、可控与实用，并为可靠智能体系统打基础；结构化输出是构建下游流水线输入的关键。
+> 再强调一次：系统提示、角色、语境、分隔符与结构化输出是一套组合拳；其中结构化输出是把模型嵌入自动化系统的铆钉，缺了它，后续步骤只能人工兜底。
 
 Structuring Prompts Beyond the basic techniques of providing examples, the way you structure your prompt plays a critical role in guiding the language model. Structuring involves using different sections or elements within the prompt to provide distinct types of information, such as instructions, context, or examples, in a clear and organized manner. This helps the model parse the prompt correctly and understand the specific role of each piece of text.
 
-> （原文重述“组织提示”段落）除提供示例外，提示结构对引导语言模型至关重要：用不同区块清晰呈现指令、语境、示例等信息，帮助模型正确解析并理解各部分作用。
+> （对应前文“Structuring Prompts”段）除了堆示例，提示本身的章节划分同样决定模型读不读得懂：用标签或空行把指令、背景、样例、用户输入隔开，让模型知道哪里是规则、哪里是素材。
 
 # Reasoning and Thought Process Techniques
 
@@ -360,7 +360,7 @@ Structuring Prompts Beyond the basic techniques of providing examples, the way y
 
 Large language models excel at pattern recognition and text generation but often face challenges with tasks requiring complex, multi-step reasoning. This appendix focuses on techniques designed to enhance these reasoning capabilities by encouraging models to reveal their internal thought processes. Specifically, it addresses methods to improve logical deduction, mathematical computation, and planning.
 
-> 大语言模型擅长模式识别与文本生成，但在需要复杂多步推理的任务上常遇困难。本附录聚焦通过促使模型展现内部思维过程来增强推理能力，涵盖改进逻辑演绎、数学运算与规划等方法。
+> 大模型读模式、写文字都很强，一旦涉及多步推演就容易跳步或算错。本附录介绍的一系列方法，核心都是让模型把中间推理摊开给人看，从而稳住逻辑、算术与规划类任务。
 
 ## Chain of Thought (CoT)
 
@@ -368,15 +368,15 @@ Large language models excel at pattern recognition and text generation but often
 
 The Chain of Thought (CoT) prompting technique is a powerful method for improving the reasoning abilities of language models by explicitly prompting the model to generate intermediate reasoning steps before arriving at a final answer. Instead of just asking for the result, you instruct the model to "think step by step." This process mirrors how a human might break down a problem into smaller, more manageable parts and work through them sequentially.
 
-> 思维链提示通过明确要求模型在给出最终答案前生成中间推理步骤，以提升推理能力；不只索要结果，而是指示其“逐步思考”，类似人类把问题拆小并按序推进。
+> 思维链（CoT）的做法很直白：别只要答案，让模型先把推理过程写出来，再收尾。常用触发语是“Let's think step by step”，效果类似人类把难题拆成一串可检查的小步骤。
 
 CoT helps the LLM generate more accurate answers, particularly for tasks that require some form of calculation or logical deduction, where models might otherwise struggle and produce incorrect results. By generating these intermediate steps, the model is more likely to stay on track and perform the necessary operations correctly.
 
-> CoT 有助于 LLM 在需要计算或逻辑演绎的任务上生成更准确答案；否则模型易跑偏或算错。中间步骤使模型更可能沿正确路径完成必要运算。
+> 对需要算数、推导或严谨逻辑的任务，CoT 往往显著降错：模型被迫把中间态写出来，就不那么容易一口蒙错。链条本身也便于你事后核对哪一步开始偏航。
 
 There are two main variations of CoT:
 
-> CoT 主要有两种变体：
+> CoT 常见两条路线：
 
 * **Zero-Shot CoT:** This involves simply adding the phrase "Let's think step by step" (or similar phrasing) to your prompt without providing any examples of the reasoning process. Surprisingly, for many tasks, this simple addition can significantly improve the model's performance by triggering its ability to expose its internal reasoning trace.  
   * **Example (Zero-Shot CoT):**  
@@ -390,10 +390,10 @@ There are two main variations of CoT:
     Q: Sarah has 5 apples, and she buys 8 more. She eats 3 apples. How many apples does she have left? Let's think step by step.  
     A: Let's think step by step. Sarah starts with 5 apples. She buys 8 more, so she adds 8 to her initial amount: 5 + 8 \= 13 apples. Then, she eats 3 apples, so we subtract 3 from the total: 13 - 3 \= 10. Sarah has 10 apples left. The answer is 10.
 
-> * **零样本 CoT：** 在提示中加入 “Let's think step by step”（或类似措辞），不提供推理过程示例；对许多任务，这一简单补充就能显著提升表现，促使模型展开内部推理痕迹。  
+> * **零样本 CoT：** 只追加一句 “Let's think step by step”（或同义改写），不给例题；对不少任务，这一行字就能撬动模型把推理轨迹外化。  
 >   * **示例（零样本 CoT）：**  
 >     If a train travels at 60 miles per hour and covers a distance of 240 miles, how long did the journey take? Let's think step by step.  
-> * **少样本 CoT：** 将 CoT 与少样本结合，提供多组含输入、逐步推理与最终输出的示例，给模型更清晰的推理与结构模板，复杂任务上常优于零样本 CoT。  
+> * **少样本 CoT：** 把“例题里的推理过程也写全”，让模型照抄叙事节奏；步骤复杂时，往往比零样本 CoT 更稳。  
 >   * **示例（少样本 CoT）：**  
 >     Q: The sum of three consecutive integers is 36. What are the integers?  
 >     A: Let the first integer be x. The next consecutive integer is x+1, and the third is x+2. The sum is x + (x+1) + (x+2) \= 3x + 3. We know the sum is 36, so 3x + 3 \= 36. Subtract 3 from both sides: 3x \= 33. Divide by 3: x \= 11. The integers are 11, 11+1=12, and 11+2=13. The integers are 11, 12, and 13.  
@@ -403,11 +403,11 @@ There are two main variations of CoT:
 
 CoT offers several advantages. It is relatively low-effort to implement and can be highly effective with off-the-shelf LLMs without requiring fine-tuning. A significant benefit is the increased interpretability of the model's output; you can see the reasoning steps it followed, which helps in understanding why it arrived at a particular answer and in debugging if something went wrong. Additionally, CoT appears to improve the robustness of prompts across different versions of language models, meaning the performance is less likely to degrade when a model is updated. The main disadvantage is that generating the reasoning steps increases the length of the output, leading to higher token usage, which can increase costs and response time.
 
-> CoT 的优点包括实现成本相对较低、无需微调即可在现成 LLM 上往往很有效；输出可解释性高，便于理解答案由来与排错；在不同版本模型间似乎更稳健。主要缺点是推理步骤拉长输出、增加 token 与费用、延长响应时间。
+> CoT 的甜头在于上手快——不用训模型也能涨分；链条展开后，解释性与可调试性都更好，换模型版本时提示也通常更抗漂移。代价同样直观：输出变长，token、时延、账单一起涨。
 
 Best practices for CoT include ensuring the final answer is presented *after* the reasoning steps, as the generation of the reasoning influences the subsequent token predictions for the answer. Also, for tasks with a single correct answer (like mathematical problems), setting the model's temperature to 0 (greedy decoding) is recommended when using CoT to ensure deterministic selection of the most probable next token at each step.
 
-> CoT 最佳实践：最终答案应放在推理步骤*之后*，因推理生成会影响后续对答案的 token 预测。对单一正确答案类任务（如数学题），使用 CoT 时建议 temperature 设为 0（贪心解码），使每步选最可能 token 更确定。
+> 实操上记得两点：一是先把推理写透，再落最终答案——前面的 token 会一路约束后面的走向；二是遇到唯一正确答案（典型数学题），把 temperature 拉到 0 做贪心解码，让每一步都走概率最高的续写，减少随机胡闹。
 
 ## Self-Consistency
 
@@ -415,23 +415,23 @@ Best practices for CoT include ensuring the final answer is presented *after* th
 
 Building on the idea of Chain of Thought, the Self-Consistency technique aims to improve the reliability of reasoning by leveraging the probabilistic nature of language models. Instead of relying on a single greedy reasoning path (as in basic CoT), Self-Consistency generates multiple diverse reasoning paths for the same problem and then selects the most consistent answer among them.
 
-> 在思维链之上，自洽性利用语言模型的概率性：不只走一条贪心推理路径，而是对同一问题生成多条不同推理路径，再从中选出最一致的答案。
+> 自洽性（Self-Consistency）把 CoT 从“单路径”升级成“多路径投票”：同一提示多跑几次、拉高温度换思路，最后对答案做多数决，用统计对抗单次抽风的概率。
 
 Self-Consistency involves three main steps:
 
-> 自洽性包含三个主要步骤：
+> 典型流程分三步：
 
 1. **Generating Diverse Reasoning Paths:** The same prompt (often a CoT prompt) is sent to the LLM multiple times. By using a higher temperature setting, the model is encouraged to explore different reasoning approaches and generate varied step-by-step explanations.  
 2. **Extract the Answer:** The final answer is extracted from each of the generated reasoning paths.  
 3. **Choose the Most Common Answer:** A majority vote is performed on the extracted answers. The answer that appears most frequently across the diverse reasoning paths is selected as the final, most consistent answer.
 
-> 1. **生成多样推理路径：** 同一提示（常为 CoT）多次送入 LLM；较高 temperature 鼓励探索不同推理与逐步说明。  
-> 2. **抽取答案：** 从每条路径中抽取最终答案。  
-> 3. **选取最常见答案：** 对抽取结果多数表决，出现次数最多的作为最终自洽答案。
+> 1. **生成多样推理路径：** 复用同一条（通常已含 CoT 的）提示，多次采样；温度略高，鼓励走出不同论证故事。  
+> 2. **抽取答案：** 从每条轨迹里抠出最终结论。  
+> 3. **选取最常见答案：** 对结论做投票，得票最高者当选——相当于用 ensemble 换稳健。
 
 This approach improves the accuracy and coherence of responses, particularly for tasks where multiple valid reasoning paths might exist or where the model might be prone to errors in a single attempt. The benefit is a pseudo-probability likelihood of the answer being correct, increasing overall accuracy. However, the significant cost is the need to run the model multiple times for the same query, leading to much higher computation and expense.
 
-> 该方法可提升准确与连贯性，尤其适用于存在多条合理路径或单次易错的任务；带来答案正确性的“伪概率”提升。代价是同一查询需多次运行模型，计算与费用显著增加。
+> 适合“思路不止一条”或“单次采样容易翻车”的场景；你会额外获得一种近似置信度——看票数分布就能感觉答案靠不靠谱。缺点也写在脸上：同一问题要跑 N 遍，算力和账单线性放大。
 
 * **Example (Conceptual):**  
   * *Prompt:* "Is the statement 'All birds can fly' true or false? Explain your reasoning."  
@@ -453,11 +453,11 @@ This approach improves the accuracy and coherence of responses, particularly for
 
 Step-back prompting enhances reasoning by first asking the language model to consider a general principle or concept related to the task before addressing specific details. The response to this broader question is then used as context for solving the original problem.
 
-> 退一步提示先让模型思考与任务相关的普遍原则或概念，再处理具体细节；对宽泛问题的回答再作为解原题的语境。
+> 退一步提示玩的是“先抽象后具体”：先问与任务相关的通则或框架，再把那份高层回答嵌进真正要解决的题目里当脚手架。
 
 This process allows the language model to activate relevant background knowledge and wider reasoning strategies. By focusing on underlying principles or higher-level abstractions, the model can generate more accurate and insightful answers, less influenced by superficial elements. Initially considering general factors can provide a stronger basis for generating specific creative outputs. Step-back prompting encourages critical thinking and the application of knowledge, potentially mitigating biases by emphasizing general principles.
 
-> 该过程有助于激活背景知识与更广的推理策略；聚焦底层原则或高层抽象，可减少表面信息干扰，先生成更扎实基础再产出具体创意。退一步提示鼓励批判性思考与知识运用，并可能通过强调一般原则减轻某些偏见。
+> 这样先把相关“课本知识”唤醒，再落笔细节，通常能减少被题干表面词带偏的情况；对写作、方案类任务，也能先立住结构再填肉。强调通则还有助于弱化一些刻板印象式的捷径回答——当然仍要配合安全审核。
 
 * **Example:**  
   * *Prompt 1 (Step-Back):* "What are the key factors that make a good detective story?"  
@@ -475,19 +475,19 @@ This process allows the language model to activate relevant background knowledge
 
 Tree of Thoughts (ToT) is an advanced reasoning technique that extends the Chain of Thought method. It enables a language model to explore multiple reasoning paths concurrently, instead of following a single linear progression. This technique utilizes a tree structure, where each node represents a "thought"—a coherent language sequence acting as an intermediate step. From each node, the model can branch out, exploring alternative reasoning routes.
 
-> 思维树是扩展思维链的高级技术：允许模型并行探索多条推理路径，而非单线推进。用树结构表示，每节点是一个作为中间步骤的连贯“思维”片段，可从节点分叉探索替代路径。
+> 思维树（ToT）把 CoT 的直线叙事改成可分支搜索：每个节点是一段完整中间思考，从节点可以继续长出不同假设，像人在脑内试几条路线再择优。
 
 ToT is particularly suited for complex problems that require exploration, backtracking, or the evaluation of multiple possibilities before arriving at a solution. While more computationally demanding and intricate to implement than the linear Chain of Thought method, ToT can achieve superior results on tasks necessitating deliberate and exploratory problem-solving. It allows an agent to consider diverse perspectives and potentially recover from initial errors by investigating alternative branches within the "thought tree."
 
-> ToT 适合需要探索、回溯或在多种可能间权衡的复杂问题；比线性 CoT 更耗算力、实现更复杂，但在需审慎与探索式解题的任务上可更优；智能体可考虑多种视角，并在“思维树”其他分支上从初始错误中恢复。
+> 适合需要试错、回溯或显式比较多条路线的难题；算力和工程复杂度都高于线性 CoT，但在策划、谜题、组合优化等场景回报可观。对智能体来说，它提供了“走错了就换枝”的空间，而不是一条道走到黑。
 
 * **Example (Conceptual):** For a complex creative writing task like "Develop three different possible endings for a story based on these plot points," ToT would allow the model to explore distinct narrative branches from a key turning point, rather than just generating one linear continuation.
 
-> * **示例（概念性）：** 对“基于这些情节点发展三种不同结局”这类复杂创作任务，ToT 可从关键转折点分叉探索不同叙事分支，而非只生成一条线性续写。
+> * **示例（概念性）：** 像“给定情节点，写三种收束方式”这类任务，ToT 会在关键情节点同时展开多条故事枝，而不是一口气顺写到底。
 
 These reasoning and thought process techniques are crucial for building agents capable of handling tasks that go beyond simple information retrieval or text generation. By prompting models to expose their reasoning, consider multiple perspectives, or step back to general principles, we can significantly enhance their ability to perform complex cognitive tasks within agentic systems.
 
-> 这些推理与思维技术对构建超越简单检索或生成的智能体至关重要；通过暴露推理、多视角或退一步到一般原则，可显著提升其在智能体系统中完成复杂认知任务的能力。
+> 这些技巧让智能体不止会“查资料 + 润色”，而是能承担真正的多步认知劳动：把推理摊开、多角度自检、必要时回到抽象层重新框定问题。
 
 # Action and Interaction Techniques
 
@@ -495,7 +495,7 @@ These reasoning and thought process techniques are crucial for building agents c
 
 Intelligent agents possess the capability to actively engage with their environment, beyond generating text. This includes utilizing tools, executing external functions, and participating in iterative cycles of observation, reasoning, and action. This section examines prompting techniques designed to enable these active behaviors.
 
-> 智能体不仅能生成文本，还能主动与环境互动：使用工具、执行外部函数，并参与观察—推理—行动的迭代循环。本节讨论支持这些主动行为的提示技术。
+> 智能体不止“会说话”，还要能动手：查 API、跑函数、读传感器，并在观察 → 思考 → 行动之间循环。本节聚焦如何把这类行为写进提示里，让模型知道何时出手、如何出手。
 
 ## Tool Use / Function Calling
 
@@ -503,11 +503,11 @@ Intelligent agents possess the capability to actively engage with their environm
 
 A crucial ability for an agent is using external tools or calling functions to perform actions beyond its internal capabilities. These actions may include web searches, database access, sending emails, performing calculations, or interacting with external APIs. Effective prompting for tool use involves designing prompts that instruct the model on the appropriate timing and methodology for tool utilization.
 
-> 智能体的关键能力之一是使用外部工具或调用函数完成内部无法直接完成的动作：如搜索、访问数据库、发邮件、计算或调用 API。有效提示需说明何时、如何调用工具。
+> 工具调用把模型从“纯文本脑补”推进到“可执行工作流”：搜索、查库、发信、算账、打 HTTP 请求……提示里要写清触发条件、参数格式与失败时的兜底策略，否则模型要么乱调，要么不敢调。
 
 Modern language models often undergo fine-tuning for "function calling" or "tool use." This enables them to interpret descriptions of available tools, including their purpose and parameters. Upon receiving a user request, the model can determine the necessity of tool use, identify the appropriate tool, and format the required arguments for its invocation. The model does not execute the tool directly. Instead, it generates a structured output, typically in JSON format, specifying the tool and its parameters. An agentic system then processes this output, executes the tool, and provides the tool's result back to the model, integrating it into the ongoing interaction.
 
-> 现代语言模型常针对“函数调用/工具使用”微调，能解读工具描述（用途与参数）；收到请求后可判断是否需要工具、选何工具、如何格式化参数。模型通常不直接执行工具，而是生成结构化输出（多为 JSON）指明工具与参数；智能体系统执行工具并把结果回传模型以继续交互。
+> 新一代模型普遍经过工具调用对齐训练：读得懂 JSON Schema 式的工具说明书，也能在对话中决定“要不要用、用哪一个、传什么参”。真正执行动作的仍是宿主程序——模型只负责吐出结构化的调用意图；运行环境执行后，把 Observation 再喂回去，对话才能闭环。
 
 * **Example:**  
   You have access to a weather tool that can get the current weather for a specified city. The tool is called '`get.current.weather`' and takes a '`city`' parameter (string).
@@ -543,25 +543,25 @@ Modern language models often undergo fine-tuning for "function calling" or "tool
 
 ReAct, short for Reason and Act, is a prompting paradigm that combines Chain of Thought-style reasoning with the ability to perform actions using tools in an interleaved manner. ReAct mimics how humans operate – we reason verbally and take actions to gather more information or make progress towards a goal.
 
-> ReAct（Reason and Act）将类 CoT 推理与交错使用工具执行行动结合，模仿人类边想边做、用行动获取信息或向目标推进。
+> ReAct 把“自言自语式 CoT”与“调用工具拿新事实”编织在同一条轨迹里：模型先 Thought，再 Action，环境回 Observation，循环直到给出 Final Answer——非常贴近人类边想边查资料的习惯。
 
 The ReAct pattern involves a loop:
 
-> ReAct 模式是一个循环：
+> 标准循环长这样：
 
 1. **Thought:** The model generates a thought process, explaining its current understanding and plan.  
 2. **Action:** Based on the thought, the model decides to perform an action, often using a tool (e.g., Search, Calculator, API call). It outputs the name of the tool and the required input.  
 3. **Observation:** The agentic system executes the tool and provides the result (Observation) back to the model.  
 4. The loop continues with the model generating a new "Thought" based on the latest "Observation," leading to further "Actions" and "Observations" until the task is complete and the model outputs a "Final Answer."
 
-> 1. **Thought：** 模型生成思考，说明当前理解与计划。  
-> 2. **Action：** 据思考决定行动，常通过工具（如 Search、Calculator、API），输出工具名与输入。  
-> 3. **Observation：** 智能体系统执行工具，将结果作为 Observation 返回模型。  
-> 4. 循环继续：模型基于最新 Observation 再生成 Thought，反复 Action/Observation，直至任务完成并输出 **Final Answer**。
+> 1. **Thought：** 用自然语言交代现状、缺口与下一步打算。  
+> 2. **Action：** 点名要调的工具及参数（Search、Calculator、HTTP 等）。  
+> 3. **Observation：** 运行时真正执行工具，把原文结果贴回对话。  
+> 4. 如此往复，直到模型判断信息足够，再输出 **Final Answer** 收束。
 
 This interleaved process of thinking and acting allows the agent to dynamically gather information, react to tool outputs, and refine its approach, making it particularly effective for tasks requiring interaction with dynamic environments or external knowledge sources.
 
-> 交错思考与行动使智能体能动态收集信息、响应工具输出并调整策略，适合与动态环境或外部知识源交互的任务。
+> 这种交错结构让智能体可以随着新事实不断修正计划，特别适合信息实时变化或必须查外部世界的任务。
 
 * **Example (Illustrative ReAct Trace):**  
   User: What is the capital of France and its current population?
@@ -593,7 +593,7 @@ This interleaved process of thinking and acting allows the agent to dynamically 
 
 These techniques are vital for building agents that can actively engage with the world, retrieve real-time information, and perform tasks that require interacting with external systems.
 
-> 这些技术对构建能主动接触世界、获取实时信息并与外部系统交互的智能体至关重要。
+> 没有工具调用与 ReAct 式循环，智能体只能停留在“语言模拟”；有了它们，系统才真正接得上外部世界。
 
 ## Advanced Techniques
 
@@ -601,7 +601,7 @@ These techniques are vital for building agents that can actively engage with the
 
 Beyond the foundational, structural, and reasoning patterns, there are several other prompting techniques that can further enhance the capabilities and efficiency of agentic systems. These range from using AI to optimize prompts to incorporating external knowledge and tailoring responses based on user characteristics.
 
-> 除基础、结构与推理模式外，还有多种提示技术可进一步提升智能体系统的能力与效率：从用 AI 优化提示，到整合外部知识、按用户特征定制回答等。
+> 在基础套路之外，还可以让 AI 帮你写提示、用检索补知识、按受众画像调语气——这些“加成技”往往决定系统能不能从 demo 走向生产。
 
 ### Automatic Prompt Engineering (APE)
 
@@ -609,48 +609,48 @@ Beyond the foundational, structural, and reasoning patterns, there are several o
 
 Recognizing that crafting effective prompts can be a complex and iterative process, Automatic Prompt Engineering (APE) explores using language models themselves to generate, evaluate, and refine prompts. This method aims to automate the prompt writing process, potentially enhancing model performance without requiring extensive human effort in prompt design.
 
-> 鉴于有效提示往往复杂且需迭代，APE 探索用语言模型自身生成、评估与精炼提示，旨在自动化撰写过程，在减少人工设计负担的同时提升表现。
+> 写提示像炼丹，APE 的思路是再雇一个（或同一）LLM 当提示实习生：批量生成候选、自动打分、择优迭代，把人从重复试错里解放出来。
 
 The general idea is to have a "meta-model" or a process that takes a task description and generates multiple candidate prompts. These prompts are then evaluated based on the quality of the output they produce on a given set of inputs (perhaps using metrics like BLEU or ROUGE, or human evaluation). The best-performing prompts can be selected, potentially refined further, and used for the target task. Using an LLM to generate variations of a user query for training a chatbot is an example of this.
 
-> 一般思路是“元模型”或流程接收任务描述，生成多份候选提示；在一组输入上根据产出质量（如 BLEU/ROUGE 或人工评估）评估，择优并可能继续精炼后用于目标任务。用 LLM 生成用户查询变体以训练聊天机器人即为一例。
+> 典型流水线：先描述任务 → 元模型吐出 N 版提示 → 在固定评测集上跑分（自动指标或人工）→ 保留冠军并可继续变异。训练聊天机器人时让 LLM 改写用户问法，也属于同一思想。
 
 * **Example (Conceptual):** A developer provides a description: "I need a prompt that can extract the date and sender from an email." An APE system generates several candidate prompts. These are tested on sample emails, and the prompt that consistently extracts the correct information is selected.
 
-> * **示例（概念性）：** 开发者描述：“我需要一个能从邮件中提取日期与发件人的提示。”APE 系统生成多份候选，在样例邮件上测试，选出能稳定抽对信息的那份。
+> * **示例（概念性）：** 需求描述可能是“帮我写个提示，稳定抽出邮件日期和发件人”。APE 批量生成若干版本，在真实邮件样本上跑一遍，留下表现最稳的那条。
 
 Of course. Here is a rephrased and slightly expanded explanation of programmatic prompt optimization using frameworks like DSPy:
 
-> 下面是对 DSPy 等框架中程序化提示优化的改写与略作扩展说明：
+> 紧接着补一段关于 DSPy 式“程序化提示优化”的说明（在原文基础上略作展开）：
 
 Another powerful prompt optimization technique, notably promoted by the DSPy framework, involves treating prompts not as static text but as programmatic modules that can be automatically optimized. This approach moves beyond manual trial-and-error and into a more systematic, data-driven methodology.
 
-> 另一有力技术（DSPy 等大力倡导）把提示视为可自动优化的程序模块，而非静态文本，从而超越手工试错，进入更系统的数据驱动方法。
+> DSPy 代表的另一条路，是把提示当成代码里的可学习参数：不是死文本，而是随数据与损失函数一起被搜索、被重写，让优化过程可复现、可版本化。
 
 The core of this technique relies on two key components:
 
-> 该技术核心依赖两大组件：
+> 玩法离不开两块拼图：
 
 1. **A Goldset (or High-Quality Dataset):** This is a representative set of high-quality input-and-output pairs. It serves as the "ground truth" that defines what a successful response looks like for a given task.  
 2. **An Objective Function (or Scoring Metric):** This is a function that automatically evaluates the LLM's output against the corresponding "golden" output from the dataset. It returns a score indicating the quality, accuracy, or correctness of the response.
 
-> 1. **金标集（高质量数据集）：** 代表性高质量输入—输出对，作为定义任务成功回答样貌的“真值”。  
-> 2. **目标函数（评分指标）：** 自动将 LLM 输出与数据集中对应金标比较并返回质量/正确性分数。
+> 1. **金标集：** 一批高质量输入—输出对，告诉优化器“满分长什么样”。  
+> 2. **目标函数：** 自动把模型答案与金标比对，吐出可优化的标量分数（准确率、F1、人工偏好均可）。
 
 Using these components, an optimizer, such as a Bayesian optimizer, systematically refines the prompt. This process typically involves two main strategies, which can be used independently or in concert:
 
-> 在此之上，贝叶斯优化器等可系统精炼提示；常见两大策略可单独或联合使用：
+> 有了分数，就能交给贝叶斯优化、遗传算法或简单网格搜索去改提示。常见两条支线可以单飞也可以混用：
 
 * **Few-Shot Example Optimization:** Instead of a developer manually selecting examples for a few-shot prompt, the optimizer programmatically samples different combinations of examples from the goldset. It then tests these combinations to identify the specific set of examples that most effectively guides the model toward generating the desired outputs.
 
 * **Instructional Prompt Optimization:** In this approach, the optimizer automatically refines the prompt's core instructions. It uses an LLM as a "meta-model" to iteratively mutate and rephrase the prompt's text—adjusting the wording, tone, or structure—to discover which phrasing yields the highest scores from the objective function.
 
-> * **少样本示例优化：** 不由开发者手工选例，优化器从金标集中程序化抽样不同示例组合并测试，找出最能引导模型产出期望结果的那一组。  
-> * **指令文本优化：** 优化器自动精炼核心指令，用 LLM 作“元模型”迭代改写措辞、语气或结构，以发现目标函数得分最高的表述。
+> * **少样本示例优化：** 不再靠肉眼挑例题，而是让程序在金标集里组合、重排、抽样不同示例子集，看哪一组最能拉高平均分。  
+> * **指令文本优化：** 让元模型像改稿编辑一样反复 mutate 系统提示——换词、换语气、换段落顺序——直到评分函数满意为止。
 
 The ultimate goal for both strategies is to maximize the scores from the objective function, effectively "training" the prompt to produce results that are consistently closer to the high-quality goldset. By combining these two approaches, the system can simultaneously optimize *what instructions* to give the model and *which examples* to show it, leading to a highly effective and robust prompt that is machine-optimized for the specific task.
 
-> 两策略终极目标都是最大化目标函数分数，相当于“训练”提示使其稳定逼近高质量金标；联合使用可同时优化*给模型的指令*与*展示的示例*，得到针对任务经机器优化的高效稳健提示。
+> 无论走哪条路，本质都是在最大化同一个目标函数——把提示当成可学习对象去“拟合金标”。两条线一起开，等于同时搜最佳措辞与最佳例题组合，往往比单修其一更狠。
 
 ### Iterative Prompting / Refinement
 
@@ -658,7 +658,7 @@ The ultimate goal for both strategies is to maximize the scores from the objecti
 
 This technique involves starting with a simple, basic prompt and then iteratively refining it based on the model's initial responses. If the model's output isn't quite right, you analyze the shortcomings and modify the prompt to address them. This is less about an automated process (like APE) and more about a human-driven iterative design loop.
 
-> 从简单提示起步，根据模型初次回答迭代改进；输出不理想则分析短板并改提示。这更偏人工驱动的设计循环，而非 APE 式全自动。
+> 与 APE 的自动化相对，这里强调“人眼盯结果”：先写个能跑的朴素提示，看答案哪里软，再针对性补约束、补示例、补语境——经典人机共演。
 
 * **Example:**  
   * *Attempt 1:* "Write a product description for a new type of coffee maker." (Result is too generic).  
@@ -676,7 +676,7 @@ This technique involves starting with a simple, basic prompt and then iterativel
 
 While the principle of "Instructions over Constraints" generally holds true, there are situations where providing negative examples can be helpful, albeit used carefully. A negative example shows the model an input and an *undesired* output, or an input and an output that *should not* be generated. This can help clarify boundaries or prevent specific types of incorrect responses.
 
-> 尽管“指令优于约束”大体成立，在谨慎使用的前提下，反例有时有用：展示输入与*不期望*输出，或不应生成的输出，以划清边界、抑制特定错误类型。
+> “多写要什么”仍是主律，但偶尔展示*错误示范*也很香：明确告诉模型“这种输出我不收”，能压住特定翻车模式——前提是反例别太多，否则又回到禁令地狱。
 
 * **Example:**  
   Generate a list of popular tourist attractions in Paris. Do NOT include the Eiffel Tower.
@@ -698,7 +698,7 @@ While the principle of "Instructions over Constraints" generally holds true, the
 
 Framing a task using an analogy can sometimes help the model understand the desired output or process by relating it to something familiar. This can be particularly useful for creative tasks or explaining complex roles.
 
-> 用类比框定任务，有时能帮助模型借熟悉事物理解期望输出或流程；对创意任务或解释复杂角色特别有用。
+> 把陌生任务映射成熟悉场景（厨师、教练、侦探……），模型更容易抓住语气、步骤与输出粒度；写故事、做教学设计时尤其好使。
 
 * **Example:**  
   Act as a "data chef". Take the raw ingredients (data points) and prepare a "summary dish" (report) that highlights the key flavors (trends) for a business audience.
@@ -712,7 +712,7 @@ Framing a task using an analogy can sometimes help the model understand the desi
 
 For very complex tasks, it can be effective to break down the overall goal into smaller, more manageable sub-tasks and prompt the model separately on each sub-task. The results from the sub-tasks are then combined to achieve the final outcome. This is related to prompt chaining and planning but emphasizes the deliberate decomposition of the problem.
 
-> 对极复杂任务，可把总目标拆成更小可管理的子任务并分别提示，再合并结果。与提示链、规划相关，但更强调有意识的问题分解。
+> 面对巨型任务，先切成可独立验证的小块，每块单独提示，再拼装终稿——这和提示链、规划模式是亲戚，只是更强调“分解的颗粒度要可测试”。
 
 * **Example:** To write a research paper:  
   * Prompt 1: "Generate a detailed outline for a paper on the impact of AI on the job market."  
@@ -732,7 +732,7 @@ For very complex tasks, it can be effective to break down the overall goal into 
 
 RAG is a powerful technique that enhances language models by giving them access to external, up-to-date, or domain-specific information during the prompting process. When a user asks a question, the system first retrieves relevant documents or data from a knowledge base (e.g., a database, a set of documents, the web). This retrieved information is then included in the prompt as context, allowing the language model to generate a response grounded in that external knowledge. This mitigates issues like hallucination and provides access to information the model wasn't trained on or that is very recent. This is a key pattern for agentic systems that need to work with dynamic or proprietary information.
 
-> RAG 在提示过程中为语言模型提供外部、最新或领域专属信息以增强能力。用户提问时，系统先从知识库（数据库、文档集、网页等）检索相关材料，再作为语境写入提示，使回答锚定在外部知识上，减轻幻觉并覆盖训练未含或极新的信息；对需处理动态或专有数据的智能体系统是关键模式。
+> RAG 的公式很简单：问句先进检索器，拉回相关片段，再连同原文一起塞进提示。这样回答有“出处”，幻觉显著收敛，也能覆盖训练 cutoff 之后或公司内部才有的知识——是落地智能体系统的标配组件。
 
 * **Example:**  
   * *User Query:* "What are the new features in the latest version of the Python library 'X'?"  
@@ -750,7 +750,7 @@ RAG is a powerful technique that enhances language models by giving them access 
 
 While role prompting assigns a persona to the *model*, the Persona Pattern involves describing the user or the target audience for the model's output. This helps the model tailor its response in terms of language, complexity, tone, and the kind of information it provides.
 
-> 角色提示把人格赋给*模型*；人格模式则描述用户或目标受众，帮助模型在语言、难度、语气与信息类型上定制回答。
+> 角色提示回答“模型是谁”；人格模式回答“讲给谁听”。把受众年龄、背景、痛点写清楚，模型会自动调节术语密度、举例风格与信息深度。
 
 * **Example:**  
   You are explaining quantum physics. The target audience is a high school student with no prior knowledge of the subject. Explain it simply and use analogies they might understand.
@@ -764,7 +764,7 @@ While role prompting assigns a persona to the *model*, the Persona Pattern invol
 
 These advanced and supplementary techniques provide further tools for prompt engineers to optimize model behavior, integrate external information, and tailor interactions for specific users and tasks within agentic workflows.
 
-> 这些进阶与补充技术为提示工程师在智能体工作流中优化模型行为、整合外部信息、按用户与任务定制交互提供了更多工具。
+> 这些加分项让提示工程师能在工作流里同时调模型、调数据、调受众画像，把“能跑”打磨成“好用”。
 
 ## Using Google Gems
 
@@ -772,15 +772,15 @@ These advanced and supplementary techniques provide further tools for prompt eng
 
 Google's AI "Gems" (see Fig. 1) represent a user-configurable feature within its large language model architecture. Each "Gem" functions as a specialized instance of the core Gemini AI, tailored for specific, repeatable tasks. Users create a Gem by providing it with a set of explicit instructions, which establishes its operational parameters. This initial instruction set defines the Gem's designated purpose, response style, and knowledge domain. The underlying model is designed to consistently adhere to these pre-defined directives throughout a conversation.
 
-> Google 的 AI “Gems”（见图 1）是其大语言模型架构中的用户可配置能力。每个 “Gem” 是核心 Gemini 的专用实例，面向特定可重复任务。用户通过一组明确指令创建 Gem，从而设定运行参数：界定用途、回答风格与知识域；底层模型被设计为在对话中持续遵循这些预定义指令。
+> Google 生态里的 Gems（见图 1）相当于给 Gemini 套一层可保存的“快捷人设”：用户写好自己的系统指令，就得到一个面向固定场景的专用实例，后续对话都会自动继承那份用途、语气与知识边界设定。
 
 This allows for the creation of highly specialized AI agents for focused applications. For example, a Gem can be configured to function as a code interpreter that only references specific programming libraries. Another could be instructed to analyze data sets, generating summaries without speculative commentary. A different Gem might serve as a translator adhering to a particular formal style guide. This process creates a persistent, task-specific context for the artificial intelligence.
 
-> 由此可为专注场景打造高度专化的 AI 智能体。例如：配置为仅引用特定库的代码解释器；或分析数据集并生成摘要、不做臆测性评论；或按特定正式体例做翻译。该过程为 AI 建立持久、任务专属的语境。
+> 你可以为不同工种各存一颗 Gem：只解释公司批准过的内部 SDK、只输出数据洞察而不瞎猜因果、或严格遵循某本翻译体例。本质是让用户级上下文变成可复用资产，而不是每次从零复述。
 
 Consequently, the user avoids the need to re-establish the same contextual information with each new query. This methodology reduces conversational redundancy and improves the efficiency of task execution. The resulting interactions are more focused, yielding outputs that are consistently aligned with the user's initial requirements. This framework allows for applying fine-grained, persistent user direction to a generalist AI model. Ultimately, Gems enable a shift from general-purpose interaction to specialized, pre-defined AI functionalities.
 
-> 用户因此不必在每次新查询时重复建立相同语境；减少对话冗余、提高任务执行效率；交互更聚焦，输出更稳定对齐初始需求。该框架把细粒度、持久的用户导向施加于通才模型；归根结底，Gems 推动从通用交互转向专化、预定义的 AI 能力。
+> 好处是省掉每次重复的开场铺垫：开聊即专业模式，token 预算花在刀刃上，输出也更一致。它把“用户长期意图”焊进产品层，让通用大模型在体验上像一排垂直助理。
 
 ![Example of Google Gem Usage](../assets-new/Example_of_Google_Gem_Usage.png)
 
@@ -794,37 +794,37 @@ Fig.1: Example of Google Gem usage.
 
 We've explored numerous techniques for crafting effective prompts, emphasizing clarity, structure, and providing context or examples. This process, however, can be iterative and sometimes challenging. What if we could leverage the very power of large language models, like Gemini, to help us *improve* our prompts? This is the essence of using LLMs for prompt refinement – a "meta" application where AI assists in optimizing the instructions given to AI.
 
-> 我们已讨论多种有效提示技巧，强调清晰、结构以及语境与示例。但该过程往往迭代且有时费力。若像 Gemini 这样的大语言模型能帮我们*改进*提示呢？这就是用 LLM 做提示精炼的本质——“元”应用：由 AI 协助优化给 AI 的指令。
+> 前文堆满了技法，但落地时最耗时的其实是反复改稿。如果让 Gemini 这类模型读你的旧提示、看失败样例，然后提出改写意见呢？这就是提示精炼的“元用法”——用 AI 优化喂给 AI 的句子。
 
 This capability is particularly "cool" because it represents a form of AI self-improvement or at least AI-assisted human improvement in interacting with AI. Instead of solely relying on human intuition and trial-and-error, we can tap into the LLM's understanding of language, patterns, and even common prompting pitfalls to get suggestions for making our prompts better. It turns the LLM into a collaborative partner in the prompt engineering process.
 
-> 这很“酷”，因为它体现某种 AI 自改进，或至少是 AI 辅助人类更好与 AI 交互。除依赖直觉与试错外，还可借助 LLM 对语言、模式乃至常见提示陷阱的理解来获得改进建议，使其成为提示工程中的协作伙伴。
+> 它既像“AI 教 AI”，也像给人类配了个懂套路的共笔：模型见过大量失败提示，往往能一眼指出含糊点、缺失约束或糟糕示例。
 
 How does this work in practice? You can provide a language model with an existing prompt that you're trying to improve, along with the task you want it to accomplish and perhaps even examples of the output you're currently getting (and why it's not meeting your expectations). You then prompt the LLM to analyze the prompt and suggest improvements.
 
-> 实践中：把你希望改进的现有提示、要完成的任务、以及当前输出样例（及为何不达标）提供给模型，再请其分析提示并给出改进建议。
+> 实操模板：旧提示 + 任务说明 + 好/坏输出对照 + 你认为的失败原因，然后请评审模型输出“问题清单 + 改写草案”。
 
 A model like Gemini, with its strong reasoning and language generation capabilities, can analyze your existing prompt for potential areas of ambiguity, lack of specificity, or inefficient phrasing. It can suggest incorporating techniques we've discussed, such as adding delimiters, clarifying the desired output format, suggesting a more effective persona, or recommending the inclusion of few-shot examples.
 
-> 具备强推理与语言生成能力的模型（如 Gemini）可检视现有提示中的歧义、不够具体或低效措辞，并建议采用分隔符、澄清输出格式、更有效人格或加入少样本等我们已讨论过的技巧。
+> 强模型能具体告诉你：哪里一句话两读、哪里缺字段约定、哪里示例带毒，并主动提议加标签、加 JSON 样例、换角色或补少样本示例——基本就是把本附录目录又走了一遍。
 
 The benefits of this meta-prompting approach include:
 
-> 元提示做法的好处包括：
+> 这么做的好处很实在：
 
 * **Accelerated Iteration:** Get suggestions for improvement much faster than pure manual trial and error.  
 * **Identification of Blind Spots:** An LLM might spot ambiguities or potential misinterpretations in your prompt that you overlooked.  
 * **Learning Opportunity:** By seeing the types of suggestions the LLM makes, you can learn more about what makes prompts effective and improve your own prompt engineering skills.  
 * **Scalability:** Potentially automate parts of the prompt optimization process, especially when dealing with a large number of prompts.
 
-> * **加速迭代：** 比纯手工试错更快获得改进建议。  
-> * **发现盲区：** LLM 可能指出你忽略的歧义或易被误解之处。  
-> * **学习机会：** 观察其建议类型，可更深理解有效提示要素并提升自身提示工程能力。  
-> * **可扩展性：** 在提示数量大时，可部分自动化优化流程。
+> * **加速迭代：** 一晚上能试三代提示，而不是三代日历日。  
+> * **发现盲区：** 自己读十遍也视而不见的歧义，模型可能第一句就点破。  
+> * **学习机会：** 把建议当案例库，慢慢形成肌肉记忆。  
+> * **可扩展性：** 有成百上千条提示时，可脚本化批量做提示评审。
 
 It's important to note that the LLM's suggestions are not always perfect and should be evaluated and tested, just like any manually engineered prompt. However, it provides a powerful starting point and can significantly streamline the refinement process.
 
-> 需注意：LLM 建议并非总是完美，应像手工提示一样评估与测试；但它仍是强起点，能显著简化精炼流程。
+> 当然，评审模型也会瞎改——所有建议都要回归真实用例测一遍。把它当加速器，而不是自动真理机。
 
 * **Example Prompt for Refinement:**  
   Analyze the following prompt for a language model and suggest ways to improve it to consistently extract the main topic and key entities (people, organizations, locations) from news articles. The current prompt sometimes misses entities or gets the main topic wrong.
@@ -844,7 +844,7 @@ It's important to note that the LLM's suggestions are not always perfect and sho
 
 In this example, we're using the LLM to critique and enhance another prompt. This meta-level interaction demonstrates the flexibility and power of these models, allowing us to build more effective agentic systems by first optimizing the fundamental instructions they receive. It's a fascinating loop where AI helps us talk better to AI.
 
-> 此例中用 LLM 批评并增强另一则提示。这种元层交互展现模型的灵活与强大：先优化其收到的基础指令，以构建更有效的智能体系统——形成“AI 帮我们更好与 AI 对话”的有趣闭环。
+> 这个例子演示“模型 B 像做代码评审那样审模型 A 的提示”。把底层指令调顺，上层智能体自然更稳——算是套了一层自我对齐的幽默闭环。
 
 ## Prompting for Specific Tasks
 
@@ -852,7 +852,7 @@ In this example, we're using the LLM to critique and enhance another prompt. Thi
 
 While the techniques discussed so far are broadly applicable, some tasks benefit from specific prompting considerations. These are particularly relevant in the realm of code and multimodal inputs.
 
-> 前述技巧普适性强，但部分任务需要专门考量，尤其在代码与多模态输入领域。
+> 上面的套路大多通用，但写代码、喂图片/音频时还有额外坑位，需要专门留心。
 
 ### Code Prompting
 
@@ -860,7 +860,7 @@ While the techniques discussed so far are broadly applicable, some tasks benefit
 
 Language models, especially those trained on large code datasets, can be powerful assistants for developers. Prompting for code involves using LLMs to generate, explain, translate, or debug code. Various use cases exist:
 
-> 在大量代码数据上训练的模型可成为开发者强助手。代码提示包括生成、解释、翻译或调试代码等用例：
+> 吃过海量开源的模型，往往能在 IDE 里当副驾。代码向提示通常落在四类：写、讲、翻、修。
 
 * **Prompts for writing code:** Asking the model to generate code snippets or functions based on a description of the desired functionality.  
   * **Example:** "Write a Python function that takes a list of numbers and returns the average."  
@@ -871,18 +871,18 @@ Language models, especially those trained on large code datasets, can be powerfu
 * **Prompts for debugging and reviewing code:** Providing code that has an error or could be improved and asking the model to identify issues, suggest fixes, or provide refactoring suggestions.  
   * **Example:** "The following Python code is giving a 'NameError'. What is wrong and how can I fix it? [insert code and traceback]."
 
-> * **写代码：** 据功能描述生成片段或函数。  
+> * **写代码：** 用自然语言描述 I/O 与边界，换可运行片段。  
 >   * **示例：** "Write a Python function that takes a list of numbers and returns the average."  
-> * **解释代码：** 提供片段并要求逐行或概要说明。  
+> * **解释代码：** 贴片段，要求逐行或高层摘要。  
 >   * **示例：** "Explain the following JavaScript code snippet: [insert code]."  
-> * **翻译代码：** 从一种语言译到另一种。  
+> * **翻译代码：** 指定源/目标语言与标准库差异。  
 >   * **示例：** "Translate the following Java code to C++: [insert code]."  
-> * **调试与审阅：** 提供有错或可改进的代码，请其定位问题、建议修复或重构。  
+> * **调试与审阅：** 附上报错栈、输入样例、期望行为，请模型定位与改写。  
 >   * **示例：** "The following Python code is giving a 'NameError'. What is wrong and how can I fix it? [insert code and traceback]."
 
 Effective code prompting often requires providing sufficient context, specifying the desired language and version, and being clear about the functionality or issue.
 
-> 有效代码提示通常需提供充分语境、指明语言与版本，并清楚说明功能或问题。
+> 想让代码一次到位，记得交代运行环境、依赖版本、风格约束（类型注解、测试框架），以及“错在哪、对长什么样”。
 
 ### Multimodal Prompting
 
@@ -890,15 +890,15 @@ Effective code prompting often requires providing sufficient context, specifying
 
 While the focus of this appendix and much of current LLM interaction is text-based, the field is rapidly moving towards multimodal models that can process and generate information across different modalities (text, images, audio, video, etc.). Multimodal prompting involves using a combination of inputs to guide the model. This refers to using multiple input formats instead of just text.
 
-> 本附录与当前多数交互仍以文本为主，但领域正快速走向可处理多模态（文本、图像、音频、视频等）的模型。多模态提示指组合多种输入格式引导模型，而非仅用文本。
+> 虽然本附录仍以文本交互为主线，产业界已大规模部署图文音混合模型。多模态提示就是把这些不同通道的信号打包进同一条请求，让模型对齐跨模态信息。
 
 * **Example:** Providing an image of a diagram and asking the model to explain the process shown in the diagram (Image Input + Text Prompt). Or providing an image and asking the model to generate a descriptive caption (Image Input + Text Prompt -> Text Output).
 
-> * **示例：** 提供示意图并请解释图中流程（图像 + 文本）；或提供图像并请生成描述性标题（图像 + 文本 → 文本）。
+> * **示例：** 上传架构图请逐步解释（图 + 文）；或给产品照片生成电商标题（图 + 文 → 文）。
 
 As multimodal capabilities become more sophisticated, prompting techniques will evolve to effectively leverage these combined inputs and outputs.
 
-> 随着多模态能力成熟，提示技术也将演进，以更好利用组合输入与输出。
+> 模态越多，提示越要像导演分镜：先告诉模型每张图/每段音频的角色，再下达合成任务。
 
 ## Best Practices and Experimentation
 
@@ -906,7 +906,7 @@ As multimodal capabilities become more sophisticated, prompting techniques will 
 
 Becoming a skilled prompt engineer is an iterative process that involves continuous learning and experimentation. Several valuable best practices are worth reiterating and emphasizing:
 
-> 成为熟练提示工程师需要持续学习与实验。以下最佳实践值得重申：
+> 提示工程没有毕业考，只有无限关卡。下面这份对照清单值得贴在显示器边：
 
 * **Provide Examples:** Providing one or few-shot examples is one of the most effective ways to guide the model.  
 * **Design with Simplicity:** Keep your prompts concise, clear, and easy to understand. Avoid unnecessary jargon or overly complex phrasing.  
@@ -924,25 +924,25 @@ Becoming a skilled prompt engineer is an iterative process that involves continu
 * **Save Prompts in Codebases:** When integrating prompts into applications, store them in separate, well-organized files for easier maintenance and version control.  
 * **Rely on Automated Tests and Evaluation:** For production systems, implement automated tests and evaluation procedures to monitor prompt performance and ensure generalization to new data.
 
-> * **提供示例：** 单样本或少样本是最有效引导方式之一。  
-> * **简洁设计：** 提示宜短、清晰、易懂；避免不必要术语或过度复杂句式。  
-> * **明确输出：** 清楚定义格式、长度、风格与内容。  
-> * **指令优于约束：** 侧重说明要做什么，而非不要做什么。  
-> * **控制最大 token：** 用配置或显式指令管理生成长度。  
-> * **使用变量：** 应用中的提示用变量实现动态与复用，避免硬编码。  
-> * **试验输入形式与文风：** 尝试提问、陈述、指令等不同说法与语气。  
-> * **分类少样本打乱类别：** 随机化不同类别示例顺序以防过拟合。  
-> * **适配模型更新：** 新版本中复测并调整提示以利用新能力或维持表现。  
-> * **试验输出格式：** 非创意任务可多试 JSON、XML 等结构化输出。  
-> * **与他人协作实验：** 协作带来不同视角，更易发现更有效提示。  
-> * **CoT 实践：** 答案置于推理之后；单答案任务可将 temperature 设为 0。  
-> * **记录尝试：** 结构化记录提示、配置与结果，追踪有效/无效及原因。  
-> * **在代码库中保存提示：** 分文件、有条理存放，便于维护与版本控制。  
-> * **依赖自动化测试与评估：** 生产系统应监控提示表现并检验对新数据的泛化。
+> * **提供示例：** few-shot 仍然是最便宜的性能杠杆。  
+> * **简洁设计：** 能一句话说清就别用从句套娃。  
+> * **明确输出：** 字数、列表层级、语气、引用格式都写死。  
+> * **指令优于约束：** 先写主成功路径，再补少数否定项。  
+> * **控制最大 token：** 结合 `max_tokens` 与提示内字数上限双保险。  
+> * **使用变量：** 模板化提示，别把客户名写死在 git 里。  
+> * **试验输入形式与文风：** 同一任务试试祈使句 vs 疑问句，分数可能差一截。  
+> * **分类少样本打乱类别：** 防模型背顺序。  
+> * **适配模型更新：** 新模型发布＝回归测试日。  
+> * **试验输出格式：** 结构化输出往往是工程化的分水岭。  
+> * **与他人协作实验：** 交叉评审能暴露集体盲区。  
+> * **CoT 实践：** 先链式推理再答案；客观题配合 temperature 0。  
+> * **记录尝试：** 没有日志的提示调参＝黑盒炼丹。  
+> * **在代码库中保存提示：** 和代码一起走代码评审。  
+> * **依赖自动化测试与评估：** 线上漂移最早体现在指标仪表盘。
 
 Prompt engineering is a skill that improves with practice. By applying these principles and techniques, and by maintaining a systematic approach to experimentation and documentation, you can significantly enhance your ability to build effective agentic systems.
 
-> 提示工程靠练习成长。坚持原则与技术，并以系统方式实验与文档化，可显著提升构建有效智能体系统的能力。
+> 写得越多、测得越勤、记得越细，你就越能把模型当成可靠组件而不是抽奖机——这也是进阶智能体开发的真正门票。
 
 ## Conclusion
 
@@ -950,15 +950,15 @@ Prompt engineering is a skill that improves with practice. By applying these pri
 
 This appendix provides a comprehensive overview of prompting, reframing it as a disciplined engineering practice rather than a simple act of asking questions. Its central purpose is to demonstrate how to transform general-purpose language models into specialized, reliable, and highly capable tools for specific tasks. The journey begins with non-negotiable core principles like clarity, conciseness, and iterative experimentation, which are the bedrock of effective communication with AI. These principles are critical because they reduce the inherent ambiguity in natural language, helping to steer the model's probabilistic outputs toward a single, correct intention. Building on this foundation, basic techniques such as zero-shot, one-shot, and few-shot prompting serve as the primary methods for demonstrating expected behavior through examples. These methods provide varying levels of contextual guidance, powerfully shaping the model's response style, tone, and format. Beyond just examples, structuring prompts with explicit roles, system-level instructions, and clear delimiters provides an essential architectural layer for fine-grained control over the model.
 
-> 本附录全面梳理提示，将其定位为严谨的工程实践，而非简单提问。核心目的是展示如何把通用语言模型转化为面向特定任务、可靠且高能力的工具。起点是不可妥协的原则：清晰、简洁与迭代实验——这是与 AI 有效沟通的基石；它们降低自然语言固有歧义，把模型的概率输出引向单一、正确的意图。在此基础上，零样本、单样本、少样本是透过示例示范期望行为的主要手段，以不同程度的语境引导强力塑造风格、语气与格式。除示例外，用显式角色、系统级指令与清晰分隔符组织提示，构成细粒度控制模型所必需的架构层。
+> 本附录把“写提示”升格成可度量的工程：目标不是聊得开心，而是把通用大模型锻造成面向具体任务、可依赖、可复现的工具链一环。一切从三条铁律出发——说清楚、写简短、肯迭代——它们直接决定自然语言这份模糊接口能否被收紧成可执行的意图。零样本、单样本、少样本则是示范期望行为的三档油门，用示例的密度换取对风格、语气、版式的控制力。再往上，系统指令、角色、分隔符共同构成提示的“软件架构”，没有这一层，就很难做细粒度治理。
 
 The importance of these techniques becomes paramount in the context of building autonomous agents, where they provide the control and reliability necessary for complex, multi-step operations. For an agent to effectively create and execute a plan, it must leverage advanced reasoning patterns like Chain of Thought and Tree of Thoughts. These sophisticated methods compel the model to externalize its logical steps, systematically breaking down complex goals into a sequence of manageable sub-tasks. The operational reliability of the entire agentic system hinges on the predictability of each component's output. This is precisely why requesting structured data like JSON, and programmatically validating it with tools such as Pydantic, is not a mere convenience but an absolute necessity for robust automation. Without this discipline, the agent’s internal cognitive components cannot communicate reliably, leading to catastrophic failures within an automated workflow. Ultimately, these structuring and reasoning techniques are what successfully convert a model's probabilistic text generation into a deterministic and trustworthy cognitive engine for an agent.
 
-> 在构建自主智能体时，这些技术尤为关键：它们提供复杂多步操作所需的控制与可靠性。智能体要有效制定并执行计划，须借助思维链、思维树等高级推理模式，迫使模型外化逻辑步骤，把复杂目标系统拆为可管理子任务序列。整个智能体系统的运行可靠性取决于各组件输出的可预测性。因此，要求 JSON 等结构化数据并用 Pydantic 等工具程序化校验，不是可有可无的便利，而是稳健自动化的必要条件；缺乏该纪律，智能体内部认知组件无法可靠互通，自动化工作流可能灾难性失败。归根结底，结构与推理技术把模型的概率性文本生成，转化为智能体可用、更确定且可信的“认知引擎”。
+> 一旦进入自主智能体场景，提示质量几乎就是系统可用性的晴雨表：多步计划、子任务委派、回滚策略，全都建立在每一步输出可预测的前提上。思维链、思维树等推理模板，本质是强迫模型把黑箱思考摊在阳光下，再把大目标切碎成可验证的小票。也正因为如此，JSON Schema + Pydantic 这类“硬接口”不再是锦上添花——没有结构化契约，工具节点之间就会靠猜字符串对齐，自动化流水线随时可能因为一次格式漂移而全线崩溃。换句话说，结构与推理技术负责把概率模型从“会说话”推进到“能当齿轮”。
 
 Furthermore, these prompts are what grant an agent its crucial ability to perceive and act upon its environment, bridging the gap between digital thought and real-world interaction. Action-oriented frameworks like ReAct and native function calling are the vital mechanisms that serve as the agent's hands, allowing it to use tools, query APIs, and manipulate data. In parallel, techniques like Retrieval Augmented Generation (RAG) and the broader discipline of Context Engineering function as the agent's senses. They actively retrieve relevant, real-time information from external knowledge bases, ensuring the agent’s decisions are grounded in current, factual reality. This critical capability prevents the agent from operating in a vacuum, where it would be limited to its static and potentially outdated training data. Mastering this full spectrum of prompting is therefore the definitive skill that elevates a generalist language model from a simple text generator into a truly sophisticated agent, capable of performing complex tasks with autonomy, awareness, and intelligence.
 
-> 此外，正是这些提示赋予智能体感知并作用于环境的关键能力，连接数字推理与现实交互。ReAct、原生函数调用等行动框架如同智能体的“手”，使其能使用工具、查询 API、操作数据；并行地，RAG 与更广义的语境工程如同“感官”，从外部知识库主动取回相关实时信息，使决策锚定当前事实。这避免智能体仅在静态、可能过时的训练数据真空中运行。因而，掌握提示的全谱技能，是把通才语言模型从简单文本生成器提升为具备自主、觉知与智能、能执行复杂任务的成熟智能体的决定性能力。
+> 最后，提示还是智能体与世界握手的协议：ReAct、函数调用让模型长出可以执行副作用的“手”；RAG、动态语境则提供持续刷新的“感官”，把决策拴在最新事实上，而不是困在训练截止日之前的静态记忆里。把上述全谱方法融会贯通，才算真正完成从“聊天模型”到“能自主推进任务的系统”的跃迁。
 
 ## References
 
