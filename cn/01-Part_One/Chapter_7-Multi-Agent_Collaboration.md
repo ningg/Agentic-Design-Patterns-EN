@@ -27,15 +27,13 @@ Collaboration can take various forms:
 * **Debate and Consensus:** Multi-Agent Collaboration where Agents with varied perspectives and information sources engage in discussions to evaluate options, ultimately reaching a consensus or a more informed decision.  
 * **Hierarchical Structures:** A manager agent might delegate tasks to worker agents dynamically based on their tool access or plugin capabilities and synthesize their results. Each agent can also handle relevant groups of tools, rather than a single agent handling all the tools.  
 * **Expert Teams:** Agents with specialized knowledge in different domains (e.g., a researcher, a writer, an editor) collaborate to produce a complex output.
+* **Critic-Reviewer:** Agents create initial outputs such as plans, drafts, or answers. A second group of agents then critically assesses this output for adherence to policies, security, compliance, correctness, quality, and alignment with organizational objectives. The original creator or a final agent revises the output based on this feedback. This pattern is particularly effective for code generation, research writing, logic checking, and ensuring ethical alignment. The advantages of this approach include increased robustness, improved quality, and a reduced likelihood of hallucinations or errors.
 
 > * **顺序交接：** 某一智能体完成后将输出移交给下一智能体，以推进流水线的下一步（与规划模式相近，但显式涉及多个智能体）。
 > * **并行处理：** 多个智能体同时处理问题的不同片段，随后再合并结果。
 > * **辩论与共识：** 持有不同视角与信息源的智能体通过讨论评估备选项，最终形成共识或更具信息量的决策。
 > * **层级结构：** 管理者智能体可依据下属的工具或插件能力动态分派任务并汇总结果；各智能体亦可分管工具子集，避免由单一智能体包揽全部工具。
 > * **专家团队：** 具备不同领域专长的智能体（如研究、写作、编辑）协作产出复杂成果。
-
-* **Critic-Reviewer:** Agents create initial outputs such as plans, drafts, or answers. A second group of agents then critically assesses this output for adherence to policies, security, compliance, correctness, quality, and alignment with organizational objectives. The original creator or a final agent revises the output based on this feedback. This pattern is particularly effective for code generation, research writing, logic checking, and ensuring ethical alignment. The advantages of this approach include increased robustness, improved quality, and a reduced likelihood of hallucinations or errors.
-
 > * **批评者—审阅者：** 一组智能体产出初稿类成果（计划、草稿或答复）；另一组智能体从政策遵循、安全、合规、正确性、质量及与组织目标的对齐等维度进行批判性审阅；由原作者或终审智能体据反馈修订。该模式特别适用于代码生成、研究写作、逻辑校验与伦理对齐等场景，有助于提升鲁棒性与输出质量，并降低幻觉与差错风险。
 
 A multi-agent system (see Fig.1) fundamentally comprises the delineation of agent roles and responsibilities, the establishment of communication channels through which agents exchange information, and the formulation of a task flow or interaction protocol that directs their collaborative endeavors.

@@ -642,7 +642,6 @@ Using these components, an optimizer, such as a Bayesian optimizer, systematical
 > 有了分数，就能交给贝叶斯优化、遗传算法或简单网格搜索去改提示。常见两条支线可以单飞也可以混用：
 
 * **Few-Shot Example Optimization:** Instead of a developer manually selecting examples for a few-shot prompt, the optimizer programmatically samples different combinations of examples from the goldset. It then tests these combinations to identify the specific set of examples that most effectively guides the model toward generating the desired outputs.
-
 * **Instructional Prompt Optimization:** In this approach, the optimizer automatically refines the prompt's core instructions. It uses an LLM as a "meta-model" to iteratively mutate and rephrase the prompt's text—adjusting the wording, tone, or structure—to discover which phrasing yields the highest scores from the objective function.
 
 > * **少样本示例优化：** 不再靠肉眼挑例题，而是让程序在金标集里组合、重排、抽样不同示例子集，看哪一组最能拉高平均分。

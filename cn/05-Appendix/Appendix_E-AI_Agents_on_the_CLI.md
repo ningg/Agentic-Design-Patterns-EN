@@ -27,10 +27,11 @@ Anthropic's Claude CLI is engineered as a high-level coding agent with a deep, h
 > **示例用例：**
 
 1. **Large-Scale Refactoring:** You can instruct it: "Our current user authentication relies on session cookies. Refactor the entire codebase to use stateless JWTs, updating the login/logout endpoints, middleware, and frontend token handling." Claude will then read all relevant files and perform the coordinated changes.  
-> 1. **大规模重构：** 可指示：「我们当前用户认证依赖会话 cookie。将整个代码库重构为使用无状态 JWT，更新登录/登出端点、中间件与前端令牌处理。」Claude 会阅读相关文件并协调完成修改。
 2. **API Integration:** After being provided with an OpenAPI specification for a new weather service, you could say: "Integrate this new weather API. Create a service module to handle the API calls, add a new component to display the weather, and update the main dashboard to include it."  
-> 2. **API 集成：** 在提供新天气服务的 OpenAPI 规范后，可说：「集成这个新的天气 API。创建服务模块处理 API 调用，新增展示天气的组件，并更新主仪表板以包含该功能。」
 3. **Documentation Generation**: Pointing it to a complex module with poorly documented code, you can ask: "Analyze the `./src/utils/data_processing.js` file. Generate comprehensive TSDoc comments for every function, explaining its purpose, parameters, and return value."  
+
+> 1. **大规模重构：** 可指示：「我们当前用户认证依赖会话 cookie。将整个代码库重构为使用无状态 JWT，更新登录/登出端点、中间件与前端令牌处理。」Claude 会阅读相关文件并协调完成修改。
+> 2. **API 集成：** 在提供新天气服务的 OpenAPI 规范后，可说：「集成这个新的天气 API。创建服务模块处理 API 调用，新增展示天气的组件，并更新主仪表板以包含该功能。」
 > 3. **文档生成：** 指向文档不足的复杂模块，可要求：「分析 `./src/utils/data_processing.js` 文件。为每个函数生成完整 TSDoc 注释，说明用途、参数与返回值。」
 
 Claude CLI functions as a specialized coding assistant, with inherent tools for core development tasks, including file ingestion, code structure analysis, and edit generation. Its deep integration with Git facilitates direct branch and commit management. The agent's extensibility is mediated by the Multi-tool Control Protocol (MCP), enabling users to define and integrate custom tools. This allows for interactions with private APIs, database queries, and execution of project-specific scripts. This architecture positions the developer as the arbiter of the agent's functional scope, effectively characterizing Claude as a reasoning engine augmented by user-defined tooling.
@@ -50,12 +51,13 @@ Google's Gemini CLI is a versatile, open-source AI agent designed for power and 
 > **示例用例：**
 
 1. **Multimodal Development:** You provide a screenshot of a web component from a design file (gemini describe component.png) and instruct it: "Write the HTML and CSS code to build a React component that looks exactly like this. Make sure it's responsive."  
-> 1. **多模态开发：** 提供设计稿中某 Web 组件的截图（gemini describe component.png）并指示：「编写 HTML 与 CSS，构建外观与此完全一致的 React 组件，并确保响应式。」
 2. **Cloud Resource Management:** Using its built-in Google Cloud integration, you can command: "Find all GKE clusters in the production project that are running versions older than 1.28 and generate a gcloud command to upgrade them one by one."  
-> 2. **云资源管理：** 借助内置 Google Cloud 集成，可命令：「找出生产项目中所有运行版本低于 1.28 的 GKE 集群，并生成逐个升级的 gcloud 命令。」
 3. **Enterprise Tool Integration (via MCP):** A developer provides Gemini with a custom tool called get-employee-details that connects to the company's internal HR API. The prompt is: "Draft a welcome document for our new hire. First, use the get-employee-details --id=E90210 tool to fetch their name and team, and then populate the welcome_template.md with that information."  
-> 3. **企业工具集成（经 MCP）：** 开发者为 Gemini 提供名为 get-employee-details、连接公司内部 HR API 的自定义工具。提示为：「为新员工起草欢迎文档。先用 get-employee-details --id=E90210 获取其姓名与团队，再将信息填入 welcome_template.md。」
 4. **Large-Scale Refactoring**: A developer needs to refactor a large Java codebase to replace a deprecated logging library with a new, structured logging framework. They can use Gemini with a prompt like: Read all *.java files in the 'src/main/java' directory. For each file, replace all instances of the 'org.apache.log4j' import and its 'Logger' class with 'org.slf4j.Logger' and 'LoggerFactory'. Rewrite the logger instantiation and all .info(), .debug(), and .error() calls to use the new structured format with key-value pairs.  
+
+> 1. **多模态开发：** 提供设计稿中某 Web 组件的截图（gemini describe component.png）并指示：「编写 HTML 与 CSS，构建外观与此完全一致的 React 组件，并确保响应式。」
+> 2. **云资源管理：** 借助内置 Google Cloud 集成，可命令：「找出生产项目中所有运行版本低于 1.28 的 GKE 集群，并生成逐个升级的 gcloud 命令。」
+> 3. **企业工具集成（经 MCP）：** 开发者为 Gemini 提供名为 get-employee-details、连接公司内部 HR API 的自定义工具。提示为：「为新员工起草欢迎文档。先用 get-employee-details --id=E90210 获取其姓名与团队，再将信息填入 welcome_template.md。」
 > 4. **大规模重构：** 开发者需将大型 Java 代码库中已弃用的日志库替换为新的结构化日志框架，可使用类似提示：读取 `src/main/java` 下所有 `*.java` 文件；对每个文件，将所有 `org.apache.log4j` 导入及其 `Logger` 类替换为 `org.slf4j.Logger` 与 `LoggerFactory`；重写 logger 实例化及所有 `.info()`、`.debug()`、`.error()` 调用，改用带键值对的新结构化格式。
 
 Gemini CLI is equipped with a suite of built-in tools that allow it to interact with its environment. These include tools for file system operations (like reading and writing), a shell tool for running commands, and tools for accessing the internet via web fetching and searching. For broader context, it uses specialized tools to read multiple files at once and a memory tool to save information for later sessions. This functionality is built on a secure foundation: sandboxing isolates the model's actions to prevent risk, while MCP servers act as a bridge, enabling Gemini to safely connect to your local environment or other APIs.
@@ -75,10 +77,11 @@ Aider is an open-source AI coding assistant that acts as a true pair programmer 
 > **示例用例：**
 
 1. **Test-Driven Development (TDD):** A developer can say: "Create a failing test for a function that calculates the factorial of a number." After Aider writes the test and it fails, the next prompt is: "Now, write the code to make the test pass." Aider implements the function and runs the test again to confirm.  
-> 1. **测试驱动开发（TDD）：** 开发者可说：「为计算数字阶乘的函数写一个会失败的测试。」Aider 写好测试并失败后，下一句提示：「现在编写使测试通过的代码。」Aider 实现函数并再次运行测试确认。
 2. **Precise Bug Squashing:** Given a bug report, you can instruct Aider: "The `calculate_total` function in billing.py fails on leap years. Add the file to the context, fix the bug, and verify your fix against the existing test suite."  
-> 2. **精准修 bug：** 根据缺陷报告可指示：「`billing.py` 中的 `calculate_total` 在闰年出错。把该文件加入上下文，修复问题，并用现有测试套件验证。」
 3. **Dependency Updates:** You could instruct it: "Our project uses an outdated version of the 'requests' library. Please go through all Python files, update the import statements and any deprecated function calls to be compatible with the latest version, and then update requirements.txt."  
+
+> 1. **测试驱动开发（TDD）：** 开发者可说：「为计算数字阶乘的函数写一个会失败的测试。」Aider 写好测试并失败后，下一句提示：「现在编写使测试通过的代码。」Aider 实现函数并再次运行测试确认。
+> 2. **精准修 bug：** 根据缺陷报告可指示：「`billing.py` 中的 `calculate_total` 在闰年出错。把该文件加入上下文，修复问题，并用现有测试套件验证。」
 > 3. **依赖更新：** 可指示：「项目使用的 `requests` 库版本过旧。请遍历所有 Python 文件，更新 import 与已弃用调用以兼容最新版，并更新 requirements.txt。」
 
 ## GitHub Copilot CLI
@@ -94,10 +97,11 @@ GitHub Copilot CLI extends the popular AI pair programmer into the terminal, wit
 > **示例用例：**
 
 1. **Automated Issue Resolution:** A manager assigns a bug ticket (e.g., "Issue #123: Fix off-by-one error in pagination") to the Copilot agent. The agent then checks out a new branch, writes the code, and submits a pull request referencing the issue, all without manual developer intervention.  
-> 1. **自动化处理 Issue：** 管理者将缺陷单（如「Issue #123：修复分页的 off-by-one 错误」）指派给 Copilot 智能体；智能体检出分支、编写代码并提交引用该 issue 的 PR，全程无需开发者手动介入。
 2. **Repository-Aware Q\&A:** A new developer on the team can ask: "Where in this repository is the database connection logic defined, and what environment variables does it require?" Copilot CLI uses its awareness of the entire repo to provide a precise answer with file paths.  
-> 2. **仓库感知问答：** 新成员可问：「本仓库中数据库连接逻辑在哪里定义，需要哪些环境变量？」Copilot CLI 利用对整个仓库的感知给出含文件路径的精确答案。
 3. **Shell Command Helper:** When unsure about a complex shell command, a user can ask: gh? find all files larger than 50MB, compress them, and place them in an archive folder. Copilot will generate the exact shell command needed to perform the task.  
+
+> 1. **自动化处理 Issue：** 管理者将缺陷单（如「Issue #123：修复分页的 off-by-one 错误」）指派给 Copilot 智能体；智能体检出分支、编写代码并提交引用该 issue 的 PR，全程无需开发者手动介入。
+> 2. **仓库感知问答：** 新成员可问：「本仓库中数据库连接逻辑在哪里定义，需要哪些环境变量？」Copilot CLI 利用对整个仓库的感知给出含文件路径的精确答案。
 > 3. **Shell 命令助手：** 面对复杂 shell 命令不确定时，用户可问：gh? find all files larger than 50MB, compress them, and place them in an archive folder。Copilot 会生成完成任务所需的确切 shell 命令。
 
 ## Terminal-Bench: A Benchmark for AI Agents in Command-Line Interfaces

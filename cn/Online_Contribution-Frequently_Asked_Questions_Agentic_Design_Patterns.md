@@ -35,14 +35,15 @@ Based on the table of contents, the guide covers several key patterns, including
 > 据目录，本指南涉及多项关键模式，包括：
 
 - **Reflection:** The ability of an agent to critique its own actions and outputs to improve performance.  
-> - **反思（Reflection）：** 使智能体能审视自身行为与产出，并据此改进表现的能力。
 - **Planning:** The process of breaking down a complex goal into smaller, manageable steps or tasks.  
-> - **规划（Planning）：** 将复杂目标拆解为更小、可执行的步骤或任务的过程。
 - **Tool Use:** The pattern of an agent utilizing external tools (like code interpreters, search engines, or other APIs) to acquire information or perform actions it cannot do on its own.  
-> - **工具使用（Tool Use）：** 智能体调用外部工具（如代码解释器、搜索引擎或其他 API）获取信息或完成单凭自身无法执行的动作的一种模式。
 - **Multi-Agent Collaboration:** The architecture for having multiple specialized agents work together to solve a problem, often involving a "leader" or "orchestrator" agent.  
-> - **多智能体协作（Multi-Agent Collaboration）：** 由多名专业智能体协同解题的架构，通常设有「负责人」或「编排」角色。
 - **Human-in-the-Loop:** The integration of human oversight and intervention, allowing for feedback, correction, and approval of an agent's actions.  
+
+> - **反思（Reflection）：** 使智能体能审视自身行为与产出，并据此改进表现的能力。
+> - **规划（Planning）：** 将复杂目标拆解为更小、可执行的步骤或任务的过程。
+> - **工具使用（Tool Use）：** 智能体调用外部工具（如代码解释器、搜索引擎或其他 API）获取信息或完成单凭自身无法执行的动作的一种模式。
+> - **多智能体协作（Multi-Agent Collaboration）：** 由多名专业智能体协同解题的架构，通常设有「负责人」或「编排」角色。
 > - **人在回路中（Human-in-the-Loop）：** 在人类监督与介入之下，对智能体行为给予反馈、纠正与批准。
 
 ## 5. Why is "planning" an important pattern
@@ -94,8 +95,9 @@ The chapter discusses two primary forms of reflection:
 > 本章介绍两大类反思：
 
 - **"Check your work" Reflection:** This is a basic form where the agent is simply asked to review and fix its previous output. It's a good starting point for catching simple errors.  
-> - **「检查你的工作」式反思：** 基础做法——要求智能体复查并修正上一轮输出，适合用来抓简单错误。
 - **"Internal Critic" Reflection:** This is a more advanced form where a separate, "critic" agent (or a dedicated prompt) is used to evaluate the output of the "worker" agent. This critic can be given specific criteria to look for, leading to more rigorous and targeted improvements.  
+
+> - **「检查你的工作」式反思：** 基础做法——要求智能体复查并修正上一轮输出，适合用来抓简单错误。
 > - **「内部批评者」式反思：** 进阶做法——由独立的「批评者」智能体（或专用提示）评审「工作者」的输出；为批评者设定明确评判标准，改进会更严格、更有针对性。
 
 ## 11. How does reflection help in reducing "hallucinations"?
@@ -187,10 +189,11 @@ Key challenges include:
 > 主要挑战有：
 
 - **Error Handling:** Tools can fail, return unexpected data, or time out. The agent needs to be able to recognize these errors and decide whether to try again, use a different tool, or ask the user for help.  
-> - **错误处理：** 工具可能失败、返回异常数据或超时。智能体应能识别这些情况，并决定重试、更换工具或向用户求助。
 - **Security:** Giving an agent access to tools, especially those that perform actions, has security implications. It's crucial to have safeguards, permissions, and often human approval for sensitive operations.  
-> - **安全：** 为智能体开放工具（尤其能改变现实状态的工具）会带来安全考量，需有防护与权限设计，敏感操作往往还要人工批准。
 - **Prompting:** The agent must be prompted effectively to generate correctly formatted tool calls (e.g., the right function name and parameters).  
+
+> - **错误处理：** 工具可能失败、返回异常数据或超时。智能体应能识别这些情况，并决定重试、更换工具或向用户求助。
+> - **安全：** 为智能体开放工具（尤其能改变现实状态的工具）会带来安全考量，需有防护与权限设计，敏感操作往往还要人工批准。
 > - **提示工程：** 须通过有效提示，让智能体稳定产出格式正确的工具调用（如函数名与参数无误）。
 
 ## 22. What is the Human-in-the-Loop (HITL) pattern?
@@ -210,10 +213,11 @@ It's crucial for several reasons:
 > 其重要性在于：
 
 - **Safety and Control:** For high-stakes tasks (e.g., financial transactions, sending official communications), HITL ensures a human verifies the agent's proposed actions before they are executed.  
-> - **安全与控制：** 面对高风险任务（如金融交易、对外正式发文），HITL 要求人类在执行前核对智能体拟采取的动作。
 - **Improving Quality:** Humans can provide corrections or nuanced feedback that the agent can use to improve its performance, especially in subjective or ambiguous tasks.  
-> - **提升质量：** 人类可给出纠正与细粒度反馈，帮助智能体改进表现，对主观性强或表述模糊的任务尤其有效。
 - **Building Trust:** Users are more likely to trust and adopt an AI system that they can guide and supervise.  
+
+> - **安全与控制：** 面对高风险任务（如金融交易、对外正式发文），HITL 要求人类在执行前核对智能体拟采取的动作。
+> - **提升质量：** 人类可给出纠正与细粒度反馈，帮助智能体改进表现，对主观性强或表述模糊的任务尤其有效。
 > - **建立信任：** 用户更愿意信任、采纳自己能够引导与监督的 AI 系统。
 
 ## 24. At what points in a workflow should you include a human?
@@ -225,12 +229,13 @@ Common points for human intervention include:
 > 常见介入点包括：
 
 - **Plan Approval:** Before executing a multi-step plan.  
-> - **计划批准：** 在执行多步计划之前。
 - **Tool Use Confirmation:** Before using a tool that has real-world consequences or costs money.  
-> - **工具使用确认：** 在使用有现实世界后果或产生费用的工具之前。
 - **Ambiguity Resolution:** When the agent is unsure how to proceed or needs more information from the user.  
-> - **消歧：** 当智能体不确定如何推进或需要用户提供更多信息时。
 - **Final Output Review:** Before delivering the final result to the end-user or system.  
+
+> - **计划批准：** 在执行多步计划之前。
+> - **工具使用确认：** 在使用有现实世界后果或产生费用的工具之前。
+> - **消歧：** 当智能体不确定如何推进或需要用户提供更多信息时。
 > - **终稿审阅：** 在向最终用户或系统交付最终结果之前。
 
 ## 25. Isn't constant human intervention inefficient?
@@ -254,10 +259,11 @@ This pattern involves creating a system composed of multiple specialized agents 
 > ## 27. 多智能体系统有什么好处？
 
 - **Modularity and Specialization:** Each agent can be fine-tuned and prompted for its specific task (e.g., a "researcher" agent, a "writer" agent, a "code" agent), leading to higher quality results.  
-> - **模块化与专业化：** 各智能体可围绕本职做微调与提示工程（如「研究」「写作」「代码」角色），整体产出质量往往更高。
 - **Reduced Complexity:** Breaking a complex workflow down into specialized roles makes the overall system easier to design, debug, and maintain.  
-> - **降低复杂度：** 将复杂工作流拆分给不同专业角色后，整体设计、调试与维护都会更易于管理。
 - **Simulated Brainstorming:** Different agents can offer different perspectives on a problem, leading to more creative and robust solutions, similar to how a human team works.  
+
+> - **模块化与专业化：** 各智能体可围绕本职做微调与提示工程（如「研究」「写作」「代码」角色），整体产出质量往往更高。
+> - **降低复杂度：** 将复杂工作流拆分给不同专业角色后，整体设计、调试与维护都会更易于管理。
 > - **模拟头脑风暴：** 不同智能体各抒己见，更容易碰撞出有创意且更稳妥的方案，接近人类团队研讨的效果。
 
 ## 28. What is a common architecture for multi-agent systems?
@@ -293,10 +299,11 @@ The guide suggests a few methods:
 > 本指南建议从以下角度评估：
 
 - **Outcome-based Evaluation:** Did the agent successfully achieve the final goal? For example, if the task was "book a flight," was a flight actually booked correctly? This is the most important measure.  
-> - **结果导向评估：** 最终目标达成了吗？例如任务是「订机票」，是否确实订对、订成？往往是最核心的指标。
 - **Process-based Evaluation:** Was the agent's *process* efficient and logical? Did it use the right tools? Did it follow a sensible plan? This helps debug why an agent might be failing.  
-> - **过程导向评估：** *过程*是否高效、合乎逻辑？工具是否选对？计划是否合理？便于定位失败根因。
 - **Human Evaluation:** Having humans score the agent's performance on a scale (e.g., 1-5) based on criteria like helpfulness, accuracy, and coherence. This is crucial for user-facing applications.  
+
+> - **结果导向评估：** 最终目标达成了吗？例如任务是「订机票」，是否确实订对、订成？往往是最核心的指标。
+> - **过程导向评估：** *过程*是否高效、合乎逻辑？工具是否选对？计划是否合理？便于定位失败根因。
 > - **人工评估：** 请人类按有用性、准确性、连贯性等维度打分（如 1–5），对直接面向用户的场景尤其重要。
 
 ## What is an "agent trajectory"?
@@ -332,14 +339,15 @@ A strong system prompt typically includes:
 > 扎实的系统提示通常包括：
 
 - **Role and Goal:** Clearly define who the agent is and what its primary purpose is.  
-> - **角色与目标：** 说清楚智能体扮演谁、核心使命是什么。
 - **Tool Definitions:** A list of available tools, their descriptions, and how to use them (e.g., in a specific function-calling format).  
-> - **工具定义：** 列出可用工具，写明功能与调用方式（如约定的函数调用格式）。
 - **Constraints and Rules:** Explicit instructions on what the agent *should not* do (e.g., "Do not use tools without approval," "Do not provide financial advice").  
-> - **约束与规则：** 明确*不应*做什么（如「未经批准不得使用工具」「不得提供理财建议」）。
 - **Process Instructions:** Guidance on which patterns to use. For example, "First, create a plan. Then, execute the plan step-by-step."  
-> - **流程说明：** 指明宜采用哪些模式，例如「先订计划，再逐步执行」。
 - **Example Trajectories:** Providing a few examples of successful "thought-action-observation" loops can significantly improve the agent's reliability.  
+
+> - **角色与目标：** 说清楚智能体扮演谁、核心使命是什么。
+> - **工具定义：** 列出可用工具，写明功能与调用方式（如约定的函数调用格式）。
+> - **约束与规则：** 明确*不应*做什么（如「未经批准不得使用工具」「不得提供理财建议」）。
+> - **流程说明：** 指明宜采用哪些模式，例如「先订计划，再逐步执行」。
 > - **示例轨迹：** 附上若干跑通的「思考—行动—观察」样例，往往明显提高稳定性。
 
 ## What is "prompt leakage"?
@@ -359,8 +367,9 @@ The guide points towards a future with:
 > 本指南所勾勒的趋势包括：
 
 - **More Autonomous Agents:** Agents that require less human intervention and can learn and adapt on their own.  
-> - **更自主的智能体：** 更少依赖人工盯防，具备持续学习与自适应能力。
 - **Highly Specialized Agents:** An ecosystem of agents that can be hired or subscribed to for specific tasks (e.g., a travel agent, a research agent).  
-> - **高度专业化智能体：** 形成可按任务雇佣或订阅的智能体生态（如专职旅行、专职研究等）。
 - **Better Tools and Platforms:** The development of more sophisticated frameworks and platforms that make it easier to build, test, and deploy robust multi-agent systems.  
+
+> - **更自主的智能体：** 更少依赖人工盯防，具备持续学习与自适应能力。
+> - **高度专业化智能体：** 形成可按任务雇佣或订阅的智能体生态（如专职旅行、专职研究等）。
 > - **更好的工具与平台：** 框架与平台日趋成熟，降低搭建、测试与上线稳健多智能体系统的门槛。

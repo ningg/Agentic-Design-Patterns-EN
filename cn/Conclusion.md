@@ -17,19 +17,13 @@ The 21 patterns detailed in this guide represent a comprehensive toolkit for age
 > 本指南详述的 21 种模式，构成智能体开发的完整工具箱。每种模式各解一题，但也可按与智能体核心能力相呼应的基础类别加以归类，从整体上把握其分工与互补。
 
 1. **Core Execution and Task Decomposition:** At the most fundamental level, agents must be able to execute tasks. The patterns of Prompt Chaining, Routing, Parallelization, and Planning form the bedrock of an agent's ability to act. Prompt Chaining provides a simple yet powerful method for breaking down a problem into a linear sequence of discrete steps, ensuring that the output of one operation logically informs the next. When workflows require more dynamic behavior, Routing introduces conditional logic, allowing an agent to select the most appropriate path or tool based on the context of the input. Parallelization optimizes efficiency by enabling the concurrent execution of independent sub-tasks, while the Planning pattern elevates the agent from a mere executor to a strategist, capable of formulating a multi-step plan to achieve a high-level objective.  
-
-> 1. **核心执行与任务分解：** 在最底层，智能体必须能执行任务。提示链、路由、并行化与规划等模式，构成其行动能力的基石。提示链把问题拆成线性离散步骤，使上一步输出在逻辑上驱动下一步；当工作流需要更强动态性时，路由引入条件逻辑，让智能体据输入语境选择路径或工具；并行化并发执行彼此独立的子任务以提效；规划模式则把智能体从执行者提升为能制定多步计划、达成高层目标的「战略家」。
-
 2. **Interaction with the External Environment:** An agent's utility is significantly enhanced by its ability to interact with the world beyond its immediate internal state. The Tool Use (Function Calling) pattern is paramount here, providing the mechanism for agents to leverage external APIs, databases, and other software systems. This grounds the agent's operations in real-world data and capabilities. To effectively use these tools, agents must often access specific, relevant information from vast repositories. The Knowledge Retrieval pattern, particularly Retrieval-Augmented Generation (RAG), addresses this by enabling agents to query knowledge bases and incorporate that information into their responses, making them more accurate and contextually aware.  
-
-> 2. **与外部环境的交互：** 智能体若能超越即时内部状态、与外部世界交互，实用价值会大幅提升。工具使用（函数调用）模式尤为关键：它让智能体调用外部 API、数据库及其他系统，把行为锚定在真实数据与能力之上。要有效用工具，往往还需从海量资料中精准取数。知识检索模式，尤其是检索增强生成（RAG），使智能体能查询知识库并把结果融入回答，从而提高准确性与语境感知。
-
 3. **State, Learning, and Self-Improvement:** For an agent to perform more than just single-turn tasks, it must possess the ability to maintain context and improve over time. The Memory Management pattern is crucial for endowing agents with both short-term conversational context and long-term knowledge retention. Beyond simple memory, truly intelligent agents exhibit the capacity for self-improvement. The Reflection and Self-Correction patterns enable an agent to critique its own output, identify errors or shortcomings, and iteratively refine its work, leading to a higher quality final result. The Learning and Adaptation pattern takes this a step further, allowing an agent's behavior to evolve based on feedback and experience, making it more effective over time.  
-
-> 3. **状态、学习与自我改进：** 若不止于单轮任务，智能体须能维持语境并随时间改进。记忆管理模式负责短期对话上下文与长期知识保留。超越「记下来」之后，高阶智能体还具备自我改进能力：反思与自我纠正模式让智能体审视自身产出、发现疏漏并迭代打磨，得到更高质量的终稿；学习与适应模式则让行为随反馈与经验演化，越用越稳。
-
 4. **Collaboration and Communication:** Many complex problems are best solved through collaboration. The Multi-Agent Collaboration pattern allows for the creation of systems where multiple specialized agents, each with a distinct role and set of capabilities, work together to achieve a common goal. This division of labor enables the system to tackle multifaceted problems that would be intractable for a single agent. The effectiveness of such systems hinges on clear and efficient communication, a challenge addressed by the Inter-Agent Communication (A2A) and Model Context Protocol (MCP) patterns, which aim to standardize how agents and tools exchange information.
 
+> 1. **核心执行与任务分解：** 在最底层，智能体必须能执行任务。提示链、路由、并行化与规划等模式，构成其行动能力的基石。提示链把问题拆成线性离散步骤，使上一步输出在逻辑上驱动下一步；当工作流需要更强动态性时，路由引入条件逻辑，让智能体据输入语境选择路径或工具；并行化并发执行彼此独立的子任务以提效；规划模式则把智能体从执行者提升为能制定多步计划、达成高层目标的「战略家」。
+> 2. **与外部环境的交互：** 智能体若能超越即时内部状态、与外部世界交互，实用价值会大幅提升。工具使用（函数调用）模式尤为关键：它让智能体调用外部 API、数据库及其他系统，把行为锚定在真实数据与能力之上。要有效用工具，往往还需从海量资料中精准取数。知识检索模式，尤其是检索增强生成（RAG），使智能体能查询知识库并把结果融入回答，从而提高准确性与语境感知。
+> 3. **状态、学习与自我改进：** 若不止于单轮任务，智能体须能维持语境并随时间改进。记忆管理模式负责短期对话上下文与长期知识保留。超越「记下来」之后，高阶智能体还具备自我改进能力：反思与自我纠正模式让智能体审视自身产出、发现疏漏并迭代打磨，得到更高质量的终稿；学习与适应模式则让行为随反馈与经验演化，越用越稳。
 > 4. **协作与沟通：** 许多复杂问题更适合协作求解。多智能体协作模式允许多个角色分明、能力各异的专职智能体共同朝同一目标工作；分工使系统能处理单一智能体难以招架的复合型问题。成效取决于沟通是否清晰高效：智能体间通信（A2A）与模型上下文协议（MCP）等模式，正是为规范智能体与工具之间的信息交换而设。
 
 These principles, when applied through their respective patterns, provide a robust framework for building intelligent systems. They guide the developer in creating agents that are not only capable of performing complex tasks but are also structured, reliable, and adaptable.
@@ -47,23 +41,15 @@ Consider the development of an autonomous AI research assistant, a task that req
 > 以自主 AI 研究助手为例：它需要规划、检索、分析与综合并举——正是**智能体模式组合**的绝佳样板。
 
 * **Initial Planning:** A user query, such as "Analyze the impact of quantum computing on the cybersecurity landscape," would first be received by a Planner agent. This agent would leverage the Planning pattern to decompose the high-level request into a structured, multi-step research plan. This plan might include steps like "Identify foundational concepts of quantum computing," "Research common cryptographic algorithms," "Find expert analyses on quantum threats to cryptography," and "Synthesize findings into a structured report."  
-
-> * **初始规划：** 用户查询（例如「分析量子计算对网络安全格局的影响」）先由规划者智能体接收；它运用规划模式，把高层需求拆成结构化的多步研究计划，可能包括「梳理量子计算基础概念」「调研常见密码算法」「查找专家对量子威胁密码学的分析」「将发现综合为结构化报告」等步骤。
-
 * **Information Gathering with Tool Use:** To execute this plan, the agent would rely heavily on the Tool Use pattern. Each step of the plan would trigger a call to a Google Search or `vertex_ai_search` tool. For more structured data, it might use tools to query academic databases like ArXiv or financial data APIs.  
-
-> * **借助工具使用的信息收集：** 执行计划时，智能体大量依赖工具使用模式：各步可触发 Google 搜索或 `vertex_ai_search` 等调用；需要结构化数据时，还可查询 ArXiv 等学术库或金融数据 API。
-
 * **Collaborative Analysis and Writing:** A single agent might handle this, but a more robust architecture would employ Multi-Agent Collaboration. A "Researcher" agent could be responsible for executing the search plan and gathering raw information. Its output—a collection of summaries and source links—would then be passed to a "Writer" agent. This specialist agent, using the initial plan as its outline, would synthesize the collected information into a coherent draft.  
-
-> * **协作分析与写作：** 单一智能体也能包办，但更稳健的架构会采用多智能体协作：「研究」智能体执行检索计划、汇总原始材料；其产出（摘要与来源链接）再交给「写作」智能体；后者以初始计划为纲，把材料综合成连贯初稿。
-
 * **Iterative Reflection and Refinement:** A first draft is rarely perfect. The Reflection pattern could be implemented by introducing a third "Critic" agent. This agent's sole purpose would be to review the Writer's draft, checking for logical inconsistencies, factual inaccuracies, or areas lacking clarity. Its critique would be fed back to the Writer agent, which would then leverage the Self-Correction pattern to refine its output, incorporating the feedback to produce a higher-quality final report.  
-
-> * **迭代反思与打磨：** 初稿很少一次成形。可增设“评审”智能体来落实反思模式，专责审阅写作草稿，检查逻辑跳跃、事实错误与表达含混之处；其反馈再回传给写作智能体，由自我纠正模式推动迭代修订，最终产出更高质量的成稿。
-
 * **State Management:** Throughout this entire process, a Memory Management system would be essential. It would maintain the state of the research plan, store the information gathered by the Researcher, hold the drafts created by the Writer, and track the feedback from the Critic, ensuring that context is preserved across the entire multi-step, multi-agent workflow.
 
+> * **初始规划：** 用户查询（例如「分析量子计算对网络安全格局的影响」）先由规划者智能体接收；它运用规划模式，把高层需求拆成结构化的多步研究计划，可能包括「梳理量子计算基础概念」「调研常见密码算法」「查找专家对量子威胁密码学的分析」「将发现综合为结构化报告」等步骤。
+> * **借助工具使用的信息收集：** 执行计划时，智能体大量依赖工具使用模式：各步可触发 Google 搜索或 `vertex_ai_search` 等调用；需要结构化数据时，还可查询 ArXiv 等学术库或金融数据 API。
+> * **协作分析与写作：** 单一智能体也能包办，但更稳健的架构会采用多智能体协作：「研究」智能体执行检索计划、汇总原始材料；其产出（摘要与来源链接）再交给「写作」智能体；后者以初始计划为纲，把材料综合成连贯初稿。
+> * **迭代反思与打磨：** 初稿很少一次成形。可增设“评审”智能体来落实反思模式，专责审阅写作草稿，检查逻辑跳跃、事实错误与表达含混之处；其反馈再回传给写作智能体，由自我纠正模式推动迭代修订，最终产出更高质量的成稿。
 > * **状态管理：** 全程离不开记忆管理：维护研究计划状态、保存研究智能体收集的信息、留存写作智能体的各版草稿，并跟踪批评智能体的反馈，使多步、多智能体工作流中的语境始终连贯。
 
 In this example, at least five distinct agentic patterns are woven together. The Planning pattern provides the high-level structure, Tool Use grounds the operation in real-world data, Multi-Agent Collaboration enables specialization and division of labor, Reflection ensures quality, and Memory Management maintains coherence. This composition transforms a set of individual capabilities into a powerful, autonomous system capable of tackling a task that would be far too complex for a single prompt or a simple chain.

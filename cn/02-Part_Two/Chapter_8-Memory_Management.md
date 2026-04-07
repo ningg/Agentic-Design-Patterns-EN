@@ -14,6 +14,7 @@ In agent systems, memory refers to an agent's ability to retain and utilize info
 * **Long-Term Memory (Persistent Memory):** This acts as a repository for information agents need to retain across various interactions, tasks, or extended periods, akin to long-term knowledge bases. Data is typically stored outside the agent's immediate processing environment, often in databases, knowledge graphs, or vector databases. In vector databases, information is converted into numerical vectors and stored, enabling agents to retrieve data based on semantic similarity rather than exact keyword matches, a process known as semantic search. When an agent needs information from long-term memory, it queries the external storage, retrieves relevant data, and integrates it into the short-term context for immediate use, thus combining prior knowledge with the current interaction.
 
 > * **短期记忆（情境记忆）：** 近似工作记忆，承载当前正在处理或新近接触的信息。对基于大语言模型（LLM）的智能体而言，短期记忆主要体现在**上下文窗口**中：汇集近期用户消息、智能体回复、工具返回与当轮反思等，为后续生成与行动提供依据。
+
 >
 > 窗口容量有限，管理要点是**保留最相关信息**——例如对较早对话做摘要、突出关键事实。「长上下文」模型只是放大了这一工作区，但内容仍随会话结束而清空；每次都全量送入模型也往往成本高昂、效率不佳。因此仍需**长期记忆**等机制，才能实现真正的跨会话持久化、历史召回与知识沉淀。
 >
